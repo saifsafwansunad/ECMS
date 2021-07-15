@@ -310,7 +310,7 @@ View viewHeader;
         childModelsList = new ArrayList<>();
         menuModel = new MenuModel("Messages", true, true, ""); //Menu of Python Tutorials
         headerList.add(menuModel);
-        childModel = new MenuModel("Add Messages", false, false, "https://www.journaldev.com/19243/python-ast-abstract-syntax-tree");
+        childModel = new MenuModel("Admin Messages", false, false, "https://www.journaldev.com/19243/python-ast-abstract-syntax-tree");
         childModelsList.add(childModel);
 
         childModel = new MenuModel("User Messages", false, false, "https://www.journaldev.com/19226/python-fractions");
