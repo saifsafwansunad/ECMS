@@ -348,10 +348,18 @@ View viewHeader;
 
                 if (childList.get(headerList.get(groupPosition)) != null) {
                     MenuModel model = childList.get(headerList.get(groupPosition)).get(childPosition);
-                    if (model.url.length() > 0) {
+                    if (model.url.length() >0) {
 //                        WebView webView = findViewById(R.id.webView);
 //                        webView.loadUrl(model.url);
-                        onBackPressed();
+                       // onBackPressed();
+
+
+                    }
+                    if(groupPosition == 7){
+                        if(childPosition==0){
+                            Intent intent=new Intent(MainActivity.this,AdminMessages.class);
+                            startActivity(intent);
+                        }
                     }
                 }
 

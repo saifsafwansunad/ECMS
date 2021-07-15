@@ -11,7 +11,7 @@
 <color name="blue">#3B94D4</color>
     <color name="colrgreen">#4cd964</color>
 <color name="transparent">#80FFFFFF</color>
-
+    <color name="gray">#dcdcdc</color>
 
 
 </resources>
