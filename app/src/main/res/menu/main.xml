@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+<!--    <item-->
+<!--        android:id="@+id/action_messages"-->
+<!--        android:orderInCategory="100"-->
+<!--        android:icon="@drawable/ic_baseline_message_24"-->
+<!--        android:title="@string/action_settings"-->
+<!--        app:showAsAction="always" />-->
+    <item
+        android:id="@+id/action_notification"
+        android:orderInCategory="100"
+        android:icon="@drawable/ic_baseline_notifications_24"
+        android:title="@string/action_settings"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/action_meeting"
+        android:orderInCategory="100"
+        android:icon="@drawable/ic_baseline_group_24"
+        android:title="@string/action_settings"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/action_purple"
+        android:orderInCategory="100"
+        android:title="Purple"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_grey"
+        android:orderInCategory="100"
+        android:title="Grey"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_green"
+        android:orderInCategory="100"
+        android:title="green"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_light_purple"
+        android:orderInCategory="100"
+        android:title="Purple"
+        app:showAsAction="never" />
+
+
+</menu>

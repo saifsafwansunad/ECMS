@@ -1,0 +1,77 @@
+<resources>
+    <string name="app_name">ECMS</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+
+    <string-array name="Correspondent_Type">
+        <item>Incoming</item>
+        <item>Outging</item>
+        <item>Register Resulution</item>
+
+    </string-array>
+    <string-array name="Document_Through">
+        <item>Post</item>
+        <item>Fax</item>
+        <item>Email</item>
+        <item>Others</item>
+    </string-array>
+
+    <string-array name="Document_Type">
+        <item>Govt</item>
+        <item>Treasury</item>
+        <item>Internal</item>
+        <item>Confidentail</item>
+        <item>Pvt</item>
+        <item>Legal</item>
+        <item>Externals</item>
+        <item>Others</item>
+    </string-array>
+
+<string-array name="Meeting_Type">
+
+    <item>Mayoral Meetings</item>
+    <item>Council Meetings</item>
+</string-array>
+
+    <string-array name="Priority">
+        <item>High</item>
+        <item>Normal</item>
+        <item>Medium</item>
+
+    </string-array>
+
+    <string-array name="Closing_Status">
+
+
+        <item>Document Age</item>
+        <item>AllocationtoFilePlan</item>
+        <item>AllocateforArchiving</item>
+        <item>AllocateforDestruction</item>
+
+    </string-array>
+
+<string-array name="Deapartment">
+
+    <item> Corporate Services</item>
+    <item> Office of the Municipal Corporation</item>
+    <item> Department of Finances</item>
+    <item> Social Services</item>
+    <item> Technical Services</item>
+    <item> Corporate Services</item>
+    <item> Planning and Economic Development</item>
+
+</string-array>
+</resources>

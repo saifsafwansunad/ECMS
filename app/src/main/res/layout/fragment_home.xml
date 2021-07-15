@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.home.HomeFragment">
+<androidx.core.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:weightSum="2"
+    android:layout_margin="5dp"
+
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+  <com.google.android.material.button.MaterialButton
+      android:layout_width="0dp"
+      android:text="PUBLIC"
+      android:id="@+id/public_btn"
+      app:backgroundTint="@null"
+      android:textColor="@color/colorWhite"
+      android:layout_marginRight="5dp"
+      android:background="@drawable/button_bg"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"/>
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="0dp"
+        android:text="Private"
+        app:backgroundTint="@null"
+        android:id="@+id/private_button"
+android:textColor="@color/colorWhite"
+        android:background="@drawable/button_bg"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"/>
+</LinearLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:id="@+id/home_viewpager"/>
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:strokeWidth="1dp"
+    android:theme="@style/Theme.MaterialComponents.Light"
+    app:strokeColor="#57c874"
+        app:cardCornerRadius="10dp">
+        <com.google.android.material.tabs.TabLayout
+            app:tabTextAppearance="@android:style/TextAppearance.Widget.TabWidget"
+            android:id="@+id/calendar_tablayout"
+            app:tabIndicatorGravity="stretch"
+            app:tabMaxWidth="0dp"
+            app:tabGravity="fill"
+            app:tabMode="fixed"
+            app:tabIndicatorColor="#57c874"
+            app:tabSelectedTextColor="@android:color/white"
+            app:tabTextColor="#000"
+
+            android:layout_width="match_parent"
+            android:layout_height="50dp"/>
+    </com.google.android.material.card.MaterialCardView>
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/calender_viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        app:layout_constraintTop_toBottomOf="@+id/tabLayout"
+        tools:layout_editor_absoluteX="8dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_margin="10dp"
+            android:background="#dcdcdc"/>
+
+
+
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
+</LinearLayout>
