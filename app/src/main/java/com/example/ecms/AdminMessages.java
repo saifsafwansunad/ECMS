@@ -20,6 +20,7 @@ public class AdminMessages extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTitle("Admin Messages");
         setContentView(R.layout.fragment_admin_message);
 
         addData();

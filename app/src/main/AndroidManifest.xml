@@ -16,6 +16,7 @@
         <activity android:name=".ProfileActivity" />
         <activity android:name=".IncomingCorrespondenceActivity" />
         <activity android:name=".AdminMessages"/>
+        <activity android:name=".ui.UserMessages"/>
         <activity android:name=".PublicActivity" />
         <activity
             android:name=".MainActivity"

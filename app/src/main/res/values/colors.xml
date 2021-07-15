@@ -12,6 +12,7 @@
     <color name="colrgreen">#4cd964</color>
 <color name="transparent">#80FFFFFF</color>
     <color name="gray">#dcdcdc</color>
+    <color name="white">#FFFFFF</color>
 
 
 </resources>

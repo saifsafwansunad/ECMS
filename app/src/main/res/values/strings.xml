@@ -15,7 +15,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
-
     <string-array name="Correspondent_Type">
         <item>Incoming</item>
         <item>Outging</item>
@@ -40,11 +39,11 @@
         <item>Others</item>
     </string-array>
 
-<string-array name="Meeting_Type">
+    <string-array name="Meeting_Type">
 
-    <item>Mayoral Meetings</item>
-    <item>Council Meetings</item>
-</string-array>
+        <item>Mayoral Meetings</item>
+        <item>Council Meetings</item>
+    </string-array>
 
     <string-array name="Priority">
         <item>High</item>
@@ -63,15 +62,15 @@
 
     </string-array>
 
-<string-array name="Deapartment">
+    <string-array name="Deapartment">
 
-    <item> Corporate Services</item>
-    <item> Office of the Municipal Corporation</item>
-    <item> Department of Finances</item>
-    <item> Social Services</item>
-    <item> Technical Services</item>
-    <item> Corporate Services</item>
-    <item> Planning and Economic Development</item>
+        <item> Corporate Services</item>
+        <item> Office of the Municipal Corporation</item>
+        <item> Department of Finances</item>
+        <item> Social Services</item>
+        <item> Technical Services</item>
+        <item> Corporate Services</item>
+        <item> Planning and Economic Development</item>
 
-</string-array>
+    </string-array>
 </resources>
