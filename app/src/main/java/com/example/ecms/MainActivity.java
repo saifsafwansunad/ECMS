@@ -18,7 +18,6 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.ecms.Adapters.ExpandableListAdapter;
-import com.example.ecms.Adapters.FragmentAdapter;
 import com.example.ecms.Adapters.ViewPagerCardsAdapter;
 import com.example.ecms.Fragments.MessagesFragment;
 import com.example.ecms.Fragments.SearchFragment;
@@ -30,7 +29,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
-import com.google.android.material.tabs.TabLayout;
 
 import androidx.annotation.NonNull;
 import androidx.core.view.GravityCompat;
@@ -43,7 +41,6 @@ import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.viewpager2.widget.ViewPager2;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -51,7 +48,6 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
 
     private AppBarConfiguration mAppBarConfiguration;
     Toolbar toolbar;
@@ -352,34 +348,30 @@ View viewHeader;
             @Override
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
 
-                if (childList.get(headerList.get(groupPosition)) != null) {
-                    MenuModel model = childList.get(headerList.get(groupPosition)).get(childPosition);
-                    if (model.url.length() >0) {
-//                        WebView webView = findViewById(R.id.webView);
-//                        webView.loadUrl(model.url);
-                       // onBackPressed();
-
-
+                if(groupPosition == 7){
+                    if(childPosition==0){
+                        Intent intent=new Intent(MainActivity.this,AdminMessages.class);
+                        startActivity(intent);
                     }
-                    if(groupPosition == 7){
-                        if(childPosition==0){
-                            Intent intent=new Intent(MainActivity.this,AdminMessages.class);
-                            startActivity(intent);
-                        }
-                        else {
-                            Intent intent=new Intent(MainActivity.this, UserMessages.class);
-                            startActivity(intent);
-                        }
+                    else {
+                        Intent intent=new Intent(MainActivity.this, UserMessages.class);
+                        startActivity(intent);
                     }
-
-                    if(groupPosition == 5){
-                        if(childPosition == 2){
-                            Intent intent=new Intent(MainActivity.this, ReadyToApprove.class);
-                            startActivity(intent);
-                        }
-                    }
-
                 }
+
+                if(groupPosition == 5){
+                    if(childPosition == 2){
+                        Intent intent=new Intent(MainActivity.this, ReadyToApprove.class);
+                        startActivity(intent);
+                    }
+                }
+
+                if (groupPosition==5){
+              if (childPosition==0){
+                  startActivity(new Intent(MainActivity.this,AddNewMeetingActivity.class));
+
+              }
+          }
 
                 return false;
             }
