@@ -41,12 +41,14 @@ public class ReadyToApprove extends AppCompatActivity {
 
     void addData(){
         mahasiswaArrayList = new ArrayList<>();
-        mahasiswaArrayList.add(new ReadytoapproveMOdel("LABEL","LABEL","LABEL","LABEL"));
-        mahasiswaArrayList.add(new ReadytoapproveMOdel("LABEL","LABEL","LABEL","LABEL"));
-        mahasiswaArrayList.add(new ReadytoapproveMOdel("LABEL","LABEL","LABEL","LABEL"));
-        mahasiswaArrayList.add(new ReadytoapproveMOdel("LABEL","LABEL","LABEL","LABEL"));
-        mahasiswaArrayList.add(new ReadytoapproveMOdel("LABEL","LABEL","LABEL","LABEL"));
-        mahasiswaArrayList.add(new ReadytoapproveMOdel("LABEL","LABEL","LABEL","LABEL"));
+        mahasiswaArrayList.add(new ReadytoapproveMOdel("Workshop for Descrimination","Departmental","Workshop for Descrimination","Start Date"));
+        mahasiswaArrayList.add(new ReadytoapproveMOdel("Workshop for Descrimination","Departmental","Workshop for Descrimination","Start Date"));
+        mahasiswaArrayList.add(new ReadytoapproveMOdel("Workshop for Descrimination","Departmental","Workshop for Descrimination","Start Date"));
+        mahasiswaArrayList.add(new ReadytoapproveMOdel("Workshop for Descrimination","Departmental","Workshop for Descrimination","Start Date"));
+        mahasiswaArrayList.add(new ReadytoapproveMOdel("Workshop for Descrimination","Departmental","Workshop for Descrimination","Start Date"));
+        mahasiswaArrayList.add(new ReadytoapproveMOdel("Workshop for Descrimination","Departmental","Workshop for Descrimination","Start Date"));
+        mahasiswaArrayList.add(new ReadytoapproveMOdel("Workshop for Descrimination","Departmental","Workshop for Descrimination","Start Date"));
+        mahasiswaArrayList.add(new ReadytoapproveMOdel("Workshop for Descrimination","Departmental","Workshop for Descrimination","Start Date"));
 
 
     }

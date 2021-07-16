@@ -1,5 +1,6 @@
 package com.example.ecms.ui;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.ecms.AdminMessagesAdapter;
 import com.example.ecms.Models.Admin;
 import com.example.ecms.R;
+import com.example.ecms.Readyapprove_viewmeeting;
 
 import java.util.ArrayList;
 
@@ -51,6 +53,12 @@ public class ReadyApproveAdapter extends RecyclerView.Adapter<ReadyApproveAdapte
             txtNpm = itemView.findViewById(R.id.meeting_type);
             txtNoHp = itemView.findViewById(R.id.agenda);
             txtmessageto=itemView.findViewById(R.id.date_time);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    itemView.getContext().startActivity(new Intent(itemView.getContext(), Readyapprove_viewmeeting.class));
+                }
+            });
 
 
         }
