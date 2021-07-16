@@ -23,6 +23,7 @@ import com.example.ecms.Adapters.ViewPagerCardsAdapter;
 import com.example.ecms.Fragments.MessagesFragment;
 import com.example.ecms.Fragments.SearchFragment;
 import com.example.ecms.Models.MenuModel;
+import com.example.ecms.ui.ReadyToApprove;
 import com.example.ecms.ui.UserMessages;
 import com.example.ecms.ui.home.HomeFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -370,6 +371,14 @@ View viewHeader;
                             startActivity(intent);
                         }
                     }
+
+                    if(groupPosition == 5){
+                        if(childPosition == 2){
+                            Intent intent=new Intent(MainActivity.this, ReadyToApprove.class);
+                            startActivity(intent);
+                        }
+                    }
+
                 }
 
                 return false;
