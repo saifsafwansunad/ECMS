@@ -18,7 +18,7 @@
             android:padding="5dp">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="16dp"
                 android:text="Subject"
@@ -49,7 +49,7 @@
             android:padding="5dp">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="16dp"
                 android:text="Body"
@@ -80,7 +80,7 @@
                 android:padding="5dp">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="16dp"
                     android:text="From"
@@ -110,7 +110,7 @@
                     android:padding="5dp">
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="16dp"
                         android:text="To Employee"
@@ -157,6 +157,7 @@
                             android:layout_width="200dp"
                             android:layout_height="wrap_content"
                             android:text="add attachment"
+
                             android:maxLines="1"
                             android:textColor="@color/colorBlack"
                             />

@@ -373,6 +373,13 @@ View viewHeader;
               }
           }
 
+                if (groupPosition==5){
+                    if (childPosition==1){
+                        startActivity(new Intent(MainActivity.this,Manage.class));
+
+                    }
+                }
+
                 return false;
             }
         });
