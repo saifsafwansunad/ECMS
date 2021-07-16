@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Fragments.MeetingsFragments.DetailsFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+<androidx.core.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    android:orientation="vertical">
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Title"
+    android:textSize="14dp"
+    android:textColor="@color/colorBlack"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Title"
+        android:padding="10dp"
+        android:background="@drawable/rectange_background"
+        android:textSize="18dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Meeting Type"
+        android:textSize="14dp"
+        android:textColor="@color/colorBlack"/>
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:background="@drawable/rectange_background"
+        android:id="@+id/meeting_details_spinner"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Agenda"
+        android:textSize="14dp"
+        android:textColor="@color/colorBlack"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Title"
+        android:padding="10dp"
+        android:background="@drawable/rectange_background"
+        android:textSize="18dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Description"
+        android:textSize="14dp"
+        android:textColor="@color/colorBlack"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Title"
+        android:padding="10dp"
+        android:background="@drawable/rectange_background"
+        android:textSize="18dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="is Committee Meeting"
+        android:textSize="14dp"
+        android:textColor="@color/colorBlack"/>
+    <androidx.appcompat.widget.SwitchCompat
+        android:layout_width="wrap_content"
+        app:showText="true"
+        android:layout_margin="10dp"
+        android:textOn="YES"
+        android:textOff="NO"
+
+        android:textColor="@color/colorWhite"
+        android:textSize="20sp"
+        app:track="@drawable/custom_track"
+        android:thumb="@drawable/customswitchselector"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Committee"
+        android:textSize="14dp"
+        android:textColor="@color/colorBlack"/>
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:id="@+id/meeting_committee_spinner"
+        android:padding="10dp"
+        android:background="@drawable/rectange_background"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Files From Corporate Plan"
+        android:textSize="14dp"
+        android:textColor="@color/colorBlack"/>
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:background="@drawable/rectange_background"
+        android:id="@+id/files_from_plan_spinner"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start Date"
+        android:textColor="@color/colorBlack"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="2"
+        android:orientation="horizontal">
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="DD-MM-YYYY"
+            android:padding="10dp"
+            android:background="@drawable/rectange_background"
+            android:layout_weight="1"
+            android:drawableRight="@drawable/ic_baseline_date_range_24"/>
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="hh-mm-tt"
+            android:padding="10dp"
+            android:background="@drawable/rectange_background"
+            android:layout_weight="1"
+            android:drawableRight="@drawable/ic_baseline_timer_24"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="End Date"
+        android:textColor="@color/colorBlack"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="2"
+        android:orientation="horizontal">
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="DD-MM-YYYY"
+            android:padding="10dp"
+            android:background="@drawable/rectange_background"
+            android:layout_weight="1"
+            android:drawableRight="@drawable/ic_baseline_date_range_24"/>
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="hh-mm-tt"
+            android:padding="10dp"
+            android:background="@drawable/rectange_background"
+            android:layout_weight="1"
+            android:drawableRight="@drawable/ic_baseline_timer_24"/>
+
+    </LinearLayout>
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="is MSTeams Meeting"
+    android:textColor="@color/colorBlack"/>
+    <androidx.appcompat.widget.SwitchCompat
+        android:layout_width="wrap_content"
+        app:showText="true"
+        android:layout_margin="10dp"
+        android:textOn="YES"
+        android:textOff="NO"
+
+        android:textColor="@color/colorWhite"
+        android:textSize="20sp"
+        app:track="@drawable/custom_track"
+        android:thumb="@drawable/customswitchselector"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>
+
+    </RelativeLayout>
+</androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_baseline_add_24"
+        android:layout_alignParentBottom="true"
+        android:backgroundTint="@color/blue"
+        android:layout_alignParentRight="true"
+        android:layout_margin="10dp"
+        />
+</RelativeLayout>
