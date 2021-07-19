@@ -13,8 +13,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Manage"></activity>
-        <activity android:name=".Readyapprove_viewmeeting" />
+        <activity android:name=".Manage" />
+        <activity android:name=".ResolutionCorrespondenceActivity"/>
+        <activity android:name=".OutgoingCorrespondenceActivity" />
         <activity android:name=".AddNewMeetingActivity" />
         <activity android:name=".CorrespondenceDetailsActivity" />
         <activity android:name=".ProfileActivity" />
@@ -22,6 +23,8 @@
         <activity android:name=".AdminMessages" />
         <activity android:name=".ui.UserMessages" />
         <activity android:name=".PublicActivity" />
+        <activity android:name=".Readyapprove_viewmeeting" />
+
         <activity android:name=".ui.ReadyToApprove" />
         <activity
             android:name=".MainActivity"

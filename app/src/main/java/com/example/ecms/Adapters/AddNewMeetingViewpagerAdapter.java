@@ -13,7 +13,7 @@ import com.example.ecms.Fragments.MeetingsFragments.ExternalFragment;
 public class AddNewMeetingViewpagerAdapter extends FragmentPagerAdapter {
 
 
-    public AddNewMeetingViewpagerAdapter(FragmentManager fm) {
+    public  AddNewMeetingViewpagerAdapter(FragmentManager fm) {
         super(fm);
     }
     @Override
