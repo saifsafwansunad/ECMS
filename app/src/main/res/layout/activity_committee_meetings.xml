@@ -4,22 +4,11 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Manage">
-
-    <Spinner
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="5dp"
-        android:background="@drawable/spinner_background"        android:id="@+id/approvee"
-        android:layout_marginRight="5dp"
-       />
+    tools:context=".CommitteeMeetings">
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="10dp"
-        android:layout_below="@+id/approvee"
         android:id="@+id/recycler_view"/>
 
 </RelativeLayout>

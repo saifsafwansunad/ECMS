@@ -75,8 +75,8 @@
     </string-array>
     <string-array name="approve">
 
-    <item> Ready to Approve</item>
-    <item> Approved</item>
+        <item> Ready to Approve</item>
+        <item> Approved</item>
 
     </string-array>
 </resources>

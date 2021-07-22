@@ -344,6 +344,12 @@ View viewHeader;
 
                 }
 
+                if(groupPosition == 6){
+
+                    Intent intent=new Intent(MainActivity.this,CommitteeManagement.class);
+                    startActivity(intent);
+                }
+
                 return false;
             }
         });
@@ -351,6 +357,7 @@ View viewHeader;
         expandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
+
 
                 if(groupPosition == 7){
                     if(childPosition==0){
