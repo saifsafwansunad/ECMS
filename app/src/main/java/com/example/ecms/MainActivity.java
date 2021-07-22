@@ -339,6 +339,10 @@ View viewHeader;
                         onBackPressed();
                     }
                 }
+                if (groupPosition==4){
+                    startActivity(new Intent(MainActivity.this,ResolutionCorrespondenceActivity.class));
+
+                }
 
                 return false;
             }
@@ -379,6 +383,22 @@ View viewHeader;
 
                     }
                 }
+
+                if (groupPosition==1){
+                    if (childPosition==0){
+                        startActivity(new Intent(MainActivity.this,IncomingCorrespondenceActivity.class));
+
+                    }
+                }
+
+                if (groupPosition==1){
+                    if (childPosition==1){
+                        startActivity(new Intent(MainActivity.this,OutgoingCorrespondenceActivity.class));
+
+                    }
+                }
+
+
 
                 return false;
             }

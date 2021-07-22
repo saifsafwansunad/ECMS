@@ -5,35 +5,37 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.example.ecms.Fragments.MeetingsFragments.AttachmentFragment;
-import com.example.ecms.Fragments.MeetingsFragments.AttendeesFragment;
-import com.example.ecms.Fragments.MeetingsFragments.DetailsFragment;
-import com.example.ecms.Fragments.MeetingsFragments.ExternalFragment;
-
-public class AddNewMeetingViewpagerAdapter extends FragmentPagerAdapter {
+import com.example.ecms.Fragments.CorrespondenceDetailFragment.CorrespondenceDetailsFragment;
+import com.example.ecms.Fragments.CorrespondenceDetailFragment.CorrespondenceTaskFragment;
+import com.example.ecms.Fragments.CorrespondenceDetailFragment.CorrespondenceVerification;
+import com.example.ecms.Fragments.CorrespondenceDetailFragment.CorrespondenceWorkflowFragment;
 
 
-    public  AddNewMeetingViewpagerAdapter(FragmentManager fm) {
+public class CorrespondenceDetailsViewpagerAdapter extends FragmentPagerAdapter {
+
+    public CorrespondenceDetailsViewpagerAdapter(@NonNull  FragmentManager fm) {
         super(fm);
     }
+
+    @NonNull
     @Override
     public Fragment getItem(int position) {
         Fragment fragment = null;
         if (position == 0)
         {
-            fragment = new DetailsFragment();
+            fragment = new CorrespondenceDetailsFragment();
         }
         else if (position == 1)
         {
-            fragment = new AttendeesFragment();
+            fragment = new CorrespondenceTaskFragment();
         }
         else if (position == 2)
         {
-            fragment = new ExternalFragment();
+            fragment = new CorrespondenceWorkflowFragment();
         }
         else if (position==3)
         {
-            fragment = new AttachmentFragment();
+            fragment = new CorrespondenceVerification();
         }
         return fragment;
     }
@@ -52,16 +54,15 @@ public class AddNewMeetingViewpagerAdapter extends FragmentPagerAdapter {
         }
         else if (position == 1)
         {
-            title = "Attendees";
+            title = "Task";
         }
         else if (position == 2)
         {
-            title = "External";
+            title = "Workflow";
         }
         else if (position == 3){
-            title="Attachment";
+            title="Verifications";
         }
         return title;
     }
-
 }
