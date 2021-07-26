@@ -16,6 +16,7 @@ import androidx.viewpager.widget.PagerAdapter;
 
 import com.example.ecms.CardAdapterInterface;
 import com.example.ecms.CardItems;
+import com.example.ecms.IncomingCorrespondenceActionActivity;
 import com.example.ecms.IncomingCorrespondenceActivity;
 import com.example.ecms.R;
 
@@ -74,8 +75,8 @@ final LinearLayout linearLayoutCard=(LinearLayout)view.findViewById(R.id.cardbg_
 linearLayoutCard.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View view) {
-        Toast.makeText(context, "Cardview", Toast.LENGTH_SHORT).show();
-        Intent intent=new Intent(context, IncomingCorrespondenceActivity.class);
+        //Toast.makeText(context, "Cardview", Toast.LENGTH_SHORT).show();
+        Intent intent=new Intent(context, IncomingCorrespondenceActionActivity.class);
         context.startActivity(intent);
     }
 });

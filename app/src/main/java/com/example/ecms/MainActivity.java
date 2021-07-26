@@ -405,6 +405,13 @@ View viewHeader;
                     }
                 }
 
+                if (groupPosition==2){
+                    if (childPosition==0){
+                        startActivity(new Intent(MainActivity.this,AssignedCorrespondenceTaskActivity.class));
+
+                    }
+                }
+
 
 
                 return false;

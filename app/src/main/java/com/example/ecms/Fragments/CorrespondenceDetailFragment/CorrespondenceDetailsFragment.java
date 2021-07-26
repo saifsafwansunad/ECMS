@@ -66,7 +66,7 @@ public class CorrespondenceDetailsFragment extends Fragment {
         return view;
     }
 
-    public class AddAttachmentDialog {
+    public static class AddAttachmentDialog {
 
         public void showDialog(Activity activity, String msg) {
             final Dialog dialog = new Dialog(activity);
