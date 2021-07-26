@@ -1,0 +1,2800 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Fragments.FusionTestTitleFragments.FusionTestDetailsFragment">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="vertical">-->
+
+            <!--                <RelativeLayout-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:orientation="horizontal"-->
+            <!--                    android:padding="10dp">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_centerVertical="true"-->
+            <!--                        android:text="Auto Index No"-->
+            <!--                        android:textColor="@color/colorBlack"-->
+            <!--                        android:textSize="18dp" />-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_alignParentRight="true"-->
+            <!--                        android:background="@drawable/list_textview_background"-->
+            <!--                        android:padding="5dp"-->
+            <!--                        android:text="393" />-->
+
+            <!--                </RelativeLayout>-->
+
+            <!--                <View-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="1dp"-->
+            <!--                    android:background="#dcdcdc" />-->
+            <!--            </LinearLayout>-->
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="vertical">-->
+
+            <!--                <RelativeLayout-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:orientation="horizontal"-->
+            <!--                    android:padding="10dp">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_centerVertical="true"-->
+            <!--                        android:text="Correspondence Type"-->
+            <!--                        android:textColor="@color/colorBlack"-->
+            <!--                        android:textSize="18dp" />-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_alignParentRight="true"-->
+            <!--                        android:background="@drawable/list_textview_background"-->
+            <!--                        android:padding="5dp"-->
+            <!--                        android:text="Incoming" />-->
+
+            <!--                </RelativeLayout>-->
+
+            <!--                <View-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="1dp"-->
+            <!--                    android:background="#dcdcdc" />-->
+            <!--            </LinearLayout>-->
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="vertical">-->
+
+            <!--                <RelativeLayout-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:orientation="horizontal"-->
+            <!--                    android:padding="10dp">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_centerVertical="true"-->
+            <!--                        android:text="Organization"-->
+            <!--                        android:textColor="@color/colorBlack"-->
+            <!--                        android:textSize="18dp" />-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_alignParentRight="true"-->
+            <!--                        android:background="@drawable/list_textview_background"-->
+            <!--                        android:padding="5dp"-->
+            <!--                        android:text="Steve Tshwet Local Municipality" />-->
+
+            <!--                </RelativeLayout>-->
+
+            <!--                <View-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="1dp"-->
+            <!--                    android:background="#dcdcdc" />-->
+            <!--            </LinearLayout>-->
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="vertical">-->
+
+            <!--                <RelativeLayout-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:orientation="horizontal"-->
+            <!--                    android:padding="10dp">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_centerVertical="true"-->
+            <!--                        android:text="Department"-->
+            <!--                        android:textColor="@color/colorBlack"-->
+            <!--                        android:textSize="18dp" />-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_alignParentRight="true"-->
+            <!--                        android:background="@drawable/list_textview_background"-->
+            <!--                        android:padding="5dp"-->
+            <!--                        android:text="Corporate Services" />-->
+
+            <!--                </RelativeLayout>-->
+
+            <!--                <View-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="1dp"-->
+            <!--                    android:background="#dcdcdc" />-->
+            <!--            </LinearLayout>-->
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="vertical">-->
+
+            <!--                <RelativeLayout-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:orientation="horizontal"-->
+            <!--                    android:padding="10dp">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_centerVertical="true"-->
+            <!--                        android:text="Auto Index No"-->
+            <!--                        android:textColor="@color/colorBlack"-->
+            <!--                        android:textSize="18dp" />-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_alignParentRight="true"-->
+            <!--                        android:background="@drawable/list_textview_background"-->
+            <!--                        android:padding="5dp"-->
+            <!--                        android:text="393" />-->
+
+            <!--                </RelativeLayout>-->
+
+            <!--                <View-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="1dp"-->
+            <!--                    android:background="#dcdcdc" />-->
+            <!--            </LinearLayout>-->
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="vertical">-->
+
+            <!--                <RelativeLayout-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:orientation="horizontal"-->
+            <!--                    android:padding="10dp">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_centerVertical="true"-->
+            <!--                        android:text="Correspondence Type"-->
+            <!--                        android:textColor="@color/colorBlack"-->
+            <!--                        android:textSize="18dp" />-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_alignParentRight="true"-->
+            <!--                        android:background="@drawable/list_textview_background"-->
+            <!--                        android:padding="5dp"-->
+            <!--                        android:text="Incoming" />-->
+
+            <!--                </RelativeLayout>-->
+
+            <!--                <View-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="1dp"-->
+            <!--                    android:background="#dcdcdc" />-->
+            <!--            </LinearLayout>-->
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="vertical">-->
+
+            <!--                <RelativeLayout-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:orientation="horizontal"-->
+            <!--                    android:padding="10dp">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_centerVertical="true"-->
+            <!--                        android:text="Organization"-->
+            <!--                        android:textColor="@color/colorBlack"-->
+            <!--                        android:textSize="18dp" />-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_alignParentRight="true"-->
+            <!--                        android:background="@drawable/list_textview_background"-->
+            <!--                        android:padding="5dp"-->
+            <!--                        android:text="Steve Tshwet Local Municipality" />-->
+
+            <!--                </RelativeLayout>-->
+
+            <!--                <View-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="1dp"-->
+            <!--                    android:background="#dcdcdc" />-->
+            <!--            </LinearLayout>-->
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="vertical">-->
+
+            <!--                <RelativeLayout-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:orientation="horizontal"-->
+            <!--                    android:padding="10dp">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_centerVertical="true"-->
+            <!--                        android:text="Department"-->
+            <!--                        android:textColor="@color/colorBlack"-->
+            <!--                        android:textSize="18dp" />-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_alignParentRight="true"-->
+            <!--                        android:background="@drawable/list_textview_background"-->
+            <!--                        android:padding="5dp"-->
+            <!--                        android:text="Corporate Services" />-->
+
+            <!--                </RelativeLayout>-->
+
+            <!--                <View-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="1dp"-->
+            <!--                    android:background="#dcdcdc" />-->
+            <!--            </LinearLayout>-->
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="vertical">-->
+
+            <!--                <RelativeLayout-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:orientation="horizontal"-->
+            <!--                    android:padding="10dp">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_centerVertical="true"-->
+            <!--                        android:text="Auto Index No"-->
+            <!--                        android:textColor="@color/colorBlack"-->
+            <!--                        android:textSize="18dp" />-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_alignParentRight="true"-->
+            <!--                        android:background="@drawable/list_textview_background"-->
+            <!--                        android:padding="5dp"-->
+            <!--                        android:text="393" />-->
+
+            <!--                </RelativeLayout>-->
+
+            <!--                <View-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="1dp"-->
+            <!--                    android:background="#dcdcdc" />-->
+            <!--            </LinearLayout>-->
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="vertical">-->
+
+            <!--                <RelativeLayout-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:orientation="horizontal"-->
+            <!--                    android:padding="10dp">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_centerVertical="true"-->
+            <!--                        android:text="Correspondence Type"-->
+            <!--                        android:textColor="@color/colorBlack"-->
+            <!--                        android:textSize="18dp" />-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_alignParentRight="true"-->
+            <!--                        android:background="@drawable/list_textview_background"-->
+            <!--                        android:padding="5dp"-->
+            <!--                        android:text="Incoming" />-->
+
+            <!--                </RelativeLayout>-->
+
+            <!--                <View-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="1dp"-->
+            <!--                    android:background="#dcdcdc" />-->
+            <!--            </LinearLayout>-->
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="vertical">-->
+
+            <!--                <RelativeLayout-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:orientation="horizontal"-->
+            <!--                    android:padding="10dp">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_centerVertical="true"-->
+            <!--                        android:text="Organization"-->
+            <!--                        android:textColor="@color/colorBlack"-->
+            <!--                        android:textSize="18dp" />-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_alignParentRight="true"-->
+            <!--                        android:background="@drawable/list_textview_background"-->
+            <!--                        android:padding="5dp"-->
+            <!--                        android:text="Steve Tshwet Local Municipality" />-->
+
+            <!--                </RelativeLayout>-->
+
+            <!--                <View-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="1dp"-->
+            <!--                    android:background="#dcdcdc" />-->
+            <!--            </LinearLayout>-->
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="vertical">-->
+
+            <!--                <RelativeLayout-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:orientation="horizontal"-->
+            <!--                    android:padding="10dp">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_centerVertical="true"-->
+            <!--                        android:text="Department"-->
+            <!--                        android:textColor="@color/colorBlack"-->
+            <!--                        android:textSize="18dp" />-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_alignParentRight="true"-->
+            <!--                        android:background="@drawable/list_textview_background"-->
+            <!--                        android:padding="5dp"-->
+            <!--                        android:text="Corporate Services" />-->
+
+            <!--                </RelativeLayout>-->
+
+            <!--                <View-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="1dp"-->
+            <!--                    android:background="#dcdcdc" />-->
+            <!--            </LinearLayout>-->
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="vertical">-->
+
+            <!--                <RelativeLayout-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:orientation="horizontal"-->
+            <!--                    android:padding="10dp">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_centerVertical="true"-->
+            <!--                        android:text="Auto Index No"-->
+            <!--                        android:textColor="@color/colorBlack"-->
+            <!--                        android:textSize="18dp" />-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_alignParentRight="true"-->
+            <!--                        android:background="@drawable/list_textview_background"-->
+            <!--                        android:padding="5dp"-->
+            <!--                        android:text="393" />-->
+
+            <!--                </RelativeLayout>-->
+
+            <!--                <View-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="1dp"-->
+            <!--                    android:background="#dcdcdc" />-->
+            <!--            </LinearLayout>-->
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="vertical">-->
+
+            <!--                <RelativeLayout-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:orientation="horizontal"-->
+            <!--                    android:padding="10dp">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_centerVertical="true"-->
+            <!--                        android:text="Correspondence Type"-->
+            <!--                        android:textColor="@color/colorBlack"-->
+            <!--                        android:textSize="18dp" />-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_alignParentRight="true"-->
+            <!--                        android:background="@drawable/list_textview_background"-->
+            <!--                        android:padding="5dp"-->
+            <!--                        android:text="Incoming" />-->
+
+            <!--                </RelativeLayout>-->
+
+            <!--                <View-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="1dp"-->
+            <!--                    android:background="#dcdcdc" />-->
+            <!--            </LinearLayout>-->
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="vertical">-->
+
+            <!--                <RelativeLayout-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:orientation="horizontal"-->
+            <!--                    android:padding="10dp">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_centerVertical="true"-->
+            <!--                        android:text="Organization"-->
+            <!--                        android:textColor="@color/colorBlack"-->
+            <!--                        android:textSize="18dp" />-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_alignParentRight="true"-->
+            <!--                        android:background="@drawable/list_textview_background"-->
+            <!--                        android:padding="5dp"-->
+            <!--                        android:text="Steve Tshwet Local Municipality" />-->
+
+            <!--                </RelativeLayout>-->
+
+            <!--                <View-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="1dp"-->
+            <!--                    android:background="#dcdcdc" />-->
+            <!--            </LinearLayout>-->
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="vertical">-->
+
+            <!--                <RelativeLayout-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:orientation="horizontal"-->
+            <!--                    android:padding="10dp">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_centerVertical="true"-->
+            <!--                        android:text="Department"-->
+            <!--                        android:textColor="@color/colorBlack"-->
+            <!--                        android:textSize="18dp" />-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_alignParentRight="true"-->
+            <!--                        android:background="@drawable/list_textview_background"-->
+            <!--                        android:padding="5dp"-->
+            <!--                        android:text="Corporate Services" />-->
+
+            <!--                </RelativeLayout>-->
+
+            <!--                <View-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="1dp"-->
+            <!--                    android:background="#dcdcdc" />-->
+            <!--            </LinearLayout>-->
+
+
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="vertical">-->
+
+            <!--                <RelativeLayout-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:orientation="horizontal"-->
+            <!--                    android:padding="10dp">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_centerVertical="true"-->
+            <!--                        android:text="Auto Index No"-->
+            <!--                        android:textColor="@color/colorBlack"-->
+            <!--                        android:textSize="18dp" />-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_alignParentRight="true"-->
+            <!--                        android:background="@drawable/list_text_background_filled"-->
+            <!--                        android:padding="5dp"-->
+            <!--                        android:text="393"-->
+            <!--                        android:textColor="#fff" />-->
+
+            <!--                </RelativeLayout>-->
+
+            <!--                <View-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="1dp"-->
+            <!--                    android:background="#dcdcdc" />-->
+            <!--            </LinearLayout>-->
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="vertical">-->
+
+            <!--                <RelativeLayout-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:orientation="horizontal"-->
+            <!--                    android:padding="10dp">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_centerVertical="true"-->
+            <!--                        android:text="Correspondence Type"-->
+            <!--                        android:textColor="@color/colorBlack"-->
+            <!--                        android:textSize="18dp" />-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_alignParentRight="true"-->
+            <!--                        android:background="@drawable/list_text_background_filled"-->
+            <!--                        android:padding="5dp"-->
+            <!--                        android:text="Incoming"-->
+            <!--                        android:textColor="#fff" />-->
+
+            <!--                </RelativeLayout>-->
+
+            <!--                <View-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="1dp"-->
+            <!--                    android:background="#dcdcdc" />-->
+            <!--            </LinearLayout>-->
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="vertical">-->
+
+            <!--                <RelativeLayout-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:orientation="horizontal"-->
+            <!--                    android:padding="10dp">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_centerVertical="true"-->
+            <!--                        android:text="Organization"-->
+            <!--                        android:textColor="@color/colorBlack"-->
+            <!--                        android:textSize="18dp" />-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_alignParentRight="true"-->
+            <!--                        android:background="@drawable/list_text_background_filled"-->
+            <!--                        android:padding="5dp"-->
+            <!--                        android:text="Steve Tshwet Local Municipality"-->
+            <!--                        android:textColor="#fff" />-->
+
+            <!--                </RelativeLayout>-->
+
+            <!--                <View-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="1dp"-->
+            <!--                    android:background="#dcdcdc" />-->
+            <!--            </LinearLayout>-->
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="vertical">-->
+
+            <!--                <RelativeLayout-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:orientation="horizontal"-->
+            <!--                    android:padding="10dp">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_centerVertical="true"-->
+            <!--                        android:text="Department"-->
+            <!--                        android:textColor="@color/colorBlack"-->
+            <!--                        android:textSize="18dp" />-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_alignParentRight="true"-->
+            <!--                        android:background="@drawable/list_text_background_filled"-->
+            <!--                        android:padding="5dp"-->
+            <!--                        android:text="Corporate Services"-->
+            <!--                        android:textColor="#fff" />-->
+
+            <!--                </RelativeLayout>-->
+
+            <!--                <View-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="1dp"-->
+            <!--                    android:background="#dcdcdc" />-->
+            <!--            </LinearLayout>-->
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="vertical">-->
+
+            <!--                <RelativeLayout-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:orientation="horizontal"-->
+            <!--                    android:padding="10dp">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_centerVertical="true"-->
+            <!--                        android:text="Auto Index No"-->
+            <!--                        android:textColor="@color/colorBlack"-->
+            <!--                        android:textSize="18dp" />-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_alignParentRight="true"-->
+            <!--                        android:background="@drawable/list_text_background_filled"-->
+            <!--                        android:padding="5dp"-->
+            <!--                        android:text="393"-->
+            <!--                        android:textColor="#fff" />-->
+
+            <!--                </RelativeLayout>-->
+
+            <!--                <View-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="1dp"-->
+            <!--                    android:background="#dcdcdc" />-->
+            <!--            </LinearLayout>-->
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="vertical">-->
+
+            <!--                <RelativeLayout-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:orientation="horizontal"-->
+            <!--                    android:padding="10dp">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_centerVertical="true"-->
+            <!--                        android:text="Correspondence Type"-->
+            <!--                        android:textColor="@color/colorBlack"-->
+            <!--                        android:textSize="18dp" />-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_alignParentRight="true"-->
+            <!--                        android:background="@drawable/list_text_background_filled"-->
+            <!--                        android:padding="5dp"-->
+            <!--                        android:text="Incoming"-->
+            <!--                        android:textColor="#fff" />-->
+
+            <!--                </RelativeLayout>-->
+
+            <!--                <View-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="1dp"-->
+            <!--                    android:background="#dcdcdc" />-->
+            <!--            </LinearLayout>-->
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="vertical">-->
+
+            <!--                <RelativeLayout-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:orientation="horizontal"-->
+            <!--                    android:padding="10dp">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_centerVertical="true"-->
+            <!--                        android:text="Organization"-->
+            <!--                        android:textColor="@color/colorBlack"-->
+            <!--                        android:textSize="18dp" />-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_alignParentRight="true"-->
+            <!--                        android:background="@drawable/list_text_background_filled"-->
+            <!--                        android:padding="5dp"-->
+            <!--                        android:text="Steve Tshwet Local Municipality"-->
+            <!--                        android:textColor="#fff" />-->
+
+            <!--                </RelativeLayout>-->
+
+            <!--                <View-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="1dp"-->
+            <!--                    android:background="#dcdcdc" />-->
+            <!--            </LinearLayout>-->
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="vertical">-->
+
+            <!--                <RelativeLayout-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:orientation="horizontal"-->
+            <!--                    android:padding="10dp">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_centerVertical="true"-->
+            <!--                        android:text="Department"-->
+            <!--                        android:textColor="@color/colorBlack"-->
+            <!--                        android:textSize="18dp" />-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_alignParentRight="true"-->
+            <!--                        android:background="@drawable/list_text_background_filled"-->
+            <!--                        android:padding="5dp"-->
+            <!--                        android:text="Corporate Services"-->
+            <!--                        android:textColor="#fff" />-->
+
+            <!--                </RelativeLayout>-->
+
+            <!--                <View-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="1dp"-->
+            <!--                    android:background="#dcdcdc" />-->
+            <!--            </LinearLayout>-->
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="vertical">-->
+
+            <!--                <RelativeLayout-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:orientation="horizontal"-->
+            <!--                    android:padding="10dp">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_centerVertical="true"-->
+            <!--                        android:text="Auto Index No"-->
+            <!--                        android:textColor="@color/colorBlack"-->
+            <!--                        android:textSize="18dp" />-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_alignParentRight="true"-->
+            <!--                        android:background="@drawable/list_text_background_filled"-->
+            <!--                        android:padding="5dp"-->
+            <!--                        android:text="393"-->
+            <!--                        android:textColor="#fff" />-->
+
+            <!--                </RelativeLayout>-->
+
+            <!--                <View-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="1dp"-->
+            <!--                    android:background="#dcdcdc" />-->
+            <!--            </LinearLayout>-->
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="vertical">-->
+
+            <!--                <RelativeLayout-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:orientation="horizontal"-->
+            <!--                    android:padding="10dp">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_centerVertical="true"-->
+            <!--                        android:text="Correspondence Type"-->
+            <!--                        android:textColor="@color/colorBlack"-->
+            <!--                        android:textSize="18dp" />-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_alignParentRight="true"-->
+            <!--                        android:background="@drawable/list_text_background_filled"-->
+            <!--                        android:padding="5dp"-->
+            <!--                        android:text="Incoming"-->
+            <!--                        android:textColor="#fff" />-->
+
+            <!--                </RelativeLayout>-->
+
+            <!--                <View-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="1dp"-->
+            <!--                    android:background="#dcdcdc" />-->
+            <!--            </LinearLayout>-->
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="vertical">-->
+
+            <!--                <RelativeLayout-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:orientation="horizontal"-->
+            <!--                    android:padding="10dp">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_centerVertical="true"-->
+            <!--                        android:text="Organization"-->
+            <!--                        android:textColor="@color/colorBlack"-->
+            <!--                        android:textSize="18dp" />-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_alignParentRight="true"-->
+            <!--                        android:background="@drawable/list_text_background_filled"-->
+            <!--                        android:padding="5dp"-->
+            <!--                        android:text="Steve Tshwet Local Municipality"-->
+            <!--                        android:textColor="#fff" />-->
+
+            <!--                </RelativeLayout>-->
+
+            <!--                <View-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="1dp"-->
+            <!--                    android:background="#dcdcdc" />-->
+            <!--            </LinearLayout>-->
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="vertical">-->
+
+            <!--                <RelativeLayout-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:orientation="horizontal"-->
+            <!--                    android:padding="10dp">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_centerVertical="true"-->
+            <!--                        android:text="Department"-->
+            <!--                        android:textColor="@color/colorBlack"-->
+            <!--                        android:textSize="18dp" />-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_alignParentRight="true"-->
+            <!--                        android:background="@drawable/list_text_background_filled"-->
+            <!--                        android:padding="5dp"-->
+            <!--                        android:text="Corporate Services"-->
+            <!--                        android:textColor="#fff" />-->
+
+            <!--                </RelativeLayout>-->
+
+            <!--                <View-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="1dp"-->
+            <!--                    android:background="#dcdcdc" />-->
+            <!--            </LinearLayout>-->
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="vertical">-->
+
+            <!--                <RelativeLayout-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:orientation="horizontal"-->
+            <!--                    android:padding="10dp">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_centerVertical="true"-->
+            <!--                        android:text="Auto Index No"-->
+            <!--                        android:textColor="@color/colorBlack"-->
+            <!--                        android:textSize="18dp" />-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_alignParentRight="true"-->
+            <!--                        android:background="@drawable/list_text_background_filled"-->
+            <!--                        android:padding="5dp"-->
+            <!--                        android:text="393"-->
+            <!--                        android:textColor="#fff" />-->
+
+            <!--                </RelativeLayout>-->
+
+            <!--                <View-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="1dp"-->
+            <!--                    android:background="#dcdcdc" />-->
+            <!--            </LinearLayout>-->
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="vertical">-->
+
+            <!--                <RelativeLayout-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:orientation="horizontal"-->
+            <!--                    android:padding="10dp">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_centerVertical="true"-->
+            <!--                        android:text="Correspondence Type"-->
+            <!--                        android:textColor="@color/colorBlack"-->
+            <!--                        android:textSize="18dp" />-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_alignParentRight="true"-->
+            <!--                        android:background="@drawable/list_text_background_filled"-->
+            <!--                        android:padding="5dp"-->
+            <!--                        android:text="Incoming"-->
+            <!--                        android:textColor="#fff" />-->
+
+            <!--                </RelativeLayout>-->
+
+            <!--                <View-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="1dp"-->
+            <!--                    android:background="#dcdcdc" />-->
+            <!--            </LinearLayout>-->
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="vertical">-->
+
+            <!--                <RelativeLayout-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:orientation="horizontal"-->
+            <!--                    android:padding="10dp">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_centerVertical="true"-->
+            <!--                        android:text="Organization"-->
+            <!--                        android:textColor="@color/colorBlack"-->
+            <!--                        android:textSize="18dp" />-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_alignParentRight="true"-->
+            <!--                        android:background="@drawable/list_text_background_filled"-->
+            <!--                        android:padding="5dp"-->
+            <!--                        android:text="Steve Tshwet Local Municipality"-->
+            <!--                        android:textColor="#fff" />-->
+
+            <!--                </RelativeLayout>-->
+
+            <!--                <View-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="1dp"-->
+            <!--                    android:background="#dcdcdc" />-->
+            <!--            </LinearLayout>-->
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="vertical">-->
+
+            <!--                <RelativeLayout-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:orientation="horizontal"-->
+            <!--                    android:padding="10dp">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_centerVertical="true"-->
+            <!--                        android:text="Department"-->
+            <!--                        android:textColor="@color/colorBlack"-->
+            <!--                        android:textSize="18dp" />-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_alignParentRight="true"-->
+            <!--                        android:background="@drawable/list_text_background_filled"-->
+            <!--                        android:padding="5dp"-->
+            <!--                        android:text="Corporate Services"-->
+            <!--                        android:textColor="#fff" />-->
+
+            <!--                </RelativeLayout>-->
+
+            <!--                <View-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="1dp"-->
+            <!--                    android:background="#dcdcdc" />-->
+            <!--            </LinearLayout>-->
+
+            <!--            <LinearLayout-->
+            <!--            android:layout_width="match_parent"-->
+            <!--            android:layout_height="wrap_content"-->
+            <!--            android:orientation="vertical"-->
+            <!--            android:padding="5dp">-->
+
+            <!--            <TextView-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:text="Auto Index Nuber"-->
+            <!--                android:textSize="16dp" />-->
+
+            <!--            <RelativeLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:background="@drawable/profile_text_bg">-->
+
+            <!--                <TextView-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_margin="10dp"-->
+            <!--                    android:text="393"-->
+
+            <!--                    android:textColor="@color/colorBlack"-->
+            <!--                    android:textSize="18dp" />-->
+
+
+            <!--            </RelativeLayout>-->
+            <!--        </LinearLayout>-->
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="vertical"-->
+            <!--                android:padding="5dp">-->
+
+            <!--                <TextView-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="Correspondence Type"-->
+            <!--                    android:textSize="16dp" />-->
+
+            <!--                <RelativeLayout-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:background="@drawable/profile_text_bg">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_margin="10dp"-->
+            <!--                        android:text="Incoming"-->
+
+            <!--                        android:textColor="@color/colorBlack"-->
+            <!--                        android:textSize="18dp" />-->
+
+
+            <!--                </RelativeLayout>-->
+            <!--            </LinearLayout>-->
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="vertical"-->
+            <!--                android:padding="5dp">-->
+
+            <!--                <TextView-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="Organization"-->
+            <!--                    android:textSize="16dp" />-->
+
+            <!--                <RelativeLayout-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:background="@drawable/profile_text_bg">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_margin="10dp"-->
+            <!--                        android:text="Steve Tshwete Local Municipality-->
+            <!--"-->
+
+            <!--                        android:textColor="@color/colorBlack"-->
+            <!--                        android:textSize="18dp" />-->
+
+
+            <!--                </RelativeLayout>-->
+            <!--            </LinearLayout>-->
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="vertical"-->
+            <!--                android:padding="5dp">-->
+
+            <!--                <TextView-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="Department"-->
+            <!--                    android:textSize="16dp" />-->
+
+            <!--                <RelativeLayout-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:background="@drawable/profile_text_bg">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_margin="10dp"-->
+            <!--                        android:text="Corporate Services"-->
+
+            <!--                        android:textColor="@color/colorBlack"-->
+            <!--                        android:textSize="18dp" />-->
+
+
+            <!--                </RelativeLayout>-->
+            <!--            </LinearLayout>-->
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="vertical"-->
+            <!--                android:padding="5dp">-->
+
+            <!--                <TextView-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="Auto Index Nuber"-->
+            <!--                    android:textSize="16dp" />-->
+
+            <!--                <RelativeLayout-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:background="@drawable/profile_text_bg">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_margin="10dp"-->
+            <!--                        android:text="393"-->
+
+            <!--                        android:textColor="@color/colorBlack"-->
+            <!--                        android:textSize="18dp" />-->
+
+
+            <!--                </RelativeLayout>-->
+            <!--            </LinearLayout>-->
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="vertical"-->
+            <!--                android:padding="5dp">-->
+
+            <!--                <TextView-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="Correspondence Type"-->
+            <!--                    android:textSize="16dp" />-->
+
+            <!--                <RelativeLayout-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:background="@drawable/profile_text_bg">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_margin="10dp"-->
+            <!--                        android:text="Incoming"-->
+
+            <!--                        android:textColor="@color/colorBlack"-->
+            <!--                        android:textSize="18dp" />-->
+
+
+            <!--                </RelativeLayout>-->
+            <!--            </LinearLayout>-->
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="vertical"-->
+            <!--                android:padding="5dp">-->
+
+            <!--                <TextView-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="Organization"-->
+            <!--                    android:textSize="16dp" />-->
+
+            <!--                <RelativeLayout-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:background="@drawable/profile_text_bg">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_margin="10dp"-->
+            <!--                        android:text="Steve Tshwete Local Municipality-->
+            <!--"-->
+
+            <!--                        android:textColor="@color/colorBlack"-->
+            <!--                        android:textSize="18dp" />-->
+
+
+            <!--                </RelativeLayout>-->
+            <!--            </LinearLayout>-->
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="vertical"-->
+            <!--                android:padding="5dp">-->
+
+            <!--                <TextView-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="Department"-->
+            <!--                    android:textSize="16dp" />-->
+
+            <!--                <RelativeLayout-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:background="@drawable/profile_text_bg">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_margin="10dp"-->
+            <!--                        android:text="Corporate Services"-->
+
+            <!--                        android:textColor="@color/colorBlack"-->
+            <!--                        android:textSize="18dp" />-->
+
+
+            <!--                </RelativeLayout>-->
+            <!--            </LinearLayout>-->
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="vertical"-->
+            <!--                android:padding="5dp">-->
+
+            <!--                <TextView-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="Auto Index Nuber"-->
+            <!--                    android:textSize="16dp" />-->
+
+            <!--                <RelativeLayout-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:background="@drawable/profile_text_bg">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_margin="10dp"-->
+            <!--                        android:text="393"-->
+
+            <!--                        android:textColor="@color/colorBlack"-->
+            <!--                        android:textSize="18dp" />-->
+
+
+            <!--                </RelativeLayout>-->
+            <!--            </LinearLayout>-->
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="vertical"-->
+            <!--                android:padding="5dp">-->
+
+            <!--                <TextView-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="Correspondence Type"-->
+            <!--                    android:textSize="16dp" />-->
+
+            <!--                <RelativeLayout-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:background="@drawable/profile_text_bg">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_margin="10dp"-->
+            <!--                        android:text="Incoming"-->
+
+            <!--                        android:textColor="@color/colorBlack"-->
+            <!--                        android:textSize="18dp" />-->
+
+
+            <!--                </RelativeLayout>-->
+            <!--            </LinearLayout>-->
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="vertical"-->
+            <!--                android:padding="5dp">-->
+
+            <!--                <TextView-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="Organization"-->
+            <!--                    android:textSize="16dp" />-->
+
+            <!--                <RelativeLayout-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:background="@drawable/profile_text_bg">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_margin="10dp"-->
+            <!--                        android:text="Steve Tshwete Local Municipality-->
+            <!--"-->
+
+            <!--                        android:textColor="@color/colorBlack"-->
+            <!--                        android:textSize="18dp" />-->
+
+
+            <!--                </RelativeLayout>-->
+            <!--            </LinearLayout>-->
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="vertical"-->
+            <!--                android:padding="5dp">-->
+
+            <!--                <TextView-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="Department"-->
+            <!--                    android:textSize="16dp" />-->
+
+            <!--                <RelativeLayout-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:background="@drawable/profile_text_bg">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_margin="10dp"-->
+            <!--                        android:text="Corporate Services"-->
+
+            <!--                        android:textColor="@color/colorBlack"-->
+            <!--                        android:textSize="18dp" />-->
+
+
+            <!--                </RelativeLayout>-->
+            <!--            </LinearLayout>-->
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="vertical"-->
+            <!--                android:padding="5dp">-->
+
+            <!--                <TextView-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="Auto Index Nuber"-->
+            <!--                    android:textSize="16dp" />-->
+
+            <!--                <RelativeLayout-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:background="@drawable/profile_text_bg">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_margin="10dp"-->
+            <!--                        android:text="393"-->
+
+            <!--                        android:textColor="@color/colorBlack"-->
+            <!--                        android:textSize="18dp" />-->
+
+
+            <!--                </RelativeLayout>-->
+            <!--            </LinearLayout>-->
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="vertical"-->
+            <!--                android:padding="5dp">-->
+
+            <!--                <TextView-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="Correspondence Type"-->
+            <!--                    android:textSize="16dp" />-->
+
+            <!--                <RelativeLayout-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:background="@drawable/profile_text_bg">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_margin="10dp"-->
+            <!--                        android:text="Incoming"-->
+
+            <!--                        android:textColor="@color/colorBlack"-->
+            <!--                        android:textSize="18dp" />-->
+
+
+            <!--                </RelativeLayout>-->
+            <!--            </LinearLayout>-->
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="vertical"-->
+            <!--                android:padding="5dp">-->
+
+            <!--                <TextView-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="Organization"-->
+            <!--                    android:textSize="16dp" />-->
+
+            <!--                <RelativeLayout-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:background="@drawable/profile_text_bg">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_margin="10dp"-->
+            <!--                        android:text="Steve Tshwete Local Municipality-->
+            <!--"-->
+
+            <!--                        android:textColor="@color/colorBlack"-->
+            <!--                        android:textSize="18dp" />-->
+
+
+            <!--                </RelativeLayout>-->
+            <!--            </LinearLayout>-->
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="vertical"-->
+            <!--                android:padding="5dp">-->
+
+            <!--                <TextView-->
+            <!--                    android:layout_width="wrap_content"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="Department"-->
+            <!--                    android:textSize="16dp" />-->
+
+            <!--                <RelativeLayout-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:background="@drawable/profile_text_bg">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_margin="10dp"-->
+            <!--                        android:text="Corporate Services"-->
+
+            <!--                        android:textColor="@color/colorBlack"-->
+            <!--                        android:textSize="18dp" />-->
+
+
+            <!--                </RelativeLayout>-->
+            <!--            </LinearLayout>-->
+
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="horizontal"-->
+            <!--                android:padding="10dp"-->
+            <!--                android:weightSum="2">-->
+
+            <!--                <LinearLayout-->
+            <!--                    android:layout_width="0dp"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_gravity="end"-->
+            <!--                    android:layout_weight="1">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_centerVertical="true"-->
+            <!--                        android:text="Auto Index No"-->
+            <!--                        android:textColor="@color/colorBlack"-->
+            <!--                        android:textSize="18dp" />-->
+
+            <!--                </LinearLayout>-->
+
+            <!--                <LinearLayout-->
+            <!--                    android:layout_width="0dp"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_weight="1">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_gravity="end"-->
+            <!--                        android:background="@drawable/list_text_background_filled"-->
+            <!--                        android:padding="5dp"-->
+            <!--                        android:text="393"-->
+            <!--                        android:textColor="#fff" />-->
+
+            <!--                </LinearLayout>-->
+            <!--            </LinearLayout>-->
+
+            <!--            <View-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="1dp"-->
+            <!--                android:background="#dcdcdc" />-->
+
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="horizontal"-->
+            <!--                android:padding="10dp"-->
+            <!--                android:weightSum="2">-->
+
+            <!--                <LinearLayout-->
+            <!--                    android:layout_width="0dp"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_gravity="end"-->
+            <!--                    android:layout_weight="1">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_centerVertical="true"-->
+            <!--                        android:text="Correspondece Type"-->
+            <!--                        android:textColor="@color/colorBlack"-->
+            <!--                        android:textSize="18dp" />-->
+
+            <!--                </LinearLayout>-->
+
+            <!--                <LinearLayout-->
+            <!--                    android:layout_width="0dp"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_weight="1">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_gravity="end"-->
+            <!--                        android:background="@drawable/list_text_background_filled"-->
+            <!--                        android:padding="5dp"-->
+            <!--                        android:text="Incoming"-->
+            <!--                        android:textColor="#fff" />-->
+
+            <!--                </LinearLayout>-->
+            <!--            </LinearLayout>-->
+
+            <!--            <View-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="1dp"-->
+            <!--                android:background="#dcdcdc" />-->
+
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="horizontal"-->
+            <!--                android:padding="10dp"-->
+            <!--                android:weightSum="2">-->
+
+            <!--                <LinearLayout-->
+            <!--                    android:layout_width="0dp"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_gravity="end"-->
+            <!--                    android:layout_weight="1">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_centerVertical="true"-->
+            <!--                        android:text="Organization"-->
+            <!--                        android:textColor="@color/colorBlack"-->
+            <!--                        android:textSize="18dp" />-->
+
+            <!--                </LinearLayout>-->
+
+            <!--                <LinearLayout-->
+            <!--                    android:layout_width="0dp"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_weight="1">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_gravity="end"-->
+            <!--                        android:background="@drawable/list_text_background_filled"-->
+            <!--                        android:padding="5dp"-->
+            <!--                        android:text="Steve Tshwete Local Municipality "-->
+            <!--                        android:textColor="#fff" />-->
+
+            <!--                </LinearLayout>-->
+            <!--            </LinearLayout>-->
+
+            <!--            <View-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="1dp"-->
+            <!--                android:background="#dcdcdc" />-->
+
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="horizontal"-->
+            <!--                android:padding="10dp"-->
+            <!--                android:weightSum="2">-->
+
+            <!--                <LinearLayout-->
+            <!--                    android:layout_width="0dp"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_gravity="end"-->
+            <!--                    android:layout_weight="1">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_centerVertical="true"-->
+            <!--                        android:text="Department"-->
+            <!--                        android:textColor="@color/colorBlack"-->
+            <!--                        android:textSize="18dp" />-->
+
+            <!--                </LinearLayout>-->
+
+            <!--                <LinearLayout-->
+            <!--                    android:layout_width="0dp"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_weight="1">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_gravity="end"-->
+            <!--                        android:background="@drawable/list_text_background_filled"-->
+            <!--                        android:padding="5dp"-->
+            <!--                        android:text="Corporate Services"-->
+            <!--                        android:textColor="#fff" />-->
+
+            <!--                </LinearLayout>-->
+            <!--            </LinearLayout>-->
+
+            <!--            <View-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="1dp"-->
+            <!--                android:background="#dcdcdc" />-->
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="horizontal"-->
+            <!--                android:padding="10dp"-->
+            <!--                android:weightSum="2">-->
+
+            <!--                <LinearLayout-->
+            <!--                    android:layout_width="0dp"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_gravity="end"-->
+            <!--                    android:layout_weight="1">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_centerVertical="true"-->
+            <!--                        android:text="Auto Index No"-->
+            <!--                        android:textColor="@color/colorBlack"-->
+            <!--                        android:textSize="18dp" />-->
+
+            <!--                </LinearLayout>-->
+
+            <!--                <LinearLayout-->
+            <!--                    android:layout_width="0dp"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_weight="1">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_gravity="end"-->
+            <!--                        android:background="@drawable/list_text_background_filled"-->
+            <!--                        android:padding="5dp"-->
+            <!--                        android:text="393"-->
+            <!--                        android:textColor="#fff" />-->
+
+            <!--                </LinearLayout>-->
+            <!--            </LinearLayout>-->
+
+            <!--            <View-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="1dp"-->
+            <!--                android:background="#dcdcdc" />-->
+
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="horizontal"-->
+            <!--                android:padding="10dp"-->
+            <!--                android:weightSum="2">-->
+
+            <!--                <LinearLayout-->
+            <!--                    android:layout_width="0dp"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_gravity="end"-->
+            <!--                    android:layout_weight="1">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_centerVertical="true"-->
+            <!--                        android:text="Correspondece Type"-->
+            <!--                        android:textColor="@color/colorBlack"-->
+            <!--                        android:textSize="18dp" />-->
+
+            <!--                </LinearLayout>-->
+
+            <!--                <LinearLayout-->
+            <!--                    android:layout_width="0dp"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_weight="1">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_gravity="end"-->
+            <!--                        android:background="@drawable/list_text_background_filled"-->
+            <!--                        android:padding="5dp"-->
+            <!--                        android:text="Incoming"-->
+            <!--                        android:textColor="#fff" />-->
+
+            <!--                </LinearLayout>-->
+            <!--            </LinearLayout>-->
+
+            <!--            <View-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="1dp"-->
+            <!--                android:background="#dcdcdc" />-->
+
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="horizontal"-->
+            <!--                android:padding="10dp"-->
+            <!--                android:weightSum="2">-->
+
+            <!--                <LinearLayout-->
+            <!--                    android:layout_width="0dp"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_gravity="end"-->
+            <!--                    android:layout_weight="1">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_centerVertical="true"-->
+            <!--                        android:text="Organization"-->
+            <!--                        android:textColor="@color/colorBlack"-->
+            <!--                        android:textSize="18dp" />-->
+
+            <!--                </LinearLayout>-->
+
+            <!--                <LinearLayout-->
+            <!--                    android:layout_width="0dp"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_weight="1">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_gravity="end"-->
+            <!--                        android:background="@drawable/list_text_background_filled"-->
+            <!--                        android:padding="5dp"-->
+            <!--                        android:text="Steve Tshwete Local Municipality "-->
+            <!--                        android:textColor="#fff" />-->
+
+            <!--                </LinearLayout>-->
+            <!--            </LinearLayout>-->
+
+            <!--            <View-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="1dp"-->
+            <!--                android:background="#dcdcdc" />-->
+
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="horizontal"-->
+            <!--                android:padding="10dp"-->
+            <!--                android:weightSum="2">-->
+
+            <!--                <LinearLayout-->
+            <!--                    android:layout_width="0dp"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_gravity="end"-->
+            <!--                    android:layout_weight="1">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_centerVertical="true"-->
+            <!--                        android:text="Department"-->
+            <!--                        android:textColor="@color/colorBlack"-->
+            <!--                        android:textSize="18dp" />-->
+
+            <!--                </LinearLayout>-->
+
+            <!--                <LinearLayout-->
+            <!--                    android:layout_width="0dp"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_weight="1">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_gravity="end"-->
+            <!--                        android:background="@drawable/list_text_background_filled"-->
+            <!--                        android:padding="5dp"-->
+            <!--                        android:text="Corporate Services"-->
+            <!--                        android:textColor="#fff" />-->
+
+            <!--                </LinearLayout>-->
+            <!--            </LinearLayout>-->
+
+            <!--            <View-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="1dp"-->
+            <!--                android:background="#dcdcdc" />-->
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="horizontal"-->
+            <!--                android:padding="10dp"-->
+            <!--                android:weightSum="2">-->
+
+            <!--                <LinearLayout-->
+            <!--                    android:layout_width="0dp"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_gravity="end"-->
+            <!--                    android:layout_weight="1">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_centerVertical="true"-->
+            <!--                        android:text="Auto Index No"-->
+            <!--                        android:textColor="@color/colorBlack"-->
+            <!--                        android:textSize="18dp" />-->
+
+            <!--                </LinearLayout>-->
+
+            <!--                <LinearLayout-->
+            <!--                    android:layout_width="0dp"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_weight="1">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_gravity="end"-->
+            <!--                        android:background="@drawable/list_text_background_filled"-->
+            <!--                        android:padding="5dp"-->
+            <!--                        android:text="393"-->
+            <!--                        android:textColor="#fff" />-->
+
+            <!--                </LinearLayout>-->
+            <!--            </LinearLayout>-->
+
+            <!--            <View-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="1dp"-->
+            <!--                android:background="#dcdcdc" />-->
+
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="horizontal"-->
+            <!--                android:padding="10dp"-->
+            <!--                android:weightSum="2">-->
+
+            <!--                <LinearLayout-->
+            <!--                    android:layout_width="0dp"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_gravity="end"-->
+            <!--                    android:layout_weight="1">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_centerVertical="true"-->
+            <!--                        android:text="Correspondece Type"-->
+            <!--                        android:textColor="@color/colorBlack"-->
+            <!--                        android:textSize="18dp" />-->
+
+            <!--                </LinearLayout>-->
+
+            <!--                <LinearLayout-->
+            <!--                    android:layout_width="0dp"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_weight="1">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_gravity="end"-->
+            <!--                        android:background="@drawable/list_text_background_filled"-->
+            <!--                        android:padding="5dp"-->
+            <!--                        android:text="Incoming"-->
+            <!--                        android:textColor="#fff" />-->
+
+            <!--                </LinearLayout>-->
+            <!--            </LinearLayout>-->
+
+            <!--            <View-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="1dp"-->
+            <!--                android:background="#dcdcdc" />-->
+
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="horizontal"-->
+            <!--                android:padding="10dp"-->
+            <!--                android:weightSum="2">-->
+
+            <!--                <LinearLayout-->
+            <!--                    android:layout_width="0dp"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_gravity="end"-->
+            <!--                    android:layout_weight="1">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_centerVertical="true"-->
+            <!--                        android:text="Organization"-->
+            <!--                        android:textColor="@color/colorBlack"-->
+            <!--                        android:textSize="18dp" />-->
+
+            <!--                </LinearLayout>-->
+
+            <!--                <LinearLayout-->
+            <!--                    android:layout_width="0dp"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_weight="1">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_gravity="end"-->
+            <!--                        android:background="@drawable/list_text_background_filled"-->
+            <!--                        android:padding="5dp"-->
+            <!--                        android:text="Steve Tshwete Local Municipality "-->
+            <!--                        android:textColor="#fff" />-->
+
+            <!--                </LinearLayout>-->
+            <!--            </LinearLayout>-->
+
+            <!--            <View-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="1dp"-->
+            <!--                android:background="#dcdcdc" />-->
+
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="horizontal"-->
+            <!--                android:padding="10dp"-->
+            <!--                android:weightSum="2">-->
+
+            <!--                <LinearLayout-->
+            <!--                    android:layout_width="0dp"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_gravity="end"-->
+            <!--                    android:layout_weight="1">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_centerVertical="true"-->
+            <!--                        android:text="Department"-->
+            <!--                        android:textColor="@color/colorBlack"-->
+            <!--                        android:textSize="18dp" />-->
+
+            <!--                </LinearLayout>-->
+
+            <!--                <LinearLayout-->
+            <!--                    android:layout_width="0dp"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_weight="1">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_gravity="end"-->
+            <!--                        android:background="@drawable/list_text_background_filled"-->
+            <!--                        android:padding="5dp"-->
+            <!--                        android:text="Corporate Services"-->
+            <!--                        android:textColor="#fff" />-->
+
+            <!--                </LinearLayout>-->
+            <!--            </LinearLayout>-->
+
+            <!--            <View-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="1dp"-->
+            <!--                android:background="#dcdcdc" />-->
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="horizontal"-->
+            <!--                android:padding="10dp"-->
+            <!--                android:weightSum="2">-->
+
+            <!--                <LinearLayout-->
+            <!--                    android:layout_width="0dp"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_gravity="end"-->
+            <!--                    android:layout_weight="1">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_centerVertical="true"-->
+            <!--                        android:text="Auto Index No"-->
+            <!--                        android:textColor="@color/colorBlack"-->
+            <!--                        android:textSize="18dp" />-->
+
+            <!--                </LinearLayout>-->
+
+            <!--                <LinearLayout-->
+            <!--                    android:layout_width="0dp"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_weight="1">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_gravity="end"-->
+            <!--                        android:background="@drawable/list_text_background_filled"-->
+            <!--                        android:padding="5dp"-->
+            <!--                        android:text="393"-->
+            <!--                        android:textColor="#fff" />-->
+
+            <!--                </LinearLayout>-->
+            <!--            </LinearLayout>-->
+
+            <!--            <View-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="1dp"-->
+            <!--                android:background="#dcdcdc" />-->
+
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="horizontal"-->
+            <!--                android:padding="10dp"-->
+            <!--                android:weightSum="2">-->
+
+            <!--                <LinearLayout-->
+            <!--                    android:layout_width="0dp"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_gravity="end"-->
+            <!--                    android:layout_weight="1">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_centerVertical="true"-->
+            <!--                        android:text="Correspondece Type"-->
+            <!--                        android:textColor="@color/colorBlack"-->
+            <!--                        android:textSize="18dp" />-->
+
+            <!--                </LinearLayout>-->
+
+            <!--                <LinearLayout-->
+            <!--                    android:layout_width="0dp"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_weight="1">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_gravity="end"-->
+            <!--                        android:background="@drawable/list_text_background_filled"-->
+            <!--                        android:padding="5dp"-->
+            <!--                        android:text="Incoming"-->
+            <!--                        android:textColor="#fff" />-->
+
+            <!--                </LinearLayout>-->
+            <!--            </LinearLayout>-->
+
+            <!--            <View-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="1dp"-->
+            <!--                android:background="#dcdcdc" />-->
+
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="horizontal"-->
+            <!--                android:padding="10dp"-->
+            <!--                android:weightSum="2">-->
+
+            <!--                <LinearLayout-->
+            <!--                    android:layout_width="0dp"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_gravity="end"-->
+            <!--                    android:layout_weight="1">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_centerVertical="true"-->
+            <!--                        android:text="Organization"-->
+            <!--                        android:textColor="@color/colorBlack"-->
+            <!--                        android:textSize="18dp" />-->
+
+            <!--                </LinearLayout>-->
+
+            <!--                <LinearLayout-->
+            <!--                    android:layout_width="0dp"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_weight="1">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_gravity="end"-->
+            <!--                        android:background="@drawable/list_text_background_filled"-->
+            <!--                        android:padding="5dp"-->
+            <!--                        android:text="Steve Tshwete Local Municipality "-->
+            <!--                        android:textColor="#fff" />-->
+
+            <!--                </LinearLayout>-->
+            <!--            </LinearLayout>-->
+
+            <!--            <View-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="1dp"-->
+            <!--                android:background="#dcdcdc" />-->
+
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="horizontal"-->
+            <!--                android:padding="10dp"-->
+            <!--                android:weightSum="2">-->
+
+            <!--                <LinearLayout-->
+            <!--                    android:layout_width="0dp"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_gravity="end"-->
+            <!--                    android:layout_weight="1">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_centerVertical="true"-->
+            <!--                        android:text="Department"-->
+            <!--                        android:textColor="@color/colorBlack"-->
+            <!--                        android:textSize="18dp" />-->
+
+            <!--                </LinearLayout>-->
+
+            <!--                <LinearLayout-->
+            <!--                    android:layout_width="0dp"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:layout_weight="1">-->
+
+            <!--                    <TextView-->
+            <!--                        android:layout_width="wrap_content"-->
+            <!--                        android:layout_height="wrap_content"-->
+            <!--                        android:layout_gravity="end"-->
+            <!--                        android:background="@drawable/list_text_background_filled"-->
+            <!--                        android:padding="5dp"-->
+            <!--                        android:text="Corporate Services"-->
+            <!--                        android:textColor="#fff" />-->
+
+            <!--                </LinearLayout>-->
+            <!--            </LinearLayout>-->
+
+            <!--            <View-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="1dp"-->
+            <!--                android:background="#dcdcdc" />-->
+
+
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:padding="10dp"-->
+            <!--                android:orientation="vertical">-->
+
+            <!--                <TextView-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="Auto Index No"-->
+            <!--                    android:textStyle="italic"-->
+            <!--                    android:textSize="18dp"/>-->
+            <!--                <TextView-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="393"-->
+            <!--                    android:textColor="@color/colorBlack"-->
+            <!--                    android:textStyle="bold"-->
+            <!--                    android:textSize="18dp"/>-->
+            <!--                <View-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="1dp"-->
+            <!--                    android:background="#dcdcdc"/>-->
+            <!--            </LinearLayout>-->
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:padding="10dp"-->
+            <!--                android:orientation="vertical">-->
+
+            <!--                <TextView-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="Correspondence Type"-->
+            <!--                    android:textStyle="italic"-->
+            <!--                    android:textSize="18dp"/>-->
+            <!--                <TextView-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="Incoming"-->
+            <!--                    android:textColor="@color/colorBlack"-->
+            <!--                    android:textStyle="bold"-->
+            <!--                    android:textSize="18dp"/>-->
+            <!--                <View-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="1dp"-->
+            <!--                    android:background="#dcdcdc"/>-->
+            <!--            </LinearLayout>-->
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:padding="10dp"-->
+            <!--                android:orientation="vertical">-->
+
+            <!--                <TextView-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="Organization"-->
+            <!--                    android:textStyle="italic"-->
+            <!--                    android:textSize="18dp"/>-->
+            <!--                <TextView-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="Steve Tshwete Local Municipality"-->
+            <!--                    android:textColor="@color/colorBlack"-->
+            <!--                    android:textStyle="bold"-->
+            <!--                    android:textSize="18dp"/>-->
+            <!--                <View-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="1dp"-->
+            <!--                    android:background="#dcdcdc"/>-->
+            <!--            </LinearLayout>-->
+            <!--            <LinearLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:padding="10dp"-->
+            <!--                android:orientation="vertical">-->
+
+            <!--                <TextView-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="Department"-->
+            <!--                    android:textStyle="italic"-->
+            <!--                    android:textSize="18dp"/>-->
+            <!--                <TextView-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:text="Corporate Services"-->
+            <!--                    android:textColor="@color/colorBlack"-->
+            <!--                    android:textStyle="bold"-->
+            <!--                    android:textSize="18dp"/>-->
+            <!--                <View-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="1dp"-->
+            <!--                    android:background="#dcdcdc"/>-->
+            <!--            </LinearLayout>-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Correspondence"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Incoming"
+                    android:textSize="18dp"
+                    android:textStyle="italic" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="2dp"
+                    android:background="#dcdcdc" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Title"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorBlack"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Fusion Test Title"
+                    android:textSize="18dp"
+                    android:textStyle="italic" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="2dp"
+                    android:background="#dcdcdc" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Description"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Corporate Services"
+                    android:textSize="18dp"
+                    android:textStyle="italic" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="2dp"
+                    android:background="#dcdcdc" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Target Date"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorBlack"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="393"
+
+                    android:textSize="18dp"
+                    android:textStyle="italic" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="2dp"
+                    android:background="#dcdcdc" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Extended Days"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Incoming"
+                    android:textSize="18dp"
+                    android:textStyle="italic" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="2dp"
+                    android:background="#dcdcdc" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Assigned To"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorBlack"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Steve Tshwete Local Municipality"
+                    android:textSize="18dp"
+                    android:textStyle="italic" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="2dp"
+                    android:background="#dcdcdc" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Completed Percentage"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="75%"
+                    android:textSize="18dp"
+                    android:textStyle="italic" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="2dp"
+                    android:background="#dcdcdc" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Priority"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorBlack"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Normal"
+
+                    android:textSize="18dp"
+                    android:textStyle="italic" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="2dp"
+                    android:background="#dcdcdc" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Assignee Comment"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Incoming"
+                    android:textSize="18dp"
+                    android:textStyle="italic" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="2dp"
+                    android:background="#dcdcdc" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Created By"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorBlack"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Steve Tshwete Local Municipality"
+                    android:textSize="18dp"
+                    android:textStyle="italic" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="2dp"
+                    android:background="#dcdcdc" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Created"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Corporate Services"
+                    android:textSize="18dp"
+                    android:textStyle="italic" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="2dp"
+                    android:background="#dcdcdc" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Modified By"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorBlack"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Corporate Services"
+
+                    android:textSize="18dp"
+                    android:textStyle="italic" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="2dp"
+                    android:background="#dcdcdc" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Modified"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorBlack"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Corporate Services"
+
+                    android:textSize="18dp"
+                    android:textStyle="italic" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="2dp"
+                    android:background="#dcdcdc" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            app:backgroundTint="@color/blue"
+            android:src="@drawable/ic_baseline_edit_24"
+            android:id="@+id/assigned_task_btn"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_margin="10dp"/>
+
+
+    </RelativeLayout>
+
+
+
+
+
+</FrameLayout>
