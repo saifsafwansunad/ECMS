@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="15dp"
+    android:layout_gravity="center_vertical"
+    tools:context=".LoginActivity">
+
+
+<ImageView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:src="@drawable/logo"
+    android:layout_margin="5dp"
+    android:layout_gravity="center_horizontal"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Username"
+
+        android:textColor="@color/colorBlack"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_margin="5dp"
+android:hint="Username"
+        android:padding="5dp"
+        android:textSize="16dp"
+        android:background="@drawable/rectange_background"
+        android:layout_height="30dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_margin="5dp"
+
+        android:layout_height="wrap_content"
+        android:text="Password"
+        android:textColor="@color/colorBlack"/>
+    <EditText
+        android:padding="5dp"
+        android:layout_gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_margin="5dp"
+android:hint="********"
+        android:background="@drawable/rectange_background"/>
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="LOGIN"
+        android:layout_margin="5dp"
+        android:id="@+id/login_btn"
+        android:textColor="@color/colorBlack"
+        android:background="@color/blue"
+        android:backgroundTint="@color/blue"/>
+
+</LinearLayout>

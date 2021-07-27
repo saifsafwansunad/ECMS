@@ -350,6 +350,7 @@ View viewHeader;
                     startActivity(intent);
                 }
 
+
                 return false;
             }
         });

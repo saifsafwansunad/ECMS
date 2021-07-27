@@ -3,8 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Fragments.MeetingsFragments.DetailsFragment">
+    tools:context=".Fragments.MeetingsFragments.DetailsFragment"
+    tools:ignore="NamespaceTypo">
 
     <!-- TODO: Update blank fragment layout -->
 <androidx.core.widget.NestedScrollView
@@ -37,13 +40,22 @@
         android:text="Meeting Type"
         android:textSize="14dp"
         android:textColor="@color/colorBlack"/>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/rectange_background"
 
+    >
     <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:background="@drawable/rectange_background"
         android:id="@+id/meeting_details_spinner"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_baseline_arrow_drop_down_24"
+        android:layout_toRightOf="@id/meeting_details_spinner"/>
+</RelativeLayout>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -96,13 +108,20 @@
         android:text="Committee"
         android:textSize="14dp"
         android:textColor="@color/colorBlack"/>
-
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
     <Spinner
         android:layout_width="match_parent"
         android:id="@+id/meeting_committee_spinner"
-        android:padding="10dp"
         android:background="@drawable/rectange_background"
         android:layout_height="wrap_content"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/meeting_committee_spinner"
+        android:src="@drawable/ic_baseline_arrow_drop_down_24"/>
+</RelativeLayout>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -110,13 +129,20 @@
         android:textSize="14dp"
         android:textColor="@color/colorBlack"/>
 
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
     <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
         android:background="@drawable/rectange_background"
         android:id="@+id/files_from_plan_spinner"/>
-
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/files_from_plan_spinner"
+        android:src="@drawable/ic_baseline_arrow_drop_down_24"/>
+</RelativeLayout>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -132,6 +158,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:hint="DD-MM-YYYY"
+            android:layout_marginRight="10dp"
             android:padding="10dp"
             android:background="@drawable/rectange_background"
             android:layout_weight="1"
@@ -164,6 +191,7 @@
             android:layout_height="wrap_content"
             android:hint="DD-MM-YYYY"
             android:padding="10dp"
+            android:layout_marginRight="10dp"
             android:background="@drawable/rectange_background"
             android:layout_weight="1"
             android:drawableRight="@drawable/ic_baseline_date_range_24"/>
@@ -183,6 +211,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:text="is MSTeams Meeting"
+    android:layout_marginTop="10dp"
     android:textColor="@color/colorBlack"/>
     <androidx.appcompat.widget.SwitchCompat
         android:layout_width="wrap_content"
@@ -201,14 +230,68 @@
 
     </RelativeLayout>
 </androidx.core.widget.NestedScrollView>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <com.github.clans.fab.FloatingActionMenu
+        android:id="@+id/meeting_fab_menu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_baseline_add_24"
         android:layout_alignParentBottom="true"
-        android:backgroundTint="@color/blue"
         android:layout_alignParentRight="true"
-        android:layout_margin="10dp"
-        />
+        android:layout_marginBottom="11dp"
+        android:layout_marginLeft="11dp"
+        android:layout_marginRight="11dp"
+
+        fab:menu_animationDelayPerItem="55"
+        fab:menu_backgroundColor="@android:color/transparent"
+        fab:menu_buttonSpacing="0dp"
+        fab:menu_colorNormal="#3B94D4"
+        fab:menu_colorPressed="#3B94D4"
+        fab:menu_colorRipple="#99d4d4d4"
+        fab:menu_fab_size="normal"
+        fab:menu_icon="@drawable/fab_add"
+        fab:menu_labels_colorNormal="#333"
+        fab:menu_labels_colorPressed="#444"
+        fab:menu_labels_colorRipple="#66efecec"
+        fab:menu_labels_cornerRadius="3dp"
+        fab:menu_labels_ellipsize="none"
+        fab:menu_labels_hideAnimation="@anim/fab_slide_out_to_right"
+        fab:menu_labels_margin="0dp"
+        fab:menu_labels_maxLines="-1"
+        fab:menu_labels_padding="8dp"
+        fab:menu_labels_position="left"
+        fab:menu_labels_showAnimation="@anim/fab_slide_in_from_right"
+        fab:menu_labels_showShadow="true"
+        fab:menu_labels_singleLine="false"
+        fab:menu_labels_textColor="#f2f1f1"
+        fab:menu_labels_textSize="15sp"
+        fab:menu_openDirection="up"
+        fab:menu_shadowColor="#66aff198"
+        fab:menu_shadowRadius="4dp"
+        fab:menu_shadowXOffset="1dp"
+        fab:menu_shadowYOffset="4dp"
+        fab:menu_showShadow="true">
+
+
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/reschedule_fab"
+            android:layout_width="wrap_content"
+            fab:fab_colorNormal="@color/blue"
+            fab:fab_colorPressed="@color/blue"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_timer_24"
+fab:backgroundTint="@color/blue"
+            fab:fab_label="Reschedule"
+            fab:fab_size="mini" />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/cancel_fab"
+            android:layout_width="wrap_content"
+            fab:fab_colorNormal="@color/blue"
+            fab:fab_colorPressed="@color/blue"
+            android:layout_height="wrap_content"
+            android:background="@color/blue"
+            android:src="@drawable/ic_baseline_cancel_24"
+            fab:fab_label="Cancel"
+            fab:fab_size="mini" />
+    </com.github.clans.fab.FloatingActionMenu>
 </RelativeLayout>

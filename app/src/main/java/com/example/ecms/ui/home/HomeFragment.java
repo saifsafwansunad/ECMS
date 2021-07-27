@@ -23,8 +23,8 @@ public class HomeFragment extends Fragment {
     private ViewPager mViewPager;
     int page = 0;
     private ViewPagerCardsAdapter mCardAdapter;
-    String detailsArray[] = {"asd", "dasf", "gsdg",};
-    String detailsArray2[] = {"sdg", "gsdg", "gdsgdsg",};
+    String detailsArray[] = {"asd", "dasf", "gsdg","asdas"};
+    String detailsArray2[] = {"sdg", "gsdg", "gdsgdsg","adasd"};
 
 Button buttonPublic,buttonPrivate;
     TabLayout tabLayout;
@@ -59,7 +59,7 @@ Button buttonPublic,buttonPrivate;
         mViewPager = (ViewPager)root.findViewById(R.id.home_viewpager);
         mViewPager.setClipToPadding(false);
         mViewPager.setPadding(40,0,40,0);
-        mViewPager.setOffscreenPageLimit(2);
+        mViewPager.setOffscreenPageLimit(3);
         mCardAdapter = new ViewPagerCardsAdapter(getContext());
 
 
@@ -71,7 +71,6 @@ Button buttonPublic,buttonPrivate;
 //        mCardShadowTransformer = new ShadowTransformer(mViewPager, mCardAdapter);
 
         mViewPager.setAdapter(mCardAdapter);
-
 
 
 

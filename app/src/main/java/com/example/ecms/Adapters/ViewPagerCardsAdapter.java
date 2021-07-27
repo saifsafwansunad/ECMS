@@ -71,9 +71,9 @@ public class ViewPagerCardsAdapter extends PagerAdapter implements CardAdapterIn
 
 
         ProgressBar pieChart = view.findViewById(R.id.stats_progressbar);
-final LinearLayout linearLayoutCard=(LinearLayout)view.findViewById(R.id.cardbg_linearlayout);
-linearLayoutCard.setOnClickListener(new View.OnClickListener() {
-    @Override
+        final LinearLayout linearLayoutCard=(LinearLayout)view.findViewById(R.id.cardbg_linearlayout);
+        linearLayoutCard.setOnClickListener(new View.OnClickListener() {
+            @Override
     public void onClick(View view) {
         //Toast.makeText(context, "Cardview", Toast.LENGTH_SHORT).show();
         Intent intent=new Intent(context, IncomingCorrespondenceActionActivity.class);

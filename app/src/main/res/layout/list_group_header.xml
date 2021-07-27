@@ -3,10 +3,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:background="#008000"
+    android:background="#2c8742"
 android:layout_marginTop="500dp"
     android:gravity="center_vertical"
-    android:padding="10dp">
+    android:padding="15dp">
 
 
 
