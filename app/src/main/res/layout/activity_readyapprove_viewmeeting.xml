@@ -30,18 +30,17 @@
                         android:textSize="15dp"
                         android:text="Title"
                         android:paddingLeft="5dp"
+
                         android:textColor="@color/colorBlack"
                         android:textStyle="bold"/>
-                    <TextView
+                    <EditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:padding="5dp"
-
                         android:hint="test50"
                         android:textStyle="normal"
-                        android:background="@drawable/rec_blue_form_border"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
+                        android:editable="false"
+                        android:layout_marginTop="-10dp"
+
                         android:outlineSpotShadowColor="@color/gray"/>
 
 
@@ -63,14 +62,13 @@
 
                         android:textColor="@color/colorBlack"
                         android:textStyle="bold"/>
-                    <TextView
+                    <EditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="-10dp"
                         android:hint="COUNIL"
-                        android:background="@drawable/rec_blue_form_border"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
-                        android:padding="5dp"
+                        android:editable="false"
+
                         android:textStyle="normal"/>
 
 
@@ -93,14 +91,13 @@
                         android:text="Agenda"
                         android:textColor="@color/colorBlack"
                         android:textStyle="bold"/>
-                    <TextView
+                    <EditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Agenda test50"
-                        android:background="@drawable/rec_blue_form_border"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
-                        android:padding="5dp"
+                        android:layout_marginTop="-10dp"
+                        android:editable="false"
+
                         android:textStyle="normal"/>
 
 
@@ -122,14 +119,13 @@
                         android:text="Description"
                         android:textColor="@color/colorBlack"
                         android:textStyle="bold"/>
-                    <TextView
+                    <EditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Agenda Test 50 Desc"
-                        android:background="@drawable/rec_blue_form_border"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
-                        android:padding="5dp"
+                        android:layout_marginTop="-10dp"
+                        android:editable="false"
+
                         android:textStyle="normal"/>
 
 
@@ -151,14 +147,13 @@
 
                         android:textColor="@color/colorBlack"
                         android:textStyle="bold"/>
-                    <TextView
+                    <EditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="08/11/2020 11:55:00"
-                        android:background="@drawable/rec_blue_form_border"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
-                        android:padding="5dp"
+                        android:layout_marginTop="-10dp"
+                        android:editable="false"
+
                         android:textStyle="normal"/>
 
 
@@ -180,14 +175,13 @@
 
                         android:textColor="@color/colorBlack"
                         android:textStyle="bold"/>
-                    <TextView
+                    <EditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Steve Tshwete Local"
-                        android:background="@drawable/rec_blue_form_border"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
-                        android:padding="5dp"
+                        android:layout_marginTop="-10dp"
+                        android:editable="false"
+
                         android:textStyle="normal"/>
 
 
@@ -209,15 +203,14 @@
 
                         android:textColor="@color/colorBlack"
                         android:textStyle="bold"/>
-                    <TextView
+                    <EditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="08/11/2020"
-                        android:background="@drawable/rec_blue_form_border"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
-                        android:padding="5dp"
-                            android:textStyle="normal"/>
+                        android:layout_marginTop="-10dp"
+                        android:editable="false"
+
+                        android:textStyle="normal"/>
 
 
 
@@ -238,14 +231,13 @@
 
                         android:textColor="@color/colorBlack"
                         android:textStyle="bold"/>
-                    <TextView
+                    <EditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="false"
-                        android:background="@drawable/rec_blue_form_border"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
-                        android:padding="5dp"
+                        android:layout_marginTop="-10dp"
+                        android:editable="false"
+
                         android:textStyle="normal"/>
 
 
@@ -267,14 +259,13 @@
 
                         android:textColor="@color/colorBlack"
                         android:textStyle="bold"/>
-                    <TextView
+                    <EditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Incoming"
-                        android:background="@drawable/rec_blue_form_border"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
-                        android:padding="5dp"
+                        android:layout_marginTop="-10dp"
+                        android:editable="false"
+
                         android:textStyle="normal"/>
 
 

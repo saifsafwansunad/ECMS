@@ -14,6 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:orientation="vertical"
+        android:background="@drawable/text_background"
         android:padding="5dp">
 
         <!-- TextView Nama Mahasiwa -->
@@ -22,6 +23,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textStyle="bold"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:padding="1dp"
             android:textColor="@color/colorBlack"/>
 
@@ -29,18 +32,22 @@
         <TextView
             android:text="LABEL 1"
             android:id="@+id/id"
-            android:padding="2.5dp"
+            android:padding="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/gray"
+            android:background="@drawable/text_background"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:layout_marginBottom="5dp"
-            android:textColor="@color/colorBlack"/>
+            android:textColor="@color/gray"/>
 
         <TextView
             android:text="Title"
             android:id="@+id/title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:textStyle="bold"
             android:padding="1dp"
             android:textColor="@color/colorBlack"
@@ -50,16 +57,19 @@
         <TextView
             android:text="LABEL 1"
             android:id="@+id/title_label"
-            android:padding="2.5dp"
-            android:textColor="@color/colorBlack"
+            android:padding="10dp"
+            android:textColor="@color/gray"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/gray"
-            android:layout_marginBottom="5dp"/> <TextView
+            android:background="@drawable/text_background"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"            android:layout_marginBottom="5dp"/> <TextView
         android:text="Priority"
         android:id="@+id/priority"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:textStyle="bold"
         android:textColor="@color/colorBlack"
         android:padding="1dp"/>
@@ -70,15 +80,18 @@
             android:id="@+id/priority_label"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="2.5dp"
-            android:textColor="@color/colorBlack"
-            android:background="@color/gray"
-            android:layout_marginBottom="5dp"/> <TextView
+            android:padding="10dp"
+            android:textColor="@color/gray"
+            android:background="@drawable/text_background"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"            android:layout_marginBottom="5dp"/> <TextView
         android:text="Message to"
         android:id="@+id/messageto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@color/colorBlack"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:textStyle="bold"
         android:padding="1dp"/>
 
@@ -87,11 +100,12 @@
             android:text="LABEL 1"
             android:id="@+id/messageto_label"
             android:layout_width="match_parent"
-            android:textColor="@color/colorBlack"
+            android:textColor="@color/gray"
             android:layout_height="wrap_content"
-            android:background="@color/gray"
-            android:padding="2.5dp"
-
+            android:background="@drawable/text_background"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"   
+            android:padding="10dp"
             android:layout_marginBottom="5dp"/>
 
 

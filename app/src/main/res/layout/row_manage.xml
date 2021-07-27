@@ -22,6 +22,8 @@
             android:text="Title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:textStyle="bold"
             android:padding="1dp"
             android:textColor="@color/colorBlack"/>
@@ -30,19 +32,23 @@
         <TextView
             android:text="Workshop for Descrimination"
             android:id="@+id/title_manage"
-            android:padding="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:padding="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/text_background"
             android:layout_marginBottom="5dp"
             
-            android:textColor="@color/colorBlack"/>
+            android:textColor="@color/gray"/>
 
         <TextView
             android:text="Meeting Type"
             android:id="@+id/title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:textStyle="bold"
             android:padding="1dp"
             android:textColor="@color/colorBlack"
@@ -52,8 +58,10 @@
         <TextView
             android:text="Departmental"
             android:id="@+id/meeting_type"
-            android:padding="5dp"
-            android:textColor="@color/colorBlack"
+            android:padding="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:textColor="@color/gray"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/text_background"
@@ -63,6 +71,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textStyle="bold"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:textColor="@color/colorBlack"
         android:padding="1dp"/>
 
@@ -72,8 +82,10 @@
             android:id="@+id/agenda"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="5dp"
-            android:textColor="@color/colorBlack"
+            android:padding="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:textColor="@color/gray"
             android:background="@drawable/text_background"
             android:layout_marginBottom="5dp"/> <TextView
         android:text="Start Date"
@@ -82,23 +94,29 @@
         android:layout_height="wrap_content"
         android:textColor="@color/colorBlack"
         android:textStyle="bold"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:padding="1dp"/>
 
         <!-- TextView Npm Mahasiswa -->
         <TextView
             android:text="06/11/2019 09:00:00"
             android:id="@+id/date_time"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:layout_width="match_parent"
-            android:textColor="@color/colorBlack"
+            android:textColor="@color/gray"
             android:layout_height="wrap_content"
             android:background="@drawable/text_background"
-            android:padding="5dp"
+            android:padding="10dp"
 
             android:layout_marginBottom="5dp"/>
  <TextView
         android:text="Created By"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+     android:layout_marginLeft="10dp"
+     android:layout_marginRight="10dp"
         android:textColor="@color/colorBlack"
         android:textStyle="bold"
         android:padding="1dp"/>
@@ -108,10 +126,12 @@
             android:text="LABEL"
             android:id="@+id/created"
             android:layout_width="match_parent"
-            android:textColor="@color/colorBlack"
+            android:textColor="@color/gray"
             android:layout_height="wrap_content"
             android:background="@drawable/text_background"
-            android:padding="5dp"
+            android:padding="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:layout_marginBottom="5dp"/>
 
 

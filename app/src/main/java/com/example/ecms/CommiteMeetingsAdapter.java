@@ -25,7 +25,7 @@ public class CommiteMeetingsAdapter extends RecyclerView.Adapter<CommiteMeetings
     @Override
     public CommiteMeetingsAdapter.MahasiswaViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View view = layoutInflater.inflate(R.layout.row_readytoapprove, parent, false);
+        View view = layoutInflater.inflate(R.layout.row_comite, parent, false);
         return new CommiteMeetingsAdapter.MahasiswaViewHolder(view);
     }
 

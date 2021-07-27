@@ -59,7 +59,7 @@ Button buttonPublic,buttonPrivate;
         mViewPager = (ViewPager)root.findViewById(R.id.home_viewpager);
         mViewPager.setClipToPadding(false);
         mViewPager.setPadding(40,0,40,0);
-        mViewPager.setOffscreenPageLimit(3);
+        mViewPager.setOffscreenPageLimit(4);
         mCardAdapter = new ViewPagerCardsAdapter(getContext());
 
 
@@ -76,7 +76,7 @@ Button buttonPublic,buttonPrivate;
 
 
 //        mViewPager.setPageTransformer(false, mCardShadowTransformer);
-        mViewPager.setOffscreenPageLimit(3);
+        mViewPager.setOffscreenPageLimit(4);
 
 
         tabLayout=(TabLayout)root.findViewById(R.id.calendar_tablayout);
