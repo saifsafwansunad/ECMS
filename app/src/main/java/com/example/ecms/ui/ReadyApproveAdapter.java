@@ -23,6 +23,7 @@ public class ReadyApproveAdapter extends RecyclerView.Adapter<ReadyApproveAdapte
         this.dataList = dataList;
     }
 
+
     @Override
     public ReadyApproveAdapter.MahasiswaViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());

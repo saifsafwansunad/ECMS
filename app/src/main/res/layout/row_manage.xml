@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:orientation="vertical"
+        android:background="@drawable/text_background"
         android:padding="5dp">
 
 
@@ -29,11 +30,12 @@
         <TextView
             android:text="Workshop for Descrimination"
             android:id="@+id/title_manage"
-            android:padding="2.5dp"
+            android:padding="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/gray"
+            android:background="@drawable/text_background"
             android:layout_marginBottom="5dp"
+            
             android:textColor="@color/colorBlack"/>
 
         <TextView
@@ -50,11 +52,11 @@
         <TextView
             android:text="Departmental"
             android:id="@+id/meeting_type"
-            android:padding="2.5dp"
+            android:padding="5dp"
             android:textColor="@color/colorBlack"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/gray"
+            android:background="@drawable/text_background"
             android:layout_marginBottom="5dp"/> <TextView
         android:text="Agenda"
         android:id="@+id/priority"
@@ -70,9 +72,9 @@
             android:id="@+id/agenda"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="2.5dp"
+            android:padding="5dp"
             android:textColor="@color/colorBlack"
-            android:background="@color/gray"
+            android:background="@drawable/text_background"
             android:layout_marginBottom="5dp"/> <TextView
         android:text="Start Date"
         android:id="@+id/messageto"
@@ -89,8 +91,8 @@
             android:layout_width="match_parent"
             android:textColor="@color/colorBlack"
             android:layout_height="wrap_content"
-            android:background="@color/gray"
-            android:padding="2.5dp"
+            android:background="@drawable/text_background"
+            android:padding="5dp"
 
             android:layout_marginBottom="5dp"/>
  <TextView
@@ -108,9 +110,8 @@
             android:layout_width="match_parent"
             android:textColor="@color/colorBlack"
             android:layout_height="wrap_content"
-            android:background="@color/gray"
-            android:padding="2.5dp"
-
+            android:background="@drawable/text_background"
+            android:padding="5dp"
             android:layout_marginBottom="5dp"/>
 
 
