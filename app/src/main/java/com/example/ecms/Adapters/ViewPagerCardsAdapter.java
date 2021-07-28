@@ -68,7 +68,23 @@ public class ViewPagerCardsAdapter extends PagerAdapter implements CardAdapterIn
         container.addView(view);
         bind(mData.get(position), view);
        CardView cardView = (CardView) view.findViewById(R.id.main_cardview);
+TextView textViewName=(TextView)view.findViewById(R.id.corespondence_name_home_viewpager);
 
+if (position==0){
+    textViewName.setText("Incoming Correspondence");
+}
+if (position==1){
+    textViewName.setText("Outgoing Correspondence");
+
+}
+if (position==2){
+    textViewName.setText("Resolution Register");
+
+}
+if (position==3){
+    textViewName.setText("Meeting Action");
+
+}
 
         ProgressBar pieChart = view.findViewById(R.id.stats_progressbar);
         final LinearLayout linearLayoutCard=(LinearLayout)view.findViewById(R.id.cardbg_linearlayout);

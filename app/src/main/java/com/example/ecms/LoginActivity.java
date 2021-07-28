@@ -15,6 +15,8 @@ AppCompatButton buttonLogin;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
     buttonLogin=(AppCompatButton) findViewById(R.id.login_btn);
+    getSupportActionBar().hide();
+
     buttonLogin.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {

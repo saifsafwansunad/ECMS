@@ -11,12 +11,12 @@
 
         android:id="@+id/taskstatus_recyclerview"/>
 
-    <com.google.android.material.button.MaterialButton
+    <androidx.appcompat.widget.AppCompatButton
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Ok"
-        android:backgroundTint="@null"
-        android:background="#fff"
+        android:backgroundTint="@color/blue"
+        android:background="@color/blue"
         android:textColor="@color/colorBlack"
         android:id="@+id/dialog_button"/>
 

@@ -4,58 +4,79 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="15dp"
     android:layout_gravity="center_vertical"
+    android:orientation="vertical"
+    android:padding="25dp"
     tools:context=".LoginActivity">
 
 
-<ImageView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:src="@drawable/logo"
-    android:layout_margin="5dp"
-    android:layout_gravity="center_horizontal"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="5dp"
+        android:src="@drawable/logo" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24dp"
+        android:layout_gravity="center_horizontal"
+        android:text="LOGIN"
+        android:textColor="@color/colorBlack"/>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="5dp"
+
+    android:orientation="vertical">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Username"
+        android:textColor="@color/colorBlack"
+        android:textStyle="bold" />
 
-        android:textColor="@color/colorBlack"/>
     <EditText
         android:layout_width="match_parent"
-        android:layout_margin="5dp"
-android:hint="Username"
-        android:padding="5dp"
-        android:textSize="16dp"
+        android:layout_height="50dp"
         android:background="@drawable/rectange_background"
-        android:layout_height="30dp"/>
+        android:hint="John Doe"
+        android:padding="5dp"
+        android:textSize="18dp" />
+</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:orientation="vertical">
     <TextView
         android:layout_width="wrap_content"
-        android:layout_margin="5dp"
-
         android:layout_height="wrap_content"
+
         android:text="Password"
-        android:textColor="@color/colorBlack"/>
+        android:textColor="@color/colorBlack"
+        android:textStyle="bold" />
+
     <EditText
-        android:padding="5dp"
-        android:layout_gravity="center_vertical"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_margin="5dp"
-android:hint="********"
-        android:background="@drawable/rectange_background"/>
+        android:layout_height="50dp"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/rectange_background"
 
+        android:hint="**********"
+        android:padding="5dp"
+        android:textSize="18dp" />
 
+    </LinearLayout>
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/login_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="LOGIN"
         android:layout_margin="5dp"
-        android:id="@+id/login_btn"
-        android:textColor="@color/colorBlack"
         android:background="@color/blue"
-        android:backgroundTint="@color/blue"/>
+        android:backgroundTint="@color/blue"
+        android:text="LOGIN"
+        android:textColor="@color/colorBlack" />
 
 </LinearLayout>

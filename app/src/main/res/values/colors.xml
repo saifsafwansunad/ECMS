@@ -12,6 +12,7 @@
     <color name="colrgreen">#4cd964</color>
 <color name="transparent">#80FFFFFF</color>
     <color name="gray">#dcdcdc</color>
+    <color name="dark_green">#2c8742</color>
     <color name="white">#FFFFFF</color>
     <color name="mtrl_textinput_default_box_stroke_color" tools:override="true">#3B94D4</color>
 
