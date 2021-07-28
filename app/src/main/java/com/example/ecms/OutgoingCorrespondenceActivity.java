@@ -104,7 +104,7 @@ public class OutgoingCorrespondenceActivity extends AppCompatActivity {
             dialog.setCancelable(false);
 //            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
 
-            dialog.setContentView(R.layout.layout_for_add_correpondence);
+            dialog.setContentView(R.layout.layout_for_add_outgoing_correspondence);
             ArrayAdapter<String> departmentadapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, getResources().getStringArray(R.array.Deapartment));
             ArrayAdapter<String> sourceadapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, getResources().getStringArray(R.array.Deapartment));
             ArrayAdapter<String> docthruadapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, getResources().getStringArray(R.array.Document_Through));

@@ -18,8 +18,8 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:boxStrokeColor="@color/colrgreen"
-        app:hintTextColor="@color/colrgreen"
+        app:boxStrokeColor="@color/blue"
+        app:hintTextColor="@color/blue"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
 
         >
@@ -35,8 +35,8 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:boxStrokeColor="@color/colrgreen"
-        app:hintTextColor="@color/colrgreen"
+        app:boxStrokeColor="@color/blue"
+        app:hintTextColor="@color/blue"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
 
         >
@@ -56,21 +56,19 @@
 
         <com.google.android.material.button.MaterialButton
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:text="save"
-            app:backgroundTint="@null"
+            app:backgroundTint="@color/blue"
             android:layout_margin="5dp"
-            android:background="#3B94D4"
             android:textColor="#fff"/>
         <com.google.android.material.button.MaterialButton
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:text="Cancel"
             android:id="@+id/cancel_dialog_btn"
             android:textColor="#fff"
-            app:backgroundTint="@null"
-            android:layout_margin="5dp"
-            android:background="#3B94D4"/>
+            app:backgroundTint="@color/blue"
+            android:layout_margin="5dp" />
     </LinearLayout>
 
 </LinearLayout>

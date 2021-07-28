@@ -18,6 +18,7 @@
             android:orientation="vertical">
 
             <TextView
+                android:padding="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Correspondence Task"
@@ -38,9 +39,8 @@
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:drawableRight="@drawable/ic_baseline_edit_24"
-                    android:background="@drawable/profile_text_bg"
+                    android:padding="10dp"
+                    android:background="@drawable/rectange_background"
                     android:text="testEl"
                     />
             </LinearLayout>
@@ -60,9 +60,8 @@
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:drawableRight="@drawable/ic_baseline_edit_24"
-                    android:background="@drawable/profile_text_bg"
+                    android:padding="10dp"
+                    android:background="@drawable/rectange_background"
                     />
             </LinearLayout>
 
@@ -83,8 +82,7 @@
                     android:layout_height="150dp"
                     android:gravity="top"
                     android:padding="5dp"
-                    android:drawableRight="@drawable/ic_baseline_edit_24"
-                    android:background="@drawable/profile_text_bg"
+                    android:background="@drawable/rectange_background"
                     />
             </LinearLayout>
 
@@ -104,7 +102,7 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/profile_text_bg">
+                    android:background="@drawable/rectange_background">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -134,9 +132,8 @@
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:drawableRight="@drawable/ic_baseline_edit_24"
-                    android:background="@drawable/profile_text_bg"
+                    android:padding="10dp"
+                    android:background="@drawable/rectange_background"
                     />
             </LinearLayout>
 
@@ -155,14 +152,14 @@
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="5dp"
-                    android:drawableRight="@drawable/ic_baseline_edit_24"
-                    android:background="@drawable/profile_text_bg"
+                    android:padding="10dp"
+                    android:background="@drawable/rectange_background"
                     />
             </LinearLayout>
 
 
             <LinearLayout
+                android:padding="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
@@ -172,12 +169,24 @@
                     android:textStyle="bold"
                     android:textColor="@color/colorBlack"
                     android:text="Priority"/>
-                <Spinner
-                    android:padding="5dp"
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/spinner_background"
-                    android:id="@+id/priority_spinner"/>
+                    android:background="@drawable/rectange_background"
+
+                    >
+
+                    <Spinner
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/priority_spinner"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_baseline_arrow_drop_down_24"
+                        android:layout_toRightOf="@id/priority_spinner"/>
+                </RelativeLayout>
             </LinearLayout>
 
 
@@ -199,21 +208,21 @@
 
                 <com.google.android.material.button.MaterialButton
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="60dp"
                     android:text="save"
-                    app:backgroundTint="@null"
+                    app:backgroundTint="@color/blue"
                     android:layout_margin="5dp"
-                    android:background="#3B94D4"
+
                     android:textColor="#fff"/>
                 <com.google.android.material.button.MaterialButton
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="60dp"
                     android:text="Cancel"
                     android:id="@+id/cancel_dialog_btn"
                     android:textColor="#fff"
-                    app:backgroundTint="@null"
+                    app:backgroundTint="@color/blue"
                     android:layout_margin="5dp"
-                    android:background="#3B94D4"/>
+                    />
             </LinearLayout>
 
 
