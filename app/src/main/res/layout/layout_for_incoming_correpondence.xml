@@ -203,8 +203,8 @@
             android:layout_height="wrap_content"
             android:text="Task Status"
             android:id="@+id/task_button"
-            app:backgroundTint="@null"
-android:background="@drawable/list_bg_white"
+            app:backgroundTint="@color/blue"
+android:background="@color/blue"
             android:textColor="#000" />
 
     </LinearLayout>
