@@ -21,26 +21,26 @@
         android:title="@string/action_settings"
         app:showAsAction="always" />
     <item
+        android:id="@+id/action_purple2"
+        android:orderInCategory="100"
+        android:title="About Us"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/action_purple"
         android:orderInCategory="100"
-        android:title="Purple"
+        android:title="Privacy Policy"
         app:showAsAction="never" />
 
     <item
         android:id="@+id/action_grey"
         android:orderInCategory="100"
-        android:title="Grey"
+        android:title="Terms and Conditions"
         app:showAsAction="never" />
 
     <item
-        android:id="@+id/action_green"
-        android:orderInCategory="100"
-        android:title="green"
-        app:showAsAction="never" />
-    <item
         android:id="@+id/action_light_purple"
         android:orderInCategory="100"
-        android:title="Purple"
+        android:title="Logout"
         app:showAsAction="never" />
 
 

@@ -71,18 +71,18 @@ public class ViewPagerCardsAdapter extends PagerAdapter implements CardAdapterIn
 TextView textViewName=(TextView)view.findViewById(R.id.corespondence_name_home_viewpager);
 
 if (position==0){
-    textViewName.setText("Incoming Correspondence");
+    textViewName.setText("Meeting Action");
 }
 if (position==1){
-    textViewName.setText("Outgoing Correspondence");
-
-}
-if (position==2){
     textViewName.setText("Resolution Register");
 
 }
+if (position==2){
+    textViewName.setText("Incoming Correspondence");
+
+}
 if (position==3){
-    textViewName.setText("Meeting Action");
+    textViewName.setText("Outgoing Correspondence");
 
 }
 

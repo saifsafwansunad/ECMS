@@ -276,7 +276,7 @@ View viewHeader;
         childModelsList = new ArrayList<>();
         menuModel = new MenuModel("File Plans", true, true, ""); //Menu of Python Tutorials
         headerList.add(menuModel);
-        childModel = new MenuModel("File Plan View1q", false, false, "https://www.journaldev.com/19243/python-ast-abstract-syntax-tree");
+        childModel = new MenuModel("File Plan View", false, false, "https://www.journaldev.com/19243/python-ast-abstract-syntax-tree");
         childModelsList.add(childModel);
 
         if (menuModel.hasChildren) {
