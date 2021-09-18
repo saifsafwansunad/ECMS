@@ -354,10 +354,18 @@ View viewHeader;
 
                 }
 
+                if(!(LoginActivity.checkValue())){
                 if(groupPosition == 6){
 
                     Intent intent=new Intent(MainActivity.this,CommitteeManagement.class);
                     startActivity(intent);
+                }}
+                else{
+                    if(groupPosition == 2){
+
+                        Intent intent=new Intent(MainActivity.this,CommitteeManagement.class);
+                        startActivity(intent);
+                    }
                 }
 
 
@@ -431,11 +439,7 @@ if(!(LoginActivity.checkValue())) {
             startActivity(intent);
         }
     }
-    if(groupPosition == 2){
 
-        Intent intent=new Intent(MainActivity.this,CommitteeManagement.class);
-        startActivity(intent);
-    }
 
 }
 
