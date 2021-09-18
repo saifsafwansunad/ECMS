@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -15,6 +16,7 @@ import com.example.ecms.Adapters.MessagesAdapter;
 import com.example.ecms.Adapters.MyAdapter;
 import com.example.ecms.Adapters.ViewPagerCardsAdapter;
 import com.example.ecms.CardItems;
+import com.example.ecms.LoginActivity;
 import com.example.ecms.PublicActivity;
 import com.example.ecms.R;
 import com.google.android.material.tabs.TabLayout;
@@ -23,7 +25,7 @@ public class HomeFragment extends Fragment {
     private ViewPager mViewPager;
     int page = 0;
     private ViewPagerCardsAdapter mCardAdapter;
-    String detailsArray[] = {"asd", "dasf", "gsdg","asdas"};
+    String detailsArray[];
     String detailsArray2[] = {"sdg", "gsdg", "gdsgdsg","adasd"};
 
 Button buttonPublic,buttonPrivate;
@@ -63,6 +65,12 @@ Button buttonPublic,buttonPrivate;
         mCardAdapter = new ViewPagerCardsAdapter(getContext());
 
 
+if(LoginActivity.checkValue()){
+    detailsArray = new String[]{"asd"};
+}
+else {
+    detailsArray=new String[]{"asd", "dasf", "gsdg", "asdas"};
+}
         for (int i = 0; i < detailsArray.length; i++) {
 
             mCardAdapter.addCardItemS(new CardItems(detailsArray, detailsArray2[i]));

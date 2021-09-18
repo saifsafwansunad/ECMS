@@ -3,9 +3,11 @@ package com.example.ecms.Adapters;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -18,19 +20,25 @@ import com.example.ecms.CardAdapterInterface;
 import com.example.ecms.CardItems;
 import com.example.ecms.IncomingCorrespondenceActionActivity;
 import com.example.ecms.IncomingCorrespondenceActivity;
+import com.example.ecms.LoginActivity;
 import com.example.ecms.R;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ViewPagerCardsAdapter extends PagerAdapter implements CardAdapterInterface {
-
+    TextView correspondencename;
     int calsBurned = 0;
     int calsConsumed = 0;
     int calsConsumed2 = 0;
     private List<CardView> mViews;
     private List<CardItems> mData;
     private float mBaseElevation;
+    String[] values = new String[] { "apple", "banana", "orange" };
+
+
     Context context;
     int lastPosition = -1;
 
@@ -65,27 +73,40 @@ public class ViewPagerCardsAdapter extends PagerAdapter implements CardAdapterIn
     public Object instantiateItem(ViewGroup container, final int position) {
         View view = LayoutInflater.from(container.getContext())
                 .inflate(R.layout.layout_for_cardviewpager, container, false);
+        //correspondencename=view.findViewById(R.id.corespondence_name);
+       /* String[] strArray3 = {"Incoming Correspondence","Outgoing Correspondence","Resolution Regiseter","Meetings"};
+        for (int i = 0; i < strArray3.length; i++) {
+            correspondencename.setText(strArray3[i]);
+        }*/
         container.addView(view);
         bind(mData.get(position), view);
        CardView cardView = (CardView) view.findViewById(R.id.main_cardview);
 TextView textViewName=(TextView)view.findViewById(R.id.corespondence_name_home_viewpager);
+        boolean bolValue = (LoginActivity.checkValue());
+        if(bolValue){
+            if (position==0){
+                textViewName.setText("Meeting Action");
+            }
+        }
+        else {
+            if (position == 0) {
+                textViewName.setText("Meeting Action");
+            }
 
-if (position==0){
-    textViewName.setText("Meeting Action");
-}
-if (position==1){
-    textViewName.setText("Resolution Register");
 
-}
-if (position==2){
-    textViewName.setText("Incoming Correspondence");
+            if (position == 1) {
+                textViewName.setText("Resolution Register");
 
-}
-if (position==3){
-    textViewName.setText("Outgoing Correspondence");
+            }
+            if (position == 2) {
+                textViewName.setText("Incoming Correspondence");
 
-}
+            }
+            if (position == 3) {
+                textViewName.setText("Outgoing Correspondence");
 
+            }
+        }
         ProgressBar pieChart = view.findViewById(R.id.stats_progressbar);
         final LinearLayout linearLayoutCard=(LinearLayout)view.findViewById(R.id.cardbg_linearlayout);
         linearLayoutCard.setOnClickListener(new View.OnClickListener() {

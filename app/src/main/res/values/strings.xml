@@ -20,7 +20,11 @@
         <item>Outging</item>
         <item>Register Resulution</item>
 
+
+
     </string-array>
+
+    
     <string-array name="Document_Through">
         <item>Post</item>
         <item>Fax</item>
