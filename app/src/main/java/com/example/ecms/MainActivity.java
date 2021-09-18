@@ -238,9 +238,10 @@ View viewHeader;
         if (!menuModel.hasChildren) {
             childList.put(menuModel, null);
         }
-
-        menuModel = new MenuModel("Correspondences", true, true, ""); //Menu of Java Tutorials
-        headerList.add(menuModel);
+        if(!(LoginActivity.checkValue())) {
+            menuModel = new MenuModel("Correspondences", true, true, ""); //Menu of Java Tutorials
+            headerList.add(menuModel);
+        }
         List<MenuModel> childModelsList = new ArrayList<>();
         MenuModel childModel = new MenuModel("Incoming", false, false, "https://www.journaldev.com/7153/core-java-tutorial");
         childModelsList.add(childModel);
@@ -255,10 +256,11 @@ View viewHeader;
             Log.d("API123","here");
             childList.put(menuModel, childModelsList);
         }
-
-        childModelsList = new ArrayList<>();
-        menuModel = new MenuModel("Actions", true, true, ""); //Menu of Python Tutorials
-        headerList.add(menuModel);
+        if(!(LoginActivity.checkValue())) {
+            childModelsList = new ArrayList<>();
+            menuModel = new MenuModel("Actions", true, true, ""); //Menu of Python Tutorials
+            headerList.add(menuModel);
+        }
         childModel = new MenuModel("Tasks to Complete", false, false, "https://www.journaldev.com/19243/python-ast-abstract-syntax-tree");
         childModelsList.add(childModel);
 
@@ -271,35 +273,40 @@ View viewHeader;
         if (menuModel.hasChildren) {
             childList.put(menuModel, childModelsList);
         }
-
-        childModelsList = new ArrayList<>();
-        menuModel = new MenuModel("File Plans", true, true, ""); //Menu of Python Tutorials
-        headerList.add(menuModel);
+        if(!(LoginActivity.checkValue())) {
+            childModelsList = new ArrayList<>();
+            menuModel = new MenuModel("File Plans", true, true, ""); //Menu of Python Tutorials
+            headerList.add(menuModel);
+        }
         childModel = new MenuModel("File Plan View", false, false, "https://www.journaldev.com/19243/python-ast-abstract-syntax-tree");
         childModelsList.add(childModel);
 
         if (menuModel.hasChildren) {
             childList.put(menuModel, childModelsList);
         }
-        menuModel = new MenuModel("Resolution Register", true, false, "https://www.journaldev.com/9333/android-webview-example-tutorial"); //Menu of Android Tutorial. No sub menus
-        headerList.add(menuModel);
+        if(!(LoginActivity.checkValue())) {
+            menuModel = new MenuModel("Resolution Register", true, false, "https://www.journaldev.com/9333/android-webview-example-tutorial"); //Menu of Android Tutorial. No sub menus
+            headerList.add(menuModel);
+        }
         if (!menuModel.hasChildren) {
             childList.put(menuModel, null);
         }
         childModelsList = new ArrayList<>();
         menuModel = new MenuModel("Meetings", true, true, ""); //Menu of Python Tutorials
         headerList.add(menuModel);
-        childModel = new MenuModel("Add New", false, false, "https://www.journaldev.com/19243/python-ast-abstract-syntax-tree");
-        childModelsList.add(childModel);
+        if(!(LoginActivity.checkValue())) {
+            childModel = new MenuModel("Add New", false, false, "https://www.journaldev.com/19243/python-ast-abstract-syntax-tree");
+            childModelsList.add(childModel);
 
-        childModel = new MenuModel("Manage", false, false, "https://www.journaldev.com/19226/python-fractions");
-        childModelsList.add(childModel);
+            childModel = new MenuModel("Manage", false, false, "https://www.journaldev.com/19226/python-fractions");
+            childModelsList.add(childModel);
 
-        childModel = new MenuModel("Ready to Approve", false, false, "https://www.journaldev.com/19226/python-fractions");
-        childModelsList.add(childModel);
-        childModel = new MenuModel("To Attend", false, false, "https://www.journaldev.com/19226/python-fractions");
-        childModelsList.add(childModel);
-
+            childModel = new MenuModel("Ready to Approve", false, false, "https://www.journaldev.com/19226/python-fractions");
+            childModelsList.add(childModel);
+        }else {
+            childModel = new MenuModel("To Attend", false, false, "https://www.journaldev.com/19226/python-fractions");
+            childModelsList.add(childModel);
+        }
         if (menuModel.hasChildren) {
             childList.put(menuModel, childModelsList);
         }
