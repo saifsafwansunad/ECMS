@@ -24,6 +24,11 @@
         android:layout_gravity="center_horizontal"
         android:text="LOGIN"
         android:textColor="@color/colorBlack"/>
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/login_checkbox"
+        android:text="Are You a Councillor?"/>
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"

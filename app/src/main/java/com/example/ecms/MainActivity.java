@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity
 
     private AppBarConfiguration mAppBarConfiguration;
     Toolbar toolbar;
-
+    Boolean checkbox=false;
 
     ExpandableListAdapter expandableListAdapter;
     ExpandableListView expandableListView;
@@ -68,13 +68,14 @@ View viewHeader;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        checkbox=getIntent().getExtras().getBoolean("yourBooleanName");
         drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         toolbar = findViewById(R.id.home_toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         viewHeader = navigationView.getHeaderView(0);
-
+        Boolean yourBool = getIntent().getExtras().getBoolean("yourBoolName");
         ImageView imageViewNavheaderPRofile=(ImageView)viewHeader.findViewById(R.id.nav_header_profile_imageview);
         imageViewNavheaderPRofile.setOnClickListener(new View.OnClickListener() {
             @Override
