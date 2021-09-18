@@ -303,11 +303,15 @@ View viewHeader;
 
             childModel = new MenuModel("Ready to Approve", false, false, "https://www.journaldev.com/19226/python-fractions");
             childModelsList.add(childModel);
-        }else {
+
+                childModel = new MenuModel("To Attend", false, false, "https://www.journaldev.com/19226/python-fractions");
+                childModelsList.add(childModel);
+                childList.put(menuModel, childModelsList);
+            }
+        else{
+
             childModel = new MenuModel("To Attend", false, false, "https://www.journaldev.com/19226/python-fractions");
             childModelsList.add(childModel);
-        }
-        if (menuModel.hasChildren) {
             childList.put(menuModel, childModelsList);
         }
          menuModel = new MenuModel("Committee Management", true, false, "https://www.journaldev.com/9333/android-webview-example-tutorial"); //Menu of Android Tutorial. No sub menus
@@ -365,59 +369,75 @@ View viewHeader;
             @Override
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
 
+if(!(LoginActivity.checkValue())) {
+    if (groupPosition == 7) {
+        if (childPosition == 0) {
+            Intent intent = new Intent(MainActivity.this, AdminMessages.class);
+            startActivity(intent);
+        } else {
+            Intent intent = new Intent(MainActivity.this, UserMessages.class);
+            startActivity(intent);
+        }
+    }
 
-                if(groupPosition == 7){
-                    if(childPosition==0){
-                        Intent intent=new Intent(MainActivity.this,AdminMessages.class);
-                        startActivity(intent);
-                    }
-                    else {
-                        Intent intent=new Intent(MainActivity.this, UserMessages.class);
-                        startActivity(intent);
-                    }
-                }
+    if (groupPosition == 5) {
+        if (childPosition == 2) {
+            Intent intent = new Intent(MainActivity.this, ReadyToApprove.class);
+            startActivity(intent);
+        }
+    }
 
-                if(groupPosition == 5){
-                    if(childPosition == 2){
-                        Intent intent=new Intent(MainActivity.this, ReadyToApprove.class);
-                        startActivity(intent);
-                    }
-                }
+    if (groupPosition == 5) {
+        if (childPosition == 0) {
+            startActivity(new Intent(MainActivity.this, AddNewMeetingActivity.class));
 
-                if (groupPosition==5){
-              if (childPosition==0){
-                  startActivity(new Intent(MainActivity.this,AddNewMeetingActivity.class));
+        }
+    }
 
-              }
-          }
+    if (groupPosition == 5) {
+        if (childPosition == 1) {
+            startActivity(new Intent(MainActivity.this, Manage.class));
 
-                if (groupPosition==5){
-                    if (childPosition==1){
-                        startActivity(new Intent(MainActivity.this,Manage.class));
+        }
+    }
 
-                    }
-                }
+    if (groupPosition == 1) {
+        if (childPosition == 0) {
+            startActivity(new Intent(MainActivity.this, IncomingCorrespondenceActivity.class));
 
-                if (groupPosition==1){
-                    if (childPosition==0){
-                        startActivity(new Intent(MainActivity.this,IncomingCorrespondenceActivity.class));
+        }
+    }
 
-                    }
-                }
+    if (groupPosition == 1) {
+        if (childPosition == 1) {
+            startActivity(new Intent(MainActivity.this, OutgoingCorrespondenceActivity.class));
 
-                if (groupPosition==1){
-                    if (childPosition==1){
-                        startActivity(new Intent(MainActivity.this,OutgoingCorrespondenceActivity.class));
+        }
+    }
 
-                    }
-                }
+    if (groupPosition == 2) {
+        if (childPosition == 0) {
+            startActivity(new Intent(MainActivity.this, AssignedCorrespondenceTaskActivity.class));
 
-                if (groupPosition==2){
-                    if (childPosition==0){
-                        startActivity(new Intent(MainActivity.this,AssignedCorrespondenceTaskActivity.class));
+        }
+    }
+}else{
+    if (groupPosition == 3) {
+        if (childPosition == 0) {
+            Intent intent = new Intent(MainActivity.this, AdminMessages.class);
+            startActivity(intent);
+        } else {
+            Intent intent = new Intent(MainActivity.this, UserMessages.class);
+            startActivity(intent);
+        }
+    }
+    if(groupPosition == 2){
 
-                    }
-                }
+        Intent intent=new Intent(MainActivity.this,CommitteeManagement.class);
+        startActivity(intent);
+    }
+
+}
 
 
 
