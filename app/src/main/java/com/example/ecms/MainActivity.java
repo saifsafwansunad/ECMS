@@ -1,5 +1,6 @@
 package com.example.ecms;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -203,6 +204,21 @@ View viewHeader;
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
+
+        switch (item.getItemId())
+        {
+            case R.id.action_light_purple:
+                PreferenceUtils.savePassword(null, MainActivity.this);
+                PreferenceUtils.saveEmail(null, MainActivity.this);
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                final ProgressDialog progressDoalog;
+                progressDoalog = new ProgressDialog(MainActivity.this);
+                progressDoalog.setMessage("Logging Out....");
+                progressDoalog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+                progressDoalog.show();
+                startActivity(intent);
+                finish();
+        }
         return super.onOptionsItemSelected(item);
 
     }
