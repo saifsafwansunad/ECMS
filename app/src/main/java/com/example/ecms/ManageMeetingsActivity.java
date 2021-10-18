@@ -9,12 +9,11 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 import com.example.ecms.Adapters.ManageAdapter;
-import com.example.ecms.Adapters.ManageModel;
-import com.example.ecms.Models.Admin;
+import com.example.ecms.Models.ManageModel;
 
 import java.util.ArrayList;
 
-public class Manage extends AppCompatActivity {
+public class ManageMeetingsActivity extends AppCompatActivity {
 private Spinner approve;
     private RecyclerView recyclerView;
     private ManageAdapter adapter;
@@ -36,7 +35,7 @@ private Spinner approve;
 
         adapter = new ManageAdapter(mahasiswaArrayList);
 
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(Manage.this);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(ManageMeetingsActivity.this);
 
         recyclerView.setLayoutManager(layoutManager);
 

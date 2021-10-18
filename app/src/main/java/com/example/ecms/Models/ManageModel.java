@@ -1,4 +1,4 @@
-package com.example.ecms.Adapters;
+package com.example.ecms.Models;
 
 public class ManageModel {
 

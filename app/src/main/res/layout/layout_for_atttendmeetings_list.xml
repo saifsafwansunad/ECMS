@@ -30,7 +30,7 @@
         <!-- TextView Npm Mahasiswa -->
         <TextView
             android:text="Workshop for Descrimination"
-            android:id="@+id/title_manage"
+            android:id="@+id/title_toattend"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:padding="10dp"
@@ -38,8 +38,8 @@
             android:layout_height="wrap_content"
             android:background="@drawable/text_background"
             android:layout_marginBottom="5dp"
-            
-          />
+
+            />
 
         <TextView
             android:text="Meeting Type"
@@ -56,7 +56,7 @@
         <!-- TextView Npm Mahasiswa -->
         <TextView
             android:text="Departmental"
-            android:id="@+id/meeting_type"
+            android:id="@+id/meeting_type_toattend"
             android:padding="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
@@ -77,7 +77,7 @@
         <!-- TextView Npm Mahasiswa -->
         <TextView
             android:text="Workshop for Descrimination"
-            android:id="@+id/agenda"
+            android:id="@+id/agenda_toattend"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
@@ -98,7 +98,7 @@
         <!-- TextView Npm Mahasiswa -->
         <TextView
             android:text="06/11/2019 09:00:00"
-            android:id="@+id/date_time"
+            android:id="@+id/date_time_toattend"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_width="match_parent"
@@ -107,20 +107,20 @@
             android:padding="10dp"
 
             android:layout_marginBottom="5dp"/>
- <TextView
-        android:text="Created By"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-     android:layout_marginLeft="10dp"
-     android:layout_marginRight="10dp"
-        android:textColor="@color/colorBlack"
-        android:textStyle="bold"
-        android:padding="1dp"/>
+        <TextView
+            android:text="is MSTeams Meeting?"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:textColor="@color/colorBlack"
+            android:textStyle="bold"
+            android:padding="1dp"/>
 
         <!-- TextView Npm Mahasiswa -->
         <TextView
-            android:text="LABEL"
-            android:id="@+id/created"
+            android:text="false"
+            android:id="@+id/isMSteam__toattend_textview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/text_background"

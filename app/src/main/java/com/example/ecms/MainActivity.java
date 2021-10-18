@@ -2,24 +2,16 @@ package com.example.ecms;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.webkit.WebView;
 import android.widget.ExpandableListView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.example.ecms.Adapters.ExpandableListAdapter;
-import com.example.ecms.Adapters.ViewPagerCardsAdapter;
 import com.example.ecms.Fragments.MessagesFragment;
 import com.example.ecms.Fragments.SearchFragment;
 import com.example.ecms.Models.MenuModel;
@@ -27,18 +19,13 @@ import com.example.ecms.ui.ReadyToApprove;
 import com.example.ecms.ui.UserMessages;
 import com.example.ecms.ui.home.HomeFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;
 import androidx.core.view.GravityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -420,9 +407,14 @@ if(!(LoginActivity.checkValue())) {
 
     if (groupPosition == 5) {
         if (childPosition == 1) {
-            startActivity(new Intent(MainActivity.this, Manage.class));
+            startActivity(new Intent(MainActivity.this, ManageMeetingsActivity.class));
 
         }
+    }
+    if (groupPosition == 5){
+        if (childPosition==3)
+            startActivity(new Intent(MainActivity.this, ToAttendMeetingActivity.class));
+
     }
 
     if (groupPosition == 1) {
