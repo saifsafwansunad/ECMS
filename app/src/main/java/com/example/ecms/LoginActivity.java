@@ -1,17 +1,16 @@
 package com.example.ecms;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatButton;
-
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 
 import com.google.android.material.snackbar.Snackbar;
 
@@ -33,7 +32,7 @@ EditText editTextLoginEmail,editTextLoginPassword;
     private List<UserLoginResponse> dataArrayList=new ArrayList<>();
 
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
-
+    private static boolean IsCouncillor = false;
 
 
     public static CheckBox checkBox;
@@ -78,7 +77,7 @@ EditText editTextLoginEmail,editTextLoginPassword;
     });
     }
     public static boolean checkValue(){
-        return checkBox.isChecked();
+        return IsCouncillor;
     }
 
     public final void login() {
@@ -144,6 +143,9 @@ EditText editTextLoginEmail,editTextLoginPassword;
                             } else {
                               //  userLoginResponse.setPassword(loginRequest.getUpwd());
                                // userLoginResponse.setUsername(loginRequest.getUname());
+                                        if(userLoginResponse.getIsCouncillor().equals("True")){
+                                            IsCouncillor = true;
+                                        }
                                         Toast.makeText(LoginActivity.this, "Login Success", Toast.LENGTH_SHORT).show();
                                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                         startActivity(intent);

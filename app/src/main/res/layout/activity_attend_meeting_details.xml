@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".AttendMeetingDetailsActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".AttendMeetingDetailsActivity">
+    >
+
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -95,7 +101,7 @@
                 android:layout_marginBottom="5dp"/>
             <TextView
             android:text="Description"
-            android:id="@+id/meet_detail_description"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/colorBlack"
@@ -107,7 +113,8 @@
             <!-- TextView Npm Mahasiswa -->
             <TextView
                 android:text="06/11/2019 09:00:00"
-                android:id="@+id/date_time_toattend"
+                android:id="@+id/meet_detail_description"
+
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_width="match_parent"
@@ -129,7 +136,8 @@
             <!-- TextView Npm Mahasiswa -->
             <TextView
                 android:text="false"
-                android:id="@+id/isMSteam__toattend_textview"
+                android:id="@+id/date_time_toattend"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/text_background"
@@ -151,7 +159,8 @@
             <!-- TextView Npm Mahasiswa -->
             <TextView
                 android:text="false"
-                android:id="@+id/isMSteam_meetdetail_textview"
+                android:id="@+id/isMSteam__toattend_textview"
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/text_background"
@@ -236,5 +245,5 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/meeting_details_attachment_recyclerview"/>
-
 </LinearLayout>
+</ScrollView>

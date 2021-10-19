@@ -1,5 +1,8 @@
 package com.example.ecms.Adapters;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +11,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.ecms.ApiResponse.ToAttendMeetingResponse;
+import com.example.ecms.AttendMeetingDetailsActivity;
 import com.example.ecms.Models.ManageModel;
 import com.example.ecms.Models.ToattendMeetingsModel;
 import com.example.ecms.R;
@@ -15,11 +20,15 @@ import com.example.ecms.R;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ToAttendMeetingsAdapter extends RecyclerView.Adapter<ToAttendMeetingsAdapter.ViewHolder> {
-    private ArrayList<ToattendMeetingsModel> toattendMeetingsModels;
-    public ToAttendMeetingsAdapter(ArrayList<ToattendMeetingsModel> dataList) {
+    private List<ToAttendMeetingResponse> toattendMeetingsModels;
+    public static ToAttendMeetingResponse meetingDetails;
+    Activity context;
+    public ToAttendMeetingsAdapter(Activity context,List<ToAttendMeetingResponse> dataList) {
         this.toattendMeetingsModels = dataList;
+        this.context = context;
     }
 
     @NonNull
@@ -34,10 +43,22 @@ public class ToAttendMeetingsAdapter extends RecyclerView.Adapter<ToAttendMeetin
     @Override
     public void onBindViewHolder(@NonNull @NotNull ToAttendMeetingsAdapter.ViewHolder holder, int position) {
         holder.textViewTitle.setText(toattendMeetingsModels.get(position).getTitle());
-        holder.textViewmeetingType.setText(toattendMeetingsModels.get(position).getMeetingtype());
+        holder.textViewmeetingType.setText(toattendMeetingsModels.get(position).getMeetingType());
         holder.textViewAgendatoAttend.setText(toattendMeetingsModels.get(position).getAgenda());
         holder.textViewDate.setText(toattendMeetingsModels.get(position).getStartDate());
         holder.textViewIsMSTeam.setText(toattendMeetingsModels.get(position).getIsMSTeamMeeting());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                meetingDetails = toattendMeetingsModels.get(position);
+                Intent intent=new Intent(context, AttendMeetingDetailsActivity.class);
+//                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                intent.putExtra("Meetings", (Parcelable) toattendMeetingsModels.get(position));
+                context.startActivity(intent);
+
+            }
+        });
 
     }
 

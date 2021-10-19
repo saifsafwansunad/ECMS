@@ -71,7 +71,7 @@
         android:layout_height="50dp"
         android:layout_gravity="center_vertical"
         android:background="@drawable/rectange_background"
-
+        android:inputType="textPassword"
         android:hint="**********"
         android:padding="5dp"
         android:textSize="18dp" />

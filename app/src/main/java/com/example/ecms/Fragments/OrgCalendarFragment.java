@@ -1,12 +1,15 @@
 package com.example.ecms.Fragments;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CalendarView;
 
 import com.example.ecms.R;
 
@@ -22,6 +25,11 @@ public class OrgCalendarFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_org_calendar, container, false);
+
+        CalendarView orgCalendar = view.findViewById(R.id.organization_calendarview);
+        int as = orgCalendar.getDateTextAppearance();
+
+
 
         return view;
     }
