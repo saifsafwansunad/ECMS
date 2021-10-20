@@ -29,7 +29,6 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="No Meetings for you"
         android:id="@+id/no_Meetings_tv"
         android:layout_centerInParent="true"
         android:layout_gravity="center"
