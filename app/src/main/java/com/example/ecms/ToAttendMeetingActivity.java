@@ -79,7 +79,7 @@ private ToAttendMeetingsAdapter toAttendMeetingsAdapter;
             snackbar.show();
         } else {
             Call<List<ToAttendMeetingResponse>> loginResponseCall = ApiClient.getUserService().toAttendMeeting(toAttendMeetingRequest.getuId());
-            progressDialog.dismiss();
+
 
             try {
                 loginResponseCall.enqueue(new Callback<List<ToAttendMeetingResponse>>() {
@@ -88,7 +88,7 @@ private ToAttendMeetingsAdapter toAttendMeetingsAdapter;
 
                         if (response.isSuccessful()) {
 //        Toast.makeText(AppointmentsActivity.this, "appointments got", Toast.LENGTH_LONG).show();
-
+                            progressDialog.dismiss();
                             if (response.body() != null && response.body().size() > 0) {
                                 tvNoMeetings.setVisibility(View.GONE);
                                 recyclerViewToAttend.setVisibility(View.VISIBLE);
@@ -104,6 +104,7 @@ private ToAttendMeetingsAdapter toAttendMeetingsAdapter;
                             }
 
                         } else {
+                            progressDialog.dismiss();
                             Toast.makeText(ToAttendMeetingActivity.this, "appointments Failed", Toast.LENGTH_LONG).show();
 
                         }
@@ -121,9 +122,11 @@ private ToAttendMeetingsAdapter toAttendMeetingsAdapter;
                 });
 
             } catch (Exception e) {
+
                 e.printStackTrace();
             }
         }
+        progressDialog.dismiss();
     }
 
     public class TryAgainListener implements View.OnClickListener {

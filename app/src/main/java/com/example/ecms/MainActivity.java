@@ -438,6 +438,12 @@ if(!(LoginActivity.checkValue())) {
         }
     }
 }else{
+
+    if (groupPosition == 1) {
+        if (childPosition == 0) {
+            startActivity(new Intent(MainActivity.this, ToAttendMeetingActivity.class));
+        }
+    }
     if (groupPosition == 3) {
         if (childPosition == 0) {
             Intent intent = new Intent(MainActivity.this, AdminMessages.class);
