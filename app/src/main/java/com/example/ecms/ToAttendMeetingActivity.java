@@ -126,7 +126,7 @@ private ToAttendMeetingsAdapter toAttendMeetingsAdapter;
                 e.printStackTrace();
             }
         }
-        progressDialog.dismiss();
+       // progressDialog.dismiss();
     }
 
     public class TryAgainListener implements View.OnClickListener {
