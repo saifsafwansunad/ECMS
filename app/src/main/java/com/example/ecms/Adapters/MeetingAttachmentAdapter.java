@@ -1,6 +1,8 @@
 package com.example.ecms.Adapters;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,6 +41,17 @@ public class MeetingAttachmentAdapter extends RecyclerView.Adapter<MeetingAttach
     public void onBindViewHolder(@NonNull @NotNull MeetingAttachmentAdapter.ViewHolder holder, int position) {
         holder.attachment_url_textview.setText(meetingAttachments.get(position).getFileUrl());
         holder.attachment_description_textview.setText(meetingAttachments.get(position).getDescription());
+
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final String website = meetingAttachments.get(position).getFileUrl();
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(website));
+                context.startActivity(browserIntent);
+            }
+        });
+
     }
 
     @Override
@@ -55,6 +68,10 @@ public class MeetingAttachmentAdapter extends RecyclerView.Adapter<MeetingAttach
 
             attachment_url_textview = itemView.findViewById(R.id.attachment_url_textview);
             attachment_description_textview = itemView.findViewById(R.id.attachment_description_textview);
+
+
+
+
         }
     }
 }
