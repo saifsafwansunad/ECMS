@@ -145,7 +145,9 @@ EditText editTextLoginEmail,editTextLoginPassword;
                                // userLoginResponse.setUsername(loginRequest.getUname());
                                         if(userLoginResponse.getIsCouncillor().equals("True")){
                                             IsCouncillor = true;
-                                        }
+                                        }else
+                                            IsCouncillor = false;
+
                                         Toast.makeText(LoginActivity.this, "Login Success", Toast.LENGTH_SHORT).show();
                                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                         startActivity(intent);
