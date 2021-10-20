@@ -1,6 +1,7 @@
 package com.example.ecms;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -22,6 +23,9 @@ public class AttendMeetingDetailsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_attend_meeting_details);
+        getSupportActionBar().hide();
+        Toolbar toolbarMeetingsdetail = (Toolbar)findViewById(R.id.meetngs_details_toolbar);
+        toolbarMeetingsdetail.setTitle("Meeting To Attend");
         meeting = ToAttendMeetingsAdapter.meetingDetails;
 //        ToAttendMeetingResponse meeting = getIntent().getParcelableExtra("Meetings");
         Toast.makeText(this, meeting.getMeetingId(), Toast.LENGTH_SHORT).show();

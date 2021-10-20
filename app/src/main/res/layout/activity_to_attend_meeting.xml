@@ -13,7 +13,10 @@
         android:layout_height="match_parent">
 
 
-
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/toolbar_meetinglist"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:visibility="gone"

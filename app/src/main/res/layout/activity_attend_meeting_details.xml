@@ -1,249 +1,250 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".AttendMeetingDetailsActivity"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-<LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
+    android:layout_height="wrap_content"
+    tools:context=".AttendMeetingDetailsActivity">
 
-
-    <androidx.cardview.widget.CardView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        xmlns:card_view="http://schemas.android.com/apk/res-auto"
-        card_view:cardCornerRadius="5dp"
-        card_view:cardUseCompatPadding="true"
-        android:background="@drawable/profile_text_bg">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+<androidx.appcompat.widget.Toolbar
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/meetngs_details_toolbar"/>
 
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:orientation="vertical"
-            android:background="@drawable/text_background"
-            android:padding="5dp">
+            android:background="@drawable/profile_text_bg"
+            card_view:cardCornerRadius="5dp"
+            card_view:cardUseCompatPadding="true">
 
-
-            <!-- TextView Nama Mahasiwa -->
-            <TextView
-                android:text="Title"
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:textStyle="bold"
-                android:padding="1dp"
-                android:textColor="@color/colorBlack"/>
-
-            <!-- TextView Npm Mahasiswa -->
-            <TextView
-                android:text="Workshop for Descrimination"
-                android:id="@+id/title_toattend"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:padding="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
                 android:background="@drawable/text_background"
-                android:layout_marginBottom="5dp"
+                android:orientation="vertical"
+                android:padding="5dp">
 
-                />
 
-            <TextView
-                android:text="Meeting Type"
-                android:id="@+id/title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:textStyle="bold"
-                android:padding="1dp"
-                android:textColor="@color/colorBlack"
-                />
+                <!-- TextView Nama Mahasiwa -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:padding="1dp"
+                    android:text="Title"
+                    android:textColor="@color/colorBlack"
+                    android:textStyle="bold" />
 
-            <!-- TextView Npm Mahasiswa -->
-            <TextView
-                android:text="Departmental"
-                android:id="@+id/meeting_type_toattend"
-                android:padding="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/text_background"
-                android:layout_marginBottom="5dp"/> <TextView
-            android:text="Agenda"
-            android:id="@+id/priority"
-            android:layout_width="match_parent"
+                <!-- TextView Npm Mahasiswa -->
+                <TextView
+                    android:id="@+id/title_toattend"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/text_background"
+                    android:padding="10dp"
+                    android:text="Workshop for Descrimination"
+
+                    />
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:padding="1dp"
+                    android:text="Meeting Type"
+                    android:textColor="@color/colorBlack"
+                    android:textStyle="bold" />
+
+                <!-- TextView Npm Mahasiswa -->
+                <TextView
+                    android:id="@+id/meeting_type_toattend"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/text_background"
+                    android:padding="10dp"
+                    android:text="Departmental" />
+
+                <TextView
+                    android:id="@+id/priority"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:padding="1dp"
+                    android:text="Agenda"
+                    android:textColor="@color/colorBlack"
+                    android:textStyle="bold" />
+
+                <!-- TextView Npm Mahasiswa -->
+                <TextView
+                    android:id="@+id/agenda_toattend"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/text_background"
+                    android:padding="10dp"
+                    android:text="Workshop for Descrimination" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:padding="1dp"
+                    android:text="Description"
+                    android:textColor="@color/colorBlack"
+                    android:textStyle="bold" />
+
+                <!-- TextView Npm Mahasiswa -->
+                <TextView
+                    android:id="@+id/meet_detail_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/text_background"
+                    android:padding="10dp"
+                    android:text="06/11/2019 09:00:00" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:padding="1dp"
+                    android:text="Start Date"
+                    android:textColor="@color/colorBlack"
+                    android:textStyle="bold" />
+
+                <!-- TextView Npm Mahasiswa -->
+                <TextView
+                    android:id="@+id/date_time_toattend"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/text_background"
+                    android:padding="10dp"
+                    android:text="false" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:padding="1dp"
+                    android:text="is MSTeams Meeting?"
+                    android:textColor="@color/colorBlack"
+                    android:textStyle="bold" />
+
+                <!-- TextView Npm Mahasiswa -->
+                <TextView
+                    android:id="@+id/isMSteam__toattend_textview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/text_background"
+                    android:padding="10dp"
+                    android:text="false" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:padding="1dp"
+                    android:text="MSTeams Meeting ID"
+                    android:textColor="@color/colorBlack"
+                    android:textStyle="bold" />
+
+                <!-- TextView Npm Mahasiswa -->
+                <TextView
+                    android:id="@+id/meeting_id_textview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:padding="10dp"
+                    android:text="false" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:padding="1dp"
+                    android:text="MSTeam Meeting WebLink"
+                    android:textColor="@color/colorBlack"
+                    android:textStyle="bold" />
+
+                <!-- TextView Npm Mahasiswa -->
+                <TextView
+                    android:id="@+id/MSTeamMeetingJoinUrl_textview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:padding="10dp"
+                    android:text="false" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:padding="1dp"
+                    android:text="MSTeam Meeting Join Url"
+                    android:textColor="@color/colorBlack"
+                    android:textStyle="bold" />
+
+                <!-- TextView Npm Mahasiswa -->
+                <TextView
+                    android:id="@+id/MSTeamMeetingWebLink_textview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:padding="10dp"
+                    android:text="false" />
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
+            android:layout_margin="10dp"
             android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:textColor="@color/colorBlack"
-            android:padding="1dp"/>
+            android:text="Meeting Attachments"
+            android:textSize="20dp" />
 
-            <!-- TextView Npm Mahasiswa -->
-            <TextView
-                android:text="Workshop for Descrimination"
-                android:id="@+id/agenda_toattend"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:background="@drawable/text_background"
-                android:layout_marginBottom="5dp"/>
-            <TextView
-            android:text="Description"
-
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/meeting_details_attachment_recyclerview"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/colorBlack"
-            android:textStyle="bold"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:padding="1dp"/>
-
-            <!-- TextView Npm Mahasiswa -->
-            <TextView
-                android:text="06/11/2019 09:00:00"
-                android:id="@+id/meet_detail_description"
-
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/text_background"
-                android:padding="10dp"
-
-                android:layout_marginBottom="5dp"/>
-            <TextView
-                android:text="Start Date"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:textColor="@color/colorBlack"
-                android:textStyle="bold"
-                android:padding="1dp"/>
-
-            <!-- TextView Npm Mahasiswa -->
-            <TextView
-                android:text="false"
-                android:id="@+id/date_time_toattend"
-
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/text_background"
-                android:padding="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="5dp"/>
-
-            <TextView
-                android:text="is MSTeams Meeting?"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:textColor="@color/colorBlack"
-                android:textStyle="bold"
-                android:padding="1dp"/>
-
-            <!-- TextView Npm Mahasiswa -->
-            <TextView
-                android:text="false"
-                android:id="@+id/isMSteam__toattend_textview"
-
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/text_background"
-                android:padding="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="5dp"/>
-
-            <TextView
-                android:text="MSTeams Meeting ID"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:textColor="@color/colorBlack"
-                android:textStyle="bold"
-                android:padding="1dp"/>
-
-            <!-- TextView Npm Mahasiswa -->
-            <TextView
-                android:text="false"
-                android:id="@+id/meeting_id_textview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="5dp"/>
-
-            <TextView
-                android:text="MSTeam Meeting WebLink"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:textColor="@color/colorBlack"
-                android:textStyle="bold"
-                android:padding="1dp"/>
-
-            <!-- TextView Npm Mahasiswa -->
-            <TextView
-                android:text="false"
-                android:id="@+id/MSTeamMeetingJoinUrl_textview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="5dp"/>
-            <TextView
-                android:text="MSTeam Meeting Join Url"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:textColor="@color/colorBlack"
-                android:textStyle="bold"
-                android:padding="1dp"/>
-
-            <!-- TextView Npm Mahasiswa -->
-            <TextView
-                android:text="false"
-                android:id="@+id/MSTeamMeetingWebLink_textview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="5dp"/>
-        </LinearLayout>
-
-    </androidx.cardview.widget.CardView>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20dp"
-        android:layout_marginLeft="10dp"
-        android:layout_margin="10dp"
-        android:text="Meeting Attachments"/>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/meeting_details_attachment_recyclerview"/>
-</LinearLayout>
+            android:layout_height="wrap_content" />
+    </LinearLayout>
 </ScrollView>

@@ -1,6 +1,7 @@
 package com.example.ecms;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -37,6 +38,9 @@ private ToAttendMeetingsAdapter toAttendMeetingsAdapter;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_to_attend_meeting);
 //        addData();
+        getSupportActionBar().hide();
+        Toolbar toolbartoAttend=(Toolbar)findViewById(R.id.toolbar_meetinglist);
+        toolbartoAttend.setTitle("Attend Meetings");
         tvNoMeetings = findViewById(R.id.no_Meetings_tv);
         recyclerViewToAttend = findViewById(R.id.to_attend_meetings_recyclerview);
         toAttendMeetingsCall();
