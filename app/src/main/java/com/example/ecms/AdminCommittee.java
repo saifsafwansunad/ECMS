@@ -1,5 +1,6 @@
 package com.example.ecms;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,17 +9,22 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.ecms.ApiResponse.ToAttendMeetingResponse;
 import com.example.ecms.Models.Admin;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class AdminCommittee extends RecyclerView.Adapter<AdminCommittee.MahasiswaViewHolder> {
 
+    private List<ComitteeResponse> comitteeResponses;
+    public static ComitteeResponse meetingDetails;
+    Activity context;
 
-    private ArrayList<Commitee> dataList;
 
-    public AdminCommittee(ArrayList<Commitee> dataList) {
-        this.dataList = dataList;
+    public AdminCommittee(CommitteeManagement context, List<ComitteeResponse> dataList) {
+        this.comitteeResponses = dataList;
+        this.context = context;
     }
 
     @Override
@@ -30,13 +36,13 @@ public class AdminCommittee extends RecyclerView.Adapter<AdminCommittee.Mahasisw
 
     @Override
     public void onBindViewHolder(AdminCommittee.MahasiswaViewHolder holder, int position) {
-        holder.txtNama.setText(dataList.get(position).getBroader());
-        holder.txtNpm.setText(dataList.get(position).getShow());
+        holder.txtNama.setText(comitteeResponses.get(position).getCommitteeName());
+        holder.txtNpm.setText("Show Meetings");
         }
 
     @Override
     public int getItemCount() {
-        return (dataList != null) ? dataList.size() : 0;
+        return (comitteeResponses != null) ? comitteeResponses.size() : 0;
     }
 
     public class MahasiswaViewHolder extends RecyclerView.ViewHolder{

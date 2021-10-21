@@ -17,4 +17,6 @@ public interface Apis {
     @GET("MeetingsByEmpId.ashx")
     Call<List<ToAttendMeetingResponse>> toAttendMeeting(@Query("empid") String empid);
 
+    @GET("Committees.ashx")
+    Call<List<ComitteeResponse>> tocommitee(@Query("empid") String empid);
 }
