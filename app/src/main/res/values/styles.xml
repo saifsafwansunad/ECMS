@@ -32,4 +32,10 @@
         <item name="boxCornerRadiusTopStart">3dp</item>
     </style>
 
+    <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">18sp</item>
+        <item name="android:singleLine">false</item>
+        <item name="maxLines">3</item>
+    </style>
+
 </resources>

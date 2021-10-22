@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.ecms.Activity.CommittiMeetingFilesActivity;
 import com.example.ecms.ApiResponse.ToAttendMeetingResponse;
 import com.example.ecms.Models.Admin;
 
@@ -38,6 +39,21 @@ public class AdminCommittee extends RecyclerView.Adapter<AdminCommittee.Mahasisw
     public void onBindViewHolder(AdminCommittee.MahasiswaViewHolder holder, int position) {
         holder.txtNama.setText(comitteeResponses.get(position).getCommitteeName());
         holder.txtNpm.setText("Show Meetings");
+        holder.txtNpm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                context.startActivity(new Intent(context, CommitteeMeetings.class));
+            }
+        });
+        holder.txtNama.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, CommittiMeetingFilesActivity.class);
+                intent.putExtra("folderPath", comitteeResponses.get(position).getFolderPath() );
+                context.startActivity(intent);
+            }
+        });
+
         }
 
     @Override
@@ -52,12 +68,12 @@ public class AdminCommittee extends RecyclerView.Adapter<AdminCommittee.Mahasisw
             super(itemView);
             txtNama = itemView.findViewById(R.id.broader);
             txtNpm = itemView.findViewById(R.id.show);
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    itemView.getContext().startActivity(new Intent(itemView.getContext(), CommitteeMeetings.class));
-                }
-            });
+//            itemView.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    itemView.getContext().startActivity(new Intent(itemView.getContext(), CommitteeMeetings.class));
+//                }
+//            });
 
 
 

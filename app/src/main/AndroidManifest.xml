@@ -14,10 +14,13 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:usesCleartextTraffic="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".AttendMeetingDetailsActivity"></activity>
+        android:theme="@style/AppTheme"
+        tools:targetApi="n">
+        <activity android:name=".Activity.CommittiMeetingFilesActivity"></activity>
+        <activity android:name=".AttendMeetingDetailsActivity" />
         <activity android:name=".ToAttendMeetingActivity" />
         <activity android:name=".LoginActivity">
             <intent-filter>

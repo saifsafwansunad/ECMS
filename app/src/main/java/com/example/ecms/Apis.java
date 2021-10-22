@@ -1,5 +1,6 @@
 package com.example.ecms;
 
+import com.example.ecms.ApiResponse.CommitteeFilesResponse;
 import com.example.ecms.ApiResponse.ToAttendMeetingResponse;
 
 import java.util.List;
@@ -19,4 +20,7 @@ public interface Apis {
 
     @GET("Committees.ashx")
     Call<List<ComitteeResponse>> tocommitee(@Query("empid") String empid);
+
+    @GET("App_Handler/FileSystem1.ashx")
+    Call<CommitteeFilesResponse> CFList(@Query("CFName") String CFName);
 }
