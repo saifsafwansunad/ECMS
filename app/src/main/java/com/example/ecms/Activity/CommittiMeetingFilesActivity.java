@@ -50,7 +50,7 @@ public class CommittiMeetingFilesActivity extends AppCompatActivity {
 
         getSupportActionBar().hide();
         Toolbar toolbartoAttend=(Toolbar)findViewById(R.id.commitee_folder_toolbar);
-        toolbartoAttend.setTitle("Committee/" + folderPath);
+        toolbartoAttend.setTitle("Committees/" + folderPath);
 
         committifolders();
     }
@@ -154,7 +154,9 @@ public class CommittiMeetingFilesActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        if(folderAddress.equals("Committee/" + folderPath)){
+//        String firstAddr = "Committees/" + folderPath;
+//        Toast.makeText(this, firstAddr, Toast.LENGTH_SHORT).show();
+        if(folderAddress.equals("Committees/" + folderPath)){
             super.onBackPressed();
         }else{
 //            Toast.makeText(this, "You cant go back right now", Toast.LENGTH_SHORT).show();
