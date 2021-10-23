@@ -8,6 +8,7 @@ import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.ecms.Adapters.ToAttendMeetingsAdapter;
@@ -27,6 +28,8 @@ import retrofit2.Response;
 
 public class CommitteeMeetings extends AppCompatActivity {
     private RecyclerView recyclerView;
+    TextView commiteeMeeting;
+
     private CommiteMeetingsAdapter adapter;
     private List<CommiteeMeetingModel> commiteeMeetingModels;
 
@@ -38,6 +41,7 @@ public class CommitteeMeetings extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setTitle("Committee Meetings");
         setContentView(R.layout.activity_committee_meetings);
+        commiteeMeeting=findViewById(R.id.commitee_meeting);
         commiteeMeetingsParticular();
 
         //addData();
@@ -92,6 +96,7 @@ public class CommitteeMeetings extends AppCompatActivity {
                     public void onResponse(Call<List<CommiteeMeetingModel>> call, Response<List<CommiteeMeetingModel>> response) {
 
                         if (response.isSuccessful()) {
+                            commiteeMeeting.setVisibility(View.GONE);
 //        Toast.makeText(AppointmentsActivity.this, "appointments got", Toast.LENGTH_LONG).show();
                             progressDialog.dismiss();
                          //   Toast.makeText(CommitteeMeetings.this, "success", Toast.LENGTH_SHORT).show();
@@ -116,7 +121,7 @@ public class CommitteeMeetings extends AppCompatActivity {
                     public void onFailure(Call<List<CommiteeMeetingModel>> call, Throwable t) {
 
                         progressDialog.dismiss();
-                        Toast.makeText(CommitteeMeetings.this, "Not Found", Toast.LENGTH_LONG).show();
+                        // Toast.makeText(CommitteeMeetings.this, "Not Found", Toast.LENGTH_LONG).show();
                         //Toast.makeText(CommitteeMeetings.this, "Throwable " + t.getLocalizedMessage(), Toast.LENGTH_LONG).show();
 
                     }
