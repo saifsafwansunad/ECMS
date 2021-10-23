@@ -1,9 +1,11 @@
 package com.example.ecms.Adapters;
 
 import android.app.Activity;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,6 +20,8 @@ import com.example.ecms.R;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
+
+
 
 public class CommitteeFilesAdapter extends RecyclerView.Adapter<CommitteeFilesAdapter.ViewHolder> {
 
@@ -42,10 +46,27 @@ public class CommitteeFilesAdapter extends RecyclerView.Adapter<CommitteeFilesAd
     @Override
     public void onBindViewHolder(@NonNull @NotNull ViewHolder holder, int position) {
         holder.folderName.setText(folderList.get(position).getName());
+        if(folderList.get(position).getName().endsWith(".docx")){
+            holder.file_icon.setImageDrawable(holder.docx);
+            holder.file_icon.setMaxHeight(20);
+            holder.file_icon.setMaxWidth(20);
+
+        }else if(folderList.get(position).getName().endsWith(".pdf")){
+            holder.file_icon.setImageDrawable(holder.pdf);
+            holder.file_icon.setMaxHeight(20);
+            holder.file_icon.setMaxWidth(20);
+        }
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(count == 0){
+                if(count == 0 && folderList.get(position).getName().endsWith(".pdf"))
+                {
+                    Toast.makeText(context, folderList.get(position).getName(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, folderList.get(position).getValue(), Toast.LENGTH_SHORT).show();
+                }else if(count == 0 && folderList.get(position).getName().endsWith(".docx")){
+                    Toast.makeText(context, folderList.get(position).getName(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, folderList.get(position).getValue(), Toast.LENGTH_SHORT).show();
+                }else if(count == 0){
                     ((CommittiMeetingFilesActivity) v.getContext()).onClickCalled(folderList.get(position).getName());
                 }
 //                else{
@@ -65,9 +86,14 @@ public class CommitteeFilesAdapter extends RecyclerView.Adapter<CommitteeFilesAd
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         private TextView folderName;
+        private ImageView file_icon;
+        private Drawable docx, pdf;
         public ViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
             folderName = itemView.findViewById(R.id.folder_name);
+            file_icon = itemView.findViewById(R.id.file_icon);
+            docx = itemView.getResources().getDrawable(R.drawable.icon_docx);
+            pdf = itemView.getResources().getDrawable(R.drawable.ic_baseline_picture_as_pdf_24);
         }
     }
 }
