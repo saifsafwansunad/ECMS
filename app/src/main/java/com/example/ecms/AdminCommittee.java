@@ -19,7 +19,7 @@ import java.util.List;
 public class AdminCommittee extends RecyclerView.Adapter<AdminCommittee.MahasiswaViewHolder> {
 
     private List<ComitteeResponse> comitteeResponses;
-    public static ComitteeResponse meetingDetails;
+    public static String meetingDetails;
     Activity context;
 
 
@@ -43,6 +43,8 @@ public class AdminCommittee extends RecyclerView.Adapter<AdminCommittee.Mahasisw
             @Override
             public void onClick(View v) {
                 context.startActivity(new Intent(context, CommitteeMeetings.class));
+                meetingDetails=comitteeResponses.get(position).getCommitteeId();
+
             }
         });
         holder.txtNama.setOnClickListener(new View.OnClickListener() {

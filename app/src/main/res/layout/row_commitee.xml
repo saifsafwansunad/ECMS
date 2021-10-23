@@ -6,8 +6,7 @@
     android:layout_height="wrap_content"
     card_view:cardCornerRadius="5dp"
     card_view:cardUseCompatPadding="true"
-    android:background="@drawable/profile_text_bg"
-    >
+    android:background="@drawable/profile_text_bg">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
