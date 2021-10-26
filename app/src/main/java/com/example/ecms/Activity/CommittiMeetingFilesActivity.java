@@ -206,7 +206,7 @@ public class CommittiMeetingFilesActivity extends AppCompatActivity {
 //            text.setText(msg);
             MaterialButton dialogButton = (MaterialButton) dialog.findViewById(R.id.cancel_dialog_btn);
             MaterialButton downloadButton = (MaterialButton) dialog.findViewById(R.id.download_btn);
-            MaterialButton previewButton = (MaterialButton) dialog.findViewById(R.id.preview_btn);
+//            MaterialButton previewButton = (MaterialButton) dialog.findViewById(R.id.preview_btn);
             dialogButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -214,13 +214,13 @@ public class CommittiMeetingFilesActivity extends AppCompatActivity {
                 }
             });
 
-            previewButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
-                    activity.startActivity(browserIntent);
-                }
-            });
+//            previewButton.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+//                    activity.startActivity(browserIntent);
+//                }
+//            });
 
             downloadButton.setOnClickListener(new View.OnClickListener() {
                 @Override
