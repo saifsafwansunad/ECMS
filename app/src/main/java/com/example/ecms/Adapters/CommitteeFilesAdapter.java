@@ -59,20 +59,24 @@ public class CommitteeFilesAdapter extends RecyclerView.Adapter<CommitteeFilesAd
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(count == 0 && folderList.get(position).getName().endsWith(".pdf"))
+                if(folderList.get(position).getName().endsWith(".pdf"))
                 {
-                    Toast.makeText(context, folderList.get(position).getName(), Toast.LENGTH_SHORT).show();
-                    Toast.makeText(context, folderList.get(position).getValue(), Toast.LENGTH_SHORT).show();
-                }else if(count == 0 && folderList.get(position).getName().endsWith(".docx")){
-                    Toast.makeText(context, folderList.get(position).getName(), Toast.LENGTH_SHORT).show();
-                    Toast.makeText(context, folderList.get(position).getValue(), Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(context, folderList.get(position).getName(), Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(context, folderList.get(position).getValue(), Toast.LENGTH_SHORT).show();
+                    ((CommittiMeetingFilesActivity) v.getContext()).onClickDownload(context,folderList.get(position).getName());
+
+                }else if(folderList.get(position).getName().endsWith(".docx")){
+//                    Toast.makeText(context, folderList.get(position).getName(), Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(context, folderList.get(position).getValue(), Toast.LENGTH_SHORT).show();
+                    ((CommittiMeetingFilesActivity) v.getContext()).onClickDownload(context,folderList.get(position).getName());
                 }else if(count == 0){
                     ((CommittiMeetingFilesActivity) v.getContext()).onClickCalled(folderList.get(position).getName());
+                    count =+1;
                 }
 //                else{
 ////                    Toast.makeText(context, "you clicked " + String.valueOf(count) + " times" , Toast.LENGTH_SHORT).show();
 //                }
-                count =+1;
+
 
             }
         });

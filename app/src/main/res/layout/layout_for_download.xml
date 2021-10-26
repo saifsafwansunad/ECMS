@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="10dp"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:textSize="30dp"
+        android:textColor="#3B94D4"
+        android:layout_margin="10dp"
+        android:text="Download"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:textSize="18dp"
+        android:textColor="@color/colorBlack"
+        android:layout_margin="10dp"
+        android:text="Do you really want to download this file?"/>
+
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:id="@+id/preview_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:text="Preview"
+        app:icon="@drawable/icon_previw"
+        app:backgroundTint="@color/blue"
+        android:textColor="@color/white"/>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/download_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:text="save"
+            app:icon="@drawable/icon_download"
+            app:backgroundTint="@color/blue"
+            android:layout_margin="5dp"
+
+            android:textColor="#fff"/>
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:text="Cancel"
+            android:lines="1"
+            app:icon="@drawable/icon_cancel"
+            android:id="@+id/cancel_dialog_btn"
+            android:textColor="#fff"
+            app:backgroundTint="@color/blue"
+            android:layout_margin="5dp"
+            />
+    </LinearLayout>
+
+</LinearLayout>

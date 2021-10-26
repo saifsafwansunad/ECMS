@@ -5,12 +5,20 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Activity;
+import android.app.Dialog;
+import android.app.DownloadManager;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.webkit.CookieManager;
+import android.webkit.URLUtil;
 import android.widget.Toast;
+import android.net.Uri;
 
 import com.example.ecms.Adapters.CommitteeFilesAdapter;
 import com.example.ecms.Adapters.ToAttendMeetingsAdapter;
@@ -20,11 +28,14 @@ import com.example.ecms.ApiRequests.ToAttendMeetingRequest;
 import com.example.ecms.ApiResponse.CommitteeFilesResponse;
 import com.example.ecms.ApiResponse.ToAttendMeetingResponse;
 import com.example.ecms.DetectConnection;
+import com.example.ecms.Fragments.CorrespondenceDetailFragment.CorrespondenceDetailsFragment;
 import com.example.ecms.PreferenceUtils;
 import com.example.ecms.R;
 import com.example.ecms.ToAttendMeetingActivity;
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import java.net.URI;
 import java.util.List;
 
 import retrofit2.Call;
@@ -111,7 +122,8 @@ public class CommittiMeetingFilesActivity extends AppCompatActivity {
                     public void onFailure(Call<CommitteeFilesResponse> call, Throwable t) {
 
                         progressDialog.dismiss();
-                        Toast.makeText(CommittiMeetingFilesActivity.this, "Throwable " + t.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+//                        Toast.makeText(CommittiMeetingFilesActivity.this, "Throwable " + t.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+                        Toast.makeText(CommittiMeetingFilesActivity.this, "No Files in the directory", Toast.LENGTH_LONG).show();
                         Log.d("Reason", t.getLocalizedMessage() );
 
                     }
@@ -152,6 +164,18 @@ public class CommittiMeetingFilesActivity extends AppCompatActivity {
 
     }
 
+    public void onClickDownload(Activity context,String fileName) {
+        // Call another acitivty here and pass some arguments to it.
+//        Toast.makeText(this, fileName, Toast.LENGTH_SHORT).show();
+        String Uri = "http://102.133.164.64/" + folderAddress + "/" + fileName ;
+//        Toast.makeText(this, Uri, Toast.LENGTH_SHORT).show();
+        Log.d("DownloadTest", Uri);
+        CommittiMeetingFilesActivity.Downloaddialog downloaddialog = new Downloaddialog();
+        downloaddialog.showDialog(context, Uri);
+
+    }
+
+
     @Override
     public void onBackPressed() {
 //        String firstAddr = "Committees/" + folderPath;
@@ -166,5 +190,61 @@ public class CommittiMeetingFilesActivity extends AppCompatActivity {
             committifolders();
         }
 
+    }
+
+    public static   class Downloaddialog {
+
+        public void showDialog(Activity activity, String uri) {
+            final Dialog dialog = new Dialog(activity);
+            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+            dialog.setCancelable(false);
+//            dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+
+            dialog.setContentView(R.layout.layout_for_download);
+
+//            TextView text = (TextView) dialog.findViewById(R.id.text_dialog);
+//            text.setText(msg);
+            MaterialButton dialogButton = (MaterialButton) dialog.findViewById(R.id.cancel_dialog_btn);
+            MaterialButton downloadButton = (MaterialButton) dialog.findViewById(R.id.download_btn);
+            MaterialButton previewButton = (MaterialButton) dialog.findViewById(R.id.preview_btn);
+            dialogButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    dialog.dismiss();
+                }
+            });
+
+            previewButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+                    activity.startActivity(browserIntent);
+                }
+            });
+
+            downloadButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    DownloadManager.Request request = new DownloadManager.Request(Uri.parse(uri));
+                    String title = URLUtil.guessFileName(uri, null, null);
+                    Log.d("DownloadTest", Uri.parse(uri).toString());
+                    request.setTitle(title);
+                    request.setDescription("Downloading File please wait.....");
+                    String cookie = CookieManager.getInstance().getCookie(uri);
+                    request.addRequestHeader("cookie", cookie);
+                    request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+                    request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, title);
+
+                    DownloadManager downloadManager = (DownloadManager)activity.getSystemService(DOWNLOAD_SERVICE);
+                    downloadManager.enqueue(request);
+
+                    Toast.makeText(activity, "Downloading Started", Toast.LENGTH_SHORT).show();
+                    dialog.dismiss();
+                }
+            });
+
+            dialog.show();
+
+        }
     }
 }
