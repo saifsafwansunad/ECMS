@@ -69,6 +69,7 @@ public class CommitteeFilesAdapter extends RecyclerView.Adapter<CommitteeFilesAd
 //                    Toast.makeText(context, folderList.get(position).getName(), Toast.LENGTH_SHORT).show();
 //                    Toast.makeText(context, folderList.get(position).getValue(), Toast.LENGTH_SHORT).show();
                     ((CommittiMeetingFilesActivity) v.getContext()).onClickDownload(context,folderList.get(position).getName());
+
                 }else if(count == 0){
                     ((CommittiMeetingFilesActivity) v.getContext()).onClickCalled(folderList.get(position).getName());
                     count =+1;

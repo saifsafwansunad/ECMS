@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="10dp"
+    android:background="@color/white"
     android:orientation="vertical">
 
 
@@ -26,16 +27,16 @@
         android:text="Do you  want to download this file?"/>
 
 
-<!--    <com.google.android.material.button.MaterialButton-->
-<!--        android:layout_marginTop="5dp"-->
-<!--        android:layout_marginBottom="5dp"-->
-<!--        android:id="@+id/preview_btn"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="40dp"-->
-<!--        android:text="Preview"-->
-<!--        app:icon="@drawable/icon_previw"-->
-<!--        app:backgroundTint="@color/blue"-->
-<!--        android:textColor="@color/white"/>-->
+    <com.google.android.material.button.MaterialButton
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:id="@+id/preview_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:text="Preview"
+        app:icon="@drawable/icon_previw"
+        app:backgroundTint="@color/blue"
+        android:textColor="@color/white"/>
 
 
 
@@ -69,6 +70,9 @@
             app:backgroundTint="@color/blue"
             android:layout_margin="5dp"
             />
+
     </LinearLayout>
+
+
 
 </LinearLayout>

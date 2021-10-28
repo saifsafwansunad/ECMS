@@ -47,7 +47,7 @@ public class MeetingAttachmentAdapter extends RecyclerView.Adapter<MeetingAttach
             @Override
             public void onClick(View v) {
                 final String website = meetingAttachments.get(position).getFileUrl();
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(website));
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://docs.google.com/viewerng/viewer?url="+website));
                 context.startActivity(browserIntent);
             }
         });
