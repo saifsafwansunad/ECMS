@@ -205,6 +205,11 @@ View viewHeader;
                 progressDoalog.show();
                 startActivity(intent);
                 finish();
+
+            case R.id.action_notification:
+                Intent intent1 = new Intent(MainActivity.this, Notification.class);
+                startActivity(intent1);
+
         }
         return super.onOptionsItemSelected(item);
 
