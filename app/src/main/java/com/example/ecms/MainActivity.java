@@ -2,7 +2,9 @@ package com.example.ecms;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -38,6 +40,7 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private AppBarConfiguration mAppBarConfiguration;
+    private static int SPLASH_TIME_OUT=3000;
     Toolbar toolbar;
     Boolean checkbox=false;
 
@@ -56,6 +59,8 @@ View viewHeader;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
         drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         toolbar = findViewById(R.id.home_toolbar);
@@ -197,18 +202,19 @@ View viewHeader;
             case R.id.action_light_purple:
                 PreferenceUtils.savePassword(null, MainActivity.this);
                 PreferenceUtils.saveEmail(null, MainActivity.this);
-                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                Intent i = new Intent(this, LoginActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 final ProgressDialog progressDoalog;
                 progressDoalog = new ProgressDialog(MainActivity.this);
                 progressDoalog.setMessage("Logging Out....");
                 progressDoalog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
                 progressDoalog.show();
-                startActivity(intent);
+                startActivity(i);
                 finish();
 
             case R.id.action_notification:
-                Intent intent1 = new Intent(MainActivity.this, Notification.class);
-                startActivity(intent1);
+               /* Intent intent1 = new Intent(MainActivity.this, Notification.class);
+                startActivity(intent1);*/
 
         }
         return super.onOptionsItemSelected(item);

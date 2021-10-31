@@ -12,6 +12,7 @@ public class PreferenceUtils {
         SharedPreferences.Editor prefsEditor = prefs.edit();
         prefsEditor.putString(LoginConstants.KEY_EMAIL, email);
 
+
         prefsEditor.apply();
         return true;
     }
@@ -19,6 +20,8 @@ public class PreferenceUtils {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         return prefs.getString(LoginConstants.KEY_EMAIL, null);
     }
+
+
     public static String getUid(Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         return prefs.getString(LoginConstants.USER_ID, null);
@@ -33,6 +36,23 @@ public class PreferenceUtils {
         prefsEditor.apply();
         return true;
     }
+
+    public static boolean getCouncilor(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        return prefs.getBoolean(String.valueOf(LoginConstants.IS_COUNCILOR), false);
+    }
+
+
+    public static boolean saveCouncilor(boolean Uid, Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor prefsEditor = prefs.edit();
+        prefsEditor.putBoolean(String.valueOf(LoginConstants.IS_COUNCILOR), Uid);
+
+        prefsEditor.apply();
+        return true;
+    }
+
+
 
     public static boolean savePassword(String password, Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);

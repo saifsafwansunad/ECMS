@@ -22,6 +22,11 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
+
+
+    {
+
+    }
 AppCompatButton buttonLogin;
     public static UserLoginResponse userLoginResponse;
 
@@ -32,10 +37,13 @@ EditText editTextLoginEmail,editTextLoginPassword;
     private List<UserLoginResponse> dataArrayList=new ArrayList<>();
 
     String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
-    private static boolean IsCouncillor = false;
+    private static boolean IsCouncillor;
 
 
     public static CheckBox checkBox;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +53,15 @@ EditText editTextLoginEmail,editTextLoginPassword;
     editTextLoginEmail=findViewById(R.id.emailId);
     editTextLoginPassword=findViewById(R.id.password);
     getSupportActionBar().hide();
+        PreferenceUtils utils = new PreferenceUtils();
+
+        if (utils.getEmail(this) != null ){
+                IsCouncillor=PreferenceUtils.getCouncilor(LoginActivity.this);
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                startActivity(intent);
+
+              }else{
+        }
 
     buttonLogin.setOnClickListener(new View.OnClickListener() {
         @Override
@@ -77,8 +94,11 @@ EditText editTextLoginEmail,editTextLoginPassword;
     });
     }
     public static boolean checkValue(){
+
         return IsCouncillor;
     }
+
+
 
     public final void login() {
 
@@ -144,9 +164,15 @@ EditText editTextLoginEmail,editTextLoginPassword;
                               //  userLoginResponse.setPassword(loginRequest.getUpwd());
                                // userLoginResponse.setUsername(loginRequest.getUname());
                                         if(userLoginResponse.getIsCouncillor().equals("True")){
+                                            PreferenceUtils.saveCouncilor(true,LoginActivity.this);
+                                            boolean save=PreferenceUtils.getCouncilor(LoginActivity.this);
                                             IsCouncillor = true;
-                                        }else
+                                        }else {
+                                            PreferenceUtils.saveCouncilor(false,LoginActivity.this);
+
                                             IsCouncillor = false;
+
+                                        }
 
                                         Toast.makeText(LoginActivity.this, "Login Success", Toast.LENGTH_SHORT).show();
                                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
