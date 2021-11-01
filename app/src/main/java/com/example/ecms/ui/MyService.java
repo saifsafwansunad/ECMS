@@ -41,7 +41,7 @@ public class MyService extends Service {
         toAttendMeetingActivity.toAttendMeetingsCall();*/
 
         handler = new Handler();
-        handler.post(new Runnable() {
+        handler.postDelayed(new Runnable() {
             @Override
             public void run() {
 
@@ -50,7 +50,7 @@ public class MyService extends Service {
                 Toast.makeText(getApplicationContext(),"This is a Service running in Background",
                         Toast.LENGTH_SHORT).show();
             }
-        });
+        },2000);
         return android.app.Service.START_STICKY;
     }
 
@@ -78,7 +78,7 @@ public class MyService extends Service {
 
 
 
-        Call<List<ToAttendMeetingResponse>> loginResponseCall = ApiClient.getUserService().toAttendMeeting(toAttendMeetingRequest.getuId());
+        Call<List<ToAttendMeetingResponse>> loginResponseCall = ApiClient.getUserService().toAttendMeeting(String.valueOf(1));
 
 
             try {
@@ -87,6 +87,15 @@ public class MyService extends Service {
                     public void onResponse(Call<List<ToAttendMeetingResponse>> call, Response<List<ToAttendMeetingResponse>> response) {
 
                         if (response.isSuccessful()) {
+                            if (response.body() != null && response.body().size() > 0) {
+                                List<ToAttendMeetingResponse> meetingsList = response.body();
+                                int size=meetingsList.size();
+                                Log.d("key of the message", "size " + size);
+
+
+
+
+                            }
 
                         }
                     }
