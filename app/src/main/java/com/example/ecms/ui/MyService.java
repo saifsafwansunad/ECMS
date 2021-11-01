@@ -90,7 +90,7 @@ public class MyService extends Service {
         toAttendMeetingRequest.setuId(PreferenceUtils.getUid(getApplicationContext()));
 
         Log.d("key of the message", "size ");
-        Toast.makeText(this, "hello", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "hello", Toast.LENGTH_SHORT).show();
 
 
 
@@ -108,7 +108,7 @@ public class MyService extends Service {
                                 List<ToAttendMeetingResponse> meetingsList = response.body();
                                 int size=meetingsList.size();
                                 Log.d("key of the message", "size " + size);
-                                Toast.makeText(MyService.this, "size " + size, Toast.LENGTH_SHORT).show();
+//                                Toast.makeText(MyService.this, "size " + size, Toast.LENGTH_SHORT).show();
 
 
                                 //// this is notification implementation
