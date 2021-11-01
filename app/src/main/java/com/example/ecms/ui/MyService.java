@@ -101,6 +101,8 @@ public class MyService extends Service {
                                 int size=meetingsList.size();
                                 Log.d("key of the message", "size " + size);
 
+
+                                //// this is notification implementation
                                 Intent intentNotification = new Intent(MyService.this, ToAttendMeetingActivity.class);
                                 PendingIntent pendingIntent = PendingIntent.getActivity(MyService.this, 0, intentNotification, PendingIntent.FLAG_UPDATE_CURRENT);
 
