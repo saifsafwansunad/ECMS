@@ -12,6 +12,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
+import com.example.ecms.ui.MyService;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
@@ -47,6 +48,7 @@ EditText editTextLoginEmail,editTextLoginPassword;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_login);
     buttonLogin=(AppCompatButton) findViewById(R.id.login_btn);
     checkBox=findViewById(R.id.login_checkbox);
@@ -73,6 +75,7 @@ EditText editTextLoginEmail,editTextLoginPassword;
                     if (editTextLoginPassword.getText().toString().isEmpty()){
                         Toast.makeText(getApplicationContext(), "Enter password", Toast.LENGTH_SHORT).show();
                     }else{
+                        startService(new Intent(getApplicationContext(), MyService.class));
 
                         login();
                        // emptyInputEditText();

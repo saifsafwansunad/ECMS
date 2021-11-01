@@ -22,6 +22,10 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="n">
+        <service
+            android:name=".ui.MyService"
+            android:enabled="true"
+            android:exported="true"></service>
         <activity android:name=".Notification" />
         <activity android:name=".Activity.CommittiMeetingFilesActivity" />
         <activity android:name=".AttendMeetingDetailsActivity" />
@@ -53,6 +57,7 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
+            android:exported="true"
             android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
