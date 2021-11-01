@@ -26,10 +26,6 @@
             android:name=".ui.MyService"
             android:enabled="true"
             android:exported="true"></service>
-        <service
-            android:name=".Reciever.NoticeReciever"
-            android:enabled="true"
-            android:exported="true"></service>
         <activity android:name=".Notification" />
         <activity android:name=".Activity.CommittiMeetingFilesActivity" />
         <activity android:name=".AttendMeetingDetailsActivity" />
