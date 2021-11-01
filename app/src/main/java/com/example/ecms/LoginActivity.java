@@ -11,7 +11,11 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.example.ecms.Adapters.ToAttendMeetingsAdapter;
+import com.example.ecms.ApiRequests.ToAttendMeetingRequest;
+import com.example.ecms.ApiResponse.ToAttendMeetingResponse;
 import com.example.ecms.ui.MyService;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -25,9 +29,7 @@ import retrofit2.Response;
 public class LoginActivity extends AppCompatActivity {
 
 
-    {
 
-    }
 AppCompatButton buttonLogin;
     public static UserLoginResponse userLoginResponse;
 
@@ -75,10 +77,10 @@ EditText editTextLoginEmail,editTextLoginPassword;
                     if (editTextLoginPassword.getText().toString().isEmpty()){
                         Toast.makeText(getApplicationContext(), "Enter password", Toast.LENGTH_SHORT).show();
                     }else{
-                        startService(new Intent(getApplicationContext(), MyService.class));
 
                         login();
-                       // emptyInputEditText();
+
+                        // emptyInputEditText();
 
                     }
                 }
@@ -158,6 +160,7 @@ EditText editTextLoginEmail,editTextLoginPassword;
                                 PreferenceUtils.saveUid(data,LoginActivity.this);
 
                                 Log.d("key of the message", "The message " + data);
+
                             }
                             if (data == null) {
 
@@ -177,7 +180,7 @@ EditText editTextLoginEmail,editTextLoginPassword;
 
                                         }
 
-                                        Toast.makeText(LoginActivity.this, "Login Success", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginActivity.this, "Login Success", Toast.LENGTH_SHORT).show();
                                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                         startActivity(intent);
                                         finish();
@@ -238,6 +241,7 @@ EditText editTextLoginEmail,editTextLoginPassword;
         editTextLoginEmail.setText(null);
         editTextLoginPassword.setText(null);
     }
+
 
 
 }

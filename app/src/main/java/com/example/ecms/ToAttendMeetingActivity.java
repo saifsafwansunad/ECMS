@@ -6,7 +6,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
+import android.app.Service;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.IBinder;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -18,6 +21,7 @@ import com.example.ecms.ApiRequests.ToAttendMeetingRequest;
 import com.example.ecms.ApiResponse.ToAttendMeetingResponse;
 import com.example.ecms.Models.ManageModel;
 import com.example.ecms.Models.ToattendMeetingsModel;
+import com.example.ecms.ui.MyService;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
@@ -33,10 +37,13 @@ RecyclerView recyclerViewToAttend;
 private ToAttendMeetingsAdapter toAttendMeetingsAdapter;
     private ArrayList<ToattendMeetingsModel> toattendMeetingsModelslist;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_to_attend_meeting);
+
 //        addData();
         getSupportActionBar().hide();
         Toolbar toolbartoAttend=(Toolbar)findViewById(R.id.meetings_toolbar);
@@ -44,6 +51,7 @@ private ToAttendMeetingsAdapter toAttendMeetingsAdapter;
         tvNoMeetings = findViewById(R.id.no_Meetings_tv);
         recyclerViewToAttend = findViewById(R.id.to_attend_meetings_recyclerview);
         toAttendMeetingsCall();
+
 //        toAttendMeetingsAdapter = new ToAttendMeetingsAdapter(toattendMeetingsModelslist);
 //        toAttendMeetingsAdapter = new ToAttendMeetingsAdapter(toattendMeetingsModelslist);
 
@@ -67,7 +75,14 @@ private ToAttendMeetingsAdapter toAttendMeetingsAdapter;
 
     public final void toAttendMeetingsCall() {
         ToAttendMeetingRequest toAttendMeetingRequest = new ToAttendMeetingRequest();
-        toAttendMeetingRequest.setuId(PreferenceUtils.getUid(ToAttendMeetingActivity.this));
+        try{
+            if(PreferenceUtils.getUid(ToAttendMeetingActivity.this)!=null){
+                toAttendMeetingRequest.setuId(PreferenceUtils.getUid(ToAttendMeetingActivity.this));
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
         final ProgressDialog progressDialog;
         progressDialog = new ProgressDialog(ToAttendMeetingActivity.this);
         progressDialog.setMessage("Please Wait....");
@@ -93,6 +108,7 @@ private ToAttendMeetingsAdapter toAttendMeetingsAdapter;
                         if (response.isSuccessful()) {
 //        Toast.makeText(AppointmentsActivity.this, "appointments got", Toast.LENGTH_LONG).show();
                             progressDialog.dismiss();
+
                             if (response.body() != null && response.body().size() > 0) {
                                 tvNoMeetings.setVisibility(View.GONE);
                                 recyclerViewToAttend.setVisibility(View.VISIBLE);
@@ -100,7 +116,9 @@ private ToAttendMeetingsAdapter toAttendMeetingsAdapter;
                                 recyclerViewToAttend.setLayoutManager(new LinearLayoutManager(ToAttendMeetingActivity.this));
                                 recyclerViewToAttend.setAdapter(new ToAttendMeetingsAdapter(ToAttendMeetingActivity.this,meetingsList));
                                 Log.d("key of the message", "appointments are.... " + response.body());
+
                             }
+
                             else {
                                 recyclerViewToAttend.setVisibility(View.GONE);
                                 tvNoMeetings.setVisibility(View.VISIBLE);
@@ -151,4 +169,6 @@ private ToAttendMeetingsAdapter toAttendMeetingsAdapter;
 
         }
     }
-}
+
+
+   }

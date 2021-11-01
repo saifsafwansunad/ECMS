@@ -60,7 +60,7 @@ View viewHeader;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        startService(new Intent(getApplicationContext(), MyService.class));
 
 
         drawer = findViewById(R.id.drawer_layout);
