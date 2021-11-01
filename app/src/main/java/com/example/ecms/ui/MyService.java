@@ -15,9 +15,11 @@ import android.widget.Toast;
 
 import androidx.core.app.NotificationCompat;
 
+import com.example.ecms.Adapters.ToAttendMeetingsAdapter;
 import com.example.ecms.ApiClient;
 import com.example.ecms.ApiRequests.ToAttendMeetingRequest;
 import com.example.ecms.ApiResponse.ToAttendMeetingResponse;
+import com.example.ecms.AttendMeetingDetailsActivity;
 import com.example.ecms.DetectConnection;
 import com.example.ecms.LoginActivity;
 import com.example.ecms.Notification;
@@ -35,6 +37,8 @@ public class MyService extends Service {
     private String CHANNEL_ID = "My Notification";
 
     protected Handler handler;
+    private static int count = 0;
+    private  static int prevSize;
 
     public MyService() {
     }
@@ -56,8 +60,8 @@ public class MyService extends Service {
 
 // write your code to post content on server
                 onTaskRemoved(intent);
-                Toast.makeText(getApplicationContext(),"This is a Service running in Background",
-                        Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(),"This is a Service running in Background",
+//                        Toast.LENGTH_SHORT).show();
             }
         },2000);
         return android.app.Service.START_STICKY;
@@ -83,6 +87,10 @@ public class MyService extends Service {
 
     public final void toAttendMeetingsCall() {
         ToAttendMeetingRequest toAttendMeetingRequest = new ToAttendMeetingRequest();
+        toAttendMeetingRequest.setuId(PreferenceUtils.getUid(getApplicationContext()));
+
+        Log.d("key of the message", "size ");
+        Toast.makeText(this, "hello", Toast.LENGTH_SHORT).show();
 
 
 
@@ -100,28 +108,43 @@ public class MyService extends Service {
                                 List<ToAttendMeetingResponse> meetingsList = response.body();
                                 int size=meetingsList.size();
                                 Log.d("key of the message", "size " + size);
+                                Toast.makeText(MyService.this, "size " + size, Toast.LENGTH_SHORT).show();
 
 
                                 //// this is notification implementation
-                                Intent intentNotification = new Intent(MyService.this, ToAttendMeetingActivity.class);
-                                PendingIntent pendingIntent = PendingIntent.getActivity(MyService.this, 0, intentNotification, PendingIntent.FLAG_UPDATE_CURRENT);
+                                if(count == 0 ){
+                                    prevSize = size;
+                                    count=count+1;
+                                }else {
+                                    if(size > prevSize){
+                                        prevSize = size;
+                                        ToAttendMeetingResponse toAttendMeetingResponse1 = meetingsList.get(meetingsList.size()-1);
+                                        //// this is notification implementation
+                                        ToAttendMeetingsAdapter.meetingDetails = toAttendMeetingResponse1;
+                                        Intent intentNotification = new Intent(MyService.this, AttendMeetingDetailsActivity.class);
+                                        PendingIntent pendingIntent = PendingIntent.getActivity(MyService.this, 0, intentNotification, PendingIntent.FLAG_UPDATE_CURRENT);
 
-                                NotificationCompat.Builder builderNotificationCompat = new NotificationCompat.Builder(MyService.this, CHANNEL_ID)
-                                        .setContentIntent(pendingIntent)
-                                        .setContentTitle("My Notification")
-                                        .setContentText("My Notification text here.")
-                                        .setSmallIcon(android.R.drawable.btn_star_big_on);
+                                        NotificationCompat.Builder builderNotificationCompat = new NotificationCompat.Builder(MyService.this, CHANNEL_ID)
+                                                .setContentIntent(pendingIntent)
+                                                .setContentTitle(toAttendMeetingResponse1.getMeetingType())
+                                                .setContentText(toAttendMeetingResponse1.getTitle())
+                                                .setAutoCancel(true)
+                                                .setSmallIcon(android.R.drawable.btn_star_big_on);
 
-                                NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+                                        NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 
-                                NotificationChannel notificationChannel = null;
-                                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-                                    notificationChannel = new NotificationChannel(CHANNEL_ID, "This is my first Notification", NotificationManager.IMPORTANCE_DEFAULT);
+                                        NotificationChannel notificationChannel = null;
+                                        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                                            notificationChannel = new NotificationChannel(CHANNEL_ID, "This is my first Notification", NotificationManager.IMPORTANCE_DEFAULT);
+                                        }
+                                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                                            notificationManager.createNotificationChannel(notificationChannel);
+                                        }
+                                        notificationManager.notify(0,builderNotificationCompat.build());
+                                    }
                                 }
-                                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                                    notificationManager.createNotificationChannel(notificationChannel);
-                                }
-                                notificationManager.notify(0,builderNotificationCompat.build());
+
+
 
                                 //upto here
 
