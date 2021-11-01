@@ -95,7 +95,7 @@ public class MyService extends Service {
 
 
 
-        Call<List<ToAttendMeetingResponse>> loginResponseCall = ApiClient.getUserService().toAttendMeeting(String.valueOf(1));
+        Call<List<ToAttendMeetingResponse>> loginResponseCall = ApiClient.getUserService().toAttendMeeting(toAttendMeetingRequest.getuId());
 
 
             try {
@@ -113,7 +113,7 @@ public class MyService extends Service {
 
                                 //// this is notification implementation
                                 if(count == 0 ){
-                                    prevSize = size;
+                                    prevSize = size-1;
                                     count=count+1;
                                 }else {
                                     if(size > prevSize){
