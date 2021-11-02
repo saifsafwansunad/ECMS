@@ -37,8 +37,8 @@ public class MyService extends Service {
     private String CHANNEL_ID = "My Notification";
 
     protected Handler handler;
-    private static int count = 0;
-    private  static int prevSize;
+    public static int count = 0;
+    private  int prevSize;
 
     public MyService() {
     }
@@ -113,7 +113,7 @@ public class MyService extends Service {
 
                                 //// this is notification implementation
                                 if(count == 0 ){
-                                    prevSize = size-1;
+                                    prevSize = size;
                                     count=count+1;
                                 }else {
                                     if(size > prevSize){
@@ -161,7 +161,7 @@ public class MyService extends Service {
                     @Override
                     public void onFailure(Call<List<ToAttendMeetingResponse>> call, Throwable t) {
 
-                        Toast.makeText(MyService.this, "Throwable " + t.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+//                        Toast.makeText(MyService.this, "Throwable " + t.getLocalizedMessage(), Toast.LENGTH_LONG).show();
 
                     }
                 });

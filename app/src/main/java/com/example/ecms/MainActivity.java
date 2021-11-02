@@ -204,6 +204,7 @@ View viewHeader;
             case R.id.action_light_purple:
                 PreferenceUtils.savePassword(null, MainActivity.this);
                 PreferenceUtils.saveEmail(null, MainActivity.this);
+                MyService.count = 0;
                 Intent i = new Intent(this, LoginActivity.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 final ProgressDialog progressDoalog;
