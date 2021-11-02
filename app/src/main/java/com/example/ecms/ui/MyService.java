@@ -79,7 +79,20 @@ public class MyService extends Service {
     public void onTaskRemoved(Intent rootIntent) {
         Intent restartServiceIntent = new Intent(getApplicationContext(),this.getClass());
         restartServiceIntent.setPackage(getPackageName());
-        startService(restartServiceIntent);
+        try{
+            startService(restartServiceIntent);
+
+        }catch (IllegalStateException e){
+            Log.d("illegalstate", "");
+
+
+            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                startForegroundService(restartServiceIntent);
+            }
+            else {
+                startService(restartServiceIntent);
+            }
+        }
         toAttendMeetingsCall();
 
         super.onTaskRemoved(rootIntent);
@@ -135,7 +148,7 @@ public class MyService extends Service {
 
                                         NotificationChannel notificationChannel = null;
                                         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-                                            notificationChannel = new NotificationChannel(CHANNEL_ID, "This is my first Notification", NotificationManager.IMPORTANCE_DEFAULT);
+                                            notificationChannel = new NotificationChannel(CHANNEL_ID, "Notification", NotificationManager.IMPORTANCE_DEFAULT);
                                         }
                                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                                             notificationManager.createNotificationChannel(notificationChannel);

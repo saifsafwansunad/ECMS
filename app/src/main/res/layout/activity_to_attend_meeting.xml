@@ -6,26 +6,10 @@
 
     android:layout_height="match_parent"
     tools:context=".ToAttendMeetingActivity">
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-
-<androidx.appcompat.widget.Toolbar
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:id="@+id/meetings_toolbar"/>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:visibility="gone"
+    <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:id="@+id/to_attend_meetings_recyclerview"/>
-    </LinearLayout>
-
+        android:id="@+id/meetings_toolbar"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -37,5 +21,29 @@
         android:visibility="visible"
         android:textColor="@color/colorBlack"
         android:textStyle="italic|bold"/>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    android:id="@+id/swipe"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:id="@+id/to_attend_meetings_recyclerview"/>
+    </LinearLayout>
+
+
+
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
 
 </RelativeLayout>
