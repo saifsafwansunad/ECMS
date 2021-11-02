@@ -196,6 +196,13 @@ View viewHeader;
 
 
     @Override
+    protected void onStop() {
+        stopService(new Intent(this, MyService.class));
+
+        super.onStop();
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
 
@@ -205,6 +212,10 @@ View viewHeader;
                 PreferenceUtils.savePassword(null, MainActivity.this);
                 PreferenceUtils.saveEmail(null, MainActivity.this);
                 MyService.count = 0;
+
+                //trying to stop the service
+                stopService(new Intent(this, MyService.class));
+
                 Intent i = new Intent(this, LoginActivity.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 final ProgressDialog progressDoalog;
@@ -220,6 +231,8 @@ View viewHeader;
                 startActivity(intent1);*/
 
         }
+
+
         return super.onOptionsItemSelected(item);
 
     }

@@ -5,6 +5,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.ProgressDialog;
 import android.app.Service;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Handler;
@@ -28,13 +29,18 @@ import com.example.ecms.ToAttendMeetingActivity;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MyService extends Service {
+
     private String CHANNEL_ID = "My Notification";
+    private Timer timer;
+    private TimerTask task;
 
     protected Handler handler;
     public static int count = 0;
@@ -42,6 +48,8 @@ public class MyService extends Service {
 
     public MyService() {
     }
+
+
     @Override
     public int onStartCommand(Intent intent, int flags, int startId){
        /* onTaskRemoved(intent);
@@ -57,23 +65,22 @@ public class MyService extends Service {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-
 // write your code to post content on server
                 onTaskRemoved(intent);
-//                Toast.makeText(getApplicationContext(),"This is a Service running in Background",
-//                        Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"This is a Service running in Background",
+                        Toast.LENGTH_SHORT).show();
             }
         },2000);
-        return android.app.Service.START_STICKY;
+        return super.onStartCommand(intent, flags, startId);
     }
+
+
 
     @Override
     public IBinder onBind(Intent intent) {
         // TODO: Return the communication channel to the service.
-        throw new UnsupportedOperationException("Not yet implemented");
+        return null;
     }
-
-
 
     @Override
     public void onTaskRemoved(Intent rootIntent) {
@@ -97,6 +104,8 @@ public class MyService extends Service {
 
         super.onTaskRemoved(rootIntent);
     }
+
+
 
     public final void toAttendMeetingsCall() {
         ToAttendMeetingRequest toAttendMeetingRequest = new ToAttendMeetingRequest();
@@ -184,6 +193,7 @@ public class MyService extends Service {
                 e.printStackTrace();
             }
         }
+
     }
 
 
