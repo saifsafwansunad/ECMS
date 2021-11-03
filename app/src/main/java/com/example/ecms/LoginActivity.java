@@ -19,7 +19,9 @@ import com.example.ecms.ApiResponse.ToAttendMeetingResponse;
 import com.example.ecms.ui.MyService;
 import com.google.android.material.snackbar.Snackbar;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import retrofit2.Call;
@@ -31,6 +33,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
 AppCompatButton buttonLogin;
+
     public static UserLoginResponse userLoginResponse;
 
 EditText editTextLoginEmail,editTextLoginPassword;
@@ -80,6 +83,7 @@ EditText editTextLoginEmail,editTextLoginPassword;
                     }else{
 
                         login();
+
 
                         // emptyInputEditText();
 
@@ -181,6 +185,7 @@ EditText editTextLoginEmail,editTextLoginPassword;
 
                                         }
                                 MainActivity.stopService = false;
+
                                 Toast.makeText(LoginActivity.this, "Login Success", Toast.LENGTH_SHORT).show();
                                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                         startActivity(intent);

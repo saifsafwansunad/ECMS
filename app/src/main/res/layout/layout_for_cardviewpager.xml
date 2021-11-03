@@ -65,6 +65,7 @@ android:id="@+id/cardbg_linearlayout"
                 android:background="#dcdcdc">
 
                 <TextView
+                    android:id="@+id/number_meetings"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"

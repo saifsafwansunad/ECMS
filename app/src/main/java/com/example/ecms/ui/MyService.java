@@ -38,6 +38,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MyService extends Service {
+    public static final String MY_SERVICE = "it.unibz.bluedroid.bluetooth.service.MY_SERVICE";
 
     private String CHANNEL_ID = "My Notification";
     private Timer timer;
@@ -50,7 +51,13 @@ public class MyService extends Service {
     public MyService() {
     }
 
+    @Override
+    public void onDestroy() {
+        timer.cancel();
+        task.cancel();
+        Log.d("onCreate() is stopeed.","" );
 
+    }
     @Override
     public int onStartCommand(Intent intent, int flags, int startId){
        /* onTaskRemoved(intent);
@@ -204,6 +211,12 @@ public class MyService extends Service {
             }
         }
 
+    public boolean stopService(Intent name) {
+        // TODO Auto-generated method stub
+        timer.cancel();
+        task.cancel();
+        return super.stopService(name);
+    }
     }
 
 

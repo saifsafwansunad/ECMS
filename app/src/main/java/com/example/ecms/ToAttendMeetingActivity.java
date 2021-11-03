@@ -24,7 +24,10 @@ import com.example.ecms.Models.ToattendMeetingsModel;
 import com.example.ecms.ui.MyService;
 import com.google.android.material.snackbar.Snackbar;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import retrofit2.Call;
@@ -113,6 +116,43 @@ private ToAttendMeetingsAdapter toAttendMeetingsAdapter;
                                 tvNoMeetings.setVisibility(View.GONE);
                                 recyclerViewToAttend.setVisibility(View.VISIBLE);
                                 List<ToAttendMeetingResponse> meetingsList = response.body();
+                                //implemeting for date comparison
+                           /*     Calendar toDayCalendar = Calendar.getInstance();
+                                Date date1 = toDayCalendar.getTime();
+
+
+                                Calendar tomorrowCalendar = Calendar.getInstance();
+                                tomorrowCalendar.add(Calendar.DAY_OF_MONTH,1);
+                                Date date2 = tomorrowCalendar.getTime();
+
+// date1 is a present date and date2 is tomorrow date
+
+                                if ( date1.compareTo(date2) < 0 ) {
+
+                                    //  0 comes when two date are same,
+                                    //  1 comes when date1 is higher then date2
+                                    // -1 comes when date1 is lower then date2
+
+                                }*/
+                         /*       Calendar c = Calendar.getInstance();
+                                SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm aa");
+                                String getCurrentDateTime = sdf.format(c.getTime());
+
+
+                                    countMeetings=0;
+                                for (int i = 0; i < meetingsList.size(); i++) {
+                                   // if(meetingsList.get(i).startDate>=)
+                                    String date_startDate= meetingsList.get(i).startDate;
+                                    if(date_startDate.compareTo(getCurrentDateTime)<=0){
+                                        countMeetings++;
+                                    }
+                                    //     userLoginResponse = meetingsList.get(i);
+
+                                    //   data = dataArrayList.get(i).getId();
+                                    //here we need to take countmeetings value and send it to mainactivty for showing there
+                                }
+                                Log.d("count meetings", "are" + countMeetings);*/
+
                                 recyclerViewToAttend.setLayoutManager(new LinearLayoutManager(ToAttendMeetingActivity.this));
                                 recyclerViewToAttend.setAdapter(new ToAttendMeetingsAdapter(ToAttendMeetingActivity.this,meetingsList));
                                 Log.d("key of the message", "appointments are.... " + response.body());

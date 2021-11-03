@@ -1,8 +1,12 @@
 package com.example.ecms;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -14,6 +18,9 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import com.example.ecms.Adapters.ExpandableListAdapter;
+import com.example.ecms.Adapters.ToAttendMeetingsAdapter;
+import com.example.ecms.ApiRequests.ToAttendMeetingRequest;
+import com.example.ecms.ApiResponse.ToAttendMeetingResponse;
 import com.example.ecms.Fragments.MessagesFragment;
 import com.example.ecms.Fragments.SearchFragment;
 import com.example.ecms.Models.MenuModel;
@@ -25,6 +32,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.NotificationCompat;
 import androidx.core.view.GravityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
@@ -33,9 +41,15 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -43,7 +57,9 @@ public class MainActivity extends AppCompatActivity
     private AppBarConfiguration mAppBarConfiguration;
     private static int SPLASH_TIME_OUT=3000;
     public static Boolean stopService= false;
+
     Toolbar toolbar;
+
     Boolean checkbox=false;
 
     ExpandableListAdapter expandableListAdapter;
@@ -61,6 +77,7 @@ View viewHeader;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         Intent startIntent = new Intent(getApplicationContext(), MyService.class);
         startIntent.setAction("startService");
         startIntent.putExtra("service", "yes");
@@ -217,7 +234,7 @@ View viewHeader;
                 PreferenceUtils.saveEmail(null, MainActivity.this);
                 MyService.count = 0;
 
-                //trying to stop the service
+                //trying to stop the service 
                 stopService = true;
                 Intent stopIntent = new Intent(this, MyService.class);
                 stopIntent.putExtra("service", "yes");
@@ -498,6 +515,7 @@ if(!(LoginActivity.checkValue())) {
             }
         });
     }
+
 
 
 }

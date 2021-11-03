@@ -16,19 +16,35 @@ import android.widget.Toast;
 import androidx.cardview.widget.CardView;
 import androidx.viewpager.widget.PagerAdapter;
 
+import com.example.ecms.ApiClient;
+import com.example.ecms.ApiRequests.ToAttendMeetingRequest;
+import com.example.ecms.ApiResponse.ToAttendMeetingResponse;
 import com.example.ecms.CardAdapterInterface;
 import com.example.ecms.CardItems;
 import com.example.ecms.IncomingCorrespondenceActionActivity;
 import com.example.ecms.IncomingCorrespondenceActivity;
 import com.example.ecms.LoginActivity;
+import com.example.ecms.MainActivity;
+import com.example.ecms.PreferenceUtils;
 import com.example.ecms.R;
+import com.example.ecms.ToAttendMeetingActivity;
+import com.example.ecms.ui.MyService;
+import com.example.ecms.ui.home.HomeFragment;
 
 import org.w3c.dom.Text;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class ViewPagerCardsAdapter extends PagerAdapter implements CardAdapterInterface {
+    public static int countMeetings;
+
     TextView correspondencename;
     int calsBurned = 0;
     int calsConsumed = 0;
@@ -73,6 +89,8 @@ public class ViewPagerCardsAdapter extends PagerAdapter implements CardAdapterIn
     public Object instantiateItem(ViewGroup container, final int position) {
         View view = LayoutInflater.from(container.getContext())
                 .inflate(R.layout.layout_for_cardviewpager, container, false);
+
+        toAttendMeetingsCall();
         //correspondencename=view.findViewById(R.id.corespondence_name);
        /* String[] strArray3 = {"Incoming Correspondence","Outgoing Correspondence","Resolution Regiseter","Meetings"};
         for (int i = 0; i < strArray3.length; i++) {
@@ -82,6 +100,8 @@ public class ViewPagerCardsAdapter extends PagerAdapter implements CardAdapterIn
         bind(mData.get(position), view);
        CardView cardView = (CardView) view.findViewById(R.id.main_cardview);
 TextView textViewName=(TextView)view.findViewById(R.id.corespondence_name_home_viewpager);
+        TextView meetings_nu=(TextView)view.findViewById(R.id.number_meetings);
+
         boolean bolValue = (LoginActivity.checkValue());
         if(bolValue){
             if (position==0){
@@ -91,6 +111,8 @@ TextView textViewName=(TextView)view.findViewById(R.id.corespondence_name_home_v
         else {
             if (position == 0) {
                 textViewName.setText("Meeting Action");
+                meetings_nu.setText(String.valueOf(countMeetings));
+
             }
 
 
@@ -218,6 +240,77 @@ TextView textViewName=(TextView)view.findViewById(R.id.corespondence_name_home_v
         double d = (double) calsBurned / (double) calsConsumed;
         int progress = (int) (d * 100);
 //        pieChart.setProgress(progress);
+    }
+
+    public final void toAttendMeetingsCall() {
+        ToAttendMeetingRequest toAttendMeetingRequest = new ToAttendMeetingRequest();
+        toAttendMeetingRequest.setuId(PreferenceUtils.getUid(context.getApplicationContext()));
+
+        Log.d("key of the message", "size ");
+//        Toast.makeText(this, "hello", Toast.LENGTH_SHORT).show();
+
+
+
+
+        Call<List<ToAttendMeetingResponse>> loginResponseCall = ApiClient.getUserService().toAttendMeeting(toAttendMeetingRequest.getuId());
+
+
+        try {
+            loginResponseCall.enqueue(new Callback<List<ToAttendMeetingResponse>>() {
+                @Override
+                public void onResponse(Call<List<ToAttendMeetingResponse>> call, Response<List<ToAttendMeetingResponse>> response) {
+
+                    if (response.isSuccessful()) {
+                        if (response.body() != null && response.body().size() > 0) {
+                            List<ToAttendMeetingResponse> meetingsList = response.body();
+                            int size=meetingsList.size();
+                            Log.d("key of the message", "size " + size);
+//                                Toast.makeText(MyService.this, "size " + size, Toast.LENGTH_SHORT).show();
+
+                            Calendar c = Calendar.getInstance();
+                            SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm aa");
+                            String getCurrentDateTime = sdf.format(c.getTime());
+
+
+                            countMeetings=0;
+                            for (int i = 0; i < meetingsList.size(); i++) {
+                                // if(meetingsList.get(i).startDate>=)
+                                String date_startDate= meetingsList.get(i).startDate;
+                                if(date_startDate.compareTo(getCurrentDateTime)<=0){
+                                    countMeetings++;
+                                }
+                                //     userLoginResponse = meetingsList.get(i);
+
+                                //   data = dataArrayList.get(i).getId();
+                                //here we need to take countmeetings value and send it to mainactivty for showing there
+                            }
+
+
+                            Log.d("count meetings", "are" + countMeetings);
+                            //upto here
+
+
+
+                        }
+
+                    }
+                }
+
+
+
+
+                @Override
+                public void onFailure(Call<List<ToAttendMeetingResponse>> call, Throwable t) {
+
+//                        Toast.makeText(MyService.this, "Throwable " + t.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+
+                }
+            });
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+        }
     }
 
 }
