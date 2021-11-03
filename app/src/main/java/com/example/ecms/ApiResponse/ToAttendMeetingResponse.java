@@ -44,6 +44,8 @@ public class ToAttendMeetingResponse implements Parcelable {
     @Expose
     public List<MeetingAttachment> meetingAttachments;
 
+
+
     public ToAttendMeetingResponse(String meetingId, String meetingType, String title, String agenda, String description, String startDate, String isMSTeamMeeting, String mSTeamMeetingID, String mSTeamMeetingWebLink, String mSTeamMeetingJoinUrl, List<MeetingAttachment> meetingAttachments) {
         this.meetingId = meetingId;
         this.meetingType = meetingType;

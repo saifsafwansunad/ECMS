@@ -23,6 +23,7 @@ import com.example.ecms.ApiResponse.ToAttendMeetingResponse;
 import com.example.ecms.AttendMeetingDetailsActivity;
 import com.example.ecms.DetectConnection;
 import com.example.ecms.LoginActivity;
+import com.example.ecms.MainActivity;
 import com.example.ecms.Notification;
 import com.example.ecms.PreferenceUtils;
 import com.example.ecms.ToAttendMeetingActivity;
@@ -61,16 +62,25 @@ public class MyService extends Service {
         /*ToAttendMeetingActivity toAttendMeetingActivity=new ToAttendMeetingActivity();
         toAttendMeetingActivity.toAttendMeetingsCall();*/
 
-        handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
+//        Log.d("serviceTag", intent.getAction());
+//        Log.d("serviceTag", intent.getStringExtra("service"));
+        if(MainActivity.stopService){
+            stopForeground(true);
+            stopSelf();
+        }else {
+            handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
 // write your code to post content on server
-                onTaskRemoved(intent);
-                Toast.makeText(getApplicationContext(),"This is a Service running in Background",
-                        Toast.LENGTH_SHORT).show();
-            }
-        },2000);
+                    onTaskRemoved(intent);
+                    Toast.makeText(getApplicationContext(),"This is a Service running in Background",
+                            Toast.LENGTH_SHORT).show();
+                }
+            },2000);
+        }
+
+
         return super.onStartCommand(intent, flags, startId);
     }
 

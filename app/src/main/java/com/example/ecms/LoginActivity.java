@@ -60,6 +60,7 @@ EditText editTextLoginEmail,editTextLoginPassword;
         PreferenceUtils utils = new PreferenceUtils();
 
         if (utils.getEmail(this) != null ){
+                MainActivity.stopService = false;
                 IsCouncillor=PreferenceUtils.getCouncilor(LoginActivity.this);
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(intent);
@@ -179,7 +180,7 @@ EditText editTextLoginEmail,editTextLoginPassword;
                                             IsCouncillor = false;
 
                                         }
-
+                                MainActivity.stopService = false;
                                 Toast.makeText(LoginActivity.this, "Login Success", Toast.LENGTH_SHORT).show();
                                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                         startActivity(intent);

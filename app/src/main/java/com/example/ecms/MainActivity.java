@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity
 
     private AppBarConfiguration mAppBarConfiguration;
     private static int SPLASH_TIME_OUT=3000;
+    public static Boolean stopService= false;
     Toolbar toolbar;
     Boolean checkbox=false;
 
@@ -60,7 +61,10 @@ View viewHeader;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        startService(new Intent(getApplicationContext(), MyService.class));
+        Intent startIntent = new Intent(getApplicationContext(), MyService.class);
+        startIntent.setAction("startService");
+        startIntent.putExtra("service", "yes");
+        getApplicationContext().startService(startIntent);
 
 
         drawer = findViewById(R.id.drawer_layout);
@@ -195,12 +199,12 @@ View viewHeader;
     }
 
 
-    @Override
-    protected void onStop() {
-        stopService(new Intent(this, MyService.class));
-
-        super.onStop();
-    }
+//    @Override
+//    protected void onStop() {
+//        stopService(new Intent(this, MyService.class));
+//
+//        super.onStop();
+//    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -214,7 +218,11 @@ View viewHeader;
                 MyService.count = 0;
 
                 //trying to stop the service
-                stopService(new Intent(this, MyService.class));
+                stopService = true;
+                Intent stopIntent = new Intent(this, MyService.class);
+                stopIntent.putExtra("service", "yes");
+                stopIntent.setAction("stopService");
+                getApplicationContext().startService(stopIntent);
 
                 Intent i = new Intent(this, LoginActivity.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
