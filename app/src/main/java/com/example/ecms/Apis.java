@@ -25,5 +25,6 @@ public interface Apis {
     Call<List<ComitteeResponse>> tocommitee(@Query("empid") String empid);
 
     @GET("App_Handler/FileSystem1.ashx")
-    Call<CommitteeFilesResponse> CFList(@Query("CFName") String CFName);
+    Call<CommitteeFilesResponse> CFList(@Query("CFName") String CFName,
+                                        @Query("$format") String format);
 }

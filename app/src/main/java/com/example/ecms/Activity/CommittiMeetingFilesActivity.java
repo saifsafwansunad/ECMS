@@ -52,7 +52,7 @@ import retrofit2.http.Url;
 public class CommittiMeetingFilesActivity extends AppCompatActivity {
 
     String folderPath;
-    private String folderAddress = "Committees";
+    private String folderAddress;
     RecyclerView cf_folder_rv;
 
     @Override
@@ -64,11 +64,12 @@ public class CommittiMeetingFilesActivity extends AppCompatActivity {
         Intent intent = getIntent();
 
          folderPath = intent.getStringExtra("folderPath");
+        folderAddress = intent.getStringExtra("folderAddress");
         folderAddress = folderAddress+ "/" + folderPath;
 
         getSupportActionBar().hide();
         Toolbar toolbartoAttend=(Toolbar)findViewById(R.id.commitee_folder_toolbar);
-        toolbartoAttend.setTitle("Committees/" + folderPath);
+        toolbartoAttend.setTitle(folderAddress);
 
         committifolders();
     }
@@ -91,7 +92,7 @@ public class CommittiMeetingFilesActivity extends AppCompatActivity {
 
             snackbar.show();
         } else {
-            Call<CommitteeFilesResponse> folderResponseCall = ApiClient.getUserService2().CFList(committeeFilesRequest.getCFname());
+            Call<CommitteeFilesResponse> folderResponseCall = ApiClient.getUserService2().CFList(committeeFilesRequest.getCFname(), "json");
 
 
             try {
@@ -189,7 +190,14 @@ public class CommittiMeetingFilesActivity extends AppCompatActivity {
 //        Toast.makeText(this, firstAddr, Toast.LENGTH_SHORT).show();
         if(folderAddress.equals("Committees/" + folderPath)){
             super.onBackPressed();
-        }else{
+        }else if(folderAddress.equals("/PUBLIC SECTOR")) {
+
+            super.onBackPressed();
+        }else if(folderAddress.equals("//PRIVATE SECTOR")) {
+
+            super.onBackPressed();
+        }else
+        {
 //            Toast.makeText(this, "You cant go back right now", Toast.LENGTH_SHORT).show();
             int lastIndexBackSlash = folderAddress.lastIndexOf('/');
             folderAddress = folderAddress.substring(0, lastIndexBackSlash);

@@ -52,6 +52,7 @@ public class AdminCommittee extends RecyclerView.Adapter<AdminCommittee.Mahasisw
             public void onClick(View v) {
                 Intent intent = new Intent(context, CommittiMeetingFilesActivity.class);
                 intent.putExtra("folderPath", comitteeResponses.get(position).getFolderPath() );
+                intent.putExtra("folderAddress", "Committees" );
                 context.startActivity(intent);
             }
         });

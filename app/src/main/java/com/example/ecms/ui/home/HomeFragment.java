@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
+import com.example.ecms.Activity.CommittiMeetingFilesActivity;
 import com.example.ecms.Adapters.MessagesAdapter;
 import com.example.ecms.Adapters.MyAdapter;
 import com.example.ecms.Adapters.ViewPagerCardsAdapter;
@@ -66,12 +67,25 @@ Button buttonPublic,buttonPrivate;
         //here we trying to fetch meeting dates api and refresh in adapter
         //toAttendMeetingsCall();
         buttonPublic=(Button)root.findViewById(R.id.public_btn);
+        buttonPrivate=(Button)root.findViewById(R.id.private_button);
 
         buttonPublic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(getActivity(), PublicActivity.class);
-                startActivity(intent);
+                Intent intent = new Intent(getContext(), CommittiMeetingFilesActivity.class);
+                intent.putExtra("folderPath", "PUBLIC SECTOR" );
+                intent.putExtra("folderAddress", "" );
+                getContext().startActivity(intent);
+            }
+        });
+
+        buttonPrivate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), CommittiMeetingFilesActivity.class);
+                intent.putExtra("folderPath", "/PRIVATE SECTOR" );
+                intent.putExtra("folderAddress", "" );
+                getContext().startActivity(intent);
             }
         });
 
