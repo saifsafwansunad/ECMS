@@ -122,14 +122,14 @@ TextView textViewName=(TextView)view.findViewById(R.id.corespondence_name_home_v
                 boolean bolValue = (LoginActivity.checkValue());
                 if(bolValue){
                     if (position==0){
-                        textViewName.setText("Meeting Action");
+                        textViewName.setText("Meeting");
                         meetings_nu.setText(String.valueOf(countMeetings));
 
                     }
                 }
                 else {
                     if (position == 0) {
-                        textViewName.setText("Meeting Action");
+                        textViewName.setText("Meeting");
                         meetings_nu.setText(String.valueOf(countMeetings));
 
                     }
