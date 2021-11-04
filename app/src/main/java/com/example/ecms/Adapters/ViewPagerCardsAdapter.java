@@ -3,6 +3,7 @@ package com.example.ecms.Adapters;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -43,7 +44,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class ViewPagerCardsAdapter extends PagerAdapter implements CardAdapterInterface {
-    public static int countMeetings;
+    public static int countMeetings = 5;
 
     TextView correspondencename;
     int calsBurned = 0;
@@ -96,39 +97,57 @@ public class ViewPagerCardsAdapter extends PagerAdapter implements CardAdapterIn
         for (int i = 0; i < strArray3.length; i++) {
             correspondencename.setText(strArray3[i]);
         }*/
+
+
+
+
+
+
+
+
+        Log.d("countMeeting", String.valueOf(countMeetings));
         container.addView(view);
         bind(mData.get(position), view);
        CardView cardView = (CardView) view.findViewById(R.id.main_cardview);
 TextView textViewName=(TextView)view.findViewById(R.id.corespondence_name_home_viewpager);
         TextView meetings_nu=(TextView)view.findViewById(R.id.number_meetings);
 
-        boolean bolValue = (LoginActivity.checkValue());
-        if(bolValue){
-            if (position==0){
-                textViewName.setText("Meeting Action");
+        final Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                //Do something after 100ms
+                boolean bolValue = (LoginActivity.checkValue());
+                if(bolValue){
+                    if (position==0){
+                        textViewName.setText("Meeting Action");
+                    }
+                }
+                else {
+                    if (position == 0) {
+                        textViewName.setText("Meeting Action");
+                        meetings_nu.setText(String.valueOf(countMeetings));
+
+                    }
+
+
+                    if (position == 1) {
+                        textViewName.setText("Resolution Register");
+
+                    }
+                    if (position == 2) {
+                        textViewName.setText("Incoming Correspondence");
+
+                    }
+                    if (position == 3) {
+                        textViewName.setText("Outgoing Correspondence");
+
+                    }
+                }
             }
-        }
-        else {
-            if (position == 0) {
-                textViewName.setText("Meeting Action");
-                meetings_nu.setText(String.valueOf(countMeetings));
-
-            }
+        }, 3000);
 
 
-            if (position == 1) {
-                textViewName.setText("Resolution Register");
-
-            }
-            if (position == 2) {
-                textViewName.setText("Incoming Correspondence");
-
-            }
-            if (position == 3) {
-                textViewName.setText("Outgoing Correspondence");
-
-            }
-        }
         ProgressBar pieChart = view.findViewById(R.id.stats_progressbar);
         final LinearLayout linearLayoutCard=(LinearLayout)view.findViewById(R.id.cardbg_linearlayout);
         linearLayoutCard.setOnClickListener(new View.OnClickListener() {
@@ -248,6 +267,7 @@ TextView textViewName=(TextView)view.findViewById(R.id.corespondence_name_home_v
 
         Log.d("key of the message", "size ");
 //        Toast.makeText(this, "hello", Toast.LENGTH_SHORT).show();
+//        Log.d("countMeeting1", toAttendMeetingRequest.getuId());
 
 
 
@@ -287,6 +307,7 @@ TextView textViewName=(TextView)view.findViewById(R.id.corespondence_name_home_v
 
 
                             Log.d("count meetings", "are" + countMeetings);
+//                            Log.d("countMeeting2", String.valueOf(countMeetings));
                             //upto here
 
 
