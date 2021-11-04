@@ -51,26 +51,16 @@ public class MyService extends Service {
     public MyService() {
     }
 
-    @Override
+  /*  @Override
     public void onDestroy() {
         timer.cancel();
         task.cancel();
         Log.d("onCreate() is stopeed.","" );
 
-    }
+    }*/
     @Override
     public int onStartCommand(Intent intent, int flags, int startId){
-       /* onTaskRemoved(intent);
-        Toast.makeText(getApplicationContext(),"This is a Service running in Background",
-                Toast.LENGTH_SHORT).show();
-        toAttendMeetingsCall();*/
-        ////startService(new Intent(getApplicationContext(), MyService.class));
 
-        /*ToAttendMeetingActivity toAttendMeetingActivity=new ToAttendMeetingActivity();
-        toAttendMeetingActivity.toAttendMeetingsCall();*/
-
-//        Log.d("serviceTag", intent.getAction());
-//        Log.d("serviceTag", intent.getStringExtra("service"));
         if(MainActivity.stopService){
             stopForeground(true);
             stopSelf();
@@ -81,8 +71,8 @@ public class MyService extends Service {
                 public void run() {
 // write your code to post content on server
                     onTaskRemoved(intent);
-                    Toast.makeText(getApplicationContext(),"This is a Service running in Background",
-                            Toast.LENGTH_SHORT).show();
+                  /*  Toast.makeText(getApplicationContext(),"This is a Service running in Background",
+                            Toast.LENGTH_SHORT).show();*/
                 }
             },2000);
         }

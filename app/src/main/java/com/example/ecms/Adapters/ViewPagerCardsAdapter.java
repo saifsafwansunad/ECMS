@@ -46,7 +46,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class ViewPagerCardsAdapter extends PagerAdapter implements CardAdapterInterface {
-    public static int countMeetings = 5;
+    public static int countMeetings;
 
     TextView correspondencename;
     int calsBurned = 0;
@@ -123,6 +123,8 @@ TextView textViewName=(TextView)view.findViewById(R.id.corespondence_name_home_v
                 if(bolValue){
                     if (position==0){
                         textViewName.setText("Meeting Action");
+                        meetings_nu.setText(String.valueOf(countMeetings));
+
                     }
                 }
                 else {
