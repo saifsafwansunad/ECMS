@@ -34,9 +34,11 @@ import com.example.ecms.ui.home.HomeFragment;
 
 import org.w3c.dom.Text;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import retrofit2.Call;
@@ -290,15 +292,23 @@ TextView textViewName=(TextView)view.findViewById(R.id.corespondence_name_home_v
                             Calendar c = Calendar.getInstance();
                             SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm aa");
                             String getCurrentDateTime = sdf.format(c.getTime());
+                            Date currentdate = new Date();
+
 
 
                             countMeetings=0;
                             for (int i = 0; i < meetingsList.size(); i++) {
                                 // if(meetingsList.get(i).startDate>=)
                                 String date_startDate= meetingsList.get(i).startDate;
-                                if(date_startDate.compareTo(getCurrentDateTime)<=0){
-                                    countMeetings++;
+                                try {
+                                    Date date1=new SimpleDateFormat("MM/dd/yyyy HH:mm aa").parse(date_startDate);
+                                    if(date1.after(currentdate)){
+                                        countMeetings++;
+                                    }
+                                } catch (ParseException e) {
+                                    e.printStackTrace();
                                 }
+
                                 //     userLoginResponse = meetingsList.get(i);
 
                                 //   data = dataArrayList.get(i).getId();
