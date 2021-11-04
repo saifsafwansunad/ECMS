@@ -44,7 +44,7 @@ android:id="@+id/cardbg_linearlayout"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:gravity="center_horizontal"
-                    android:text="Incoming Correspondence"
+                    android:text="Meeting Action"
                     android:textColor="#fff"
                     android:textSize="20dp" />
 
