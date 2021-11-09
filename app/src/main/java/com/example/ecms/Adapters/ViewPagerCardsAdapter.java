@@ -31,6 +31,12 @@ import com.example.ecms.R;
 import com.example.ecms.ToAttendMeetingActivity;
 import com.example.ecms.ui.MyService;
 import com.example.ecms.ui.home.HomeFragment;
+import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.components.Description;
+import com.github.mikephil.charting.components.Legend;
+import com.github.mikephil.charting.data.PieData;
+import com.github.mikephil.charting.data.PieDataSet;
+import com.github.mikephil.charting.data.PieEntry;
 
 import org.w3c.dom.Text;
 
@@ -46,7 +52,14 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class ViewPagerCardsAdapter extends PagerAdapter implements CardAdapterInterface {
-    public static int countMeetings;
+    public static int countMeetings,attendedMeetings;
+
+
+    //PIE CHART
+    private int[] yData;
+    private String[] xData = {"Mitch", "Jessica" };
+    PieChart pieChart;
+    Description description;
 
     TextView correspondencename;
     int calsBurned = 0;
@@ -125,12 +138,52 @@ TextView textViewName=(TextView)view.findViewById(R.id.corespondence_name_home_v
                         textViewName.setText("Meeting");
                         meetings_nu.setText(String.valueOf(countMeetings));
 
+                        //pie chart implementation for recordsmanager
+                        pieChart = (PieChart)view.findViewById(R.id.idPieChart);
+
+                        // pieChart.setDescription("Sales by employee (In Thousands $)");
+                        // pieChart.setRotationEnabled(true);
+                        // pieChart.setUsePercentValues(true);
+                        pieChart.setHoleColor(Color.BLUE);
+                        //pieChart.setCenterTextColor(Color.BLACK);
+                        pieChart.setHoleRadius(0);
+                        pieChart.setTransparentCircleAlpha(0);
+                        pieChart.setDescription(description);
+
+
+                        // pieChart.setCenterText("Super Cool Chart");
+                        //pieChart.setCenterTextSize(10);
+                        //pieChart.setDrawEntryLabels(true);
+                        //pieChart.setEntryLabelTextSize(20);
+                        //More options just check out the documentation!
+
+                        addDataSet();
+
                     }
                 }
                 else {
                     if (position == 0) {
                         textViewName.setText("Meeting");
                         meetings_nu.setText(String.valueOf(countMeetings));
+                        pieChart = (PieChart)view.findViewById(R.id.idPieChart);
+
+                        // pieChart.setDescription("Sales by employee (In Thousands $)");
+                        // pieChart.setRotationEnabled(true);
+                       // pieChart.setUsePercentValues(true);
+                        pieChart.setHoleColor(Color.BLUE);
+                        //pieChart.setCenterTextColor(Color.BLACK);
+                        pieChart.setHoleRadius(0);
+                        pieChart.setTransparentCircleAlpha(0);
+                        pieChart.setDescription(description);
+
+
+                        // pieChart.setCenterText("Super Cool Chart");
+                        //pieChart.setCenterTextSize(10);
+                        //pieChart.setDrawEntryLabels(true);
+                        //pieChart.setEntryLabelTextSize(20);
+                        //More options just check out the documentation!
+
+                        addDataSet();
 
                     }
 
@@ -152,7 +205,7 @@ TextView textViewName=(TextView)view.findViewById(R.id.corespondence_name_home_v
         }, 3000);
 
 
-        ProgressBar pieChart = view.findViewById(R.id.stats_progressbar);
+       // ProgressBar pieChart = view.findViewById(R.id.stats_progressbar);
         final LinearLayout linearLayoutCard=(LinearLayout)view.findViewById(R.id.cardbg_linearlayout);
         linearLayoutCard.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -179,8 +232,8 @@ TextView textViewName=(TextView)view.findViewById(R.id.corespondence_name_home_v
 //    }
 //});
 //        TextView numberOfCals =view.findViewById(R.id.number_of_calories);
-        addConsumed(pieChart);
-        addBurned(pieChart);
+     //   addConsumed(pieChart);
+       // addBurned(pieChart);
 //        addConsumed2(pieChart);
 
 //        setAnimation(view,position);
@@ -200,6 +253,48 @@ TextView textViewName=(TextView)view.findViewById(R.id.corespondence_name_home_v
 
         return view;
     }
+
+    private void addDataSet() {
+
+        ArrayList<PieEntry> yEntrys = new ArrayList<>();
+        ArrayList<String> xEntrys = new ArrayList<>();
+
+        for(int i = 0; i < yData.length; i++){
+            yEntrys.add(new PieEntry(yData[i] , i));
+        }
+
+        for(int i = 1; i < xData.length; i++){
+            xEntrys.add(xData[i]);
+        }
+
+        //create the data set
+        PieDataSet pieDataSet = new PieDataSet(yEntrys, "");
+        pieDataSet.setSliceSpace(2);
+        pieDataSet.setValueTextSize(12);
+
+        //add colors to dataset
+        ArrayList<Integer> colors = new ArrayList<>();
+        colors.add(Color.GRAY);
+        colors.add(Color.BLUE);
+        colors.add(Color.RED);
+        colors.add(Color.GREEN);
+        colors.add(Color.CYAN);
+        colors.add(Color.YELLOW);
+        colors.add(Color.MAGENTA);
+
+        pieDataSet.setColors(colors);
+
+        //add legend to chart
+        Legend legend = pieChart.getLegend();
+        legend.setForm(Legend.LegendForm.CIRCLE);
+        // legend.setPosition(Legend.LegendPosition.LEFT_OF_CHART);
+
+        //create pie data object
+        PieData pieData = new PieData(pieDataSet);
+        pieChart.setData(pieData);
+        pieChart.invalidate();
+    }
+
     //    private void setAnimation(View viewToAnimate, int position)
 //    {
 //        // If the bound view wasn't previously displayed on screen, it's animated
@@ -299,6 +394,7 @@ TextView textViewName=(TextView)view.findViewById(R.id.corespondence_name_home_v
 
 
                             countMeetings=0;
+                            attendedMeetings=0;
                             for (int i = 0; i < meetingsList.size(); i++) {
                                 // if(meetingsList.get(i).startDate>=)
                                 String date_startDate= meetingsList.get(i).startDate;
@@ -316,9 +412,13 @@ TextView textViewName=(TextView)view.findViewById(R.id.corespondence_name_home_v
                                 //   data = dataArrayList.get(i).getId();
                                 //here we need to take countmeetings value and send it to mainactivty for showing there
                             }
+                            attendedMeetings=meetingsList.size()-countMeetings;
+                             yData= new int[]{countMeetings, attendedMeetings};
 
 
                             Log.d("count meetings", "are" + countMeetings);
+                            Log.d("attendedMeetings", " attendedMeetings are" + attendedMeetings);
+
 //                            Log.d("countMeeting2", String.valueOf(countMeetings));
                             //upto here
 
