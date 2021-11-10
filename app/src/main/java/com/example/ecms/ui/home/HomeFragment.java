@@ -43,9 +43,10 @@ public class HomeFragment extends Fragment {
     String detailsArray[];
     String detailsArray2[] = {"sdg", "gsdg", "gdsgdsg","adasd"};
 
+    public static int countMeetings;
 Button buttonPublic,buttonPrivate;
     TabLayout tabLayout;
-    ViewPager viewPager;
+    ViewPager viewPagerCalender;
 
 //    TabLayout tabLayoutMessages;
 //    ViewPager viewPagerMessages;
@@ -119,21 +120,21 @@ else {
 
 
         tabLayout=(TabLayout)root.findViewById(R.id.calendar_tablayout);
-        viewPager=(ViewPager)root.findViewById(R.id.calender_viewPager);
+        viewPagerCalender=(ViewPager)root.findViewById(R.id.calender_viewPager);
 
         tabLayout.addTab(tabLayout.newTab().setText("Organization Calendar"));
         tabLayout.addTab(tabLayout.newTab().setText("Your Calendar"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         final MyAdapter adapter = new MyAdapter(getContext(),getChildFragmentManager(), tabLayout.getTabCount());
-        viewPager.setAdapter(adapter);
+        viewPagerCalender.setAdapter(adapter);
 
-        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+        viewPagerCalender.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                viewPager.setCurrentItem(tab.getPosition());
+                viewPagerCalender.setCurrentItem(tab.getPosition());
             }
 
             @Override

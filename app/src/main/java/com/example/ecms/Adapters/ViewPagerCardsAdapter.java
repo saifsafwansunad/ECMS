@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -32,6 +33,7 @@ import com.example.ecms.R;
 import com.example.ecms.ToAttendMeetingActivity;
 import com.example.ecms.ui.MyService;
 import com.example.ecms.ui.home.HomeFragment;
+import com.github.mikephil.charting.charts.Chart;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.components.Legend;
@@ -150,10 +152,11 @@ TextView textViewName=(TextView)view.findViewById(R.id.corespondence_name_home_v
                         // pieChart.setDescription("Sales by employee (In Thousands $)");
                         // pieChart.setRotationEnabled(true);
                         // pieChart.setUsePercentValues(true);
-                        pieChart.setHoleColor(Color.BLUE);
+                        pieChart.setHoleColor(Color.GREEN);
                         //pieChart.setCenterTextColor(Color.BLACK);
                         pieChart.setHoleRadius(0);
                         pieChart.setTransparentCircleAlpha(0);
+
                         pieChart.setDescription(description);
 
 
@@ -194,7 +197,12 @@ TextView textViewName=(TextView)view.findViewById(R.id.corespondence_name_home_v
                         // pieChart.setDescription("Sales by employee (In Thousands $)");
                         // pieChart.setRotationEnabled(true);
                        // pieChart.setUsePercentValues(true);
-                        pieChart.setHoleColor(Color.BLUE);
+                        pieChart.setHoleColor(Color.GREEN);
+                        Paint p1 = pieChart.getPaint(Chart.PAINT_HOLE);
+//                        p1.setColor(context.getResources().getColor(R.color.colrgreen));
+
+                        pieChart.setRotationEnabled(false);
+                        pieChart.getLegend().setEnabled(false);
                         //pieChart.setCenterTextColor(Color.BLACK);
                         pieChart.setHoleRadius(0);
                         pieChart.setTransparentCircleAlpha(0);

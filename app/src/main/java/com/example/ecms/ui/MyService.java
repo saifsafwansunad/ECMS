@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -158,10 +159,11 @@ public class MyService extends Service {
                                                 .setContentTitle(toAttendMeetingResponse1.getMeetingType())
                                                 .setContentText(toAttendMeetingResponse1.getTitle())
                                                 .setAutoCancel(true)
+
                                                 .setSmallIcon(android.R.drawable.btn_star_big_on);
+                                        builderNotificationCompat.setSound(Settings.System.DEFAULT_NOTIFICATION_URI);
 
                                         NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-
                                         NotificationChannel notificationChannel = null;
                                         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
                                             notificationChannel = new NotificationChannel(CHANNEL_ID, "Notification", NotificationManager.IMPORTANCE_DEFAULT);

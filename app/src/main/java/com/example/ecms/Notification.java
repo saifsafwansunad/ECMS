@@ -1,5 +1,6 @@
 package com.example.ecms;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 
@@ -26,6 +27,7 @@ public class Notification extends AppCompatActivity {
 
 
         notification_send.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v) {
                 Intent intentNotification = new Intent(Notification.this, ToAttendMeetingActivity.class);
