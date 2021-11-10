@@ -389,8 +389,12 @@ TextView textViewName=(TextView)view.findViewById(R.id.corespondence_name_home_v
                             Calendar c = Calendar.getInstance();
                             SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm aa");
                             String getCurrentDateTime = sdf.format(c.getTime());
-                            Date currentdate = new Date();
-
+                            Date currentdate = null;
+                            try {
+                                currentdate = new SimpleDateFormat("MM/dd/yyyy").parse(getCurrentDateTime);
+                            } catch (ParseException e) {
+                                e.printStackTrace();
+                            }
 
 
                             countMeetings=0;
@@ -399,10 +403,16 @@ TextView textViewName=(TextView)view.findViewById(R.id.corespondence_name_home_v
                                 // if(meetingsList.get(i).startDate>=)
                                 String date_startDate= meetingsList.get(i).startDate;
                                 try {
-                                    Date date1=new SimpleDateFormat("MM/dd/yyyy HH:mm aa").parse(date_startDate);
-                                    if(date1.after(currentdate)){
+                                    Date date1=new SimpleDateFormat("MM/dd/yyyy").parse(date_startDate);
+                                    Log.d("count meetings", "currentdate is" + currentdate);
+
+                                    if(date1.after(currentdate) | date1.compareTo(currentdate) == 0){
                                         countMeetings++;
+                                        Log.d("count meetings", "date1 is" + date1);
+
+
                                     }
+
                                 } catch (ParseException e) {
                                     e.printStackTrace();
                                 }
