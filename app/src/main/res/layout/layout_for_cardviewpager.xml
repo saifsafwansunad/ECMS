@@ -91,6 +91,7 @@ android:id="@+id/cardbg_linearlayout"
             android:id="@+id/idPieChart"
             android:layout_width="250dp"
             android:layout_height="250dp"
+
             tools:ignore="MissingConstraints" />
                     <!-- ProgressBar that represents a total of 100% -->
                  <!--   <ProgressBar

@@ -1,5 +1,6 @@
 package com.example.ecms.Adapters;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -34,9 +35,14 @@ import com.example.ecms.ui.home.HomeFragment;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.components.Legend;
+import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
+import com.github.mikephil.charting.formatter.DefaultValueFormatter;
+import com.github.mikephil.charting.formatter.PercentFormatter;
+import com.github.mikephil.charting.highlight.Highlight;
+import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 
 import org.w3c.dom.Text;
 
@@ -57,7 +63,7 @@ public class ViewPagerCardsAdapter extends PagerAdapter implements CardAdapterIn
 
     //PIE CHART
     private int[] yData;
-    private String[] xData = {"Mitch", "Jessica" };
+    private String[] xData = {"Need to attend", "attended" };
     PieChart pieChart;
     Description description;
 
@@ -151,6 +157,7 @@ TextView textViewName=(TextView)view.findViewById(R.id.corespondence_name_home_v
                         pieChart.setDescription(description);
 
 
+
                         // pieChart.setCenterText("Super Cool Chart");
                         //pieChart.setCenterTextSize(10);
                         //pieChart.setDrawEntryLabels(true);
@@ -158,6 +165,23 @@ TextView textViewName=(TextView)view.findViewById(R.id.corespondence_name_home_v
                         //More options just check out the documentation!
 
                         addDataSet();
+
+/*
+                        pieChart.setOnChartValueSelectedListener(new OnChartValueSelectedListener() {
+                            @Override
+                            public void onValueSelected(Entry e, Highlight h) {
+
+
+
+                                Toast.makeText(context.getApplicationContext(), "Employee " + yData + "\n" + "Sales: $" + yData + "K", Toast.LENGTH_LONG).show();
+                            }
+
+                            @Override
+                            public void onNothingSelected() {
+
+                            }
+                        });
+*/
 
                     }
                 }
@@ -184,6 +208,23 @@ TextView textViewName=(TextView)view.findViewById(R.id.corespondence_name_home_v
                         //More options just check out the documentation!
 
                         addDataSet();
+
+/*
+                        pieChart.setOnChartValueSelectedListener(new OnChartValueSelectedListener() {
+                            @Override
+                            public void onValueSelected(Entry e, Highlight h) {
+
+
+
+                                Toast.makeText(context.getApplicationContext(), "Employee " + yData + "\n" + "Sales: $" + yData + "K", Toast.LENGTH_LONG).show();
+                            }
+
+                            @Override
+                            public void onNothingSelected() {
+
+                            }
+                        });
+*/
 
                     }
 
@@ -261,15 +302,20 @@ TextView textViewName=(TextView)view.findViewById(R.id.corespondence_name_home_v
 
         for(int i = 0; i < yData.length; i++){
             yEntrys.add(new PieEntry(yData[i] , i));
+
+
+
         }
 
         for(int i = 1; i < xData.length; i++){
             xEntrys.add(xData[i]);
+
         }
 
         //create the data set
-        PieDataSet pieDataSet = new PieDataSet(yEntrys, "");
-        pieDataSet.setSliceSpace(2);
+        PieDataSet pieDataSet = new PieDataSet(yEntrys, "Meeting Actions");
+
+       // pieDataSet.setSliceSpace(2);
         pieDataSet.setValueTextSize(12);
 
         //add colors to dataset
@@ -281,8 +327,8 @@ TextView textViewName=(TextView)view.findViewById(R.id.corespondence_name_home_v
         colors.add(Color.CYAN);
         colors.add(Color.YELLOW);
         colors.add(Color.MAGENTA);
-
         pieDataSet.setColors(colors);
+        pieDataSet.setValueTextColor(Color.WHITE);
 
         //add legend to chart
         Legend legend = pieChart.getLegend();
@@ -291,7 +337,9 @@ TextView textViewName=(TextView)view.findViewById(R.id.corespondence_name_home_v
 
         //create pie data object
         PieData pieData = new PieData(pieDataSet);
+        pieData.setValueFormatter(new DefaultValueFormatter(0));
         pieChart.setData(pieData);
+
         pieChart.invalidate();
     }
 
@@ -361,6 +409,7 @@ TextView textViewName=(TextView)view.findViewById(R.id.corespondence_name_home_v
     }
 
     public final void toAttendMeetingsCall() {
+
         ToAttendMeetingRequest toAttendMeetingRequest = new ToAttendMeetingRequest();
         toAttendMeetingRequest.setuId(PreferenceUtils.getUid(context.getApplicationContext()));
 
@@ -404,7 +453,6 @@ TextView textViewName=(TextView)view.findViewById(R.id.corespondence_name_home_v
                                 String date_startDate= meetingsList.get(i).startDate;
                                 try {
                                     Date date1=new SimpleDateFormat("MM/dd/yyyy").parse(date_startDate);
-                                    Log.d("count meetings", "currentdate is" + currentdate);
 
                                     if(date1.after(currentdate) | date1.compareTo(currentdate) == 0){
                                         countMeetings++;
@@ -431,7 +479,6 @@ TextView textViewName=(TextView)view.findViewById(R.id.corespondence_name_home_v
 
 //                            Log.d("countMeeting2", String.valueOf(countMeetings));
                             //upto here
-
 
 
                         }
