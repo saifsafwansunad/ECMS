@@ -26,8 +26,8 @@ public class OrgCalendarFragment extends Fragment {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_org_calendar, container, false);
 
-        CalendarView orgCalendar = view.findViewById(R.id.organization_calendarview);
-        int as = orgCalendar.getDateTextAppearance();
+//        CalendarView orgCalendar = view.findViewById(R.id.custom_calendar_view);
+//        int as = orgCalendar.getDateTextAppearance();
 
 
 
