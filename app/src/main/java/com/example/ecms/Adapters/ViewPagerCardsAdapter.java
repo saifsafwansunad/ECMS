@@ -308,22 +308,26 @@ TextView textViewName=(TextView)view.findViewById(R.id.corespondence_name_home_v
         ArrayList<PieEntry> yEntrys = new ArrayList<>();
         ArrayList<String> xEntrys = new ArrayList<>();
 
-        for(int i = 0; i < yData.length; i++){
-            yEntrys.add(new PieEntry(yData[i] , i));
+        try{
+            for(int i = 0; i < yData.length; i++){
+                yEntrys.add(new PieEntry(yData[i] , i));
 
 
 
-        }
+            }
 
-        for(int i = 1; i < xData.length; i++){
-            xEntrys.add(xData[i]);
+            for(int i = 1; i < xData.length; i++){
+                xEntrys.add(xData[i]);
+
+            }
+        }catch (Exception e){
 
         }
 
         //create the data set
         PieDataSet pieDataSet = new PieDataSet(yEntrys, "Meeting Actions");
 
-       // pieDataSet.setSliceSpace(2);
+        pieDataSet.setSliceSpace(2);
         pieDataSet.setValueTextSize(12);
 
         //add colors to dataset
@@ -341,7 +345,7 @@ TextView textViewName=(TextView)view.findViewById(R.id.corespondence_name_home_v
         //add legend to chart
         Legend legend = pieChart.getLegend();
         legend.setForm(Legend.LegendForm.CIRCLE);
-        // legend.setPosition(Legend.LegendPosition.LEFT_OF_CHART);
+         //legend.setPosition(Legend.LegendPosition.LEFT_OF_CHART);
 
         //create pie data object
         PieData pieData = new PieData(pieDataSet);
