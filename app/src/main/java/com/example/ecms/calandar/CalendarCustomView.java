@@ -105,28 +105,30 @@ public class CalendarCustomView extends LinearLayout {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
                 final String date = dateFormat2.format(dateList.get(position));
+                if (my_dictDay.containsKey(date)) {
 
-                AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                builder.setCancelable(true);
-                View showView = LayoutInflater.from(parent.getContext()).inflate(R.layout.show_events_layout, null);
-                RecyclerView EventRV = (RecyclerView) showView.findViewById(R.id.EventsRV);
-                RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(showView.getContext());
+                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                    builder.setCancelable(true);
+                    View showView = LayoutInflater.from(parent.getContext()).inflate(R.layout.show_events_layout, null);
+                    RecyclerView EventRV = (RecyclerView) showView.findViewById(R.id.EventsRV);
+                    RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(showView.getContext());
 
-                EventRV.setLayoutManager(layoutManager);
-                EventRV.setHasFixedSize(true);
+                    EventRV.setLayoutManager(layoutManager);
+                    EventRV.setHasFixedSize(true);
 
-                EventRecyclerAdapter eventRecyclerAdapter = new EventRecyclerAdapter(showView.getContext(), CollectEvent(date));
-                EventRV.setAdapter(eventRecyclerAdapter);
-                eventRecyclerAdapter.notifyDataSetChanged();
-                builder.setView(showView);
-                alertDialog = builder.create();
-                alertDialog.show();
-                alertDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
-                    @Override
-                    public void onCancel(DialogInterface dialog) {
-                        SetupCalendar();
-                    }
-                });
+                    EventRecyclerAdapter eventRecyclerAdapter = new EventRecyclerAdapter(showView.getContext(), CollectEvent(date));
+                    EventRV.setAdapter(eventRecyclerAdapter);
+                    eventRecyclerAdapter.notifyDataSetChanged();
+                    builder.setView(showView);
+                    alertDialog = builder.create();
+                    alertDialog.show();
+                    alertDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+                        @Override
+                        public void onCancel(DialogInterface dialog) {
+                            SetupCalendar();
+                        }
+                    });
+                }
             }
         });
 
@@ -135,29 +137,33 @@ public class CalendarCustomView extends LinearLayout {
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 final String date = dateFormat2.format(dateList.get(position));
 
-                AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                builder.setCancelable(true);
-                View showView = LayoutInflater.from(parent.getContext()).inflate(R.layout.show_events_layout, null);
-                RecyclerView EventRV = (RecyclerView) showView.findViewById(R.id.EventsRV);
-                RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(showView.getContext());
+                if (my_dictDay.containsKey(date)) {
 
-                EventRV.setLayoutManager(layoutManager);
-                EventRV.setHasFixedSize(true);
+                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                    builder.setCancelable(true);
+                    View showView = LayoutInflater.from(parent.getContext()).inflate(R.layout.show_events_layout, null);
+                    RecyclerView EventRV = (RecyclerView) showView.findViewById(R.id.EventsRV);
+                    RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(showView.getContext());
 
-                EventRecyclerAdapter eventRecyclerAdapter = new EventRecyclerAdapter(showView.getContext(), CollectEvent(date));
-                EventRV.setAdapter(eventRecyclerAdapter);
-                eventRecyclerAdapter.notifyDataSetChanged();
-                builder.setView(showView);
-                alertDialog = builder.create();
-                alertDialog.show();
-                alertDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
-                    @Override
-                    public void onCancel(DialogInterface dialog) {
-                        SetupCalendar();
-                    }
-                });
+                    EventRV.setLayoutManager(layoutManager);
+                    EventRV.setHasFixedSize(true);
+
+                    EventRecyclerAdapter eventRecyclerAdapter = new EventRecyclerAdapter(showView.getContext(), CollectEvent(date));
+                    EventRV.setAdapter(eventRecyclerAdapter);
+                    eventRecyclerAdapter.notifyDataSetChanged();
+                    builder.setView(showView);
+                    alertDialog = builder.create();
+                    alertDialog.show();
+                    alertDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+                        @Override
+                        public void onCancel(DialogInterface dialog) {
+                            SetupCalendar();
+                        }
+                    });
 
 
+//                    return true;
+                }
                 return true;
             }
         });
