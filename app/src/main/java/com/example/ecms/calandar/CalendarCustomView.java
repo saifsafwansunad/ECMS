@@ -220,6 +220,7 @@ public class CalendarCustomView extends LinearLayout {
             monthCalendar.add(Calendar.DAY_OF_MONTH,1);
 
         }
+//        Log.d("today", String.valueOf(calendar.get(Calendar.DATE)));
         adapter = new MyGridAdapter(context,dateList,calendar,meetingsList2);
         gridView.setAdapter(adapter);
 

@@ -2,6 +2,7 @@ package com.example.ecms.calandar;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,6 +48,9 @@ public class MyGridAdapter extends ArrayAdapter {
         int displayYear = dateCalendar.get(Calendar.YEAR);
         int currentYear = currentDate.get(Calendar.YEAR);
         int currentMonth = currentDate.get(Calendar.MONTH)+1;
+        int today = currentDate.get(Calendar.DAY_OF_MONTH);
+        Log.d("today", String.valueOf(today));
+        Log.d("today1", String.valueOf(dayNo));
 
 
 
@@ -57,6 +61,8 @@ public class MyGridAdapter extends ArrayAdapter {
             view = inflater.inflate(R.layout.single_cell_layout,parent,false);
         }
 
+
+
         if (displayMonth == currentMonth && displayYear==currentYear){
             view.setBackgroundColor(getContext().getResources().getColor(R.color.white));
 
@@ -64,6 +70,10 @@ public class MyGridAdapter extends ArrayAdapter {
         else {
             view.setBackgroundColor(Color.parseColor("#cccccc"));
             view.setClickable(true);
+        }
+        if (displayMonth == currentMonth && displayYear==currentYear && dayNo == today ){
+            view.setBackgroundColor(getContext().getResources().getColor(R.color.light_yellow));
+
         }
         TextView cellNumber = view.findViewById(R.id.calendat_day);
         TextView eventText = view.findViewById(R.id.event_id);
