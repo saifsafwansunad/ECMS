@@ -38,7 +38,6 @@ import com.github.mikephil.charting.charts.Chart;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.components.Legend;
-import com.github.mikephil.charting.components.LegendEntry;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
@@ -205,12 +204,12 @@ TextView textViewName=(TextView)view.findViewById(R.id.corespondence_name_home_v
                         // pieChart.setDescription("Sales by employee (In Thousands $)");
                         // pieChart.setRotationEnabled(true);
                        // pieChart.setUsePercentValues(true);
-//                        pieChart.setHoleColor(Color.GREEN);
-//                        Paint p1 = pieChart.getPaint(Chart.PAINT_HOLE);
+                        pieChart.setHoleColor(Color.GREEN);
+                        Paint p1 = pieChart.getPaint(Chart.PAINT_HOLE);
 //                        p1.setColor(context.getResources().getColor(R.color.colrgreen));
-                        pieChart.setRotationEnabled(false);
 
-//                        pieChart.getLegend().setEnabled(false);
+                        pieChart.setRotationEnabled(false);
+                        pieChart.getLegend().setEnabled(false);
                         //pieChart.setCenterTextColor(Color.BLACK);
                         pieChart.setHoleRadius(0);
                         pieChart.setTransparentCircleAlpha(0);
@@ -339,20 +338,27 @@ TextView textViewName=(TextView)view.findViewById(R.id.corespondence_name_home_v
         for(int i = 1; i < xData.length; i++){
             xEntrys.add(xData[i]);
 
+            }
+        }catch (Exception e){
+
         }
 
         //create the data set
         PieDataSet pieDataSet = new PieDataSet(yEntrys, "Meeting Actions");
 
-        pieDataSet.setSliceSpace(2);
-        pieDataSet.setValueTextSize(14);
+       // pieDataSet.setSliceSpace(2);
+        pieDataSet.setValueTextSize(12);
 
         //add colors to dataset
-//        ArrayList<Integer> colors = new ArrayList<>();
-        int [] color={  Color.rgb(220,220,220),Color.rgb(20,66,104),
-        };
-
-        pieDataSet.setColors(color);
+        ArrayList<Integer> colors = new ArrayList<>();
+        colors.add(Color.GRAY);
+        colors.add(Color.BLUE);
+        colors.add(Color.RED);
+        colors.add(Color.GREEN);
+        colors.add(Color.CYAN);
+        colors.add(Color.YELLOW);
+        colors.add(Color.MAGENTA);
+        pieDataSet.setColors(colors);
         pieDataSet.setValueTextColor(Color.WHITE);
 
         //add legend to chart
