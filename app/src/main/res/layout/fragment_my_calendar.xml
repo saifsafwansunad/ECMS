@@ -7,8 +7,12 @@
 
     <!-- TODO: Update blank fragment layout -->
 
-<CalendarView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:id="@+id/your_calendarview"/>
+<!--<CalendarView-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:id="@+id/your_calendarview"/>-->
+    <com.example.ecms.calandar.CalendarCustomView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/custom_calendar_view"></com.example.ecms.calandar.CalendarCustomView>
 </LinearLayout>
