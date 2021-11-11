@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.icu.lang.UCharacter;
 import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -37,6 +38,7 @@ import com.github.mikephil.charting.charts.Chart;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.components.Legend;
+import com.github.mikephil.charting.components.LegendEntry;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
@@ -158,9 +160,15 @@ TextView textViewName=(TextView)view.findViewById(R.id.corespondence_name_home_v
                         pieChart.setTransparentCircleAlpha(0);
 
                         pieChart.setDescription(description);
+                        pieChart.setRotationEnabled(false);
 
 
+                        LegendEntry l1=new LegendEntry("Attended Meetings", Legend.LegendForm.DEFAULT,10f,2f,null,Color.rgb(20,6,104) );
+                        LegendEntry l2=new LegendEntry("Upcoming Meetings", Legend.LegendForm.CIRCLE,10f,2f,null, Color.rgb(220,220,220));
 
+                        Legend l=pieChart.getLegend();
+//                        l.setOrientation(Legend.LegendOrientation.VERTICAL);
+                        l.setCustom(new LegendEntry[]{l1,l2});
                         // pieChart.setCenterText("Super Cool Chart");
                         //pieChart.setCenterTextSize(10);
                         //pieChart.setDrawEntryLabels(true);
@@ -197,16 +205,29 @@ TextView textViewName=(TextView)view.findViewById(R.id.corespondence_name_home_v
                         // pieChart.setDescription("Sales by employee (In Thousands $)");
                         // pieChart.setRotationEnabled(true);
                        // pieChart.setUsePercentValues(true);
-                        pieChart.setHoleColor(Color.GREEN);
-                        Paint p1 = pieChart.getPaint(Chart.PAINT_HOLE);
+//                        pieChart.setHoleColor(Color.GREEN);
+//                        Paint p1 = pieChart.getPaint(Chart.PAINT_HOLE);
 //                        p1.setColor(context.getResources().getColor(R.color.colrgreen));
-
                         pieChart.setRotationEnabled(false);
-                        pieChart.getLegend().setEnabled(false);
+
+//                        pieChart.getLegend().setEnabled(false);
                         //pieChart.setCenterTextColor(Color.BLACK);
                         pieChart.setHoleRadius(0);
                         pieChart.setTransparentCircleAlpha(0);
                         pieChart.setDescription(description);
+//
+//                        int [] color={ Color.rgb(100,221,23), Color.rgb(128,0,128),
+//                                                  };
+
+                        LegendEntry l1=new LegendEntry("Attended Meetings", Legend.LegendForm.DEFAULT,10f,2f,null,Color.rgb(20,6,104) );
+                        LegendEntry l2=new LegendEntry("Upcoming Meetings", Legend.LegendForm.CIRCLE,10f,2f,null, Color.rgb(220,220,220));
+
+                        Legend l=pieChart.getLegend();
+//                        l.setOrientation(Legend.LegendOrientation.VERTICAL);
+                        l.setCustom(new LegendEntry[]{l1,l2});
+
+
+
 
 
                         // pieChart.setCenterText("Super Cool Chart");
@@ -323,19 +344,15 @@ TextView textViewName=(TextView)view.findViewById(R.id.corespondence_name_home_v
         //create the data set
         PieDataSet pieDataSet = new PieDataSet(yEntrys, "Meeting Actions");
 
-       // pieDataSet.setSliceSpace(2);
-        pieDataSet.setValueTextSize(12);
+        pieDataSet.setSliceSpace(2);
+        pieDataSet.setValueTextSize(14);
 
         //add colors to dataset
-        ArrayList<Integer> colors = new ArrayList<>();
-        colors.add(Color.GRAY);
-        colors.add(Color.BLUE);
-        colors.add(Color.RED);
-        colors.add(Color.GREEN);
-        colors.add(Color.CYAN);
-        colors.add(Color.YELLOW);
-        colors.add(Color.MAGENTA);
-        pieDataSet.setColors(colors);
+//        ArrayList<Integer> colors = new ArrayList<>();
+        int [] color={  Color.rgb(220,220,220),Color.rgb(20,66,104),
+        };
+
+        pieDataSet.setColors(color);
         pieDataSet.setValueTextColor(Color.WHITE);
 
         //add legend to chart
