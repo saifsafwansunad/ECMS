@@ -66,5 +66,33 @@ public class PreferenceUtils {
         return prefs.getString(LoginConstants.KEY_PASSWORD, null);
     }
 
+    public static boolean saveUserName(String userName, Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor prefsEditor = prefs.edit();
+        prefsEditor.putString(LoginConstants.USER_NAME, userName);
+
+
+        prefsEditor.apply();
+        return true;
+    }
+    public static String getUserName(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        return prefs.getString(LoginConstants.USER_NAME, null);
+    }
+
+    public static boolean saveMobile(String mobile, Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor prefsEditor = prefs.edit();
+        prefsEditor.putString(LoginConstants.USER_MOBILE, mobile);
+
+
+        prefsEditor.apply();
+        return true;
+    }
+    public static String getMobile(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        return prefs.getString(LoginConstants.USER_MOBILE, null);
+    }
+
 
 }

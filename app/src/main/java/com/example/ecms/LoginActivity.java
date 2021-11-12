@@ -163,6 +163,10 @@ EditText editTextLoginEmail,editTextLoginPassword;
 
                                 data = dataArrayList.get(i).getId();
                                 PreferenceUtils.saveUid(data,LoginActivity.this);
+                                PreferenceUtils.saveUserName(userLoginResponse.getName(),LoginActivity.this);
+                                PreferenceUtils.saveMobile(userLoginResponse.getMobile(),LoginActivity.this);
+                                PreferenceUtils.saveEmail(userLoginResponse.getEmail(),LoginActivity.this);
+
 
                                 Log.d("key of the message", "The message " + data);
 
