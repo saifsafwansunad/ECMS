@@ -66,12 +66,12 @@
                             android:textColor="@color/colorBlack"
                             android:textSize="18dp" />
 
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
-                            android:layout_centerVertical="true"
-                            android:src="@drawable/ic_baseline_edit_24" />
+<!--                        <ImageView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_alignParentRight="true"-->
+<!--                            android:layout_centerVertical="true"-->
+<!--                            android:src="@drawable/ic_baseline_edit_24" />-->
                     </RelativeLayout>
                 </LinearLayout>
 
@@ -237,12 +237,12 @@
                             android:textColor="@color/colorBlack"
                             android:textSize="18dp" />
 
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
-                            android:layout_centerVertical="true"
-                            android:src="@drawable/ic_baseline_edit_24" />
+<!--                        <ImageView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_alignParentRight="true"-->
+<!--                            android:layout_centerVertical="true"-->
+<!--                            android:src="@drawable/ic_baseline_edit_24" />-->
                     </RelativeLayout>
                 </LinearLayout>
 
@@ -272,12 +272,12 @@
                             android:textColor="@color/colorBlack"
                             android:textSize="18dp" />
 
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
-                            android:layout_centerVertical="true"
-                            android:src="@drawable/ic_baseline_edit_24" />
+<!--                        <ImageView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_alignParentRight="true"-->
+<!--                            android:layout_centerVertical="true"-->
+<!--                            android:src="@drawable/ic_baseline_edit_24" />-->
                     </RelativeLayout>
                 </LinearLayout>
 
@@ -287,14 +287,16 @@
                     android:orientation="vertical"
                     android:padding="5dp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Password" />
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:text="Password" />-->
 
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:id="@+id/change_password_layout"
                         android:background="@drawable/profile_text_bg">
 
                         <TextView
@@ -302,19 +304,18 @@
                             android:layout_height="wrap_content"
                             android:id="@+id/password_mobile_tv"
                             android:layout_margin="10dp"
-                            android:text="9876543210"
-                            android:inputType="none|textPassword"
+                            android:text="Change Password"
 
-                            android:textColor="@color/colorBlack"
+                            android:textColor="@color/blue"
                             android:textSize="18dp" />
 
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
-                            android:id="@+id/change_password_imageview"
-                            android:layout_centerVertical="true"
-                            android:src="@drawable/ic_baseline_edit_24" />
+<!--                        <ImageView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_alignParentRight="true"-->
+<!--                            android:id="@+id/change_password_imageview"-->
+<!--                            android:layout_centerVertical="true"-->
+<!--                            android:src="@drawable/ic_baseline_edit_24" />-->
                     </RelativeLayout>
                 </LinearLayout>
 

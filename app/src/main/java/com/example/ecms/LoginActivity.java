@@ -1,12 +1,19 @@
 package com.example.ecms;
 
+import android.app.Activity;
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -32,8 +39,8 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
-AppCompatButton buttonLogin;
-
+Button buttonLogin,buttonReset;
+TextView textViewForgotPassword;
     public static UserLoginResponse userLoginResponse;
 
 EditText editTextLoginEmail,editTextLoginPassword;
@@ -55,10 +62,13 @@ EditText editTextLoginEmail,editTextLoginPassword;
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_login);
-    buttonLogin=(AppCompatButton) findViewById(R.id.login_btn);
+    buttonLogin=(Button) findViewById(R.id.login_btn);
     checkBox=findViewById(R.id.login_checkbox);
     editTextLoginEmail=findViewById(R.id.emailId);
     editTextLoginPassword=findViewById(R.id.password);
+        textViewForgotPassword=findViewById(R.id.forgot_password_textview);
+
+        buttonReset=(Button) findViewById(R.id.reset_btn);
     getSupportActionBar().hide();
         PreferenceUtils utils = new PreferenceUtils();
 
@@ -70,6 +80,21 @@ EditText editTextLoginEmail,editTextLoginPassword;
 
               }else{
         }
+
+    textViewForgotPassword.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+ForgotPasswordDialog forgotPasswordDialog=new ForgotPasswordDialog();
+forgotPasswordDialog.showDialog(LoginActivity.this,"Forgot Password");
+        }
+    });
+    buttonReset.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            editTextLoginEmail.getText().clear();
+            editTextLoginPassword.getText().clear();
+        }
+    });
 
     buttonLogin.setOnClickListener(new View.OnClickListener() {
         @Override
@@ -253,5 +278,33 @@ EditText editTextLoginEmail,editTextLoginPassword;
     }
 
 
+    public class ForgotPasswordDialog {
 
+        public void showDialog(Activity activity, String msg){
+            final Dialog dialog = new Dialog(activity);
+            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
+//            dialog.setCancelable(false);
+            dialog.setContentView(R.layout.password_dialog_layout);
+            Button buttonOk=(Button) dialog.findViewById(R.id.save_btn);
+            buttonOk.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    dialog.dismiss();
+                }
+            });
+
+            Button cancelButton = (Button) dialog.findViewById(R.id.cancel_btn);
+            cancelButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    dialog.dismiss();
+                }
+            });
+
+            dialog.show();
+
+
+        }
+    }
 }

@@ -11,11 +11,13 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class ProfileActivity extends AppCompatActivity {
     TextView userName, userEmail, userMobile,textViewHeading;
 ImageView imageViewChangePassword;
+RelativeLayout relativeLayoutChangePassword;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,11 +28,11 @@ ImageView imageViewChangePassword;
         userMobile = findViewById(R.id.user_mobile_tv);
         textViewHeading=findViewById(R.id.profile_heading_textview);
 
-imageViewChangePassword=findViewById(R.id.change_password_imageview);
-imageViewChangePassword.setOnClickListener(new View.OnClickListener() {
+relativeLayoutChangePassword=findViewById(R.id.change_password_layout);
+        relativeLayoutChangePassword.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
-        ViewDialog alert = new ViewDialog();
+        ChangePasswordDialog alert = new ChangePasswordDialog();
         alert.showDialog(ProfileActivity.this, "Change Password");
     }
 });
@@ -41,7 +43,7 @@ imageViewChangePassword.setOnClickListener(new View.OnClickListener() {
 
 
     }
-    public class ViewDialog {
+    public class ChangePasswordDialog {
 
         public void showDialog(Activity activity, String msg){
             final Dialog dialog = new Dialog(activity);
