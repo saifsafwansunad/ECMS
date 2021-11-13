@@ -27,4 +27,8 @@ public interface Apis {
     @GET("App_Handler/FileSystem1.ashx")
     Call<CommitteeFilesResponse> CFList(@Query("CFName") String CFName,
                                         @Query("$format") String format);
+
+    @GET("PasswordReset.ashx?")
+    Call<List<PasswordResp>> changePassword(@Query("uname") String uname,
+                                            @Query("upwd") String upwd);
 }
