@@ -83,20 +83,31 @@ Button buttonSave=(Button) dialog.findViewById(R.id.save_btn);
      public void onClick(View v) {
          //validations for updating password
 
-             if(currentPassword.getText().toString().equals(PreferenceUtils.getPassword(getApplicationContext()))){
-                 if(newPassword.getText().toString().equals(confirmPassword.getText().toString())){
+             if(currentPassword.getText().toString().isEmpty()|
+             newPassword.getText().toString().isEmpty()|confirmPassword.getText().toString().isEmpty()){
+                 Toast.makeText(activity, "Please Enter the Fields", Toast.LENGTH_SHORT).show();
+             }else{
+                 if(currentPassword.getText().toString().equals(PreferenceUtils.getPassword(getApplicationContext()))){
+                     if(newPassword.getText().toString().equals(confirmPassword.getText().toString())){
+                         PasswordChange();
 
-                     PasswordChange();
-                  //   dialog.dismiss();
+                     /*    if(newPassword.getText().toString().isEmpty()|confirmPassword.getText().toString().isEmpty()){
+                             Toast.makeText(activity, "Please Enter New Password", Toast.LENGTH_SHORT).show();
+                         }else{
+
+                         }*/
+
+                         //   dialog.dismiss();
 
 
+                     }
+                     else{
+                         Toast.makeText(activity, "Fields not matching please check", Toast.LENGTH_SHORT).show();
+                     }
                  }
                  else{
-                     Toast.makeText(activity, "Fields not matching please check", Toast.LENGTH_SHORT).show();
+                     Toast.makeText(activity, "current password wrong", Toast.LENGTH_SHORT).show();
                  }
-             }
-             else{
-                 Toast.makeText(activity, "current password wrong", Toast.LENGTH_SHORT).show();
              }
 
 
