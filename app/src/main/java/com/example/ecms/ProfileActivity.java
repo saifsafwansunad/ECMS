@@ -62,9 +62,10 @@ relativeLayoutChangePassword=findViewById(R.id.change_password_layout);
     }
     public class ChangePasswordDialog {
         TextInputEditText newPassword;
+         Dialog dialog;
 
         public void showDialog(Activity activity, String msg){
-            final Dialog dialog = new Dialog(activity);
+            dialog = new Dialog(activity);
             dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
 
 //            dialog.setCancelable(false);
@@ -86,7 +87,7 @@ Button buttonSave=(Button) dialog.findViewById(R.id.save_btn);
                  if(newPassword.getText().toString().equals(confirmPassword.getText().toString())){
 
                      PasswordChange();
-                     dialog.dismiss();
+                  //   dialog.dismiss();
 
 
                  }
@@ -163,6 +164,7 @@ Button buttonSave=(Button) dialog.findViewById(R.id.save_btn);
                         public void onResponse(Call<List<PasswordResp>> call, Response<List<PasswordResp>> response) {
                             PreferenceUtils.savePassword(newPassword.getText().toString(),getApplicationContext());
                             Toast.makeText(ProfileActivity.this, "Saved", Toast.LENGTH_SHORT).show();
+                            dialog.dismiss();
 
 
                         }
