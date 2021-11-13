@@ -187,7 +187,7 @@ public class YourCustomCalendarView extends LinearLayout {
     private void IntializeUILayout(){
 
         LayoutInflater inflater =(LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(R.layout.calendar_layout,this);
+        View view = inflater.inflate(R.layout.your_calendar_layout,this);
         PreviouseButton = view.findViewById(R.id.previousBtn);
         NextButton = view.findViewById(R.id.nextBtn);
         CurrentDate = view.findViewById(R.id.current_Date);
@@ -246,10 +246,10 @@ public class YourCustomCalendarView extends LinearLayout {
 //        }
         meetingsList2 = my_dict.get(Month+Year);
 //        Log.d("calendarTroop3", "sizequeen" + meetingsList2.size());
-        if(my_dict.containsKey(Month+Year)){
-            Log.d("calendarTroop3", "sizequeen" + meetingsList2.size());
-            Log.d("calendarTroop31", "sizequeen" + my_dict.get(Month+Year).size());
-        }
+//        if(my_dict.containsKey(Month+Year)){
+//            Log.d("calendarTroop3", "sizequeen" + meetingsList2.size());
+//            Log.d("calendarTroop31", "sizequeen" + my_dict.get(Month+Year).size());
+//        }
 //        meetingsList2 = my_dict.get(Month+Year);
 //        Log.d("calendarTroop3", "sizequeen" + meetingsList2.size());
 
@@ -273,8 +273,8 @@ public class YourCustomCalendarView extends LinearLayout {
                         if (response.body() != null && response.body().size() > 0) {
                             meetingsList = response.body();
                             int size=meetingsList.size();
-                            Log.d("calendarTry", "size " + size);
-                            Toast.makeText(getContext(), "size " + size, Toast.LENGTH_SHORT).show();
+//                            Log.d("calendarTry", "size " + size);
+//                            Toast.makeText(getContext(), "size " + size, Toast.LENGTH_SHORT).show();
 
                             Calendar c = Calendar.getInstance();
                             SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm aa");
@@ -290,7 +290,7 @@ public class YourCustomCalendarView extends LinearLayout {
                                 String date_startDate= meetingsList.get(i).startDate;
                                 try {
                                     Date date1=new SimpleDateFormat("MM/dd/yyyy HH:mm aa").parse(date_startDate);
-                                    Log.d("calendarTroop1", monthFormat.format(date1.getTime())+yearFormat.format(date1.getTime()));
+//                                    Log.d("calendarTroop1", monthFormat.format(date1.getTime())+yearFormat.format(date1.getTime()));
 //                                    Log.d("calendarTry1", yearFormat.format(date1.getTime()));
                                     String MonthYear = monthFormat.format(date1.getTime())+yearFormat.format(date1.getTime());
                                     List<ToAttendMeetingResponse> meetings = new ArrayList<>();
@@ -306,14 +306,14 @@ public class YourCustomCalendarView extends LinearLayout {
                                         appended.add(meetingsList.get(i));
                                         my_dict.remove(MonthYear);
                                         my_dict.put(MonthYear, appended);
-                                        Log.d("calendarTroop12", String.valueOf(appended.size()));
-                                        Log.d("calendarTroop122", String.valueOf(my_dict.get(MonthYear).size()));
-//                                        Log.d("calendarTroop1", my_dict.get(MonthYear).get(0).getStartDate());
-                                        Log.d("calendarTroop304", MonthYear);
+//                                        Log.d("calendarTroop12", String.valueOf(appended.size()));
+//                                        Log.d("calendarTroop122", String.valueOf(my_dict.get(MonthYear).size()));
+////                                        Log.d("calendarTroop1", my_dict.get(MonthYear).get(0).getStartDate());
+//                                        Log.d("calendarTroop304", MonthYear);
 
                                     }else{
 //                                        Log.d("calendarTroop22", String.valueOf(my_dict.get(MonthYear).size()));
-                                        Log.d("calendarTroop305", MonthYear);
+//                                        Log.d("calendarTroop305", MonthYear);
                                         List<ToAttendMeetingResponse> meet = new ArrayList<ToAttendMeetingResponse>();
                                         meet.add(meetingsList.get(i));
                                         my_dict.put(MonthYear, meet);

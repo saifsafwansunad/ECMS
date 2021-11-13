@@ -82,7 +82,7 @@ public class CalendarCustomView extends LinearLayout {
                 //Do something after 100ms
                 SetupCalendar();
             }
-        }, 3000);
+        }, 5000);
 
         PreviouseButton.setOnClickListener(new OnClickListener() {
             @Override
@@ -258,13 +258,13 @@ public class CalendarCustomView extends LinearLayout {
 
     }
     public final void toAttendMeetingCall(){
-        ToAttendMeetingRequest toAttendMeetingRequest = new ToAttendMeetingRequest();
-        toAttendMeetingRequest.setuId(PreferenceUtils.getUid(context.getApplicationContext()));
+        Toast.makeText(context, "calling", Toast.LENGTH_SHORT).show();
+        Log.d("calendarTroop12", "1");
         meetingsList.clear();
         my_dict.clear();
         my_dictDay.clear();
 
-        Call<List<ToAttendMeetingResponse>> loginResponseCall = ApiClient.getUserService().toAttendMeeting(toAttendMeetingRequest.getuId());
+        Call<List<ToAttendMeetingResponse>> loginResponseCall = ApiClient.getUserService().yearsPlanner();
 
 
         try {
@@ -273,9 +273,12 @@ public class CalendarCustomView extends LinearLayout {
                 public void onResponse(Call<List<ToAttendMeetingResponse>> call, Response<List<ToAttendMeetingResponse>> response) {
 
                     if (response.isSuccessful()) {
+                        Log.d("calendarTroop12", "2");
                         if (response.body() != null && response.body().size() > 0) {
+                            Log.d("calendarTroop12", "3");
                             meetingsList = response.body();
                             int size=meetingsList.size();
+                            Toast.makeText(context, "here", Toast.LENGTH_LONG).show();
                             Log.d("calendarTry", "size " + size);
                             Toast.makeText(getContext(), "size " + size, Toast.LENGTH_SHORT).show();
 
@@ -288,6 +291,7 @@ public class CalendarCustomView extends LinearLayout {
 
 
                             for (int i = 0; i < meetingsList.size(); i++) {
+                                Log.d("calendarTroop12", "4");
 
                                 // if(meetingsList.get(i).startDate>=)
                                 String date_startDate= meetingsList.get(i).startDate;
@@ -301,7 +305,7 @@ public class CalendarCustomView extends LinearLayout {
 //                                    if(meetings.isEmpty())
 //                                    meetings.add(meetingsList.get(i));
 //                                    my_dict.put(MonthYear, meetings);
-//                                    Log.d("calendarTroop12", String.valueOf(meetings.size()));
+                                    Log.d("calendarTroop12", String.valueOf(meetings.size()));
 //                                        Log.d("calendarTroop122", String.valueOf(my_dict.get(MonthYear).size()));
 
                                     if(my_dict.containsKey(MonthYear)){
@@ -338,6 +342,8 @@ public class CalendarCustomView extends LinearLayout {
 
                                 } catch (ParseException e) {
                                     e.printStackTrace();
+                                    Log.d("calendarTroop12", "5");
+                                    Toast.makeText(context, "here2", Toast.LENGTH_LONG).show();
                                 }
 
 
@@ -360,13 +366,14 @@ public class CalendarCustomView extends LinearLayout {
                 @Override
                 public void onFailure(Call<List<ToAttendMeetingResponse>> call, Throwable t) {
 
-//                        Toast.makeText(MyService.this, "Throwable " + t.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+                        Toast.makeText(context, "Throwable " + t.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+                    Log.d("calendarTroop12", "6");
 
                 }
             });
 
         } catch (Exception e) {
-
+            Log.d("calendarTroop12", "6");
             e.printStackTrace();
         }
     }
