@@ -93,6 +93,7 @@ forgotPasswordDialog.showDialog(LoginActivity.this,"Forgot Password");
         public void onClick(View v) {
             editTextLoginEmail.getText().clear();
             editTextLoginPassword.getText().clear();
+            editTextLoginEmail.requestFocus();
         }
     });
 
@@ -286,7 +287,7 @@ forgotPasswordDialog.showDialog(LoginActivity.this,"Forgot Password");
 
 //            dialog.setCancelable(false);
             dialog.setContentView(R.layout.password_dialog_layout);
-            Button buttonOk=(Button) dialog.findViewById(R.id.save_btn);
+            Button buttonOk=(Button) dialog.findViewById(R.id.dialog_ok_btn);
             buttonOk.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -294,13 +295,6 @@ forgotPasswordDialog.showDialog(LoginActivity.this,"Forgot Password");
                 }
             });
 
-            Button cancelButton = (Button) dialog.findViewById(R.id.cancel_btn);
-            cancelButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    dialog.dismiss();
-                }
-            });
 
             dialog.show();
 

@@ -344,6 +344,24 @@ TextView textViewName=(TextView)view.findViewById(R.id.corespondence_name_home_v
         }catch (Exception e){
 
         }
+        pieChart.setOnChartValueSelectedListener(new OnChartValueSelectedListener() {
+            @Override
+            public void onValueSelected(Entry e, Highlight h) {
+//                Log.d(TAG, "onValueSelected: Value select from chart.");
+//                Log.d(TAG, "onValueSelected: " + e.toString());
+//                Log.d(TAG, "onValueSelected: " + h.toString());
+
+               Intent intent=new Intent(context,ToAttendMeetingActivity.class);
+               context.startActivity(intent);
+            }
+
+            @Override
+            public void onNothingSelected() {
+
+            }
+        });
+
+
 
         //create the data set
         PieDataSet pieDataSet = new PieDataSet(yEntrys, "Meeting Actions");

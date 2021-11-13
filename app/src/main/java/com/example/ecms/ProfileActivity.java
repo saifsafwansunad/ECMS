@@ -50,7 +50,7 @@ relativeLayoutChangePassword=findViewById(R.id.change_password_layout);
             dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
 
 //            dialog.setCancelable(false);
-            dialog.setContentView(R.layout.password_dialog_layout);
+            dialog.setContentView(R.layout.change_password_layout);
 Button buttonSave=(Button) dialog.findViewById(R.id.save_btn);
  buttonSave.setOnClickListener(new View.OnClickListener() {
      @Override
