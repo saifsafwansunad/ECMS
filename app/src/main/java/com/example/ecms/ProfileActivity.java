@@ -161,6 +161,7 @@ Button buttonSave=(Button) dialog.findViewById(R.id.save_btn);
                     userloginResponseCall.enqueue(new Callback<List<PasswordResp>>() {
                         @Override
                         public void onResponse(Call<List<PasswordResp>> call, Response<List<PasswordResp>> response) {
+                            PreferenceUtils.savePassword(newPassword.getText().toString(),getApplicationContext());
                             Toast.makeText(ProfileActivity.this, "Saved", Toast.LENGTH_SHORT).show();
 
 
