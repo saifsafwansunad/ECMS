@@ -27,16 +27,7 @@
         android:text="Do you  want to download this file?"/>
 
 
-    <com.google.android.material.button.MaterialButton
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
-        android:id="@+id/preview_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:text="Preview"
-        app:icon="@drawable/icon_previw"
-        app:backgroundTint="@color/blue"
-        android:textColor="@color/white"/>
+
 
 
 
@@ -46,21 +37,36 @@
         android:padding="10dp"
         android:weightSum="2"
         android:gravity="center_horizontal"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/download_btn"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="save"
+            android:text="Save"
             android:layout_weight="1"
             app:icon="@drawable/icon_download"
+            app:iconGravity="textStart"
             app:backgroundTint="@color/blue"
             android:layout_margin="5dp"
             android:textColor="#fff"/>
         <com.google.android.material.button.MaterialButton
-            android:layout_width="0dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:id="@+id/preview_btn"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="Preview"
+            app:iconGravity="textStart"
+            app:icon="@drawable/icon_previw"
+            app:backgroundTint="@color/blue"
+            android:textColor="@color/white"/>
+
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:iconGravity="textStart"
             android:text="Cancel"
             android:lines="1"
             android:layout_weight="1"
