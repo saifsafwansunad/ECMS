@@ -46,6 +46,7 @@ relativeLayoutChangePassword=findViewById(R.id.change_password_layout);
         relativeLayoutChangePassword.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
+
         ChangePasswordDialog alert = new ChangePasswordDialog();
         alert.showDialog(ProfileActivity.this, "Change Password");
     }
@@ -54,6 +55,8 @@ relativeLayoutChangePassword=findViewById(R.id.change_password_layout);
         userEmail.setText(PreferenceUtils.getEmail(this));
         userMobile.setText(PreferenceUtils.getMobile(this));
         textViewHeading.setText(PreferenceUtils.getUserName(this));
+
+
 
 
     }
@@ -79,11 +82,12 @@ Button buttonSave=(Button) dialog.findViewById(R.id.save_btn);
      public void onClick(View v) {
          //validations for updating password
 
-
              if(currentPassword.getText().toString().equals(PreferenceUtils.getPassword(getApplicationContext()))){
                  if(newPassword.getText().toString().equals(confirmPassword.getText().toString())){
 
                      PasswordChange();
+                     dialog.dismiss();
+
 
                  }
                  else{
@@ -157,7 +161,8 @@ Button buttonSave=(Button) dialog.findViewById(R.id.save_btn);
                     userloginResponseCall.enqueue(new Callback<List<PasswordResp>>() {
                         @Override
                         public void onResponse(Call<List<PasswordResp>> call, Response<List<PasswordResp>> response) {
-                            Toast.makeText(ProfileActivity.this, "success", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(ProfileActivity.this, "Saved", Toast.LENGTH_SHORT).show();
+
 
                         }
 
@@ -165,12 +170,12 @@ Button buttonSave=(Button) dialog.findViewById(R.id.save_btn);
                         public void onFailure(Call<List<PasswordResp>> call, Throwable t) {
                             Log.d("key of the message", "onfailure : data not coming" );
 
-                            Toast.makeText(getApplicationContext(), "Failed", Toast.LENGTH_LONG).show();
+                         // Toast.makeText(getApplicationContext(), "on failure called"+t, Toast.LENGTH_LONG).show();
                         }
                     });
                 } catch (Exception e) {
                     e.printStackTrace();
-                    Toast.makeText(getApplicationContext(), "Failed", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "failed ", Toast.LENGTH_LONG).show();
 
                 }
 

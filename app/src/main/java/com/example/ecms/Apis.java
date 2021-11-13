@@ -29,6 +29,6 @@ public interface Apis {
                                         @Query("$format") String format);
 
     @GET("PasswordReset.ashx?")
-    Call<List<PasswordResp>> changePassword(@Query("uname") String uname,
-                                            @Query("upwd") String upwd);
+    Call<List<PasswordResp>> changePassword(@Query("empid") String uid,
+                                            @Query("newpwd") String upwd);
 }

@@ -5,13 +5,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class PasswordResp {
 
-    private Object Saved;
+    @SerializedName("Saved")
+    @Expose
+    private String saved;
 
-    public Object getSaved() {
-        return Saved;
+    public String getSaved() {
+        return saved;
     }
 
-    public void setSaved(Object saved) {
-        Saved = saved;
+    public void setSaved(String saved) {
+        this.saved = saved;
     }
+
 }
