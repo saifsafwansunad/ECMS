@@ -85,7 +85,7 @@ Button buttonSave=(Button) dialog.findViewById(R.id.save_btn);
 
              if(currentPassword.getText().toString().isEmpty()|
              newPassword.getText().toString().isEmpty()|confirmPassword.getText().toString().isEmpty()){
-                 Toast.makeText(activity, "Please Enter the Fields", Toast.LENGTH_SHORT).show();
+                 Toast.makeText(activity, "Please Enter all Fields to Change the Password", Toast.LENGTH_SHORT).show();
              }else{
                  if(currentPassword.getText().toString().equals(PreferenceUtils.getPassword(getApplicationContext()))){
                      if(newPassword.getText().toString().equals(confirmPassword.getText().toString())){
@@ -102,7 +102,7 @@ Button buttonSave=(Button) dialog.findViewById(R.id.save_btn);
 
                      }
                      else{
-                         Toast.makeText(activity, "Fields not matching please check", Toast.LENGTH_SHORT).show();
+                         Toast.makeText(activity, "Fields are not matching please check", Toast.LENGTH_SHORT).show();
                      }
                  }
                  else{

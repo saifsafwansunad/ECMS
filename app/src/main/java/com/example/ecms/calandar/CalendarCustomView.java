@@ -264,7 +264,7 @@ public class CalendarCustomView extends LinearLayout {
         my_dict.clear();
         my_dictDay.clear();
 
-        Call<List<ToAttendMeetingResponse>> loginResponseCall = ApiClient.getUserService().toAttendMeeting(toAttendMeetingRequest.getuId());
+        Call<List<ToAttendMeetingResponse>> loginResponseCall = ApiClient.getUserService().yearsplannerCalender(toAttendMeetingRequest.getuId());
 
 
         try {
