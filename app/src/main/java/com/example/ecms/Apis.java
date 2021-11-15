@@ -22,7 +22,7 @@ public interface Apis {
     Call<List<CommiteeMeetingModel>> toPaticularCommitee(@Query("cmtid") String empid);
 
     @GET("YearPlanner.ashx")
-    Call<List<ToAttendMeetingResponse>> yearsplannerCalender(@Query("empid") String empid);
+    Call<List<ToAttendMeetingResponse>> yearsplannerCalender();
 
     @GET("Committees.ashx")
     Call<List<ComitteeResponse>> tocommitee(@Query("empid") String empid);

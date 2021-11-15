@@ -55,7 +55,7 @@ public class AttendMeetingDetailsActivity extends AppCompatActivity {
 
         meeting_details_attachment_recyclerview.setLayoutManager(layoutManager);
 
-        meeting_details_attachment_recyclerview.setAdapter(new MeetingAttachmentAdapter(AttendMeetingDetailsActivity.this, meeting.getMeetingAttachments()));
+//        meeting_details_attachment_recyclerview.setAdapter(new MeetingAttachmentAdapter(AttendMeetingDetailsActivity.this, meeting.getMeetingAttachments()));
 
 
 

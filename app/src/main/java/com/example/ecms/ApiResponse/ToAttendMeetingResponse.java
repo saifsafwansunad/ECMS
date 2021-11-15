@@ -42,8 +42,7 @@ public class ToAttendMeetingResponse implements Parcelable {
     public String mSTeamMeetingJoinUrl;
     @SerializedName("MeetingAttachments")
     @Expose
-    public List<MeetingAttachment> meetingAttachments;
-
+    public Object meetingAttachments;
 
 
     public ToAttendMeetingResponse(String meetingId, String meetingType, String title, String agenda, String description, String startDate, String isMSTeamMeeting, String mSTeamMeetingID, String mSTeamMeetingWebLink, String mSTeamMeetingJoinUrl, List<MeetingAttachment> meetingAttachments) {
@@ -165,7 +164,7 @@ public class ToAttendMeetingResponse implements Parcelable {
         this.mSTeamMeetingJoinUrl = mSTeamMeetingJoinUrl;
     }
 
-    public List<MeetingAttachment> getMeetingAttachments() {
+    public Object getMeetingAttachments() {
         return meetingAttachments;
     }
 

@@ -29,6 +29,7 @@ import com.example.ecms.ApiRequests.ToAttendMeetingRequest;
 import com.example.ecms.ApiResponse.ToAttendMeetingResponse;
 import com.example.ecms.PreferenceUtils;
 import com.example.ecms.R;
+import com.example.ecms.ui.MyService;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -264,7 +265,7 @@ public class CalendarCustomView extends LinearLayout {
         my_dict.clear();
         my_dictDay.clear();
 //ORganization Calender
-        Call<List<ToAttendMeetingResponse>> loginResponseCall = ApiClient.getUserService().yearsplannerCalender(toAttendMeetingRequest.getuId());
+        Call<List<ToAttendMeetingResponse>> loginResponseCall = ApiClient.getUserService().yearsplannerCalender();
 
 
         try {
@@ -360,7 +361,7 @@ public class CalendarCustomView extends LinearLayout {
                 @Override
                 public void onFailure(Call<List<ToAttendMeetingResponse>> call, Throwable t) {
 
-//                        Toast.makeText(MyService.this, "Throwable " + t.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+                        Toast.makeText(context, "Throwable " + t.getLocalizedMessage(), Toast.LENGTH_LONG).show();
 
                 }
             });
