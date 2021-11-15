@@ -72,9 +72,6 @@ public class ViewPagerCardsAdapter extends PagerAdapter implements CardAdapterIn
     Description description;
 
     TextView correspondencename;
-    int calsBurned = 0;
-    int calsConsumed = 0;
-    int calsConsumed2 = 0;
     private List<CardView> mViews;
     private List<CardItems> mData;
     private float mBaseElevation;
@@ -425,21 +422,21 @@ TextView textViewName=(TextView)view.findViewById(R.id.corespondence_name_home_v
 //        Picasso.get().load(item.getTitle()).into(sliderImage);
 //        contentTextView.setText(item.getText());
     }
-    public void addBurned(View v) {
-
-
-        // Update the old value:
-        calsBurned = 18;
-        updateChart();
-    }
-
-    public void addConsumed(View v) {
-
-
-        // Update the old value:
-        calsConsumed = 6;
-        updateChart();
-    }
+//    public void addBurned(View v) {
+//
+//
+//        // Update the old value:
+//        calsBurned = 18;
+//        updateChart();
+//    }
+//
+//    public void addConsumed(View v) {
+//
+//
+//        // Update the old value:
+//        calsConsumed = 6;
+//        updateChart();
+//    }
 
 //    public void addConsumed2(View v) {
 //
@@ -449,15 +446,15 @@ TextView textViewName=(TextView)view.findViewById(R.id.corespondence_name_home_v
 //        updateChart();
 //    }
 
-    public void updateChart() {
-        // Update the text in a center of the chart:
-//        numberOfCals.setText(String.valueOf(calsBurned) + " / " + calsConsumed);
-
-        // Calculate the slice size and update the pie chart:
-        double d = (double) calsBurned / (double) calsConsumed;
-        int progress = (int) (d * 100);
-//        pieChart.setProgress(progress);
-    }
+//    public void updateChart() {
+//        // Update the text in a center of the chart:
+////        numberOfCals.setText(String.valueOf(calsBurned) + " / " + calsConsumed);
+//
+//        // Calculate the slice size and update the pie chart:
+//        double d = (double) calsBurned / (double) calsConsumed;
+//        int progress = (int) (d * 100);
+////        pieChart.setProgress(progress);
+//    }
 
     public final void toAttendMeetingsCall() {
 
