@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.ecms.ApiResponse.MeetingAttachment;
 import com.example.ecms.ApiResponse.ToAttendMeetingResponse;
 import com.example.ecms.R;
 
@@ -21,9 +22,9 @@ import java.util.List;
 public class MeetingAttachmentAdapter extends RecyclerView.Adapter<MeetingAttachmentAdapter.ViewHolder> {
 
     Activity context;
-    List<ToAttendMeetingResponse.MeetingAttachment> meetingAttachments;
+    List<MeetingAttachment> meetingAttachments;
 
-    public MeetingAttachmentAdapter(Activity context, List<ToAttendMeetingResponse.MeetingAttachment> meetingAttachments) {
+    public MeetingAttachmentAdapter(Activity context, List<MeetingAttachment> meetingAttachments) {
         this.context = context;
         this.meetingAttachments = meetingAttachments;
     }
@@ -39,8 +40,9 @@ public class MeetingAttachmentAdapter extends RecyclerView.Adapter<MeetingAttach
 
     @Override
     public void onBindViewHolder(@NonNull @NotNull MeetingAttachmentAdapter.ViewHolder holder, int position) {
+        if(!meetingAttachments.isEmpty()){
         holder.attachment_url_textview.setText(meetingAttachments.get(position).getFileUrl());
-        holder.attachment_description_textview.setText(meetingAttachments.get(position).getDescription());
+        holder.attachment_description_textview.setText(meetingAttachments.get(position).getDescription());}
 
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {

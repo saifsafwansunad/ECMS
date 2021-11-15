@@ -7,12 +7,27 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.ecms.Adapters.MeetingAttachmentAdapter;
 import com.example.ecms.Adapters.ToAttendMeetingsAdapter;
+import com.example.ecms.ApiResponse.MeetingAttachment;
 import com.example.ecms.ApiResponse.ToAttendMeetingResponse;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonPrimitive;
+import com.google.gson.reflect.TypeToken;
+
+import java.io.IOException;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
+import java.util.Objects;
 
 public class AttendMeetingDetailsActivity extends AppCompatActivity {
     ToAttendMeetingResponse meeting;
@@ -54,13 +69,44 @@ public class AttendMeetingDetailsActivity extends AppCompatActivity {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(AttendMeetingDetailsActivity.this);
 
         meeting_details_attachment_recyclerview.setLayoutManager(layoutManager);
+        List<MeetingAttachment> meetingAttachments;
 
-//        meeting_details_attachment_recyclerview.setAdapter(new MeetingAttachmentAdapter(AttendMeetingDetailsActivity.this, meeting.getMeetingAttachments()));
+        if(meeting.getMeetingAttachments() instanceof JsonPrimitive){
+//            YourModelForData object = YourDataComponentForObject(data);
+            // Do anything with Object
+            meetingAttachments = new ArrayList<>();
+        } else {
+            meetingAttachments = YourDataComponentForArray(meeting.getMeetingAttachments());
+            // Do anything with array
+        }
+
+        meeting_details_attachment_recyclerview.setAdapter(new MeetingAttachmentAdapter(AttendMeetingDetailsActivity.this, meetingAttachments));
+//
 
 
 
+    }
 
+    public static List<MeetingAttachment> convertObjectToList(Object obj) {
+        List<MeetingAttachment> list = new ArrayList<>();
+        if (obj.getClass().isArray()) {
+            list = Arrays.asList((MeetingAttachment[])obj);
+        } else if (obj instanceof Collection) {
+            list = new ArrayList<MeetingAttachment>((Collection<MeetingAttachment>)obj);
+        }
+        return list;
+    }
+//    public YourModelForData YourDataComponentForObject(JsonElement data) {
+//        Type type = new TypeToken<YourModelForData>() {
+//        }.getType();
+//        YourModelForData item = new Gson().fromJson(data, type);
+//    }
 
+    public List<MeetingAttachment> YourDataComponentForArray(JsonElement data) {
+        Type type = new TypeToken<List<MeetingAttachment>>() {
+        }.getType();
+        List<MeetingAttachment> items = new Gson().fromJson(data, type);
 
+        return  items;
     }
 }

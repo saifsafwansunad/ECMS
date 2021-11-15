@@ -3,9 +3,11 @@ package com.example.ecms.ApiResponse;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.google.gson.JsonElement;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ToAttendMeetingResponse implements Parcelable {
@@ -42,7 +44,11 @@ public class ToAttendMeetingResponse implements Parcelable {
     public String mSTeamMeetingJoinUrl;
     @SerializedName("MeetingAttachments")
     @Expose
-    public Object meetingAttachments;
+    public JsonElement meetingAttachments;
+//    @SerializedName("MeetingAttachments")
+//    @Expose
+//    public String noMeeting;
+
 
 
     public ToAttendMeetingResponse(String meetingId, String meetingType, String title, String agenda, String description, String startDate, String isMSTeamMeeting, String mSTeamMeetingID, String mSTeamMeetingWebLink, String mSTeamMeetingJoinUrl, List<MeetingAttachment> meetingAttachments) {
@@ -56,7 +62,7 @@ public class ToAttendMeetingResponse implements Parcelable {
         this.mSTeamMeetingID = mSTeamMeetingID;
         this.mSTeamMeetingWebLink = mSTeamMeetingWebLink;
         this.mSTeamMeetingJoinUrl = mSTeamMeetingJoinUrl;
-        this.meetingAttachments = meetingAttachments;
+//        this.meetingAttachments = meetingAttachments;
     }
 
     protected ToAttendMeetingResponse(Parcel in) {
@@ -164,13 +170,16 @@ public class ToAttendMeetingResponse implements Parcelable {
         this.mSTeamMeetingJoinUrl = mSTeamMeetingJoinUrl;
     }
 
-    public Object getMeetingAttachments() {
+    public JsonElement getMeetingAttachments() {
         return meetingAttachments;
     }
 
-    public void setMeetingAttachments(List<MeetingAttachment> meetingAttachments) {
+    public void setMeetingAttachments(JsonElement meetingAttachments) {
         this.meetingAttachments = meetingAttachments;
     }
+//    public void setMeetingAttachments(String meetingAttachments) {
+//        this.meetingAttachments = meetingAttachments;
+//    }
 
     @Override
     public int describeContents() {
