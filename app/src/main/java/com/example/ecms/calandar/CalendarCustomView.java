@@ -13,6 +13,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageButton;
@@ -48,6 +49,7 @@ public class CalendarCustomView extends LinearLayout {
     ImageButton PreviouseButton,NextButton;
     TextView CurrentDate;
     GridView gridView;
+    View my_view;
     private static final int MAX_CALENDAR_Days = 42;
     SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MMMM yyyy", Locale.ENGLISH);
     SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd",Locale.ENGLISH);
@@ -75,14 +77,21 @@ public class CalendarCustomView extends LinearLayout {
         this.context=context;
 
         IntializeUILayout();
+        gridView.setVisibility(View.GONE);
+        my_view.setVisibility(View.VISIBLE);
+        my_view.startAnimation(AnimationUtils.loadAnimation(context, R.anim.placeholder));
         final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
                 //Do something after 100ms
+                my_view.clearAnimation();
+                gridView.setVisibility(View.VISIBLE);
+                my_view.setVisibility(View.GONE);
                 SetupCalendar();
+
             }
-        }, 5000);
+        }, 12000);
 
         PreviouseButton.setOnClickListener(new OnClickListener() {
             @Override
@@ -195,6 +204,7 @@ public class CalendarCustomView extends LinearLayout {
         View view = inflater.inflate(R.layout.calendar_layout,this);
         PreviouseButton = view.findViewById(R.id.previousBtn);
         NextButton = view.findViewById(R.id.nextBtn);
+        my_view = view.findViewById(R.id.my_view);
         CurrentDate = view.findViewById(R.id.current_Date);
         gridView = view.findViewById(R.id.gridview);
         toAttendMeetingCall();
