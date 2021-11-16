@@ -175,7 +175,17 @@ TextView textViewName=(TextView)view.findViewById(R.id.corespondence_name_home_v
                         //pieChart.setEntryLabelTextSize(20);
                         //More options just check out the documentation!
 
-                        addDataSet();
+                        final Handler handler = new Handler();
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                //Do something after 100ms
+
+                                addDataSet();
+                            }
+                        }, 10000);
+
+
 
 /*
                         pieChart.setOnChartValueSelectedListener(new OnChartValueSelectedListener() {
@@ -233,7 +243,15 @@ TextView textViewName=(TextView)view.findViewById(R.id.corespondence_name_home_v
                         //pieChart.setEntryLabelTextSize(20);
                         //More options just check out the documentation!
 
-                        addDataSet();
+                        final Handler handler = new Handler();
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                //Do something after 100ms
+
+                                addDataSet();
+                            }
+                        }, 10000);
 
 /*
                         pieChart.setOnChartValueSelectedListener(new OnChartValueSelectedListener() {
@@ -384,6 +402,10 @@ TextView textViewName=(TextView)view.findViewById(R.id.corespondence_name_home_v
         // legend.setPosition(Legend.LegendPosition.LEFT_OF_CHART);
 
         //create pie data object
+
+
+
+
         PieData pieData = new PieData(pieDataSet);
         pieData.setValueFormatter(new DefaultValueFormatter(0));
         pieChart.setData(pieData);
@@ -519,6 +541,8 @@ TextView textViewName=(TextView)view.findViewById(R.id.corespondence_name_home_v
                                 //here we need to take countmeetings value and send it to mainactivty for showing there
                             }
                             attendedMeetings=meetingsList.size()-countMeetings;
+
+
                              yData= new int[]{countMeetings, attendedMeetings};
 
 

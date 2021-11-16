@@ -265,21 +265,25 @@ public class CommittiMeetingFilesActivity extends AppCompatActivity {
             downloadButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    DownloadManager.Request request = new DownloadManager.Request(Uri.parse(uri));
-                    String title = URLUtil.guessFileName(uri, null, null);
-                    Log.d("DownloadTest", Uri.parse(uri).toString());
-                    request.setTitle(title);
-                    request.setDescription("Downloading File please wait.....");
-                    String cookie = CookieManager.getInstance().getCookie(uri);
-                    request.addRequestHeader("cookie", cookie);
-                    request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
-                    request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, title);
+                    try{
+                        DownloadManager.Request request = new DownloadManager.Request(Uri.parse(uri));
+                        String title = URLUtil.guessFileName(uri, null, null);
+                        Log.d("DownloadTest", Uri.parse(uri).toString());
+                        request.setTitle(title);
+                        request.setDescription("Downloading File please wait.....");
+                        String cookie = CookieManager.getInstance().getCookie(uri);
+                        request.addRequestHeader("cookie", cookie);
+                        request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+                        request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, title);
 
-                    DownloadManager downloadManager = (DownloadManager)activity.getSystemService(DOWNLOAD_SERVICE);
-                    downloadManager.enqueue(request);
+                        DownloadManager downloadManager = (DownloadManager)activity.getSystemService(DOWNLOAD_SERVICE);
+                        downloadManager.enqueue(request);
 
-                    Toast.makeText(activity, "Downloading Started", Toast.LENGTH_SHORT).show();
-                    dialog.dismiss();
+                        Toast.makeText(activity, "Downloading Started", Toast.LENGTH_SHORT).show();
+                        dialog.dismiss();
+                    }catch (Exception e){
+                        Toast.makeText(activity, "Download Error", Toast.LENGTH_SHORT).show();
+                    }
                 }
             });
 

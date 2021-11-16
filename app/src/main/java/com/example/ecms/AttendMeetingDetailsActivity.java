@@ -15,7 +15,6 @@ import com.example.ecms.Adapters.MeetingAttachmentAdapter;
 import com.example.ecms.Adapters.ToAttendMeetingsAdapter;
 import com.example.ecms.ApiResponse.MeetingAttachment;
 import com.example.ecms.ApiResponse.ToAttendMeetingResponse;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonPrimitive;
