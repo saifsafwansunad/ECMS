@@ -91,11 +91,38 @@ View viewHeader;
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         viewHeader = navigationView.getHeaderView(0);
         ImageView imageViewNavheaderPRofile=(ImageView)viewHeader.findViewById(R.id.nav_header_profile_imageview);
+        ImageView imageViewNavheaderLogout=(ImageView)viewHeader.findViewById(R.id.nav_header_logout_iv);
         imageViewNavheaderPRofile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(MainActivity.this,ProfileActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        imageViewNavheaderLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PreferenceUtils.savePassword(null, MainActivity.this);
+                PreferenceUtils.saveEmail(null, MainActivity.this);
+                MyService.count = 0;
+
+                //trying to stop the service
+                stopService = true;
+                Intent stopIntent = new Intent(getApplicationContext(), MyService.class);
+                stopIntent.putExtra("service", "yes");
+                stopIntent.setAction("stopService");
+                getApplicationContext().startService(stopIntent);
+
+                Intent i = new Intent(getApplicationContext(), LoginActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                final ProgressDialog progressDoalog;
+                progressDoalog = new ProgressDialog(MainActivity.this);
+                progressDoalog.setMessage("Logging Out....");
+                progressDoalog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+                progressDoalog.show();
+                startActivity(i);
+                finish();
             }
         });
 

@@ -42,6 +42,7 @@
             android:layout_height="24dp"            android:layout_centerHorizontal="true"
             android:src="@drawable/settings"/>
         <ImageView
+            android:id="@+id/nav_header_logout_iv"
             android:layout_width="24dp"
             android:layout_height="24dp"             android:src="@drawable/logout"
             android:layout_marginLeft="15dp"
