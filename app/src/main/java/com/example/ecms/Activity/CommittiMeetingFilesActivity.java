@@ -2,15 +2,18 @@ package com.example.ecms.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
 import androidx.core.content.FileProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.Dialog;
 import android.app.DownloadManager;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Environment;
@@ -266,23 +269,32 @@ public class CommittiMeetingFilesActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     try{
-                        DownloadManager.Request request = new DownloadManager.Request(Uri.parse(uri));
-                        String title = URLUtil.guessFileName(uri, null, null);
-                        Log.d("DownloadTest", Uri.parse(uri).toString());
-                        request.setTitle(title);
-                        request.setDescription("Downloading File please wait.....");
-                        String cookie = CookieManager.getInstance().getCookie(uri);
-                        request.addRequestHeader("cookie", cookie);
-                        request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
-                        request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, title);
 
-                        DownloadManager downloadManager = (DownloadManager)activity.getSystemService(DOWNLOAD_SERVICE);
-                        downloadManager.enqueue(request);
+                        if(ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED || ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED){
+                            ActivityCompat.requestPermissions(CommittiMeetingFilesActivity.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+                            // this will request for permission when permission is not true
+                        }else{
+                            // Download code here
+                            DownloadManager.Request request = new DownloadManager.Request(Uri.parse(uri));
+                            String title = URLUtil.guessFileName(uri, null, null);
+                            Log.d("DownloadTest", Uri.parse(uri).toString());
+                            request.setTitle(title);
+                            request.setDescription("Downloading File please wait.....");
+                            String cookie = CookieManager.getInstance().getCookie(uri);
+                            request.addRequestHeader("cookie", cookie);
+                            request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+                            request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, title);
 
-                        Toast.makeText(activity, "Downloading Started", Toast.LENGTH_SHORT).show();
-                        dialog.dismiss();
+                            DownloadManager downloadManager = (DownloadManager)activity.getSystemService(DOWNLOAD_SERVICE);
+                            downloadManager.enqueue(request);
+
+                            Toast.makeText(activity, "Downloading Started", Toast.LENGTH_SHORT).show();
+                            dialog.dismiss();
+                        }
+
+
                     }catch (Exception e){
-                        Toast.makeText(activity, "Download Error", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(activity, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
                     }
                 }
             });
