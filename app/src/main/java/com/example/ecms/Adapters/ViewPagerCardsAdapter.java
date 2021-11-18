@@ -63,8 +63,6 @@ import retrofit2.Response;
 
 public class ViewPagerCardsAdapter extends PagerAdapter implements CardAdapterInterface {
     public static int countMeetings,attendedMeetings;
-
-
     //PIE CHART
     private int[] yData;
     private String[] xData = {"Need to attend", "attended" };
