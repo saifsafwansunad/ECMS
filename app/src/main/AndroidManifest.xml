@@ -74,11 +74,23 @@
         <activity android:name=".PublicActivity" />
         <activity android:name=".Readyapprove_viewmeeting" />
         <activity android:name=".ui.ReadyToApprove" />
+        <provider
+            android:authorities="com.example.ecms.provider"
+            android:name="androidx.core.content.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_path"/>
+        </provider>
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar" />
     </application>
+
+    
 
 </manifest>

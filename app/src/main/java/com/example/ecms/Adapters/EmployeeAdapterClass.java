@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.AssetManager;
+import android.net.Uri;
+import android.os.Environment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,12 +14,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.FileProvider;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ecms.DatabaseHelperClass;
 import com.example.ecms.Models.EmployeeModelClass;
 import com.example.ecms.R;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
@@ -51,11 +55,17 @@ public class EmployeeAdapterClass extends RecyclerView.Adapter<EmployeeAdapterCl
         holder.textViewID.setText(Integer.toString(employeeModelClass.getId()));
         holder.editText_Name.setText(employeeModelClass.getName());
         holder.editText_Email.setText(employeeModelClass.getEmail());
+        String path=employeeModelClass.getName();
 
-        holder.editText_Name.setOnClickListener(new View.OnClickListener() {
+        holder.editText_Email.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+             //   File fil=new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)+"/"+employeeModelClass.getEmail());
+            Uri uri= FileProvider.getUriForFile(context,"com.example.ecms"+".provider", new File(path));
+            Intent intent=new Intent(Intent.ACTION_VIEW);
+                intent.setDataAndType(uri,"application/pdf");
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                context.startActivity(intent);
             }
         });
 
