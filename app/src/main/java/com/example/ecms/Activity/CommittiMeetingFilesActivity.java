@@ -21,6 +21,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.webkit.CookieManager;
+import android.webkit.MimeTypeMap;
 import android.webkit.URLUtil;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -261,9 +262,22 @@ public class CommittiMeetingFilesActivity extends AppCompatActivity {
                         Log.d("DownloadTest", Uri.parse(uri).toString());
                         Log.d("titlename", title);
 
+                        //Alternative if you don't know filename
+                        String fileName = URLUtil.guessFileName(uri, null, MimeTypeMap.getFileExtensionFromUrl(uri));
+                        Log.d("filename in downloads", fileName);
+                        File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS),fileName); // Set Your File Name
+                        String path=null;
+                        if (file.exists()) {
+                            path=file.getAbsolutePath();
+                            Log.d("filepath in downloads", path);
+
+                        }
+
                         DatabaseHelperClass databaseHelperClass = new DatabaseHelperClass(activity);
-                        EmployeeModelClass employeeModelClass = new EmployeeModelClass(title,title);
+                        EmployeeModelClass employeeModelClass = new EmployeeModelClass(path,title);
                         databaseHelperClass.addEmployee(employeeModelClass);
+
+
                         Toast.makeText(activity, "saved offline", Toast.LENGTH_SHORT).show();
 
 
@@ -306,6 +320,7 @@ public class CommittiMeetingFilesActivity extends AppCompatActivity {
                             String title = URLUtil.guessFileName(uri, null, null);
                             Log.d("DownloadTest", Uri.parse(uri).toString());
                             Log.d("titlename", title);
+
 
                             request.setTitle(title);
                             request.setDescription("Downloading File please wait.....");

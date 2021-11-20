@@ -3,6 +3,7 @@ package com.example.ecms.Adapters;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.AssetManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,8 @@ import com.example.ecms.DatabaseHelperClass;
 import com.example.ecms.Models.EmployeeModelClass;
 import com.example.ecms.R;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
 public class EmployeeAdapterClass extends RecyclerView.Adapter<EmployeeAdapterClass.ViewHolder> {
@@ -24,6 +27,7 @@ public class EmployeeAdapterClass extends RecyclerView.Adapter<EmployeeAdapterCl
     List<EmployeeModelClass> employee;
     Context context;
     DatabaseHelperClass databaseHelperClass;
+    private Context activity;
 
     public EmployeeAdapterClass(List<EmployeeModelClass> employee, Context context) {
         this.employee = employee;
@@ -48,6 +52,13 @@ public class EmployeeAdapterClass extends RecyclerView.Adapter<EmployeeAdapterCl
         holder.editText_Name.setText(employeeModelClass.getName());
         holder.editText_Email.setText(employeeModelClass.getEmail());
 
+        holder.editText_Name.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
         holder.button_Edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,10 +78,17 @@ public class EmployeeAdapterClass extends RecyclerView.Adapter<EmployeeAdapterCl
 
     }
 
+    private Context getActivity() {
+
+        return activity;
+    }
+
     @Override
     public int getItemCount() {
         return employee.size();
     }
+
+
 
     public class ViewHolder extends RecyclerView.ViewHolder{
         TextView textViewID;
