@@ -38,6 +38,12 @@
         app:showAsAction="never" />
 
     <item
+        android:id="@+id/offline_download"
+        android:orderInCategory="100"
+        android:title="Offline Downloads"
+        app:showAsAction="never" />
+
+    <item
         android:id="@+id/action_light_purple"
         android:orderInCategory="100"
         android:title="Logout"

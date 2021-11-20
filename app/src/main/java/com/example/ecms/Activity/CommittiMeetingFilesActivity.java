@@ -33,8 +33,10 @@ import com.example.ecms.ApiRequests.CommitteeFilesRequest;
 import com.example.ecms.ApiRequests.ToAttendMeetingRequest;
 import com.example.ecms.ApiResponse.CommitteeFilesResponse;
 import com.example.ecms.ApiResponse.ToAttendMeetingResponse;
+import com.example.ecms.DatabaseHelperClass;
 import com.example.ecms.DetectConnection;
 import com.example.ecms.Fragments.CorrespondenceDetailFragment.CorrespondenceDetailsFragment;
+import com.example.ecms.Models.EmployeeModelClass;
 import com.example.ecms.PreferenceUtils;
 import com.example.ecms.R;
 import com.example.ecms.ToAttendMeetingActivity;
@@ -228,6 +230,7 @@ public class CommittiMeetingFilesActivity extends AppCompatActivity {
           //  text.setText(msg);
             MaterialButton dialogButton = (MaterialButton) dialog.findViewById(R.id.cancel_dialog_btn);
             MaterialButton downloadButton = (MaterialButton) dialog.findViewById(R.id.download_btn);
+            MaterialButton offlinedownload = (MaterialButton) dialog.findViewById(R.id.offlinedownload_btn);
             MaterialButton previewButton = (MaterialButton) dialog.findViewById(R.id.preview_btn);
 
             try {
@@ -242,6 +245,30 @@ public class CommittiMeetingFilesActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     dialog.dismiss();
+                }
+            });
+            //offline download implementation
+            offlinedownload.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED || ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED){
+                        ActivityCompat.requestPermissions(CommittiMeetingFilesActivity.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+                        // this will request for permission when permission is not true
+                    }else{
+                        // Download code here
+                        DownloadManager.Request request = new DownloadManager.Request(Uri.parse(uri));
+                        String title = URLUtil.guessFileName(uri, null, null);
+                        Log.d("DownloadTest", Uri.parse(uri).toString());
+                        Log.d("titlename", title);
+
+                        DatabaseHelperClass databaseHelperClass = new DatabaseHelperClass(activity);
+                        EmployeeModelClass employeeModelClass = new EmployeeModelClass(title,title);
+                        databaseHelperClass.addEmployee(employeeModelClass);
+                        Toast.makeText(activity, "saved offline", Toast.LENGTH_SHORT).show();
+
+
+                    }
+
                 }
             });
 
@@ -278,12 +305,15 @@ public class CommittiMeetingFilesActivity extends AppCompatActivity {
                             DownloadManager.Request request = new DownloadManager.Request(Uri.parse(uri));
                             String title = URLUtil.guessFileName(uri, null, null);
                             Log.d("DownloadTest", Uri.parse(uri).toString());
+                            Log.d("titlename", title);
+
                             request.setTitle(title);
                             request.setDescription("Downloading File please wait.....");
                             String cookie = CookieManager.getInstance().getCookie(uri);
                             request.addRequestHeader("cookie", cookie);
                             request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
                             request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, title);
+
 
                             DownloadManager downloadManager = (DownloadManager)activity.getSystemService(DOWNLOAD_SERVICE);
                             downloadManager.enqueue(request);

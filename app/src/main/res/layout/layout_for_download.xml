@@ -51,6 +51,17 @@
             android:layout_margin="5dp"
             android:textColor="#fff"/>
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/offlinedownload_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Offline saving"
+            android:layout_weight="1"
+            app:icon="@drawable/icon_download"
+            app:iconGravity="textStart"
+            app:backgroundTint="@color/blue"
+            android:layout_margin="5dp"
+            android:textColor="#fff"/>
+        <com.google.android.material.button.MaterialButton
             android:layout_margin="5dp"
             android:id="@+id/preview_btn"
             android:layout_width="match_parent"

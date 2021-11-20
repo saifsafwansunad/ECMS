@@ -27,6 +27,7 @@ import com.example.ecms.Models.MenuModel;
 import com.example.ecms.ui.MyService;
 import com.example.ecms.ui.ReadyToApprove;
 import com.example.ecms.ui.UserMessages;
+import com.example.ecms.ui.ViewEmployeeActivity;
 import com.example.ecms.ui.home.HomeFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
@@ -281,6 +282,11 @@ View viewHeader;
             case R.id.action_notification:
                /* Intent intent1 = new Intent(MainActivity.this, Notification.class);
                 startActivity(intent1);*/
+
+            case R.id.offline_download:
+                Intent intent = new Intent(MainActivity.this, ViewEmployeeActivity.class);
+                startActivity(intent);
+
 
         }
 
