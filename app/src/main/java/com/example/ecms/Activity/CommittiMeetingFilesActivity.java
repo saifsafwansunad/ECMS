@@ -17,6 +17,7 @@ import android.content.pm.PackageManager;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -261,24 +262,49 @@ public class CommittiMeetingFilesActivity extends AppCompatActivity {
                         String title = URLUtil.guessFileName(uri, null, null);
                         Log.d("DownloadTest", Uri.parse(uri).toString());
                         Log.d("titlename", title);
-
-                        //Alternative if you don't know filename
-                        String fileName = URLUtil.guessFileName(uri, null, MimeTypeMap.getFileExtensionFromUrl(uri));
-                        Log.d("filename in downloads", fileName);
-                        File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS),fileName); // Set Your File Name
-                        String path=null;
-                        if (file.exists()) {
-                            path=file.getAbsolutePath();
-                            Log.d("filepath in downloads", path);
-
-                        }
-
-                        DatabaseHelperClass databaseHelperClass = new DatabaseHelperClass(activity);
-                        EmployeeModelClass employeeModelClass = new EmployeeModelClass(path,title);
-                        databaseHelperClass.addEmployee(employeeModelClass);
+                        request.setTitle(title);
+                        request.setDescription("Downloading File offline....");
+                        String cookie = CookieManager.getInstance().getCookie(uri);
+                        request.addRequestHeader("cookie", cookie);
+                        request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+                        request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, title);
 
 
-                        Toast.makeText(activity, "saved offline", Toast.LENGTH_SHORT).show();
+                        DownloadManager downloadManager = (DownloadManager)activity.getSystemService(DOWNLOAD_SERVICE);
+                        downloadManager.enqueue(request);
+
+
+                        final Handler handler = new Handler();
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+
+                                //Alternative if you don't know filename
+                                String fileName = URLUtil.guessFileName(uri, null, MimeTypeMap.getFileExtensionFromUrl(uri));
+                                Log.d("filename in downloads", fileName);
+                                File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS),fileName); // Set Your File Name
+                                String path=null;
+                                if (file.exists()) {
+                                    path=file.getAbsolutePath();
+                                    Log.d("filepath in downloads", path);
+
+
+                                }
+                                DatabaseHelperClass databaseHelperClass = new DatabaseHelperClass(activity);
+                                EmployeeModelClass employeeModelClass = new EmployeeModelClass(path,title);
+                                databaseHelperClass.addEmployee(employeeModelClass);
+
+
+
+
+                                Toast.makeText(activity, "saved offline", Toast.LENGTH_SHORT).show();
+                            }
+                        }, 3000);
+
+
+
+
+
 
 
                     }
