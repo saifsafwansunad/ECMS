@@ -1,6 +1,7 @@
 package com.example.ecms.Adapters;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.AssetManager;
@@ -9,8 +10,10 @@ import android.os.Environment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -18,6 +21,7 @@ import androidx.core.content.FileProvider;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ecms.DatabaseHelperClass;
+import com.example.ecms.LoginActivity;
 import com.example.ecms.Models.EmployeeModelClass;
 import com.example.ecms.R;
 
@@ -32,6 +36,8 @@ public class EmployeeAdapterClass extends RecyclerView.Adapter<EmployeeAdapterCl
     Context context;
     DatabaseHelperClass databaseHelperClass;
     private Context activity;
+    static Integer id;
+    static int position_No;
 
     public EmployeeAdapterClass(List<EmployeeModelClass> employee, Context context) {
         this.employee = employee;
@@ -57,22 +63,22 @@ public class EmployeeAdapterClass extends RecyclerView.Adapter<EmployeeAdapterCl
         holder.editText_Email.setText(employeeModelClass.getEmail());
         String path=employeeModelClass.getName();
 
+
         holder.editText_Email.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-             //   File fil=new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)+"/"+employeeModelClass.getEmail());
-            Uri uri= FileProvider.getUriForFile(context,"com.example.ecms"+".provider", new File(path));
-            Intent intent=new Intent(Intent.ACTION_VIEW);
+                Uri uri= FileProvider.getUriForFile(context,"com.example.ecms"+".provider", new File(path));
+                Intent intent=new Intent(Intent.ACTION_VIEW);
                 intent.setDataAndType(uri,"application/pdf");
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_GRANT_READ_URI_PERMISSION);
                 context.startActivity(intent);
+
             }
         });
 
-        holder.button_Edit.setOnClickListener(new View.OnClickListener() {
+        holder.button_view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
 
             }
         });
@@ -80,9 +86,13 @@ public class EmployeeAdapterClass extends RecyclerView.Adapter<EmployeeAdapterCl
         holder.button_delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                databaseHelperClass.deleteEmployee(employeeModelClass.getId());
+                EmployeeAdapterClass.ForgotPasswordDialog forgotPasswordDialog=new EmployeeAdapterClass.ForgotPasswordDialog();
+                forgotPasswordDialog.showDialog(EmployeeAdapterClass.this,"Forgot Password");
+                id=employeeModelClass.getId();
+                position_No=position;
+                /*databaseHelperClass.deleteEmployee(employeeModelClass.getId());
                 employee.remove(position);
-                notifyDataSetChanged();
+                notifyDataSetChanged();*/
             }
         });
 
@@ -103,9 +113,9 @@ public class EmployeeAdapterClass extends RecyclerView.Adapter<EmployeeAdapterCl
     public class ViewHolder extends RecyclerView.ViewHolder{
         TextView textViewID;
         EditText editText_Name;
-        EditText editText_Email;
-        Button button_Edit;
-        Button button_delete;
+        TextView editText_Email;
+        Button button_view;
+        ImageButton button_delete;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -114,8 +124,36 @@ public class EmployeeAdapterClass extends RecyclerView.Adapter<EmployeeAdapterCl
             editText_Name = itemView.findViewById(R.id.edittext_name);
             editText_Email = itemView.findViewById(R.id.edittext_email);
             button_delete = itemView.findViewById(R.id.button_delete);
-            button_Edit = itemView.findViewById(R.id.button_edit);
+            button_view = itemView.findViewById(R.id.button_view);
 
         }
     }
+
+    public class ForgotPasswordDialog {
+
+        public void showDialog(EmployeeAdapterClass activity, String msg){
+            final Dialog dialog = new Dialog(activity.context);
+            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
+//            dialog.setCancelable(false);
+            dialog.setContentView(R.layout.confirm_dialog_layout);
+            Button buttonOk=(Button) dialog.findViewById(R.id.dialog_ok_btn);
+            buttonOk.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    databaseHelperClass.deleteEmployee(id);
+                    employee.remove(position_No);
+                    notifyDataSetChanged();
+                    dialog.dismiss();
+                }
+            });
+
+
+            dialog.show();
+
+
+        }
+    }
+
 }

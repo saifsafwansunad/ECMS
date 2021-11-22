@@ -27,17 +27,39 @@
         android:textSize="18sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
-
-    <EditText
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <TextView
         android:textColor="#000"
         android:textStyle="bold"
         android:id="@+id/edittext_email"
         android:text="Attended"
+        android:inputType="textMultiLine"
         android:editable="false"
         android:layout_margin="5dp"
+
         android:textSize="18sp"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        <ImageButton
+            android:id="@+id/button_delete"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/app_name"
+            android:onClick="removePaperOnClickHandler"
+            android:background="@drawable/button"
+            android:padding="5dp"
+            android:layout_marginRight="10dp"
+            android:layout_alignParentRight="true"
+            android:src="@android:drawable/ic_menu_delete"
+            android:layout_width="wrap_content"/>
+        </RelativeLayout>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_margin="5dp"
@@ -46,28 +68,23 @@
         android:layout_height="wrap_content">
 
         <Button
-            android:background="#0288D1"
-            android:id="@+id/button_edit"
-            android:layout_weight="2"
-            android:text="Edit"
+            android:backgroundTint="@color/dark_green"
+            android:id="@+id/button_view"
             android:visibility="gone"
-            android:layout_margin="2dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-        <Button
-            android:layout_margin="2dp"
-            android:background="#D32F2F"
-            android:id="@+id/button_delete"
             android:layout_weight="2"
-            android:text="Delete"
+            android:text="View"
+            android:layout_marginRight="5dp"
+android:padding="5dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="match_parent"/>
+
+
+
     </LinearLayout>
 
     <View
         android:layout_margin="5dp"
-        android:background="#C5C5C5"
+        android:background="@color/dark_green"
         android:layout_width="match_parent"
         android:layout_height="1dp"/>
 

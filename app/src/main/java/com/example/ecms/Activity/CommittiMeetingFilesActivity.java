@@ -263,10 +263,10 @@ public class CommittiMeetingFilesActivity extends AppCompatActivity {
                         Log.d("DownloadTest", Uri.parse(uri).toString());
                         Log.d("titlename", title);
                         request.setTitle(title);
-                        request.setDescription("Downloading File offline....");
+                        request.setDescription("offline Downloading ...");
                         String cookie = CookieManager.getInstance().getCookie(uri);
                         request.addRequestHeader("cookie", cookie);
-                        request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+                       // request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
                         request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, title);
 
 
