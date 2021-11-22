@@ -72,7 +72,7 @@ EditText editTextLoginEmail,editTextLoginPassword;
     getSupportActionBar().hide();
         PreferenceUtils utils = new PreferenceUtils();
 
-        if (utils.getEmail(this) != null ){
+        if (utils.getUid(this) != null ){
                 MainActivity.stopService = false;
                 IsCouncillor=PreferenceUtils.getCouncilor(LoginActivity.this);
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);

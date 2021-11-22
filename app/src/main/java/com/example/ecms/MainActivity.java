@@ -106,6 +106,7 @@ View viewHeader;
             public void onClick(View v) {
                 PreferenceUtils.savePassword(null, MainActivity.this);
                 PreferenceUtils.saveEmail(null, MainActivity.this);
+                PreferenceUtils.saveUid(null, MainActivity.this);
                 MyService.count = 0;
 
                 //trying to stop the service
@@ -114,14 +115,15 @@ View viewHeader;
                 stopIntent.putExtra("service", "yes");
                 stopIntent.setAction("stopService");
                 getApplicationContext().startService(stopIntent);
-
-                Intent i = new Intent(getApplicationContext(), LoginActivity.class);
-                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 final ProgressDialog progressDoalog;
                 progressDoalog = new ProgressDialog(MainActivity.this);
                 progressDoalog.setMessage("Logging Out....");
                 progressDoalog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
                 progressDoalog.show();
+
+                Intent i = new Intent(getApplicationContext(), LoginActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
                 startActivity(i);
                 finish();
             }
@@ -257,35 +259,38 @@ View viewHeader;
 
         switch (item.getItemId())
         {
-            case R.id.action_light_purple:
-                PreferenceUtils.savePassword(null, MainActivity.this);
-                PreferenceUtils.saveEmail(null, MainActivity.this);
-                MyService.count = 0;
+            case R.id.offline_download:
+                Intent intent = new Intent(MainActivity.this, ViewEmployeeActivity.class);
+                startActivity(intent);
 
-                //trying to stop the service 
-                stopService = true;
-                Intent stopIntent = new Intent(this, MyService.class);
-                stopIntent.putExtra("service", "yes");
-                stopIntent.setAction("stopService");
-                getApplicationContext().startService(stopIntent);
-
-                Intent i = new Intent(this, LoginActivity.class);
-                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                final ProgressDialog progressDoalog;
-                progressDoalog = new ProgressDialog(MainActivity.this);
-                progressDoalog.setMessage("Logging Out....");
-                progressDoalog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-                progressDoalog.show();
-                startActivity(i);
-                finish();
+//            case R.id.action_light_purple:
+//                PreferenceUtils.savePassword(null, MainActivity.this);
+//                PreferenceUtils.saveEmail(null, MainActivity.this);
+//                PreferenceUtils.saveUid(null, MainActivity.this);
+//                MyService.count = 0;
+//
+//                //trying to stop the service
+//                stopService = true;
+//                Intent stopIntent = new Intent(this, MyService.class);
+//                stopIntent.putExtra("service", "yes");
+//                stopIntent.setAction("stopService");
+//                getApplicationContext().startService(stopIntent);
+//
+//                Intent i = new Intent(this, LoginActivity.class);
+//                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+//                final ProgressDialog progressDoalog;
+//                progressDoalog = new ProgressDialog(MainActivity.this);
+//                progressDoalog.setMessage("Logging Out....");
+//                progressDoalog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+//                progressDoalog.show();
+//                startActivity(i);
+//                finish();
 
             case R.id.action_notification:
                /* Intent intent1 = new Intent(MainActivity.this, Notification.class);
                 startActivity(intent1);*/
 
-            case R.id.offline_download:
-                Intent intent = new Intent(MainActivity.this, ViewEmployeeActivity.class);
-                startActivity(intent);
+
 
 
         }
