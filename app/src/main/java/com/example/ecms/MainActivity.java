@@ -6,6 +6,7 @@ import android.app.PendingIntent;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -16,6 +17,7 @@ import android.view.Menu;
 import android.widget.ExpandableListView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.ecms.Adapters.ExpandableListAdapter;
 import com.example.ecms.Adapters.ToAttendMeetingsAdapter;
@@ -62,7 +64,7 @@ public class MainActivity extends AppCompatActivity
     Toolbar toolbar;
 
     Boolean checkbox=false;
-
+    TextView navigationWelcome;
     ExpandableListAdapter expandableListAdapter;
     ExpandableListView expandableListView;
     List<MenuModel> headerList = new ArrayList<>();
@@ -84,7 +86,6 @@ View viewHeader;
         startIntent.putExtra("service", "yes");
         getApplicationContext().startService(startIntent);
 
-
         drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         toolbar = findViewById(R.id.home_toolbar);
@@ -93,6 +94,10 @@ View viewHeader;
         viewHeader = navigationView.getHeaderView(0);
         ImageView imageViewNavheaderPRofile=(ImageView)viewHeader.findViewById(R.id.nav_header_profile_imageview);
         ImageView imageViewNavheaderLogout=(ImageView)viewHeader.findViewById(R.id.nav_header_logout_iv);
+        navigationWelcome=viewHeader.findViewById(R.id.navigation_welcome);
+
+        navigationWelcome.setText("Welcome, "+PreferenceUtils.getUserName(this));
+        navigationWelcome.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD_ITALIC));
         imageViewNavheaderPRofile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
