@@ -18,6 +18,7 @@ import android.widget.ExpandableListView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.ecms.Adapters.ExpandableListAdapter;
 import com.example.ecms.Adapters.ToAttendMeetingsAdapter;
@@ -448,7 +449,8 @@ View viewHeader;
                     if (!headerList.get(groupPosition).hasChildren) {
 //                        WebView webView = findViewById(R.id.webView);
 //                        webView.loadUrl(headerList.get(groupPosition).url);
-                        onBackPressed();
+                       // onBackPressed();
+                        Toast.makeText(MainActivity.this, "Dashboard", Toast.LENGTH_SHORT).show();
                     }
                 }
                 if (groupPosition==4){
