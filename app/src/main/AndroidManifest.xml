@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.ecms">
+    package="com.example.ecms" >
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission
@@ -25,15 +25,21 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
-        tools:targetApi="n">
-        <activity android:name=".SplashScreenActivity"></activity>
-        <activity android:name=".ui.ViewEmployeeActivity"></activity>
+        tools:targetApi="n" >
+        <activity android:name=".SplashScreen" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".SplashScreenActivity" />
+        <activity android:name=".ui.ViewEmployeeActivity" />
 
         <receiver
             android:name=".ui.Restarter"
             android:enabled="true"
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="restartservice" />
             </intent-filter>
@@ -50,12 +56,12 @@
         <activity android:name=".Activity.CommittiMeetingFilesActivity" />
         <activity android:name=".AttendMeetingDetailsActivity" />
         <activity android:name=".ToAttendMeetingActivity" />
-        <activity android:name=".LoginActivity">
-            <intent-filter>
+        <activity android:name=".LoginActivity" >
+        <!--    <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            </intent-filter>-->
         </activity>
         <activity android:name=".IncomingCorrespondenceActionActivity" />
         <activity android:name=".FusionTestTitleActivity" />
@@ -74,14 +80,15 @@
         <activity android:name=".PublicActivity" />
         <activity android:name=".Readyapprove_viewmeeting" />
         <activity android:name=".ui.ReadyToApprove" />
+
         <provider
-            android:authorities="com.example.ecms.provider"
             android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.ecms.provider"
             android:exported="false"
-            android:grantUriPermissions="true">
+            android:grantUriPermissions="true" >
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_path"/>
+                android:resource="@xml/file_path" />
         </provider>
 
         <activity
@@ -90,7 +97,5 @@
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar" />
     </application>
-
-    
 
 </manifest>
