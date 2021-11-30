@@ -34,6 +34,7 @@ import com.example.ecms.ui.ViewEmployeeActivity;
 import com.example.ecms.ui.home.HomeFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
+import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
@@ -72,7 +73,7 @@ public class MainActivity extends AppCompatActivity
     HashMap<MenuModel, List<MenuModel>> childList = new HashMap<>();
 
     private DrawerLayout drawer;
-    private BottomNavigationView bottomNavigationView;
+    private ChipNavigationBar bottomNavigationView;
     private HomeFragment homeFragment = HomeFragment.newInstance();
     private MessagesFragment messagesFragment = MessagesFragment.newInstance();
     private SearchFragment searchFragment = SearchFragment.newInstance();
@@ -93,16 +94,16 @@ View viewHeader;
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         viewHeader = navigationView.getHeaderView(0);
-        ImageView imageViewNavheaderPRofile=(ImageView)viewHeader.findViewById(R.id.nav_header_profile_imageview);
-        ImageView imageViewNavheaderLogout=(ImageView)viewHeader.findViewById(R.id.nav_header_logout_iv);
-        navigationWelcome=viewHeader.findViewById(R.id.navigation_welcome);
+        ImageView imageViewNavheaderPRofile = (ImageView) viewHeader.findViewById(R.id.nav_header_profile_imageview);
+        ImageView imageViewNavheaderLogout = (ImageView) viewHeader.findViewById(R.id.nav_header_logout_iv);
+        navigationWelcome = viewHeader.findViewById(R.id.navigation_welcome);
 
-        navigationWelcome.setText("Welcome, "+PreferenceUtils.getUserName(this));
+        navigationWelcome.setText("Welcome, " + PreferenceUtils.getUserName(this));
         navigationWelcome.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD_ITALIC));
         imageViewNavheaderPRofile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(MainActivity.this,ProfileActivity.class);
+                Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
                 startActivity(intent);
             }
         });
@@ -145,8 +146,6 @@ View viewHeader;
 //        });
 
 
-
-
 //        if (navigationView != null) {
 //            setupDrawerContent(navigationView);
 //        }
@@ -154,9 +153,6 @@ View viewHeader;
         expandableListView = findViewById(R.id.expandableListView);
         prepareMenuData();
         populateExpandableList();
-
-
-
 
 
         ImageButton menuRight = findViewById(R.id.toolbar_leftRight_image);
@@ -170,13 +166,60 @@ View viewHeader;
         });
 
 
-
         navigationView.setNavigationItemSelectedListener(this);
 //        Animation aniFadein = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fade_in);
 //        Animation aniFadeout = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fade_out);
         bottomNavigationView = findViewById(R.id.navigation);
 
-        bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
+        bottomNavigationView.setOnItemSelectedListener(new ChipNavigationBar.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(int i) {
+                Fragment selectedFragment = null;
+                switch (i) {
+                    case R.id.navigation_home:
+                        selectedFragment = homeFragment;
+//                    floatingActionButtonAttendace.setAnimation(aniFadein);
+//                    floatingActionButtonAttendace.show();
+//                    textViewTitle.setText("John Doe");
+//                    textViewSubtitle.setVisibility(View.VISIBLE);
+//                    textViewSubtitle.setText("Software Developer");
+
+
+                        break;
+                    case R.id.navigation_search:
+                        selectedFragment = searchFragment;
+//                    floatingActionButtonAttendace.setAnimation(aniFadeout);
+//                    floatingActionButtonAttendace.hide();
+//                    textViewTitle.setText("Reports");
+//                    textViewSubtitle.setVisibility(View.GONE);
+                        break;
+                    case R.id.navigation_messages:
+
+                        selectedFragment = messagesFragment;
+//                    floatingActionButtonAttendace.setAnimation(aniFadeout);
+//                    floatingActionButtonAttendace.hide();
+//                    textViewTitle.setText("Requests");
+//                    textViewSubtitle.setVisibility(View.GONE);
+                        break;
+
+
+                }
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                if (selectedFragment != null) {
+                    transaction.replace(R.id.f_container, selectedFragment);
+                    transaction.commit();
+                }
+            }
+        });
+
+        //Manually displaying the first fragment - one time only
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.f_container, homeFragment);
+        transaction.commit();
+
+        }
+
+      /*  bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
             Fragment selectedFragment = null;
             switch (item.getItemId()) {
                 case R.id.navigation_home:
@@ -219,7 +262,7 @@ View viewHeader;
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.f_container, homeFragment);
         transaction.commit();
-    }
+    }*/
 
     @Override
     public void onBackPressed() {
@@ -318,7 +361,7 @@ View viewHeader;
         switch (item.getItemId()) {
             case R.id.nav_home:
 
-                bottomNavigationView.setSelectedItemId(R.id.navigation_home);
+               bottomNavigationView.setItemSelected(R.id.navigation_home,true);
                 ft.replace(R.id.f_container, homeFragment);
                 break;
 //            case R.id.nav_gallery:
