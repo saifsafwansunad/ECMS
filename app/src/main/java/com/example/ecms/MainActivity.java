@@ -171,9 +171,12 @@ View viewHeader;
 //        Animation aniFadeout = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fade_out);
         bottomNavigationView = findViewById(R.id.navigation);
 
+        bottomNavigationView.setItemSelected(R.id.navigation_home,true);
+
         bottomNavigationView.setOnItemSelectedListener(new ChipNavigationBar.OnItemSelectedListener() {
             @Override
             public void onItemSelected(int i) {
+
                 Fragment selectedFragment = null;
                 switch (i) {
                     case R.id.navigation_home:
