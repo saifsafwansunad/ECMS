@@ -74,6 +74,8 @@ public class MainActivity extends AppCompatActivity
 
     private DrawerLayout drawer;
     private ChipNavigationBar bottomNavigationView;
+
+
     private HomeFragment homeFragment = HomeFragment.newInstance();
     private MessagesFragment messagesFragment = MessagesFragment.newInstance();
     private SearchFragment searchFragment = SearchFragment.newInstance();
