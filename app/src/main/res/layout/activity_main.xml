@@ -24,11 +24,12 @@
             android:id="@+id/navigation"
             android:layout_height="60dp"
             android:layout_alignParentBottom="true"
-            android:background="@drawable/round"
+            android:background="@drawable/rounded_rect"
             android:elevation="18dp"
-            android:padding="8dp"
+            android:padding="5dp"
+            android:layout_margin="15dp"
             app:cnb_menuResource="@menu/bottom_navigation_menu"
-            app:cnb_unselectedColor="#fff"
+            app:cnb_unselectedColor="#000"
             android:layout_width="match_parent"/>
 
       <!--      android:layout_width="match_parent"
