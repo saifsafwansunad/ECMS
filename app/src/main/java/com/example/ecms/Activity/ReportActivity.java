@@ -1,29 +1,38 @@
 package com.example.ecms.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.ecms.Adapters.TaskStatusAdapter;
 import com.example.ecms.ApiClient;
 import com.example.ecms.ApiResponse.ReportResponse;
 import com.example.ecms.DetectConnection;
 import com.example.ecms.LoginActivity;
 import com.example.ecms.LoginRequest;
 import com.example.ecms.MainActivity;
+import com.example.ecms.Models.TaskStatusObjects;
 import com.example.ecms.PreferenceUtils;
 import com.example.ecms.R;
 import com.example.ecms.UserLoginResponse;
 import com.google.android.material.snackbar.Snackbar;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -107,7 +116,26 @@ public class ReportActivity extends AppCompatActivity {
                             List<ReportResponse>dataArrayList = response.body();
                             for (int i = 0; i < dataArrayList.size(); i++) {
                                 ReportResponse report_msg = dataArrayList.get(i);
-                                Toast.makeText(ReportActivity.this, report_msg.getMessage(), Toast.LENGTH_SHORT).show();
+                                final Dialog dialog = new Dialog(ReportActivity.this);
+                                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                                dialog.setCancelable(false);
+                                dialog.setContentView(R.layout.report_dialog_layout);
+                                TextView textViewReport=(TextView)dialog.findViewById(R.id.report_dialog_tv);
+                                Button buttonReport=(Button)dialog.findViewById(R.id.report_dialog_btn);
+textViewReport.setText(report_msg.getMessage());
+buttonReport.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        dialog.dismiss();
+        Intent reportIntent = new Intent(ReportActivity.this, MainActivity.class);
+        startActivity(reportIntent);
+    }
+});
+                                dialog.show();
+
+
+
+//                                Toast.makeText(ReportActivity.this, report_msg.getMessage(), Toast.LENGTH_LONG).show();
 
 
 
@@ -115,8 +143,7 @@ public class ReportActivity extends AppCompatActivity {
 
                             }
 
-                            Intent reportIntent = new Intent(ReportActivity.this, MainActivity.class);
-                            startActivity(reportIntent);
+
                         }
                     }
 
@@ -154,4 +181,5 @@ public class ReportActivity extends AppCompatActivity {
 
         }
     }
+
 }
