@@ -77,7 +77,9 @@ public class CalendarCustomView extends LinearLayout {
         this.context=context;
 
         IntializeUILayout();
-        gridView.setVisibility(View.GONE);
+//        gridView.setVisibility(View.GONE);
+
+        SetupCalendar();
         my_view.setVisibility(View.VISIBLE);
         my_view.startAnimation(AnimationUtils.loadAnimation(context, R.anim.placeholder));
         final Handler handler = new Handler();
@@ -257,6 +259,9 @@ public class CalendarCustomView extends LinearLayout {
 //            eventsList.add(events);
 //
 //        }
+//        meetingsList2 = meetingsList.stream()
+////                .filter(meeting -> meeting.getMeetingMonthYear().equals(Month+Year))
+////                .collect(Collectors.toList());
         meetingsList2 = my_dict.get(Month+Year);
 //        Log.d("calendarTroop3", "sizequeen" + meetingsList2.size());
         if(my_dict.containsKey(Month+Year)){

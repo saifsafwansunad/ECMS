@@ -1,6 +1,7 @@
 package com.example.ecms;
 
 import com.example.ecms.ApiResponse.CommitteeFilesResponse;
+import com.example.ecms.ApiResponse.ReportResponse;
 import com.example.ecms.ApiResponse.ToAttendMeetingResponse;
 
 import java.util.List;
@@ -37,4 +38,10 @@ public interface Apis {
     @GET("PasswordReset.ashx?")
     Call<List<PasswordResp>> changePassword(@Query("empid") String uid,
                                             @Query("newpwd") String upwd);
+
+    @GET("ContactAdmin.ashx")
+    Call<List<ReportResponse>> reportIssue(@Query("empid") String uid,
+                                           @Query("contacttype") String contacttype,
+                                           @Query("contactsubject") String contactsubject,
+                                           @Query("contactmessage") String contactmessage);
 }

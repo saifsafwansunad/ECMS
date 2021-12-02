@@ -8,6 +8,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageButton;
@@ -43,6 +44,7 @@ public class YourCustomCalendarView extends LinearLayout {
     ImageButton PreviouseButton,NextButton;
     TextView CurrentDate;
     GridView gridView;
+    View my_view;
     private static final int MAX_CALENDAR_Days = 42;
     SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MMMM yyyy", Locale.ENGLISH);
     SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd",Locale.ENGLISH);
@@ -70,14 +72,21 @@ public class YourCustomCalendarView extends LinearLayout {
         this.context=context;
 
         IntializeUILayout();
+//        gridView.setVisibility(View.GONE);
+        my_view.setVisibility(View.VISIBLE);
+        SetupCalendar();
+        my_view.startAnimation(AnimationUtils.loadAnimation(context, R.anim.placeholder));
         final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
                 //Do something after 100ms
+                my_view.clearAnimation();
+                gridView.setVisibility(View.VISIBLE);
+                my_view.setVisibility(View.GONE);
                 SetupCalendar();
             }
-        }, 3000);
+        }, 5000);
 
         PreviouseButton.setOnClickListener(new OnClickListener() {
             @Override
@@ -191,6 +200,7 @@ public class YourCustomCalendarView extends LinearLayout {
         PreviouseButton = view.findViewById(R.id.previousBtn);
         NextButton = view.findViewById(R.id.nextBtn);
         CurrentDate = view.findViewById(R.id.current_Date);
+        my_view = view.findViewById(R.id.my_view);
         TextView cv_name = view.findViewById(R.id.cv_category_name);
         gridView = view.findViewById(R.id.gridview);
         cv_name.setText("Your Calendar");

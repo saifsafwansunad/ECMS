@@ -20,6 +20,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.ecms.Activity.ReportActivity;
 import com.example.ecms.Adapters.ExpandableListAdapter;
 import com.example.ecms.Adapters.ToAttendMeetingsAdapter;
 import com.example.ecms.ApiRequests.ToAttendMeetingRequest;
@@ -320,6 +321,11 @@ View viewHeader;
             case R.id.offline_download:
                 Intent intent = new Intent(MainActivity.this, ViewEmployeeActivity.class);
                 startActivity(intent);
+                return true;
+            case R.id.report:
+                Intent reportIntent = new Intent(MainActivity.this, ReportActivity.class);
+                startActivity(reportIntent);
+                return true;
 
 //            case R.id.action_light_purple:
 //                PreferenceUtils.savePassword(null, MainActivity.this);
@@ -344,17 +350,18 @@ View viewHeader;
 //                startActivity(i);
 //                finish();
 
-            case R.id.action_notification:
+//            case R.id.action_notification:
                /* Intent intent1 = new Intent(MainActivity.this, Notification.class);
                 startActivity(intent1);*/
 
-
+            default:
+                return super.onOptionsItemSelected(item);
 
 
         }
 
 
-        return super.onOptionsItemSelected(item);
+
 
     }
 

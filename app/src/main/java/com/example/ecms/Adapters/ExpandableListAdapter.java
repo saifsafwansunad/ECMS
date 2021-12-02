@@ -101,10 +101,19 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         ImageView imgExpandCollapse = (ImageView) convertView.findViewById(R.id.groupindicator_imageview);
 
         // check if GroupView is expanded and set imageview for expand/collapse-action
-//        if (getChildrenCount(groupPosition) == 0)
+        if (getChildrenCount(groupPosition) == 0)
+        {
+            imgExpandCollapse.setVisibility(View.INVISIBLE);
+        }else {
+            imgExpandCollapse.setVisibility(View.VISIBLE);
+        }
+//        if (groupPosition == 0 | groupPosition == 4 | groupPosition == 6)
 //        {
 //            imgExpandCollapse.setVisibility(View.INVISIBLE);
+//        }else {
+//            imgExpandCollapse.setVisibility(View.VISIBLE);
 //        }
+
         if(isExpanded){
             imgExpandCollapse.setImageResource(R.drawable.ic_baseline_keyboard_arrow_up_24);
         }

@@ -55,6 +55,13 @@
 
     </string-array>
 
+    <string-array name="ContentType">
+        <item>Enquiry</item>
+        <item>Feedback</item>
+        <item>Report</item>
+
+    </string-array>
+
     <string-array name="Closing_Status">
 
 

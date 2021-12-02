@@ -43,6 +43,12 @@
         android:title="Offline Downloads"
         app:showAsAction="never" />
 
+    <item
+        android:id="@+id/report"
+        android:orderInCategory="100"
+        android:title="Report"
+        app:showAsAction="never" />
+
 <!--    <item-->
 <!--        android:id="@+id/action_light_purple"-->
 <!--        android:orderInCategory="100"-->

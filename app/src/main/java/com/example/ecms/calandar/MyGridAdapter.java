@@ -66,16 +66,17 @@ public class MyGridAdapter extends ArrayAdapter {
 
         if (displayMonth == currentMonth && displayYear==currentYear){
             view.setBackgroundColor(getContext().getResources().getColor(R.color.white));
+            if (displayMonth == todayMonth && displayYear==todayYear && dayNo == todayDate ){
+                view.setBackgroundColor(getContext().getResources().getColor(R.color.light_yellow));
+
+            }
 
         }
         else {
             view.setBackgroundColor(Color.parseColor("#cccccc"));
             view.setClickable(true);
         }
-        if (displayMonth == todayMonth && displayYear==todayYear && dayNo == todayDate ){
-            view.setBackgroundColor(getContext().getResources().getColor(R.color.light_yellow));
 
-        }
         TextView cellNumber = view.findViewById(R.id.calendat_day);
         TextView eventText = view.findViewById(R.id.event_id);
         cellNumber.setText(String.valueOf(dayNo));

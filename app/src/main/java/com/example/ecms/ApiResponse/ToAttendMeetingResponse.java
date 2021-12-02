@@ -7,8 +7,12 @@ import com.google.gson.JsonElement;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class ToAttendMeetingResponse implements Parcelable {
 
@@ -180,6 +184,48 @@ public class ToAttendMeetingResponse implements Parcelable {
 //    public void setMeetingAttachments(String meetingAttachments) {
 //        this.meetingAttachments = meetingAttachments;
 //    }
+    public String getMeetingMonth() {
+        SimpleDateFormat monthFormat = new SimpleDateFormat("MMMM", Locale.ENGLISH);
+        Date date1= null;
+        try {
+            date1 = new SimpleDateFormat("MM/dd/yyyy HH:mm aa").parse(startDate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return monthFormat.format(date1.getTime());
+}
+    public String getMeetingYear() {
+        Date date1= null;
+        try {
+            date1 = new SimpleDateFormat("MM/dd/yyyy HH:mm aa").parse(startDate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        SimpleDateFormat yearFormat = new SimpleDateFormat("yyyy",Locale.ENGLISH);
+        return yearFormat.format(date1.getTime());
+    }
+    public String getMeetingMonthYear() {
+        Date date1= null;
+        try {
+            date1 = new SimpleDateFormat("MM/dd/yyyy HH:mm aa").parse(startDate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        SimpleDateFormat yearFormat = new SimpleDateFormat("yyyy",Locale.ENGLISH);
+        SimpleDateFormat monthFormat = new SimpleDateFormat("MMMM", Locale.ENGLISH);
+        return monthFormat.format(date1.getTime())+yearFormat.format(date1.getTime());
+    }
+    public String getMeetingDate() {
+        Date date1= null;
+        try {
+            date1 = new SimpleDateFormat("MM/dd/yyyy HH:mm aa").parse(startDate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        SimpleDateFormat dateFormat2 = new SimpleDateFormat("MM/dd/yyyy",Locale.ENGLISH);
+        return dateFormat2.format(date1.getTime());
+    }
+
 
     @Override
     public int describeContents() {
