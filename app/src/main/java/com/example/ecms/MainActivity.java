@@ -326,6 +326,10 @@ View viewHeader;
                 Intent reportIntent = new Intent(MainActivity.this, ReportActivity.class);
                 startActivity(reportIntent);
                 return true;
+            case R.id.action_privacy:
+                Intent privacyIntent = new Intent(MainActivity.this, PrivacyPolicyActivity.class);
+                startActivity(privacyIntent);
+                return true;
 
 //            case R.id.action_light_purple:
 //                PreferenceUtils.savePassword(null, MainActivity.this);

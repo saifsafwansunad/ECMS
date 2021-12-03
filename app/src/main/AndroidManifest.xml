@@ -26,7 +26,8 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="n">
-        <activity android:name=".Activity.ReportActivity"></activity>
+        <activity android:name=".PrivacyPolicyActivity"></activity>
+        <activity android:name=".Activity.ReportActivity" />
         <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
