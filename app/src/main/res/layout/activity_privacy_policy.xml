@@ -1,0 +1,954 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PrivacyPolicyActivity"
+    android:orientation="vertical">
+
+<androidx.core.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="match_parent"
+        android:textColor="@color/colorBlack"
+        android:gravity="center_horizontal"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        android:layout_height="wrap_content"
+        android:text="NKANGALA DISTRICT MUNICIPALITY "/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/logo"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="5dp">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textColor="@color/colorBlack"
+        android:text="1.INTRODUCTION"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16dp"
+        android:textColor="@color/colorBlack"
+        android:text="The purpose of this policy is to define principles and commitment to protect the privacy of people, personnel and organizations that share their personal information with the Municipality.  "/>
+
+</LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="5dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@color/colorBlack"
+            android:text="2.POLICY STATEMENT"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorBlack"        android:textSize="16dp"
+
+            android:text="It is a requirement of the Protection of Personal Information Act, 2013 (POPIA) that all organizations establish policies for legal processing and protection of personal information."/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="5dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@color/colorBlack"
+            android:text="3. OBJECTIVES"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorBlack"        android:textSize="16dp"
+
+            android:text="This policy is a system of principles to guide decisions when processing personal information. It is guided by the purpose of the act which is to:\n
+a)	give effect to the constitutional right to privacy by safeguarding personal information when processed by the Municipality;\n
+b)	regulate the manner in which personal information may be processed, by establishing conditions, in harmony with international standards that prescribe the minimum threshold requirements for the lawful processing of personal information; and \n
+c)	provide persons with rights and remedies to protect their personal information from processing that is not in accordance with the Act.
+"/>
+    </LinearLayout>
+
+
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+android:padding="5dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@color/colorBlack"
+            android:text="4. DEFINITIONS " />
+<HorizontalScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:scrollbars="none">
+
+    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        > <!-- stretch the second column of the layout-->
+
+        <TableRow
+
+
+            android:padding="5dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <!-- first element of the row-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Who is a Data Subject? "
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:textSize="16dp"
+               />
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="An identifiable, living, natural person, and where it is applicable; An identifiable, existing juristic person; "
+                android:textColor="#000"
+                android:textSize="16dp"
+                />
+
+
+        </TableRow>
+
+        <TableRow
+
+
+            android:padding="5dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <!-- first element of the row-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="What is Personal Information?"
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:textSize="16dp"
+                />
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Information relating to the race, gender, pregnancy, marital status, national, ethnic or social origin, colour, sexual orientation, age, physical or mental health, well-being, disability, religion, conscience, belief, culture, language and birth of the person;\n
+Information relating to the education or the medical, financial, criminal or employment history of the person;\n
+Any identifying number, symbol, e-mail address, physical address, telephone number, location information, online identifier or other particular assignment to the person;\n
+The biometric information of the person; Biometric information includes a technique of personal identification that is based on physical, physiological or behavioral characterization including blood typing, fingerprinting, DNA analysis, retinal scanning and voice recognition;\n
+The personal opinions, views or preferences of the person;\n
+Correspondence sent by the person that is implicitly or explicitly of a private or confidential nature or further correspondence that would reveal the contents of the original correspondence; and\n
+The name of the person if it appears with other personal information relating to the person or if the disclosure of the name itself would reveal information about the person;"
+                android:textColor="#000"
+                android:textSize="16dp"
+                />
+
+
+        </TableRow>
+
+        <TableRow
+
+
+            android:padding="5dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <!-- first element of the row-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Special Personal Information "
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:textSize="16dp"
+                />
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Covers information about a person’s religious or philosophical beliefs, race or ethnic origin, trade union membership, political persuasion, health or sex life, criminal behavior and biometric information."
+                android:textColor="#000"
+                android:textSize="16dp"
+                />
+
+
+        </TableRow>
+
+        <TableRow
+
+
+            android:padding="5dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <!-- first element of the row-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Processing Personal Information  "
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:textSize="16dp"
+                />
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+android:text="Processing is any operation or activity or any set of operations, whether or not by automatic means, concerning personal information.\n
+Processing is therefore the automated or non-automated activity of collecting, recording, organizing, storing, updating, distributing and even the act of deleting personal information.
+"
+                android:textColor="#000"
+                android:textSize="16dp"
+                />
+
+
+        </TableRow>
+
+        <TableRow
+
+
+            android:padding="5dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <!-- first element of the row-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Minimality "
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:textSize="16dp"
+                />
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Personal Information may only be processed if, given the purpose for which it is processed, it is adequate, relevant and not excessive.
+"
+                android:textColor="#000"
+                android:textSize="16dp"
+                />
+
+
+        </TableRow>
+
+        <TableRow
+
+
+            android:padding="5dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <!-- first element of the row-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Trans-Border Flow of PI"
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:textSize="16dp"
+                />
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+android:text="A responsible party in the Republic may not transfer personal information about a data subject to a third party who is in a foreign country unless certain conditions are met."
+                android:textColor="#000"
+                android:textSize="16dp"
+                />
+
+
+        </TableRow>
+
+        <TableRow
+
+
+            android:padding="5dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <!-- first element of the row-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Exemptions"
+
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:textSize="16dp"
+                />
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+android:text="There is provision for exceptions to the information protection conditions, especially in specific sectors in applicable circumstances. "
+                android:textColor="#000"
+                android:textSize="16dp"
+                />
+
+
+        </TableRow>
+
+        <TableRow
+
+
+            android:padding="5dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <!-- first element of the row-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="De-Identified PI"
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:textSize="16dp"
+                />
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+android:text="This happens when the information about the specific data subject is removed such that data cannot be linked to any specific data subject"
+                android:textColor="#000"
+                android:textSize="16dp"
+                />
+
+
+        </TableRow>
+        <TableRow
+            android:padding="5dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <!-- first element of the row-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Information About a Deceased "
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:textSize="16dp"
+                />
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+android:text="Information about deceased person is no longer personal as it does not relate to a living person."
+                android:textColor="#000"
+                android:textSize="16dp"
+                />
+
+
+        </TableRow>
+
+        <TableRow
+            android:padding="5dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <!-- first element of the row-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Consent"
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:textSize="16dp"
+                />
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+android:text="Any voluntary, specific and informed expression of will in terms of which permission is given for the processing of personal Information \n
+•	A person must have a choice whether to consent or not. (it must be voluntary), the responsible party bears the burden of proof for the data subject’s or competent person’s consent.
+"
+                android:textColor="#000"
+                android:textSize="16dp"
+                />
+
+
+        </TableRow>
+
+        <TableRow
+            android:padding="5dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <!-- first element of the row-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Personal Information Retention "
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:textSize="16dp"
+                />
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="An organization must not retain personal information for any longer than it needs it to achieve the purpose (the reason why you collected it). \n
+In the case of a data storage service, the purpose will be related to retaining the information for lengthy periods of time. As long as this purpose is clear to the data subject the organization should be able to retain information for the required time period.\n
+Once the purpose is complete, personal Information must be deleted, unless the organization can find a justification for retaining it.
+"
+                android:textColor="#000"
+                android:textSize="16dp"
+                />
+
+
+        </TableRow>
+
+    </TableLayout>
+
+</HorizontalScrollView>
+        </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="5dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@color/colorBlack"
+            android:text="5.RELATED DOCUMENTS"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorBlack"
+android:text="i.	Protection of Personal Information Act, Act 4 of 2013 and the Guidelines.\n
+ii.	Cloud Computing Policy of the Municipality.\n
+iii.	Information Security Policy.\n
+iv.	Access to Information Manual of the Municipality.
+"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="5dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@color/colorBlack"
+            android:text="6. APPLICABILITY"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorBlack"
+            android:text="Nkangala District Municipality’s POPI policy applies to all Councillors, the municipal employees,\n contractors, part-time and temporary employees, business partners and service providers, entities that supply information to the Municipality and sub-processors.
+"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@color/colorBlack"
+            android:text="7. RESPONSIBILITIES" />
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none">
+            <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/simpleTableLayout"
+                android:layout_margin="10dp"
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                > <!-- stretch the second column of the layout-->
+
+                <!-- first row of the table layout-->
+                <TableRow
+
+                    android:id="@+id/firstRow"
+                    android:background="#98FB98"
+                    android:padding="5dp"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <!-- first element of the row-->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Responsibility "
+                        android:textStyle="bold"
+
+                        android:textColor="#000"
+                        android:textSize="16dp"
+                        tools:ignore="DuplicateIds" />
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Designation "
+                        android:textColor="#000"
+                        android:textStyle="bold"
+
+android:textSize="16dp"                        tools:ignore="DuplicateIds" />
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:text="Level of Responsibility / Accountability "
+                        android:textColor="#000"
+
+                        android:textSize="16dp"
+                        tools:ignore="DuplicateIds" />
+
+                </TableRow>
+                <TableRow
+
+                    android:padding="3dp"
+
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <!-- first element of the row-->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Accounting Officer\\Process Owner.  "
+                        android:textColor="#000"
+
+                        android:textSize="16dp"
+                        tools:ignore="DuplicateIds" />
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Municipal Manager  "
+                        android:textColor="#000"
+
+                        android:textSize="16dp"
+                        tools:ignore="DuplicateIds" />
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" • The POPI policy is updated on a regular basis and published as appropriate.\n
+•	Appropriate training is provided to ALL municipal staff.\n
+•	The Accounting Officer is designated as the Information Officer (IO) or may appoint and Information Officer (IO).\n
+•	The Accounting Officer may appoint a Deputy Information Officer and delegate the responsibilities.\n
+•	The IO and DIO are responsible for POPIA impact assessment, development and implementation of compliance framework, \n
+ monitoring and reporting, processing POPI requests and reporting to the Information Regulator periodically.
+"
+                        android:textColor="#000"
+                        android:textSize="16dp"
+                        tools:ignore="DuplicateIds" />
+
+                </TableRow>
+            </TableLayout>
+        </HorizontalScrollView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="5dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@color/colorBlack"
+            android:text="8. COMPLIANCE"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16dp"
+
+            android:textColor="@color/colorBlack"
+android:text="8.1	This policy and compliance framework establishes measures and standards for the protection and lawful processing of personal information within the Municipality and provides principles regarding the right of individuals to privacy and to reasonable safeguarding of their personal information. \n
+
+8.2	The Municipality will implement reasonable measures to protect personal information that shared by data subjects with the Municipality in line with the provisions of the Protection of Personal Information Act, Act 4 of 2013. \n
+
+8.3	The Municipality at a minimum will: \n
+
+8.3.1   Sufficiently inform its customers, suppliers or partners, hereafter referred to as data subjects, the purpose for which the Municipality will process their personal information. \n
+8.3.2	Protect the information assets under its care, including personal information, from threats, whether internal or external, deliberate or accidental, to ensure confidentiality, integrity and availability of information and to ensure legal processing in line with POPIA. \n
+
+8.4	The Municipality will appoint an Information Officer, who will be responsible for: \n
+
+8.4.1	Conducting a preliminary POPI Impact Assessment; \n
+8.4.2	The implementation and monitoring of this policy and compliance framework; \n
+8.4.3	Facilitating the user training and awareness; \n
+8.4.4	Ensuring that this policy is supported by appropriate documentation; \n
+8.4.5	Ensuring that documentation is relevant and kept up to date; and \n
+8.4.6	Ensuring this policy and subsequent updates are communicated to relevant stakeholders, managers, representatives, and staff where applicable. \n
+
+8.5	All employees, Local Municipalities, departments and individuals directly associated with the Municipality will be responsible for adhering to this policy and for reporting any policy breaches or incidents to the Information Officer. \n
+
+8.6	Any Service Provider that provides services, including data storage facilities, to the Municipality must adhere to the requirements of the POPIA and ensure compliance. \n
+
+8.7	The Service Provider must provide adequate protection of municipal information including personal information that they hold on behalf of the Municipality. Written confirmation to this effect must be submitted by the service provider to the Information Officer. \n
+"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="5dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@color/colorBlack"
+            android:text="9	PRINCIPLES"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"        android:textSize="16dp"
+
+            android:textColor="@color/colorBlack"
+android:text="The following principles are applicable in the operations of the Municipality." />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="5dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@color/colorBlack"
+            android:text="9.1	Principle 1: Accountability"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"        android:textSize="16dp"
+
+            android:textColor="@color/colorBlack"
+            android:text="The Municipality shall take reasonable steps to ensure that personal information obtained from the data subjects is processed legally (as defined in the act). " />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="5dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@color/colorBlack"
+            android:text="9.2	Principle 2: Processing Limitation"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"        android:textSize="16dp"
+
+            android:textColor="@color/colorBlack"
+            android:text="The Municipality shall collect personal information directly from the data subjects. The legally collected data shall be processed or released with consent \n from data subjects, except where the Municipality is not required to do so by law. "  />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="5dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@color/colorBlack"
+            android:text="9.3	Principle 3: Specific Purpose"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"        android:textSize="16dp"
+
+            android:textColor="@color/colorBlack"
+            android:text="The Municipality shall communicate the purpose for collecting personal information from the data subjects and ask for consent."  />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="5dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@color/colorBlack"
+            android:text="9.4	Principle 4: Limitation of Further Processing"/>
+
+        <TextView
+            android:layout_width="wrap_content"        android:textSize="16dp"
+
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorBlack"
+            android:text="Personal information may not be processed further in a way that is incompatible with the purpose for which the information was collected initially. "  />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="5dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@color/colorBlack"
+            android:text="9.5	Principle 5: Information Quality"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorBlack"        android:textSize="16dp"
+
+            android:text="The Municipality shall be responsible for ensuring that collected personal information is complete, up-to-date and accurate before it is processed. It may therefore be necessary that data subjects are requested, from time to time, to update their information and confirm that it is still accurate and correct. If the Municipality is unable to reach the data subjects for this purpose their information may be deleted from the municipal records. "  />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="5dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@color/colorBlack"
+            android:text="9.6	Principle 6: Transparency"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"        android:textSize="16dp"
+
+            android:textColor="@color/colorBlack"
+            android:text="Where personal information is collected from a source other than directly from the data subject, the Municipality shall be responsible for ensuring that the data subjects are made aware:
+a)	That their information is being collected;
+b)	Who is collecting their information by providing the details of the official and the organization;
+c)	Specific reason why the information is being collected
+"  />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="5dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@color/colorBlack"
+            android:text="9.7	Principle 7: Security Safeguards"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorBlack"        android:textSize="16dp"
+
+            android:text="9.7.1 The Municipality shall ensure technical and organizational measures to secure the integrity of personal information, and guard against the risk of loss, damage or destruction thereof.
+9.7.2 Personal information shall be protected against any unauthorized or unlawful access or processing.
+9.7.3 The Municipality shall take reasonable steps to ensure that information is only used for legitimate purposes that was presented to the data subject.
+"  />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="5dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@color/colorBlack"
+            android:text="9.8	Principle 8: Participation of Individuals"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"        android:textSize="16dp"
+
+            android:textColor="@color/colorBlack"
+            android:text="9.8.1 The Municipality shall comply with the act to ensure that data subjects are given access to the particulars of their personal information held by the Municipality, as well as the identity of any authorized employees of the Municipality that had access thereto.
+
+9.8.2 Data subjects shall also be entitled to correct any information held by the Municipality.
+"  />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="5dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@color/colorBlack"
+            android:text="10	MONITORING"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"        android:textSize="16dp"
+
+            android:textColor="@color/colorBlack"
+            android:text="10.1	Municipal Council, Management and the Information Officer shall be responsible for administering and overseeing the implementation of this policy and, as applicable, supporting guidelines, standard operating procedures, notices, consents and appropriate related documents and processes.\n
+
+10.2 All employees and individuals directly associated with the Municipality shall be trained, according to their functions, in the regulatory requirements, policies and guidelines that govern the protection of personal information.\n
+
+10.3 The Municipality shall conduct periodic reviews and audits, where appropriate, to ensure compliance with this policy.\n
+
+
+
+
+10.4 The Municipality shall establish appropriate standard operating procedures that are consistent with this policy and regulatory requirements. Such procedures shall include:\n
+
+10.4.1	Allocation of information security responsibilities;\n
+10.4.2	Incident reporting and management;\n
+10.4.3	User account management systems;\n
+10.4.4	Reasonable controls to control access and sharing of personal data;\n
+10.4.5	Reasonable steps to secure and protect data at rest, in motion and in processing; and\n
+10.4.6	Training of municipal staff processing personal information.\n
+"  />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="5dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@color/colorBlack"
+            android:text="11	POLICY COMPLIANCE"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"        android:textSize="16dp"
+
+            android:textColor="@color/colorBlack"
+            android:text="Any breach of this policy may result in disciplinary action and possible termination of employment."  />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="5dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@color/colorBlack"
+            android:text="12	REVIEW"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"        android:textSize="16dp"
+
+            android:textColor="@color/colorBlack"
+            android:text="This Policy will be reviewed annually, at a minimum. However, due to POPI being a new concept, the Policy will be updated with new developments as they are promulgated by the Regulator."  />
+    </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</LinearLayout>
+</androidx.core.widget.NestedScrollView>
+</LinearLayout>
