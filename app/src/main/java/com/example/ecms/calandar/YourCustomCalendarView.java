@@ -179,8 +179,8 @@ public class YourCustomCalendarView extends LinearLayout {
 
 
     private List<ToAttendMeetingResponse> CollectEvent(String date){
-        Toast.makeText(context, date, Toast.LENGTH_SHORT).show();
-        Toast.makeText(context, "Event Saved", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(context, date, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(context, "Event Saved", Toast.LENGTH_SHORT).show();
         List<ToAttendMeetingResponse> meetingsListByDay = new ArrayList<>();
         meetingsListByDay = my_dictDay.get(date);
 //        Log.d("calendarTroop3", "sizequeen" + meetingsList2.size());

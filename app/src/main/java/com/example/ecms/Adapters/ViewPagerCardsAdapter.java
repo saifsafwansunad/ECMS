@@ -289,15 +289,7 @@ TextView textViewName=(TextView)view.findViewById(R.id.corespondence_name_home_v
 
 
        // ProgressBar pieChart = view.findViewById(R.id.stats_progressbar);
-        final LinearLayout linearLayoutCard=(LinearLayout)view.findViewById(R.id.cardbg_linearlayout);
-        linearLayoutCard.setOnClickListener(new View.OnClickListener() {
-            @Override
-    public void onClick(View view) {
-        //Toast.makeText(context, "Cardview", Toast.LENGTH_SHORT).show();
-        Intent intent=new Intent(context, IncomingCorrespondenceActionActivity.class);
-        context.startActivity(intent);
-    }
-});
+
 //linearLayoutCard.setOnClickListener(new View.OnClickListener() {
 //    @Override
 //    public void onClick(View view) {

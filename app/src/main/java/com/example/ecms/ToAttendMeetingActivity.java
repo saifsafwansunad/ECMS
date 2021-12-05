@@ -178,7 +178,7 @@ private ToAttendMeetingsAdapter toAttendMeetingsAdapter;
                     public void onFailure(Call<List<ToAttendMeetingResponse>> call, Throwable t) {
 
                         progressDialog.dismiss();
-                        Toast.makeText(ToAttendMeetingActivity.this, "Throwable " + t.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+                        Toast.makeText(ToAttendMeetingActivity.this, "Server Error " + t.getLocalizedMessage(), Toast.LENGTH_LONG).show();
 
                     }
                 });

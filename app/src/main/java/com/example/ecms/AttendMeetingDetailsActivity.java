@@ -42,7 +42,7 @@ public class AttendMeetingDetailsActivity extends AppCompatActivity {
         toolbarMeetingsdetail.setTitle("Meeting To Attend");
         meeting = ToAttendMeetingsAdapter.meetingDetails;
 //        ToAttendMeetingResponse meeting = getIntent().getParcelableExtra("Meetings");
-        Toast.makeText(this, meeting.getMeetingId(), Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, meeting.getMeetingId(), Toast.LENGTH_SHORT).show();
 
         title_toattend = findViewById(R.id.title_toattend);
         meeting_type_toattend = findViewById(R.id.meeting_type_toattend);

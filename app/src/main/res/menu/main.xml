@@ -31,11 +31,11 @@
         android:title="Privacy Policy"
         app:showAsAction="never" />
 
-    <item
-        android:id="@+id/action_grey"
-        android:orderInCategory="100"
-        android:title="Terms and Conditions"
-        app:showAsAction="never" />
+<!--    <item-->
+<!--        android:id="@+id/action_grey"-->
+<!--        android:orderInCategory="100"-->
+<!--        android:title="Terms and Conditions"-->
+<!--        app:showAsAction="never" />-->
 
     <item
         android:id="@+id/offline_download"

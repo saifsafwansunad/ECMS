@@ -186,8 +186,8 @@ public class CalendarCustomView extends LinearLayout {
 
 
     private List<ToAttendMeetingResponse> CollectEvent(String date){
-        Toast.makeText(context, date, Toast.LENGTH_SHORT).show();
-        Toast.makeText(context, "Event Saved", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(context, date, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(context, "Event Saved", Toast.LENGTH_SHORT).show();
         List<ToAttendMeetingResponse> meetingsListByDay = new ArrayList<>();
         meetingsListByDay = my_dictDay.get(date);
 //        Log.d("calendarTroop3", "sizequeen" + meetingsList2.size());
@@ -273,7 +273,7 @@ public class CalendarCustomView extends LinearLayout {
 
     }
     public final void toAttendMeetingCall(){
-        Toast.makeText(context, "calling", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(context, "calling", Toast.LENGTH_SHORT).show();
         Log.d("calendarTroop12", "1");
         meetingsList.clear();
         my_dict.clear();
@@ -293,9 +293,9 @@ public class CalendarCustomView extends LinearLayout {
                             Log.d("calendarTroop12", "3");
                             meetingsList = response.body();
                             int size=meetingsList.size();
-                            Toast.makeText(context, "here", Toast.LENGTH_LONG).show();
+//                            Toast.makeText(context, "here", Toast.LENGTH_LONG).show();
                             Log.d("calendarTry", "size " + size);
-                            Toast.makeText(getContext(), "size " + size, Toast.LENGTH_SHORT).show();
+//                            Toast.makeText(getContext(), "size " + size, Toast.LENGTH_SHORT).show();
 
                             Calendar c = Calendar.getInstance();
                             SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm aa");
@@ -358,7 +358,7 @@ public class CalendarCustomView extends LinearLayout {
                                 } catch (ParseException e) {
                                     e.printStackTrace();
                                     Log.d("calendarTroop12", "5");
-                                    Toast.makeText(context, "here2", Toast.LENGTH_LONG).show();
+//                                    Toast.makeText(context, "here2", Toast.LENGTH_LONG).show();
                                 }
 
 
@@ -381,7 +381,7 @@ public class CalendarCustomView extends LinearLayout {
                 @Override
                 public void onFailure(Call<List<ToAttendMeetingResponse>> call, Throwable t) {
 
-                        Toast.makeText(context, "Throwable " + t.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+                        Toast.makeText(context, "Server Error " + t.getLocalizedMessage(), Toast.LENGTH_LONG).show();
                     Log.d("calendarTroop12", "6");
 
                 }

@@ -7,19 +7,19 @@
         app:cnb_iconColor="@color/blue"
         android:title="Dashboard" />
 
-    <item
-        android:id="@+id/navigation_search"
-        android:icon="@drawable/ic_baseline_search_24"
-        app:cnb_iconColor="@color/blue"
+<!--    <item-->
+<!--        android:id="@+id/navigation_search"-->
+<!--        android:icon="@drawable/ic_baseline_search_24"-->
+<!--        app:cnb_iconColor="@color/blue"-->
 
-        android:title="Search" />
+<!--        android:title="Search" />-->
 
-    <item
-        android:id="@+id/navigation_messages"
-        android:icon="@drawable/ic_baseline_message_24"
-        app:cnb_iconColor="@color/blue"
+<!--    <item-->
+<!--        android:id="@+id/navigation_messages"-->
+<!--        android:icon="@drawable/ic_baseline_message_24"-->
+<!--        app:cnb_iconColor="@color/blue"-->
 
-        android:title="Messages" />
+<!--        android:title="Messages" />-->
 
 
 </menu>

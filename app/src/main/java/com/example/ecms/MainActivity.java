@@ -192,21 +192,21 @@ View viewHeader;
 
 
                         break;
-                    case R.id.navigation_search:
-                        selectedFragment = searchFragment;
+//                    case R.id.navigation_search:
+//                        selectedFragment = searchFragment;
 //                    floatingActionButtonAttendace.setAnimation(aniFadeout);
 //                    floatingActionButtonAttendace.hide();
 //                    textViewTitle.setText("Reports");
 //                    textViewSubtitle.setVisibility(View.GONE);
-                        break;
-                    case R.id.navigation_messages:
-
-                        selectedFragment = messagesFragment;
+//                        break;
+//                    case R.id.navigation_messages:
+//
+//                        selectedFragment = messagesFragment;
 //                    floatingActionButtonAttendace.setAnimation(aniFadeout);
 //                    floatingActionButtonAttendace.hide();
 //                    textViewTitle.setText("Requests");
 //                    textViewSubtitle.setVisibility(View.GONE);
-                        break;
+//                        break;
 
 
                 }

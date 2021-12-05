@@ -51,7 +51,7 @@ public class EventRecyclerAdapter extends RecyclerView.Adapter<EventRecyclerAdap
     public void onBindViewHolder(@NonNull EventRecyclerAdapter.MyViewHolder holder, int position) {
         ToAttendMeetingResponse events = arrayList.get(position);
         holder.Event.setText(events.getTitle());
-        Toast.makeText(context, events.getStartDate(), Toast.LENGTH_SHORT).show();
+//        Toast.makeText(context, events.getStartDate(), Toast.LENGTH_SHORT).show();
         Log.d("timevaiane" ,events.getStartDate());
         holder.Time.setText(events.getAgenda());
         holder.Date.setText(events.getStartDate());
