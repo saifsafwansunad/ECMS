@@ -5,6 +5,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.IntentSender;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Build;
@@ -35,9 +36,22 @@ import com.example.ecms.ui.ViewEmployeeActivity;
 import com.example.ecms.ui.home.HomeFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.snackbar.Snackbar;
+import com.google.android.play.core.appupdate.AppUpdateInfo;
+import com.google.android.play.core.appupdate.AppUpdateManager;
+import com.google.android.play.core.appupdate.AppUpdateManagerFactory;
+import com.google.android.play.core.install.InstallState;
+import com.google.android.play.core.install.InstallStateUpdatedListener;
+import com.google.android.play.core.install.model.AppUpdateType;
+import com.google.android.play.core.install.model.InstallStatus;
+import com.google.android.play.core.install.model.UpdateAvailability;
+
+import com.google.android.play.core.tasks.OnFailureListener;
+import com.google.android.play.core.tasks.OnSuccessListener;
 import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.GravityCompat;
 import androidx.fragment.app.Fragment;
@@ -60,6 +74,8 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    private AppUpdateManager appUpdateManager;
+    private static final int RC_APP_UPDATE=100;
     private AppBarConfiguration mAppBarConfiguration;
     private static int SPLASH_TIME_OUT=3000;
     public static Boolean stopService= false;
@@ -81,10 +97,83 @@ public class MainActivity extends AppCompatActivity
     private MessagesFragment messagesFragment = MessagesFragment.newInstance();
     private SearchFragment searchFragment = SearchFragment.newInstance();
 View viewHeader;
+
+
+    @Override
+    protected void onStop() {
+       if(appUpdateManager!=null) appUpdateManager.unregisterListener(installStateUpdatedListener);
+        super.onStop();
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+    }
+
+    private InstallStateUpdatedListener installStateUpdatedListener=new InstallStateUpdatedListener() {
+        @Override
+        public void onStateUpdate(InstallState state) {
+        if(state.installStatus() == InstallStatus.DOWNLOADED){
+            showCompletedUpdate();
+        }
+        }
+    };
+
+    private void showCompletedUpdate() {
+        Snackbar snackbar= Snackbar.make(findViewById(android.R.id.content),"New app is ready",Snackbar.LENGTH_INDEFINITE);
+        snackbar.setAction("Install", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                appUpdateManager.completeUpdate();
+            }
+        });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+       if(requestCode ==RC_APP_UPDATE && resultCode !=RESULT_OK){
+          // Toast.makeText(this, "not done", Toast.LENGTH_SHORT).show();
+       }
+
+        super.onActivityResult(requestCode, resultCode, data);
+
+
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+
+
+        //from here to
+        appUpdateManager=AppUpdateManagerFactory.create(this);
+
+        appUpdateManager.getAppUpdateInfo().addOnSuccessListener(new OnSuccessListener<AppUpdateInfo>() {
+            @Override
+            public void onSuccess(AppUpdateInfo result) {
+           if(result.updateAvailability() == UpdateAvailability.UPDATE_AVAILABLE &&
+                   result.isUpdateTypeAllowed(AppUpdateType.FLEXIBLE)){
+               try {
+                   appUpdateManager.startUpdateFlowForResult(result,AppUpdateType.FLEXIBLE,MainActivity.this,RC_APP_UPDATE);
+               } catch (IntentSender.SendIntentException e) {
+                   e.printStackTrace();
+               }
+           }
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(Exception e) {
+               // Toast.makeText(MainActivity.this, "no need of update", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        appUpdateManager.registerListener(installStateUpdatedListener);
+        //here
 
         Intent startIntent = new Intent(getApplicationContext(), MyService.class);
         startIntent.setAction("startService");
@@ -623,6 +712,7 @@ if(!(LoginActivity.checkValue())) {
             }
         });
     }
+
 
 
 
