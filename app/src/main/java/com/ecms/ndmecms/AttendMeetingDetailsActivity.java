@@ -5,8 +5,12 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.ecms.ndmecms.Adapters.MeetingAttachmentAdapter;
 import com.ecms.ndmecms.Adapters.ToAttendMeetingsAdapter;
@@ -50,6 +54,17 @@ public class AttendMeetingDetailsActivity extends AppCompatActivity {
         MSTeamMeetingWebLink_textview = findViewById(R.id.MSTeamMeetingWebLink_textview);
         meeting_details_attachment_recyclerview = findViewById(R.id.meeting_details_attachment_recyclerview);
 
+
+        MSTeamMeetingJoinUrl_textview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String url = meeting.getmSTeamMeetingJoinUrl();
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                startActivity(i);
+               // Toast.makeText(AttendMeetingDetailsActivity.this, "clicked", Toast.LENGTH_SHORT).show();
+            }
+        });
         title_toattend.setText(meeting.getTitle());
         meeting_type_toattend.setText(meeting.getMeetingType());
         agenda_toattend.setText(meeting.getAgenda());
@@ -59,6 +74,8 @@ public class AttendMeetingDetailsActivity extends AppCompatActivity {
         meeting_id_textview.setText(meeting.getmSTeamMeetingID());
         MSTeamMeetingJoinUrl_textview.setText(meeting.getmSTeamMeetingJoinUrl());
         MSTeamMeetingWebLink_textview.setText(meeting.getmSTeamMeetingWebLink());
+
+
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(AttendMeetingDetailsActivity.this);
 
