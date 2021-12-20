@@ -226,7 +226,7 @@ forgotPasswordDialog.showDialog(LoginActivity.this,"Forgot Password");
                     public void onFailure(Call<List<UserLoginResponse>> call, Throwable t) {
                         progressDoalog.dismiss();
 
-                        Toast.makeText(LoginActivity.this, "Wrong Credentials", Toast.LENGTH_LONG).show();
+                        Toast.makeText(LoginActivity.this, "Server Error", Toast.LENGTH_LONG).show();
                     }
                 });
             } catch (Exception e) {

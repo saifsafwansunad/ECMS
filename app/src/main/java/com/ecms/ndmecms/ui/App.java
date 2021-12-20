@@ -10,10 +10,10 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        Log.d("App is called", "");
+        Log.d("App is called", "ffdf");
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            startForegroundService(new Intent(this, MyService.class));
+          //  startForegroundService(new Intent(this, MyService.class));
         }
     }
 }

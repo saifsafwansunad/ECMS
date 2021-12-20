@@ -157,10 +157,12 @@ View viewHeader;
         appUpdateManager.registerListener(installStateUpdatedListener);
         //here
 
-        Intent startIntent = new Intent(getApplicationContext(), MyService.class);
+        /*Intent startIntent = new Intent(getApplicationContext(), MyService.class);
         startIntent.setAction("startService");
         startIntent.putExtra("service", "yes");
-        getApplicationContext().startService(startIntent);
+        getApplicationContext().startService(startIntent);*/
+
+
 
         drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
