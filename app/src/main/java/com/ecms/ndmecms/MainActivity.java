@@ -190,14 +190,14 @@ View viewHeader;
                 PreferenceUtils.savePassword(null, MainActivity.this);
                 PreferenceUtils.saveEmail(null, MainActivity.this);
                 PreferenceUtils.saveUid(null, MainActivity.this);
-                MyService.count = 0;
+               // MyService.count = 0;
 
                 //trying to stop the service
-                stopService = true;
+              /*  stopService = true;
                 Intent stopIntent = new Intent(getApplicationContext(), MyService.class);
                 stopIntent.putExtra("service", "yes");
                 stopIntent.setAction("stopService");
-                getApplicationContext().startService(stopIntent);
+                getApplicationContext().startService(stopIntent);*/
                 final ProgressDialog progressDoalog;
                 progressDoalog = new ProgressDialog(MainActivity.this);
                 progressDoalog.setMessage("Logging Out....");
