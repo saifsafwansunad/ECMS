@@ -19,7 +19,8 @@ public class ApiClient {
         Retrofit retrofit = new Retrofit.Builder().addConverterFactory(GsonConverterFactory.create(new GsonBuilder().
                 serializeNulls()
                 .create()))
-                .baseUrl("https://erecordsapi.azurewebsites.net/")
+                   .baseUrl("https://erecordsapis.azurewebsites.net/")
+//                .baseUrl("https://erecordsapi.azurewebsites.net/")
                 .client(okHttpClient)
                 .build();
 

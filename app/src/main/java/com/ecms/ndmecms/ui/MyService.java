@@ -99,7 +99,7 @@ public class MyService extends Service {
                 startService(restartServiceIntent);
             }
         }
-        toAttendMeetingsCall();
+//        toAttendMeetingsCall();
 
         super.onTaskRemoved(rootIntent);
     }
