@@ -8,23 +8,23 @@
 <!--        android:icon="@drawable/ic_baseline_message_24"-->
 <!--        android:title="@string/action_settings"-->
 <!--        app:showAsAction="always" />-->
-    <item
-        android:id="@+id/action_notification"
-        android:orderInCategory="100"
-        android:icon="@drawable/ic_baseline_notifications_24"
-        android:title="@string/action_settings"
-        app:showAsAction="always" />
-    <item
-        android:id="@+id/action_meeting"
-        android:orderInCategory="100"
-        android:icon="@drawable/ic_baseline_group_24"
-        android:title="@string/action_settings"
-        app:showAsAction="always" />
-    <item
-        android:id="@+id/action_purple2"
-        android:orderInCategory="100"
-        android:title="About Us"
-        app:showAsAction="never" />
+<!--    <item-->
+<!--        android:id="@+id/action_notification"-->
+<!--        android:orderInCategory="100"-->
+<!--        android:icon="@drawable/ic_baseline_notifications_24"-->
+<!--        android:title="@string/action_settings"-->
+<!--        app:showAsAction="always" />-->
+<!--    <item-->
+<!--        android:id="@+id/action_meeting"-->
+<!--        android:orderInCategory="100"-->
+<!--        android:icon="@drawable/ic_baseline_group_24"-->
+<!--        android:title="@string/action_settings"-->
+<!--        app:showAsAction="always" />-->
+<!--    <item-->
+<!--        android:id="@+id/action_purple2"-->
+<!--        android:orderInCategory="100"-->
+<!--        android:title="About Us"-->
+<!--        app:showAsAction="never" />-->
     <item
         android:id="@+id/action_privacy"
         android:orderInCategory="100"
@@ -40,8 +40,9 @@
     <item
         android:id="@+id/offline_download"
         android:orderInCategory="100"
+        android:icon="@drawable/icon_download"
         android:title="Offline Downloads"
-        app:showAsAction="never" />
+        app:showAsAction="always" />
 
     <item
         android:id="@+id/report"
