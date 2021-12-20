@@ -19,6 +19,7 @@ import com.ecms.ndmecms.Models.ToattendMeetingsModel;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import retrofit2.Call;
@@ -107,6 +108,12 @@ private ToAttendMeetingsAdapter toAttendMeetingsAdapter;
                                 tvNoMeetings.setVisibility(View.GONE);
                                 recyclerViewToAttend.setVisibility(View.VISIBLE);
                                 List<ToAttendMeetingResponse> meetingsList = response.body();
+                                Collections.sort(meetingsList);
+                                List<ToAttendMeetingResponse> list;
+                                if (meetingsList instanceof List)
+                                    list = (List)meetingsList;
+                                else
+                                    list = new ArrayList(meetingsList);
                                 //implemeting for date comparison
                            /*     Calendar toDayCalendar = Calendar.getInstance();
                                 Date date1 = toDayCalendar.getTime();
@@ -145,7 +152,7 @@ private ToAttendMeetingsAdapter toAttendMeetingsAdapter;
                                 Log.d("count meetings", "are" + countMeetings);*/
 
                                 recyclerViewToAttend.setLayoutManager(new LinearLayoutManager(ToAttendMeetingActivity.this));
-                                recyclerViewToAttend.setAdapter(new ToAttendMeetingsAdapter(ToAttendMeetingActivity.this,meetingsList));
+                                recyclerViewToAttend.setAdapter(new ToAttendMeetingsAdapter(ToAttendMeetingActivity.this,list));
                                 Log.d("key of the message", "appointments are.... " + response.body());
 
                             }

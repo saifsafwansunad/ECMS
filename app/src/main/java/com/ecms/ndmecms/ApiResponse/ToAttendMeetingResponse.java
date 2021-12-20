@@ -13,7 +13,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-public class ToAttendMeetingResponse implements Parcelable {
+public class ToAttendMeetingResponse implements Comparable<ToAttendMeetingResponse> {
 
     @SerializedName("MeetingId")
     @Expose
@@ -81,17 +81,7 @@ public class ToAttendMeetingResponse implements Parcelable {
         mSTeamMeetingJoinUrl = in.readString();
     }
 
-    public static final Creator<ToAttendMeetingResponse> CREATOR = new Creator<ToAttendMeetingResponse>() {
-        @Override
-        public ToAttendMeetingResponse createFromParcel(Parcel in) {
-            return new ToAttendMeetingResponse(in);
-        }
 
-        @Override
-        public ToAttendMeetingResponse[] newArray(int size) {
-            return new ToAttendMeetingResponse[size];
-        }
-    };
 
     public String getMeetingId() {
         return meetingId;
@@ -224,25 +214,24 @@ public class ToAttendMeetingResponse implements Parcelable {
         SimpleDateFormat dateFormat2 = new SimpleDateFormat("MM/dd/yyyy",Locale.ENGLISH);
         return dateFormat2.format(date1.getTime());
     }
-
-
-    @Override
-    public int describeContents() {
-        return 0;
+    public Date getDateTime(){
+        Date date1= null;
+        try {
+            date1 = new SimpleDateFormat("MM/dd/yyyy HH:mm aa").parse(startDate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return date1;
     }
 
+
+
+
     @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(meetingId);
-        dest.writeString(meetingType);
-        dest.writeString(title);
-        dest.writeString(agenda);
-        dest.writeString(description);
-        dest.writeString(startDate);
-        dest.writeString(isMSTeamMeeting);
-        dest.writeString(mSTeamMeetingID);
-        dest.writeString(mSTeamMeetingWebLink);
-        dest.writeString(mSTeamMeetingJoinUrl);
+    public int compareTo(ToAttendMeetingResponse o) {
+        if (getDateTime() == null || o.getDateTime() == null)
+            return 0;
+        return getDateTime().compareTo(o.getDateTime());
     }
 
     public class MeetingAttachment{
