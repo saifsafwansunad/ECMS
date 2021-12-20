@@ -108,7 +108,7 @@ private ToAttendMeetingsAdapter toAttendMeetingsAdapter;
                                 tvNoMeetings.setVisibility(View.GONE);
                                 recyclerViewToAttend.setVisibility(View.VISIBLE);
                                 List<ToAttendMeetingResponse> meetingsList = response.body();
-                                Collections.sort(meetingsList);
+                                Collections.sort(meetingsList, Collections.reverseOrder());
                                 List<ToAttendMeetingResponse> list;
                                 if (meetingsList instanceof List)
                                     list = (List)meetingsList;
