@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -32,7 +33,7 @@ public class ToAttendMeetingsAdapter extends RecyclerView.Adapter<ToAttendMeetin
     @Override
     public ToAttendMeetingsAdapter.ViewHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View view = layoutInflater.inflate(R.layout.layout_for_atttendmeetings_list, parent, false);
+        View view = layoutInflater.inflate(R.layout.meeting, parent, false);
         return new ToAttendMeetingsAdapter.ViewHolder(view);
     }
 
@@ -44,7 +45,7 @@ public class ToAttendMeetingsAdapter extends RecyclerView.Adapter<ToAttendMeetin
         holder.textViewDate.setText(toattendMeetingsModels.get(position).getStartDate());
         holder.textViewIsMSTeam.setText(toattendMeetingsModels.get(position).getIsMSTeamMeeting());
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
+        holder.viewDetails.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 meetingDetails = toattendMeetingsModels.get(position);
@@ -65,7 +66,7 @@ public class ToAttendMeetingsAdapter extends RecyclerView.Adapter<ToAttendMeetin
 
     public class ViewHolder extends RecyclerView.ViewHolder{
         private TextView textViewTitle, textViewmeetingType, textViewAgendatoAttend,textViewDate,textViewIsMSTeam;
-
+        private Button viewDetails;
         public ViewHolder(View itemView) {
 
             super(itemView);
@@ -74,6 +75,7 @@ public class ToAttendMeetingsAdapter extends RecyclerView.Adapter<ToAttendMeetin
             textViewAgendatoAttend = itemView.findViewById(R.id.agenda_toattend);
             textViewDate=itemView.findViewById(R.id.date_time_toattend);
             textViewIsMSTeam=itemView.findViewById(R.id.isMSteam__toattend_textview);
+            viewDetails=itemView.findViewById(R.id.viewDetails);
 
 
 

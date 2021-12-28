@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/tools"
+    card_view:cardCornerRadius="5dp"
+    android:background="#6c2fde"
+    card_view:cardUseCompatPadding="true"
+    card_view:cardBackgroundColor="#6c2fde"
+
+    app:ignore="NamespaceTypo">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:orientation="vertical"
+        android:padding="5dp">
+
+        <TextView
+            android:id="@+id/title_toattend"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="title"
+            android:padding="2dp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            />
+        <TextView
+            android:id="@+id/agenda_toattend"
+            android:textColor="@color/white"
+            android:padding="2dp"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="council agenda"
+            android:textStyle="bold"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="2dp"
+            >
+
+            <TextView
+                android:id="@+id/meeting_type_toattend"
+                android:textColor="@color/white"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                    android:text="meeting type"
+                android:textStyle="bold"
+                />
+
+          <RelativeLayout
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content">
+
+              <TextView
+                  android:id="@+id/date_time_toattend"
+                  android:textColor="@color/white"
+
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:paddingLeft="25dp"
+                  android:text="22/12/2021 2:00 pm"
+                  android:textStyle="bold" />
+          </RelativeLayout>
+
+
+
+        </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="2dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Is MSTeam Meetings :"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+
+            />
+
+
+        <TextView
+            android:id="@+id/isMSteam__toattend_textview"
+            android:textColor="@color/white"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="true"
+            android:textStyle="bold"
+            />
+
+
+    </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/viewDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="25dp"
+                android:inputType="textCapSentences"
+                android:backgroundTint="#6c2fde"
+                android:textColor="@color/colorBlack"
+                android:background="@drawable/list_bg_white"
+                android:text="View Details"
+                android:layout_alignParentRight="true"
+                android:textStyle="bold"
+                />
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
