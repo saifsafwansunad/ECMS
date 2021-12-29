@@ -59,7 +59,7 @@
         <activity android:name="com.ecms.ndmecms.AttendMeetingDetailsActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name="com.ecms.ndmecms.ToAttendMeetingActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+       />
         <activity android:name="com.ecms.ndmecms.LoginActivity">
 
             <!--
