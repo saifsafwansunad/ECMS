@@ -18,25 +18,38 @@
         android:orientation="vertical"
         android:padding="5dp">
 
-        <TextView
-            android:id="@+id/title_toattend"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="title"
-            android:padding="2dp"
-            android:textSize="16dp"
-            android:textStyle="bold"
-            android:textColor="@color/white"
-            />
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal">
+
+           <ImageView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:src="@drawable/attach"
+               android:padding="2dp"/>
+           <TextView
+               android:id="@+id/title_toattend"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:text="title"
+               android:padding="2dp"
+               android:layout_marginTop="2dp"
+               android:textSize="16dp"
+               android:textStyle="bold"
+               android:textColor="@color/white"
+               />
+       </LinearLayout>
         <TextView
             android:id="@+id/agenda_toattend"
             android:textColor="@color/white"
             android:padding="2dp"
-
+            android:textSize="14dp"
+            android:layout_marginLeft="28dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="council agenda"
-android:layout_marginBottom="5dp"            />
+            android:text="council agenda"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -48,28 +61,14 @@ android:layout_marginBottom="5dp"            />
             <TextView
                 android:id="@+id/meeting_type_toattend"
                 android:textColor="@color/white"
-
+                android:textSize="12dp"
+                android:layout_marginLeft="28dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                    android:text="meeting type"
-                android:textStyle="bold"
+                android:text="meeting type"
                 />
 
-          <RelativeLayout
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content">
 
-              <TextView
-                  android:id="@+id/date_time_toattend"
-                  android:textColor="@color/white"
-
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:paddingLeft="25dp"
-                  android:layout_alignParentRight="true"
-                  android:text="22/12/2021 2:00 pm"
-                  android:textStyle="bold" />
-          </RelativeLayout>
 
 
 
@@ -105,24 +104,54 @@ android:layout_marginBottom="5dp"            />
 
     </LinearLayout>
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <TextView
-                android:id="@+id/viewDetails"
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="2dp"
+            >
+
+            <RelativeLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="25dp"
-                android:inputType="textCapSentences"
-                android:layout_marginTop="5dp"
-                android:backgroundTint="#673BB7"
-                android:textColor="@color/white"
-                android:background="@drawable/list_bg_white"
-                android:text="Details"
-                android:layout_alignParentRight="true"
-                android:textStyle="bold"
-                />
-        </RelativeLayout>
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/date_time_toattend"
+                    android:textColor="@color/white"
+                    android:textSize="12dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="22/12/2021 2:00 pm"
+                    android:layout_marginLeft="28dp"
+
+                    />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/viewDetails"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="25dp"
+                    android:inputType="textCapSentences"
+                    android:backgroundTint="#673BB7"
+                    android:textColor="@color/white"
+                    android:background="@drawable/list_bg_white"
+                    android:text="@string/details"
+                    android:layout_alignParentRight="true"
+                    android:textStyle="bold"
+
+                    />
+            </RelativeLayout>
+
+
+
+        </LinearLayout>
+
 
 
     </LinearLayout>
