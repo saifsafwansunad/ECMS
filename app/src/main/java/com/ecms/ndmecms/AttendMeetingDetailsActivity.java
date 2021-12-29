@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,19 +31,23 @@ import java.util.List;
 public class AttendMeetingDetailsActivity extends AppCompatActivity {
     ToAttendMeetingResponse meeting;
     TextView title_toattend,meeting_type_toattend, agenda_toattend, meet_detail_description, date_time_toattend, isMSteam__toattend_textview, meeting_id_textview
-            ,MSTeamMeetingJoinUrl_textview, MSTeamMeetingWebLink_textview;
+            ,MSTeamMeetingJoinUrl_textview, MSTeamMeetingWebLink_textview,title;
     RecyclerView meeting_details_attachment_recyclerview;
+    ImageView backarrow;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_attend_meeting_details);
-        getSupportActionBar().hide();
+        setContentView(R.layout.meeting_attend_details_act);
+        title=findViewById(R.id.title);
+
+        title.setText("Meeting To Attend");
+
+      /*  getSupportActionBar().hide();
         Toolbar toolbarMeetingsdetail = (Toolbar)findViewById(R.id.meetngs_details_toolbar);
-        toolbarMeetingsdetail.setTitle("Meeting To Attend");
+        toolbarMeetingsdetail.setTitle("Meeting To Attend");*/
         meeting = ToAttendMeetingsAdapter.meetingDetails;
 //        ToAttendMeetingResponse meeting = getIntent().getParcelableExtra("Meetings");
 //        Toast.makeText(this, meeting.getMeetingId(), Toast.LENGTH_SHORT).show();
-
         title_toattend = findViewById(R.id.title_toattend);
         meeting_type_toattend = findViewById(R.id.meeting_type_toattend);
         agenda_toattend = findViewById(R.id.agenda_toattend);
@@ -53,6 +58,7 @@ public class AttendMeetingDetailsActivity extends AppCompatActivity {
         MSTeamMeetingJoinUrl_textview = findViewById(R.id.MSTeamMeetingJoinUrl_textview);
         MSTeamMeetingWebLink_textview = findViewById(R.id.MSTeamMeetingWebLink_textview);
         meeting_details_attachment_recyclerview = findViewById(R.id.meeting_details_attachment_recyclerview);
+        backarrow=findViewById(R.id.imgBackArrow);
 
 
         MSTeamMeetingJoinUrl_textview.setOnClickListener(new View.OnClickListener() {
@@ -63,6 +69,13 @@ public class AttendMeetingDetailsActivity extends AppCompatActivity {
                 i.setData(Uri.parse(url));
                 startActivity(i);
                // Toast.makeText(AttendMeetingDetailsActivity.this, "clicked", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        backarrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
         title_toattend.setText(meeting.getTitle());
