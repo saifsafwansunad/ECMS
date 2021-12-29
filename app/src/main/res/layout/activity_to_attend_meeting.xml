@@ -6,10 +6,7 @@
 
     android:layout_height="match_parent"
     tools:context=".ToAttendMeetingActivity">
-    <androidx.appcompat.widget.Toolbar
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/meetings_toolbar"/>
+    <include layout="@layout/toolbar"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

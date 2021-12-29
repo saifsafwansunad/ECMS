@@ -40,9 +40,14 @@ private ToAttendMeetingsAdapter toAttendMeetingsAdapter;
         setContentView(R.layout.activity_to_attend_meeting);
 
 //        addData();
-        getSupportActionBar().hide();
-        Toolbar toolbartoAttend=(Toolbar)findViewById(R.id.meetings_toolbar);
-        toolbartoAttend.setTitle("Attend Meetings");
+//        getSupportActionBar().hide();
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle("Meetings");
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.drawable.ic_baseline_keyboard_backspace_24);
+
         tvNoMeetings = findViewById(R.id.no_Meetings_tv);
         recyclerViewToAttend = findViewById(R.id.to_attend_meetings_recyclerview);
         toAttendMeetingsCall();
