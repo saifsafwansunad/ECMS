@@ -5,9 +5,9 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/tools"
     card_view:cardCornerRadius="5dp"
-    android:background="#6c2fde"
+    android:background="#673BB7"
     card_view:cardUseCompatPadding="true"
-    card_view:cardBackgroundColor="#6c2fde"
+    card_view:cardBackgroundColor="#673BB7"
 
     app:ignore="NamespaceTypo">
 
@@ -24,6 +24,7 @@
             android:layout_height="wrap_content"
             android:text="title"
             android:padding="2dp"
+            android:textSize="16dp"
             android:textStyle="bold"
             android:textColor="@color/white"
             />
@@ -35,8 +36,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="council agenda"
-            android:textStyle="bold"
-            />
+android:layout_marginBottom="5dp"            />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -66,6 +66,7 @@
                   android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
                   android:paddingLeft="25dp"
+                  android:layout_alignParentRight="true"
                   android:text="22/12/2021 2:00 pm"
                   android:textStyle="bold" />
           </RelativeLayout>
@@ -107,16 +108,17 @@
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
-            <Button
+            <TextView
                 android:id="@+id/viewDetails"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="25dp"
                 android:inputType="textCapSentences"
-                android:backgroundTint="#6c2fde"
-                android:textColor="@color/colorBlack"
+                android:layout_marginTop="5dp"
+                android:backgroundTint="#673BB7"
+                android:textColor="@color/white"
                 android:background="@drawable/list_bg_white"
-                android:text="View Details"
+                android:text="Details"
                 android:layout_alignParentRight="true"
                 android:textStyle="bold"
                 />

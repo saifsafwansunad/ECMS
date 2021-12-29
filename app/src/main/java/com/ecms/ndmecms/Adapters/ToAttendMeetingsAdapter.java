@@ -17,6 +17,8 @@ import com.ecms.ndmecms.R;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 public class ToAttendMeetingsAdapter extends RecyclerView.Adapter<ToAttendMeetingsAdapter.ViewHolder> {
@@ -39,10 +41,15 @@ public class ToAttendMeetingsAdapter extends RecyclerView.Adapter<ToAttendMeetin
 
     @Override
     public void onBindViewHolder(@NonNull @NotNull ToAttendMeetingsAdapter.ViewHolder holder, int position) {
+
+
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy  hh:mm aa");
+        String date = format.format(Date.parse(toattendMeetingsModels.get(position).getStartDate()));
+
         holder.textViewTitle.setText(toattendMeetingsModels.get(position).getTitle());
         holder.textViewmeetingType.setText(toattendMeetingsModels.get(position).getMeetingType());
         holder.textViewAgendatoAttend.setText(toattendMeetingsModels.get(position).getAgenda());
-        holder.textViewDate.setText(toattendMeetingsModels.get(position).getStartDate());
+        holder.textViewDate.setText(date);
         holder.textViewIsMSTeam.setText(toattendMeetingsModels.get(position).getIsMSTeamMeeting());
 
         holder.viewDetails.setOnClickListener(new View.OnClickListener() {
@@ -66,7 +73,7 @@ public class ToAttendMeetingsAdapter extends RecyclerView.Adapter<ToAttendMeetin
 
     public class ViewHolder extends RecyclerView.ViewHolder{
         private TextView textViewTitle, textViewmeetingType, textViewAgendatoAttend,textViewDate,textViewIsMSTeam;
-        private Button viewDetails;
+        private TextView viewDetails;
         public ViewHolder(View itemView) {
 
             super(itemView);
