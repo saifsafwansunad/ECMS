@@ -40,7 +40,7 @@ public class AttendMeetingDetailsActivity extends AppCompatActivity {
         setContentView(R.layout.meeting_attend_details_act);
         title=findViewById(R.id.title);
 
-        title.setText("Meeting To Attend");
+        title.setText("Meeting Details");
 
       /*  getSupportActionBar().hide();
         Toolbar toolbarMeetingsdetail = (Toolbar)findViewById(R.id.meetngs_details_toolbar);

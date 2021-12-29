@@ -16,6 +16,7 @@
     <color name="white">#FFFFFF</color>
     <color name="light_yellow">#FFFFE0</color>
     <color name="mtrl_textinput_default_box_stroke_color" tools:override="true">#3B94D4</color>
+    <color name="violete">#673BB7</color>
 
 
 </resources>
