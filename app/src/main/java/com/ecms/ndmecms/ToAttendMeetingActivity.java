@@ -51,7 +51,7 @@ private ToAttendMeetingsAdapter toAttendMeetingsAdapter;
         getSupportActionBar().setDisplayShowTitleEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setIcon(R.drawable.ic_baseline_keyboard_backspace_24);*/
-
+getSupportActionBar().hide();
         tvNoMeetings = findViewById(R.id.no_Meetings_tv);
         title=findViewById(R.id.title);
         title.setText("Meetings");

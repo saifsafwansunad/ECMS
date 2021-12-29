@@ -39,6 +39,13 @@ public class AttendMeetingDetailsActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         Toolbar toolbarMeetingsdetail = (Toolbar)findViewById(R.id.meetngs_details_toolbar);
         toolbarMeetingsdetail.setTitle("Meeting To Attend");
+        toolbarMeetingsdetail.setNavigationIcon(R.drawable.ic_baseline_keyboard_backspace_24);
+        toolbarMeetingsdetail.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         meeting = ToAttendMeetingsAdapter.meetingDetails;
 //        ToAttendMeetingResponse meeting = getIntent().getParcelableExtra("Meetings");
 //        Toast.makeText(this, meeting.getMeetingId(), Toast.LENGTH_SHORT).show();
