@@ -9,6 +9,8 @@ import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,10 +29,11 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class ToAttendMeetingActivity extends AppCompatActivity {
-    TextView tvNoMeetings;
+    TextView tvNoMeetings,title;
 RecyclerView recyclerViewToAttend;
 private ToAttendMeetingsAdapter toAttendMeetingsAdapter;
     private ArrayList<ToattendMeetingsModel> toattendMeetingsModelslist;
+
 
 
 
@@ -41,18 +44,27 @@ private ToAttendMeetingsAdapter toAttendMeetingsAdapter;
 
 //        addData();
 //        getSupportActionBar().hide();
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+       /* Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("Meetings");
         setSupportActionBar(toolbar);
+
         getSupportActionBar().setDisplayShowTitleEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setIcon(R.drawable.ic_baseline_keyboard_backspace_24);
+        getSupportActionBar().setIcon(R.drawable.ic_baseline_keyboard_backspace_24);*/
 
         tvNoMeetings = findViewById(R.id.no_Meetings_tv);
+        title=findViewById(R.id.title);
+        title.setText("Meetings");
+        ImageView backarrow=findViewById(R.id.imgBackArrow);
         recyclerViewToAttend = findViewById(R.id.to_attend_meetings_recyclerview);
         toAttendMeetingsCall();
 
-//        toAttendMeetingsAdapter = new ToAttendMeetingsAdapter(toattendMeetingsModelslist);
+        backarrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });//        toAttendMeetingsAdapter = new ToAttendMeetingsAdapter(toattendMeetingsModelslist);
 //        toAttendMeetingsAdapter = new ToAttendMeetingsAdapter(toattendMeetingsModelslist);
 
 //        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(ToAttendMeetingActivity.this);

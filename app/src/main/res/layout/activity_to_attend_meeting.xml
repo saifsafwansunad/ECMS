@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout class="androidx.appcompat.app.AlertController$RecycleListView" xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout class="androidx.appcompat.app.AlertController$RecycleListView" xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-
+    android:id="@+id/main"
+    android:orientation="vertical"
     android:layout_height="match_parent"
     tools:context=".ToAttendMeetingActivity">
-    <include layout="@layout/toolbar"/>
+
+    <RelativeLayout
+        android:id="@+id/relative1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <include
+        layout="@layout/toolbar"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -18,29 +25,28 @@
         android:visibility="visible"
         android:textColor="@color/colorBlack"
         android:textStyle="italic|bold"/>
-<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-    android:id="@+id/swipe"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
 
 
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:visibility="gone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:id="@+id/to_attend_meetings_recyclerview"/>
-    </LinearLayout>
 
 
+      <RelativeLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="50dp">
 
-</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+          <androidx.recyclerview.widget.RecyclerView
+
+              android:visibility="gone"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_marginTop="10dp"
+              android:id="@+id/to_attend_meetings_recyclerview"/>
+      </RelativeLayout>
+
+
 
 
 </RelativeLayout>
+</LinearLayout>
