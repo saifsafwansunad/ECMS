@@ -175,7 +175,7 @@
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
 
-        android:background="@drawable/white_bg_border"
+
 
         android:orientation="vertical">
         <androidx.cardview.widget.CardView
