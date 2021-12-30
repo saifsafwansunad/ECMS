@@ -18,7 +18,7 @@
         android:padding="5dp"
 
 
-        android:background="@color/violete"
+        android:background="@color/dark_green"
 
         >
 
@@ -50,7 +50,7 @@
             android:textColor="@color/white"
             android:padding="2dp"
             android:textSize="14dp"
-            android:layout_marginLeft="28dp"
+            android:layout_marginLeft="12dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="council agenda"/>
@@ -66,7 +66,7 @@
                 android:id="@+id/meeting_type_toattend"
                 android:textColor="@color/white"
                 android:textSize="12dp"
-                android:layout_marginLeft="28dp"
+                android:layout_marginLeft="12dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="meeting type"
@@ -88,7 +88,7 @@
                 android:id="@+id/meet_detail_description"
                 android:textColor="@color/white"
                 android:textSize="12dp"
-                android:layout_marginLeft="28dp"
+                android:layout_marginLeft="12dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Description"
@@ -142,8 +142,8 @@
                     android:id="@+id/date_time_toattend"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="28dp"
-                    android:text="22/12/2021 2:00 pm"
+                    android:layout_marginLeft="12dp"
+                    android:text="12/12/2021 2:00 pm"
                     android:textColor="@color/white"
                     android:textSize="12dp"
 
@@ -189,7 +189,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="5dp"
-            android:layout_marginLeft="28dp"
+            android:layout_marginLeft="6dp"
 
             >
 
@@ -197,7 +197,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="MSTeam Meeting ID :"
-                android:textColor="@color/violete"
+                android:textColor="@color/dark_green"
                 android:textSize="12dp"
 
                 />
@@ -207,7 +207,7 @@
                 android:id="@+id/meeting_id_textview"
 
                 android:textSize="12dp"
-                android:textColor="@color/violete"
+                android:textColor="@color/dark_green"
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -222,7 +222,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="5dp"
-            android:layout_marginLeft="28dp"
+            android:layout_marginLeft="6dp"
 
             >
 
@@ -230,7 +230,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="MSTeam Meeting Weblink :"
-                android:textColor="@color/violete"
+                android:textColor="@color/dark_green"
                 android:textSize="12dp"
 
                 />
@@ -239,7 +239,7 @@
             <TextView
                 android:id="@+id/MSTeamMeetingJoinUrl_textview"
                 android:textSize="12dp"
-                android:textColor="@color/violete"
+                android:textColor="@color/dark_green"
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -254,15 +254,13 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="5dp"
-            android:layout_marginLeft="28dp"
-
-            >
+            android:layout_marginLeft="6dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="MSTeam Meeting Join Url :"
-                android:textColor="@color/violete"
+                android:textColor="@color/dark_green"
                 android:textSize="12dp"
 
                 />
@@ -273,7 +271,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="true"
-                android:textColor="@color/violete"
+                android:textColor="@color/dark_green"
 
                 android:textSize="12dp"
 
@@ -300,14 +298,15 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:layout_marginLeft="10dp"
-                android:textColor="#673BB7"
+                android:textColor="@color/dark_green"
                 android:text="Meeting Attachments :"
-                android:textSize="20dp" />
+                android:textStyle="bold"
+                android:textSize="18dp" />
 
         </RelativeLayout>
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/meeting_details_attachment_recyclerview"
-            android:layout_marginTop="5dp"
+            android:background="@color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </LinearLayout>

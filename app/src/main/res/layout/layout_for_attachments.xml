@@ -28,14 +28,14 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:text="urlafsafasfafgr"
-                android:textColor="#673BB7"
+                android:textColor="@color/colorBlack"
                 android:textSize="16dp" />
 
             <TextView
                 android:id="@+id/attachment_description_textview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#673BB7"
+                android:textColor="@color/colorBlack"
                 android:text="Description"
                 android:textSize="12dp" />
         </LinearLayout>
