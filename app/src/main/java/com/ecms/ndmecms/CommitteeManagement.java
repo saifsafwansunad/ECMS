@@ -9,6 +9,8 @@ import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -24,6 +26,8 @@ public class CommitteeManagement extends AppCompatActivity {
     private RecyclerView recyclerView;
     private AdminCommittee adapter;
     private ArrayList<Commitee> mahasiswaArrayList;
+    TextView title;
+    ImageView backarrow;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,10 +37,20 @@ public class CommitteeManagement extends AppCompatActivity {
 
         //addData();
         getSupportActionBar().hide();
-        Toolbar toolbartoAttend=(Toolbar)findViewById(R.id.commitee_toolbar);
-        toolbartoAttend.setTitle("Committee");
+//        Toolbar toolbartoAttend=(Toolbar)findViewById(R.id.commitee_toolbar);
+//        toolbartoAttend.setTitle("Committee");
+        title=findViewById(R.id.title);
+        title.setText("Committee");
+        ImageView backarrow=findViewById(R.id.imgBackArrow);
         recyclerView = findViewById(R.id.recycler_view);
         commiteeCall();
+
+        backarrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         //adapter = new AdminCommittee(mahasiswaArrayList);
 

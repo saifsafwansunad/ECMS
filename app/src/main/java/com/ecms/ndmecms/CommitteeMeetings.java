@@ -8,6 +8,7 @@ import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.ecms.ndmecms.ApiRequests.ToAttendMeetingRequest;
@@ -25,21 +26,32 @@ public class CommitteeMeetings extends AppCompatActivity {
 
     private CommiteMeetingsAdapter adapter;
     private List<CommiteeMeetingModel> commiteeMeetingModels;
-
+    TextView title;
+    ImageView backarrow;
 
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle("Committee Meetings");
         setContentView(R.layout.activity_committee_meetings);
+        getSupportActionBar().hide();
+        title=findViewById(R.id.title);
+        title.setText("Committee Meetings");
+        ImageView backarrow=findViewById(R.id.imgBackArrow);
         commiteeMeeting=findViewById(R.id.commitee_meeting);
         commiteeMeetingsParticular();
 
         //addData();
 
         recyclerView = findViewById(R.id.recycler_view);
+
+        backarrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
        /* adapter = new CommiteMeetingsAdapter(commiteeMeetingModels);
 
