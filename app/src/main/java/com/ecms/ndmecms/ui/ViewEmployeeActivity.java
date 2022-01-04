@@ -1,6 +1,9 @@
 package com.ecms.ndmecms.ui;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,10 +20,22 @@ import java.util.List;
 public class ViewEmployeeActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
+    TextView title;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_employee);
+        getSupportActionBar().hide();
+        title=findViewById(R.id.title);
+        title.setText("Offline downloads");
+        ImageView backarrow=findViewById(R.id.imgBackArrow);
+
+        backarrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

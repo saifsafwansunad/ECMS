@@ -12,6 +12,7 @@ import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -35,11 +36,24 @@ public class ReportActivity extends AppCompatActivity {
     Spinner ContactType;
     EditText report_subject, report_message;
     Button report_submit;
+    TextView title;
+    ImageView backarrow;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_report);
+        getSupportActionBar().hide();
+        title=findViewById(R.id.title);
+        title.setText("Report");
+        ImageView backarrow=findViewById(R.id.imgBackArrow);
+
+        backarrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         ContactType = findViewById(R.id.contact_type_spinner);
         report_subject = findViewById(R.id.report_subject);
