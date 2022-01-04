@@ -23,6 +23,8 @@ import android.view.Window;
 import android.webkit.CookieManager;
 import android.webkit.MimeTypeMap;
 import android.webkit.URLUtil;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.net.Uri;
 
@@ -51,6 +53,8 @@ public class CommittiMeetingFilesActivity extends AppCompatActivity {
     String folderPath;
     private String folderAddress;
     RecyclerView cf_folder_rv;
+    TextView title;
+    ImageView backarrow;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,10 +69,37 @@ public class CommittiMeetingFilesActivity extends AppCompatActivity {
         folderAddress = folderAddress+ "/" + folderPath;
 
         getSupportActionBar().hide();
-        Toolbar toolbartoAttend=(Toolbar)findViewById(R.id.commitee_folder_toolbar);
-        toolbartoAttend.setTitle(folderAddress);
+//        Toolbar toolbartoAttend=(Toolbar)findViewById(R.id.commitee_folder_toolbar);
+//        toolbartoAttend.setTitle(folderAddress);
+        title=findViewById(R.id.title);
+        backarrow=findViewById(R.id.imgBackArrow);
+
+        title.setText(folderAddress);
 
         committifolders();
+
+        backarrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if(folderAddress.equals("Committees/" + folderPath)){
+                    finish();
+                }else if(folderAddress.equals("/PUBLIC SECTOR")) {
+
+                    finish();
+                }else if(folderAddress.equals("//PRIVATE SECTOR")) {
+
+                    finish();
+                }else
+                {
+//            Toast.makeText(this, "You cant go back right now", Toast.LENGTH_SHORT).show();
+                    int lastIndexBackSlash = folderAddress.lastIndexOf('/');
+                    folderAddress = folderAddress.substring(0, lastIndexBackSlash);
+//            Toast.makeText(this, folderAddress, Toast.LENGTH_SHORT).show();
+                    committifolders();
+                }
+            }
+        });
     }
 
     private final void committifolders() {

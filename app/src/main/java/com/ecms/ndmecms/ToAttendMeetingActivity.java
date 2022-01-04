@@ -40,7 +40,7 @@ private ToAttendMeetingsAdapter toAttendMeetingsAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_to_attend_meeting);
+        setContentView(R.layout. activity_to_attend_meeting);
 
 //        addData();
 //        getSupportActionBar().hide();
