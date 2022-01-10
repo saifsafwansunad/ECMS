@@ -29,12 +29,14 @@ import android.widget.Toast;
 import android.net.Uri;
 
 import com.ecms.ndmecms.Adapters.CommitteeFilesAdapter;
+import com.ecms.ndmecms.Adapters.FolderAdapter;
 import com.ecms.ndmecms.ApiClient;
 import com.ecms.ndmecms.ApiRequests.CommitteeFilesRequest;
 import com.ecms.ndmecms.ApiResponse.CommitteeFilesResponse;
 import com.ecms.ndmecms.DatabaseHelperClass;
 import com.ecms.ndmecms.DetectConnection;
 import com.ecms.ndmecms.Models.EmployeeModelClass;
+import com.ecms.ndmecms.Models.FolderModel;
 import com.ecms.ndmecms.R;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -42,6 +44,7 @@ import com.google.android.material.snackbar.Snackbar;
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -52,15 +55,18 @@ public class CommittiMeetingFilesActivity extends AppCompatActivity {
 
     String folderPath;
     private String folderAddress;
-    RecyclerView cf_folder_rv;
+    RecyclerView cf_folder_rv,cf_folder_path_rv;
     TextView title;
     ImageView backarrow;
+    List<FolderModel> folderTrack = new ArrayList<FolderModel>();
+    FolderAdapter folderAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_committi_meeting_files);
         cf_folder_rv = findViewById(R.id.cf_folder_rv);
+        cf_folder_path_rv = findViewById(R.id.cf_folder_path_rv);
 
         Intent intent = getIntent();
 
@@ -77,6 +83,11 @@ public class CommittiMeetingFilesActivity extends AppCompatActivity {
         title.setText(folderAddress);
 
         committifolders();
+        folderTrack.add(new FolderModel(folderAddress, folderAddress));
+        folderAdapter = new FolderAdapter(folderTrack, CommittiMeetingFilesActivity.this);
+        cf_folder_path_rv.setLayoutManager(new LinearLayoutManager(CommittiMeetingFilesActivity.this, LinearLayoutManager.HORIZONTAL, false));
+        cf_folder_path_rv.setAdapter(folderAdapter);
+//        folderPathSet();
 
         backarrow.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,12 +105,18 @@ public class CommittiMeetingFilesActivity extends AppCompatActivity {
                 {
 //            Toast.makeText(this, "You cant go back right now", Toast.LENGTH_SHORT).show();
                     int lastIndexBackSlash = folderAddress.lastIndexOf('/');
+                    folderTrack.remove(folderTrack.size()-1);
+                    folderAdapter.notifyDataSetChanged();
                     folderAddress = folderAddress.substring(0, lastIndexBackSlash);
 //            Toast.makeText(this, folderAddress, Toast.LENGTH_SHORT).show();
                     committifolders();
                 }
             }
         });
+    }
+
+    private void folderPathSet() {
+
     }
 
     private final void committifolders() {
@@ -194,8 +211,22 @@ public class CommittiMeetingFilesActivity extends AppCompatActivity {
 
     public void onClickCalled(String folderName) {
         // Call another acitivty here and pass some arguments to it.
+
         folderAddress = folderAddress + "/" + folderName;
+        folderTrack.add(new FolderModel(folderName, folderAddress));
+        folderAdapter.notifyDataSetChanged();
 //        Toast.makeText(this, folderAddress, Toast.LENGTH_SHORT).show();
+        committifolders();
+
+    }
+
+    public void  onFolderPathCalled(List<FolderModel>folderModelsList){
+        folderTrack.clear();
+        folderTrack.addAll(folderModelsList);
+        folderAdapter.notifyDataSetChanged();
+//        folderTrack = folderModelsList;
+        folderAddress = folderTrack.get(folderTrack.size()-1).getFolderpath();
+
         committifolders();
 
     }
@@ -227,6 +258,8 @@ public class CommittiMeetingFilesActivity extends AppCompatActivity {
         }else
         {
 //            Toast.makeText(this, "You cant go back right now", Toast.LENGTH_SHORT).show();
+            folderTrack.remove(folderTrack.size()-1);
+            folderAdapter.notifyDataSetChanged();
             int lastIndexBackSlash = folderAddress.lastIndexOf('/');
             folderAddress = folderAddress.substring(0, lastIndexBackSlash);
 //            Toast.makeText(this, folderAddress, Toast.LENGTH_SHORT).show();
