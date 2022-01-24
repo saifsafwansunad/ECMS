@@ -7,16 +7,15 @@
     <uses-permission
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         tools:ignore="ScopedStorage" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-<!--    <uses-permission-->
-<!--        android:name="android.permission.MANAGE_EXTERNAL_STORAGE"-->
-<!--        tools:ignore="ScopedStorage" />-->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> <!-- <uses-permission -->
+    <!-- android:name="android.permission.MANAGE_EXTERNAL_STORAGE" -->
+    <!-- tools:ignore="ScopedStorage" /> -->
     <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
     <application
-        android:name="com.ecms.ndmecms.ui.App"
+        android:name=".ui.App"
         android:allowBackup="true"
         android:icon="@drawable/logo"
         android:label="@string/app_name"
@@ -26,20 +25,21 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="n">
-        <activity android:name="com.ecms.ndmecms.PrivacyPolicyActivity"></activity>
-        <activity android:name="com.ecms.ndmecms.Activity.ReportActivity" />
-        <activity android:name="com.ecms.ndmecms.SplashScreen">
+        <activity android:name=".ui.Agreement"></activity>
+        <activity android:name=".PrivacyPolicyActivity" />
+        <activity android:name=".Activity.ReportActivity" />
+        <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.ecms.ndmecms.SplashScreenActivity" />
-        <activity android:name="com.ecms.ndmecms.ui.ViewEmployeeActivity" />
+        <activity android:name=".SplashScreenActivity" />
+        <activity android:name=".ui.ViewEmployeeActivity" />
 
         <receiver
-            android:name="com.ecms.ndmecms.ui.Restarter"
+            android:name=".ui.Restarter"
             android:enabled="true"
             android:exported="true">
             <intent-filter>
@@ -48,19 +48,19 @@
         </receiver>
 
         <service
-            android:name="com.ecms.ndmecms.ui.MyService"
+            android:name=".ui.MyService"
             android:enabled="true"
             android:exported="true"
             android:permission="android.permission.BIND_JOB_SERVICE"
             android:stopWithTask="false" />
 
-        <activity android:name="com.ecms.ndmecms.Notification" />
-        <activity android:name="com.ecms.ndmecms.Activity.CommittiMeetingFilesActivity" />
-        <activity android:name="com.ecms.ndmecms.AttendMeetingDetailsActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name="com.ecms.ndmecms.ToAttendMeetingActivity"
-       />
-        <activity android:name="com.ecms.ndmecms.LoginActivity">
+        <activity android:name=".Notification" />
+        <activity android:name=".Activity.CommittiMeetingFilesActivity" />
+        <activity
+            android:name=".AttendMeetingDetailsActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ToAttendMeetingActivity" />
+        <activity android:name=".LoginActivity">
 
             <!--
                 <intent-filter>
@@ -70,23 +70,23 @@
             </intent-filter>
             -->
         </activity>
-        <activity android:name="com.ecms.ndmecms.IncomingCorrespondenceActionActivity" />
-        <activity android:name="com.ecms.ndmecms.FusionTestTitleActivity" />
-        <activity android:name="com.ecms.ndmecms.AssignedCorrespondenceTaskActivity" />
-        <activity android:name="com.ecms.ndmecms.CommitteeMeetings" />
-        <activity android:name="com.ecms.ndmecms.CommitteeManagement" />
-        <activity android:name="com.ecms.ndmecms.ManageMeetingsActivity" />
-        <activity android:name="com.ecms.ndmecms.ResolutionCorrespondenceActivity" />
-        <activity android:name="com.ecms.ndmecms.OutgoingCorrespondenceActivity" />
-        <activity android:name="com.ecms.ndmecms.AddNewMeetingActivity" />
-        <activity android:name="com.ecms.ndmecms.CorrespondenceDetailsActivity" />
-        <activity android:name="com.ecms.ndmecms.ProfileActivity" />
-        <activity android:name="com.ecms.ndmecms.IncomingCorrespondenceActivity" />
-        <activity android:name="com.ecms.ndmecms.AdminMessages" />
-        <activity android:name="com.ecms.ndmecms.ui.UserMessages" />
-        <activity android:name="com.ecms.ndmecms.PublicActivity" />
-        <activity android:name="com.ecms.ndmecms.Readyapprove_viewmeeting" />
-        <activity android:name="com.ecms.ndmecms.ui.ReadyToApprove" />
+        <activity android:name=".IncomingCorrespondenceActionActivity" />
+        <activity android:name=".FusionTestTitleActivity" />
+        <activity android:name=".AssignedCorrespondenceTaskActivity" />
+        <activity android:name=".CommitteeMeetings" />
+        <activity android:name=".CommitteeManagement" />
+        <activity android:name=".ManageMeetingsActivity" />
+        <activity android:name=".ResolutionCorrespondenceActivity" />
+        <activity android:name=".OutgoingCorrespondenceActivity" />
+        <activity android:name=".AddNewMeetingActivity" />
+        <activity android:name=".CorrespondenceDetailsActivity" />
+        <activity android:name=".ProfileActivity" />
+        <activity android:name=".IncomingCorrespondenceActivity" />
+        <activity android:name=".AdminMessages" />
+        <activity android:name=".ui.UserMessages" />
+        <activity android:name=".PublicActivity" />
+        <activity android:name=".Readyapprove_viewmeeting" />
+        <activity android:name=".ui.ReadyToApprove" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -99,7 +99,7 @@
         </provider>
 
         <activity
-            android:name="com.ecms.ndmecms.MainActivity"
+            android:name=".MainActivity"
             android:exported="true"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar" />

@@ -22,6 +22,19 @@ public class PreferenceUtils {
     }
 
 
+    public static boolean saveAgree(String agree, Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor prefsEditor = prefs.edit();
+        prefsEditor.putString(LoginConstants.AGREE, agree);
+        prefsEditor.apply();
+        return true;
+    }
+    public static String getAgree(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        return prefs.getString(LoginConstants.AGREE, null);
+    }
+
+
     public static String getUid(Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         return prefs.getString(LoginConstants.USER_ID, null);

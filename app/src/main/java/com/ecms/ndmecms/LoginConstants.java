@@ -8,6 +8,7 @@ public class LoginConstants {
     public static String USER_ID="uid";
     public static String USER_NAME="name";
     public static String USER_MOBILE="mobile";
+    public static String AGREE="false";
 
 
 

@@ -11,6 +11,8 @@ import android.view.animation.AlphaAnimation;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 
+import com.ecms.ndmecms.ui.Agreement;
+
 public class SplashScreen extends AppCompatActivity {
     ProgressBar progressBarSplash;
     ImageView imageView;
@@ -35,9 +37,17 @@ public class SplashScreen extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent i = new Intent(SplashScreen.this, LoginActivity.class);
-                startActivity(i);
-                finish();
+                PreferenceUtils preferenceUtils=new PreferenceUtils();
+                if(preferenceUtils.getAgree(SplashScreen.this)!=null){
+                    Intent i = new Intent(SplashScreen.this, LoginActivity.class);
+                    startActivity(i);
+                    finish();
+                }else{
+                    Intent i = new Intent(SplashScreen.this, Agreement.class);
+                    startActivity(i);
+                    finish();
+                }
+
             }
         }, 3000);
     }
