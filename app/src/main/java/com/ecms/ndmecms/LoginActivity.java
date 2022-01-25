@@ -29,7 +29,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
-Button buttonLogin,buttonReset;
+TextView buttonLogin,buttonReset;
 TextView textViewForgotPassword;
     public static UserLoginResponse userLoginResponse;
 
@@ -52,13 +52,13 @@ EditText editTextLoginEmail,editTextLoginPassword;
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_login);
-    buttonLogin=(Button) findViewById(R.id.login_btn);
+    buttonLogin=(TextView) findViewById(R.id.login_btn);
     checkBox=findViewById(R.id.login_checkbox);
     editTextLoginEmail=findViewById(R.id.emailId);
     editTextLoginPassword=findViewById(R.id.password);
         textViewForgotPassword=findViewById(R.id.forgot_password_textview);
 
-        buttonReset=(Button) findViewById(R.id.reset_btn);
+        buttonReset=(TextView) findViewById(R.id.reset_btn);
     getSupportActionBar().hide();
         PreferenceUtils utils = new PreferenceUtils();
 
