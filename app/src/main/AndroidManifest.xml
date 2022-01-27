@@ -25,8 +25,10 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="n">
-        <activity android:name=".ui.Agreement"
-            android:screenOrientation = "portrait"></activity>
+        <activity android:name=".MeetingActions_new"></activity>
+        <activity
+            android:name=".ui.Agreement"
+            android:screenOrientation="portrait" />
         <activity android:name=".PrivacyPolicyActivity" />
         <activity android:name=".Activity.ReportActivity" />
         <activity android:name=".SplashScreen">
@@ -61,8 +63,9 @@
             android:name=".AttendMeetingDetailsActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ToAttendMeetingActivity" />
-        <activity android:name=".LoginActivity"
-            android:screenOrientation = "portrait">
+        <activity
+            android:name=".LoginActivity"
+            android:screenOrientation="portrait">
 
             <!--
                 <intent-filter>

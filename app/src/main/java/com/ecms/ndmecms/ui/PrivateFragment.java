@@ -1,23 +1,17 @@
-package com.ecms.ndmecms;
+package com.ecms.ndmecms.ui;
 
-import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link Inbox#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class Inbox extends Fragment {
+import androidx.fragment.app.Fragment;
 
-    ImageView meeting;
+import com.ecms.ndmecms.Inbox;
+import com.ecms.ndmecms.R;
+
+public class PrivateFragment extends Fragment {
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -27,7 +21,7 @@ public class Inbox extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public Inbox() {
+    public PrivateFragment() {
         // Required empty public constructor
     }
 
@@ -62,16 +56,6 @@ public class Inbox extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-
-        View view=inflater.inflate(R.layout.inbox, container, false);
-        meeting=(ImageView) view.findViewById(R.id.meeting_active);
-        meeting.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), MeetingActions_new.class);
-                startActivity(intent);
-            }
-        });
-        return view;
+        return inflater.inflate(R.layout.privatefragment, container, false);
     }
 }

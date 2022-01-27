@@ -341,7 +341,9 @@ TextView textViewName=(TextView)view.findViewById(R.id.corespondence_name_home_v
 //                Log.d(TAG, "onValueSelected: " + h.toString());
 
                Intent intent=new Intent(context,ToAttendMeetingActivity.class);
-               context.startActivity(intent);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
+
+                context.startActivity(intent);
             }
 
             @Override

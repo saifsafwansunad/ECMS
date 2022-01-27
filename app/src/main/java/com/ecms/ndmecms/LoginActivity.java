@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.ecms.ndmecms.ui.UserMessages;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
@@ -65,7 +66,7 @@ EditText editTextLoginEmail,editTextLoginPassword;
         if (utils.getUid(this) != null ){
                 MainActivity.stopService = false;
                 IsCouncillor=PreferenceUtils.getCouncilor(LoginActivity.this);
-                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                Intent intent = new Intent(LoginActivity.this, UserMessages.class);
                 startActivity(intent);
 
               }else{
@@ -207,7 +208,7 @@ forgotPasswordDialog.showDialog(LoginActivity.this,"Forgot Password");
                                 MainActivity.stopService = false;
 
                                 Toast.makeText(LoginActivity.this, "Login Success", Toast.LENGTH_SHORT).show();
-                                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                        Intent intent = new Intent(LoginActivity.this, UserMessages.class);
                                         startActivity(intent);
                                         finish();
 

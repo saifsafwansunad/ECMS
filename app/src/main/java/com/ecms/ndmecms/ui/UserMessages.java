@@ -33,8 +33,10 @@ public class UserMessages extends AppCompatActivity {
         tabLayoutMessages = (TabLayout) findViewById(R.id.messages_tablayout);
         viewPagerMessages = (ViewPager) findViewById(R.id.messages_viewPager);
 
-        tabLayoutMessages.addTab(tabLayoutMessages.newTab().setText("Inbox"));
-        tabLayoutMessages.addTab(tabLayoutMessages.newTab().setText("Sent"));
+        tabLayoutMessages.addTab(tabLayoutMessages.newTab().setText("Meetings"));
+        tabLayoutMessages.addTab(tabLayoutMessages.newTab().setText("Public"));
+        tabLayoutMessages.addTab(tabLayoutMessages.newTab().setText("Private"));
+
         tabLayoutMessages.setTabGravity(TabLayout.GRAVITY_FILL);
 
         final UserMessagesAdapter messagesAdapter = new UserMessagesAdapter(this, getSupportFragmentManager(), tabLayoutMessages.getTabCount());

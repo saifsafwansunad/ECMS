@@ -30,6 +30,11 @@ public class UserMessagesAdapter extends FragmentPagerAdapter {
             case 1:
                 Sent userMessageFragment = new Sent();
                 return userMessageFragment;
+
+            case 2:
+                PrivateFragment privateFragment = new PrivateFragment();
+                return privateFragment;
+
             default:
                 return null;
         }

@@ -1,5 +1,6 @@
 package com.ecms.ndmecms;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,6 +8,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
 import com.ecms.ndmecms.Fragments.myDialog;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -18,6 +21,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
  */
 public class Sent extends Fragment implements View.OnClickListener, myDialog.DialogListener {
 
+
+    ImageView meeting;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -28,6 +33,7 @@ public class Sent extends Fragment implements View.OnClickListener, myDialog.Dia
     private String mParam2;
 
     public Sent() {
+
         // Required empty public constructor
     }
 
@@ -66,8 +72,10 @@ public class Sent extends Fragment implements View.OnClickListener, myDialog.Dia
 
         View view = inflater.inflate(R.layout.fragment_sent,
                 container, false);
-        FloatingActionButton button = (FloatingActionButton) view.findViewById(R.id.floating_action_button);
-        button.setOnClickListener(new View.OnClickListener()
+
+
+      //  FloatingActionButton button = (FloatingActionButton) view.findViewById(R.id.floating_action_button);
+/*        button.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
@@ -78,28 +86,12 @@ public class Sent extends Fragment implements View.OnClickListener, myDialog.Dia
                 bundle.putBoolean("notAlertDialog", true);
 
                 dialogFragment.setArguments(bundle);            }
-        }); return view;    }
+        });*/ return view;    }
 
 
     @Override
     public void onClick(View v) {
 
-        switch (v.getId()) {
-
-            case R.id.floating_action_button:
-                myDialog dialogFragment = new myDialog();
-                dialogFragment.show(getActivity().getSupportFragmentManager(),"");
-                Bundle bundle = new Bundle();
-                bundle.putBoolean("notAlertDialog", true);
-
-                dialogFragment.setArguments(bundle);
-
-              //  FragmentTransaction ft = gets().beginTransaction();
-               // Fragment prev = getSupportFragmentManager().findFragmentByTag("dialog");
-
-                break;
-
-        }
     }
 
     @Override

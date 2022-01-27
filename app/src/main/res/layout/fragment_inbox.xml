@@ -5,29 +5,89 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.UserMessages">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/dark_green"
+        android:id="@+id/pro">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/change"
+            android:padding="5dp"
+            android:layout_marginLeft="10dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="profile Name"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+
+            android:padding="10dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="profile"
+            android:padding="10dp"
+android:layout_marginLeft="20dp"
+            android:textColor="@color/white"
+
+            android:layout_gravity="center"
+
+            />
+       <RelativeLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_gravity="center"
+           android:layout_marginRight="10dp"
+           >
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Logout"
+               android:padding="10dp"
+               android:layout_marginRight="10dp"
+               android:layout_gravity="center"
+               android:textColor="@color/white"
+
+               android:layout_alignParentRight="true"
+               />
+       </RelativeLayout>
+
+    </LinearLayout>
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginTop="90dp"
+        >
+
+
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
         app:strokeWidth="1dp"
+        android:layout_marginTop="5dp"
         android:theme="@style/Theme.MaterialComponents.Light"
-        app:strokeColor="@color/blue"
-        app:cardCornerRadius="10dp">
+        app:strokeColor="@color/dark_green"
+       >
         <com.google.android.material.tabs.TabLayout
-            app:tabTextAppearance="@android:style/TextAppearance.Widget.TabWidget"
             android:id="@+id/messages_tablayout"
             app:tabIndicatorGravity="stretch"
             app:tabMaxWidth="0dp"
             app:tabGravity="fill"
+            android:backgroundTint="@color/dark_green"
             app:tabMode="fixed"
-            app:tabIndicatorColor="@color/blue"
+            app:tabIndicatorColor="@color/dark_green"
             app:tabSelectedTextColor="@android:color/white"
-            app:tabTextColor="#000"
+            app:tabTextColor="@color/colorBlack"
 
             android:layout_width="match_parent"
             android:layout_height="50dp"/>
