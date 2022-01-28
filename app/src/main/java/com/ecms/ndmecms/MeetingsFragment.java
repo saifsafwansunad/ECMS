@@ -28,10 +28,10 @@ import retrofit2.Response;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link Inbox#newInstance} factory method to
+ * Use the {@link MeetingsFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Inbox extends Fragment {
+public class MeetingsFragment extends Fragment {
     public static int countMeetings,attendedMeetings;
 
     RelativeLayout getActivity;
@@ -46,7 +46,7 @@ public class Inbox extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public Inbox() {
+    public MeetingsFragment() {
         // Required empty public constructor
     }
 
@@ -59,8 +59,8 @@ public class Inbox extends Fragment {
      * @return A new instance of fragment Inbox.
      */
     // TODO: Rename and change types and number of parameters
-    public static Inbox newInstance(String param1, String param2) {
-        Inbox fragment = new Inbox();
+    public static MeetingsFragment newInstance(String param1, String param2) {
+        MeetingsFragment fragment = new MeetingsFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);

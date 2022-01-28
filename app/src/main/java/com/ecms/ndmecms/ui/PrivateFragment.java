@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
 
-import com.ecms.ndmecms.Inbox;
+import com.ecms.ndmecms.MeetingsFragment;
 import com.ecms.ndmecms.R;
 
 public class PrivateFragment extends Fragment {
@@ -34,8 +34,8 @@ public class PrivateFragment extends Fragment {
      * @return A new instance of fragment Inbox.
      */
     // TODO: Rename and change types and number of parameters
-    public static Inbox newInstance(String param1, String param2) {
-        Inbox fragment = new Inbox();
+    public static MeetingsFragment newInstance(String param1, String param2) {
+        MeetingsFragment fragment = new MeetingsFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);

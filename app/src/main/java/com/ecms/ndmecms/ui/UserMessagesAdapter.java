@@ -6,8 +6,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.ecms.ndmecms.Inbox;
-import com.ecms.ndmecms.Sent;
+import com.ecms.ndmecms.MeetingsFragment;
+import com.ecms.ndmecms.PublicFragment;
 
 public class UserMessagesAdapter extends FragmentPagerAdapter {
 
@@ -25,10 +25,10 @@ public class UserMessagesAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch (position) {
             case 0:
-                Inbox adminMessageFragment = new Inbox();
+                MeetingsFragment adminMessageFragment = new MeetingsFragment();
                 return adminMessageFragment;
             case 1:
-                Sent userMessageFragment = new Sent();
+                PublicFragment userMessageFragment = new PublicFragment();
                 return userMessageFragment;
 
             case 2:

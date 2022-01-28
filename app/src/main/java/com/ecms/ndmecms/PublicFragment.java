@@ -1,6 +1,5 @@
 package com.ecms.ndmecms;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -9,17 +8,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 
 import com.ecms.ndmecms.Fragments.myDialog;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link Sent#newInstance} factory method to
+ * Use the {@link PublicFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Sent extends Fragment implements View.OnClickListener, myDialog.DialogListener {
+public class PublicFragment extends Fragment implements View.OnClickListener, myDialog.DialogListener {
 
 
     ImageView meeting;
@@ -32,7 +29,7 @@ public class Sent extends Fragment implements View.OnClickListener, myDialog.Dia
     private String mParam1;
     private String mParam2;
 
-    public Sent() {
+    public PublicFragment() {
 
         // Required empty public constructor
     }
@@ -46,8 +43,8 @@ public class Sent extends Fragment implements View.OnClickListener, myDialog.Dia
      * @return A new instance of fragment Sent.
      */
     // TODO: Rename and change types and number of parameters
-    public static Sent newInstance(String param1, String param2) {
-        Sent fragment = new Sent();
+    public static PublicFragment newInstance(String param1, String param2) {
+        PublicFragment fragment = new PublicFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
