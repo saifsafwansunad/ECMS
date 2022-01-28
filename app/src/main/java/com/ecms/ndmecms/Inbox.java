@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.ecms.ndmecms.ApiRequests.ToAttendMeetingRequest;
@@ -33,6 +34,7 @@ import retrofit2.Response;
 public class Inbox extends Fragment {
     public static int countMeetings,attendedMeetings;
 
+    RelativeLayout getActivity;
     ImageView meeting;
     TextView count_meet;
     // TODO: Rename parameter arguments, choose names that match
@@ -86,6 +88,16 @@ public class Inbox extends Fragment {
         toAttendMeetingsCall();
 
         meeting=(ImageView) view.findViewById(R.id.meeting_active);
+
+        getActivity=view.findViewById(R.id.get_into);
+
+        getActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), MeetingActions_new.class);
+                startActivity(intent);
+            }
+        });
 
         meeting.setOnClickListener(new View.OnClickListener() {
             @Override
