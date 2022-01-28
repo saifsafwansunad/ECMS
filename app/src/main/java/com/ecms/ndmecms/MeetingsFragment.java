@@ -13,6 +13,8 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.ecms.ndmecms.Activity.OrganisationCalendarActivity;
+import com.ecms.ndmecms.Activity.YourCalendarActivity;
 import com.ecms.ndmecms.ApiRequests.ToAttendMeetingRequest;
 import com.ecms.ndmecms.ApiResponse.ToAttendMeetingResponse;
 
@@ -35,7 +37,7 @@ public class MeetingsFragment extends Fragment {
     public static int countMeetings,attendedMeetings;
 
     RelativeLayout getActivity;
-    ImageView meeting;
+    ImageView meeting,organisation_calendar,your_calendar;
     TextView count_meet;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -88,6 +90,8 @@ public class MeetingsFragment extends Fragment {
         toAttendMeetingsCall();
 
         meeting=(ImageView) view.findViewById(R.id.meeting_active);
+        organisation_calendar=(ImageView) view.findViewById(R.id.organisation_calendar);
+        your_calendar=(ImageView) view.findViewById(R.id.your_calendar);
 
         getActivity=view.findViewById(R.id.get_into);
 
@@ -103,6 +107,22 @@ public class MeetingsFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), MeetingActions_new.class);
+                startActivity(intent);
+            }
+        });
+
+        organisation_calendar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), OrganisationCalendarActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        your_calendar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), YourCalendarActivity .class);
                 startActivity(intent);
             }
         });

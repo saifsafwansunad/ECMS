@@ -45,14 +45,22 @@ public class CommitteeFilesAdapter extends RecyclerView.Adapter<CommitteeFilesAd
     public void onBindViewHolder(@NonNull @NotNull ViewHolder holder, int position) {
         holder.folderName.setText(folderList.get(position).getName());
         if(folderList.get(position).getName().endsWith(".docx")){
-            holder.file_icon.setImageDrawable(holder.docx);
+            holder.file_icon.setImageDrawable(context.getDrawable(R.drawable.icon_docx));
             holder.file_icon.setMaxHeight(20);
             holder.file_icon.setMaxWidth(20);
 
         }else if(folderList.get(position).getName().endsWith(".pdf")){
-            holder.file_icon.setImageDrawable(holder.pdf);
+            holder.file_icon.setImageDrawable(context.getDrawable(R.drawable.ic_baseline_picture_as_pdf_24));
             holder.file_icon.setMaxHeight(20);
             holder.file_icon.setMaxWidth(20);
+        }else if(folderList.get(position).getName().endsWith(".xls") || folderList.get(position).getName().endsWith(".zip")){
+            holder.file_icon.setImageDrawable(context.getDrawable(R.drawable.icon_file));
+            holder.file_icon.setMaxHeight(20);
+            holder.file_icon.setMaxWidth(20);
+
+        }
+        else {
+            holder.file_icon.setImageDrawable(context.getDrawable(R.drawable.bfolder_icon));
         }
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,6 +72,11 @@ public class CommitteeFilesAdapter extends RecyclerView.Adapter<CommitteeFilesAd
                     ((CommittiMeetingFilesActivity) v.getContext()).onClickDownload(context,folderList.get(position).getName());
 
                 }else if(folderList.get(position).getName().endsWith(".docx")){
+//                    Toast.makeText(context, folderList.get(position).getName(), Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(context, folderList.get(position).getValue(), Toast.LENGTH_SHORT).show();
+                    ((CommittiMeetingFilesActivity) v.getContext()).onClickDownload(context,folderList.get(position).getName());
+
+                }else if(folderList.get(position).getName().endsWith(".xls") || folderList.get(position).getName().endsWith(".zip")){
 //                    Toast.makeText(context, folderList.get(position).getName(), Toast.LENGTH_SHORT).show();
 //                    Toast.makeText(context, folderList.get(position).getValue(), Toast.LENGTH_SHORT).show();
                     ((CommittiMeetingFilesActivity) v.getContext()).onClickDownload(context,folderList.get(position).getName());
@@ -90,13 +103,15 @@ public class CommitteeFilesAdapter extends RecyclerView.Adapter<CommitteeFilesAd
 
         private TextView folderName;
         private ImageView file_icon;
-        private Drawable docx, pdf;
+        private Drawable docx, pdf, file, folderIC;
         public ViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
             folderName = itemView.findViewById(R.id.folder_name);
             file_icon = itemView.findViewById(R.id.file_icon);
-            docx = itemView.getResources().getDrawable(R.drawable.icon_docx);
-            pdf = itemView.getResources().getDrawable(R.drawable.ic_baseline_picture_as_pdf_24);
+//            docx = itemView.getResources().getDrawable(R.drawable.icon_docx);
+//            pdf = itemView.getResources().getDrawable(R.drawable.ic_baseline_picture_as_pdf_24);
+//            file = itemView.getResources().getDrawable(R.drawable.icon_file);
+//            folderIC = itemView.getResources().getDrawable(R.drawable.ic_baseline_folder_24);
         }
     }
 }

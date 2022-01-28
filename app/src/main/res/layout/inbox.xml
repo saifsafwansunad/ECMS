@@ -77,12 +77,15 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:padding="10dp">
+
             <ImageView
+                android:id="@+id/organisation_calendar"
                 android:layout_width="10dp"
-                android:layout_height="10dp"
-                android:src="@drawable/forward_arrow"
+                android:layout_height="7dp"
                 android:layout_alignParentRight="true"
-                android:layout_gravity="center"/>
+                android:layout_gravity="center"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/forward_arrow" />
         </RelativeLayout>
 
 
@@ -117,6 +120,7 @@
             android:layout_gravity="center"
             android:padding="10dp">
             <ImageView
+                android:id="@+id/your_calendar"
                 android:layout_width="10dp"
                 android:layout_height="10dp"
                 android:src="@drawable/forward_arrow"

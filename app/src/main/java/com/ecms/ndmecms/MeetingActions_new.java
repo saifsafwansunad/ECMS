@@ -29,7 +29,7 @@ import retrofit2.Response;
 public class MeetingActions_new extends AppCompatActivity {
 
     private ViewPager mViewPager;
-    RecyclerView recyclerViewToAttend;
+    RecyclerView recyclerViewToAttend; 
     private ViewPagerCardsAdapter mCardAdapter;
     Context context;
     String detailsArray[];

@@ -1,5 +1,6 @@
 package com.ecms.ndmecms.calandar;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -19,6 +20,7 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.ecms.ndmecms.Adapters.ToAttendMeetingsAdapter;
 import com.ecms.ndmecms.ApiClient;
 import com.ecms.ndmecms.ApiRequests.ToAttendMeetingRequest;
 import com.ecms.ndmecms.ApiResponse.ToAttendMeetingResponse;
@@ -54,6 +56,9 @@ public class YourCustomCalendarView extends LinearLayout {
     Context context;
     List<ToAttendMeetingResponse> meetingsList = new ArrayList<>();
     List<ToAttendMeetingResponse> meetingsList2 = new ArrayList<>();
+    RecyclerView cl_meetings_recyclerview;
+    ToAttendMeetingsAdapter toAttendMeetingsAdapter;
+    List<ToAttendMeetingResponse> meetingsListForRV = new ArrayList<>();
 
     public static final Hashtable<String, List<ToAttendMeetingResponse>> my_dict = new Hashtable<String, List<ToAttendMeetingResponse>>();
     public static final Hashtable<String, List<ToAttendMeetingResponse>> my_dictDay= new Hashtable<String, List<ToAttendMeetingResponse>>();
@@ -71,6 +76,10 @@ public class YourCustomCalendarView extends LinearLayout {
         this.context=context;
 
         IntializeUILayout();
+        cl_meetings_recyclerview = findViewById(R.id.cl_meetings_recyclerview);
+        toAttendMeetingsAdapter = new ToAttendMeetingsAdapter((Activity) getContext(),meetingsListForRV);
+        cl_meetings_recyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
+        cl_meetings_recyclerview.setAdapter(toAttendMeetingsAdapter);
 //        gridView.setVisibility(View.GONE);
         my_view.setVisibility(View.VISIBLE);
         SetupCalendar();
@@ -84,6 +93,9 @@ public class YourCustomCalendarView extends LinearLayout {
                 gridView.setVisibility(View.VISIBLE);
                 my_view.setVisibility(View.GONE);
                 SetupCalendar();
+                toAttendMeetingsAdapter = new ToAttendMeetingsAdapter((Activity) getContext(),meetingsListForRV);
+                cl_meetings_recyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
+                cl_meetings_recyclerview.setAdapter(toAttendMeetingsAdapter);
             }
         }, 5000);
 
@@ -92,6 +104,7 @@ public class YourCustomCalendarView extends LinearLayout {
             public void onClick(View v) {
                 calendar.add(Calendar.MONTH,-1);
                 SetupCalendar();
+                monthWiseMeeting();
 
             }
         });
@@ -101,6 +114,7 @@ public class YourCustomCalendarView extends LinearLayout {
             public void onClick(View v) {
                 calendar.add(Calendar.MONTH,1);
                 SetupCalendar();
+                monthWiseMeeting();
             }
         });
 
@@ -110,27 +124,31 @@ public class YourCustomCalendarView extends LinearLayout {
                 final String date = dateFormat2.format(dateList.get(position));
                 if (my_dictDay.containsKey(date)) {
 
-                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                    builder.setCancelable(true);
-                    View showView = LayoutInflater.from(parent.getContext()).inflate(R.layout.show_events_layout, null);
-                    RecyclerView EventRV = (RecyclerView) showView.findViewById(R.id.EventsRV);
-                    RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(showView.getContext());
+                    meetingsListForRV = CollectEvent(date);
+                    monthWiseMeeting();
+                    SetupCalendar();
 
-                    EventRV.setLayoutManager(layoutManager);
-                    EventRV.setHasFixedSize(true);
-
-                    EventRecyclerAdapter eventRecyclerAdapter = new EventRecyclerAdapter(showView.getContext(), CollectEvent(date));
-                    EventRV.setAdapter(eventRecyclerAdapter);
-                    eventRecyclerAdapter.notifyDataSetChanged();
-                    builder.setView(showView);
-                    alertDialog = builder.create();
-                    alertDialog.show();
-                    alertDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
-                        @Override
-                        public void onCancel(DialogInterface dialog) {
-                            SetupCalendar();
-                        }
-                    });
+//                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
+//                    builder.setCancelable(true);
+//                    View showView = LayoutInflater.from(parent.getContext()).inflate(R.layout.show_events_layout, null);
+//                    RecyclerView EventRV = (RecyclerView) showView.findViewById(R.id.EventsRV);
+//                    RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(showView.getContext());
+//
+//                    EventRV.setLayoutManager(layoutManager);
+//                    EventRV.setHasFixedSize(true);
+//
+//                    EventRecyclerAdapter eventRecyclerAdapter = new EventRecyclerAdapter(showView.getContext(), CollectEvent(date));
+//                    EventRV.setAdapter(eventRecyclerAdapter);
+//                    eventRecyclerAdapter.notifyDataSetChanged();
+//                    builder.setView(showView);
+//                    alertDialog = builder.create();
+//                    alertDialog.show();
+//                    alertDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+//                        @Override
+//                        public void onCancel(DialogInterface dialog) {
+//                            SetupCalendar();
+//                        }
+//                    });
                 }
             }
         });
@@ -141,31 +159,40 @@ public class YourCustomCalendarView extends LinearLayout {
                 final String date = dateFormat2.format(dateList.get(position));
 
                 if (my_dictDay.containsKey(date)) {
+                    meetingsListForRV = meetingsList2;
+                    monthWiseMeeting();
+////                    meetingsListForRV.clear();
+////                    meetingsListForRV.addAll(meetingsList2);
+////                    toAttendMeetingsAdapter.notifyDataSetChanged();
+//                    toAttendMeetingsAdapter = new ToAttendMeetingsAdapter((Activity) getContext(),meetingsListForRV);
+//                    cl_meetings_recyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
+//                    cl_meetings_recyclerview.setAdapter(toAttendMeetingsAdapter);
+                    SetupCalendar();
 
-                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                    builder.setCancelable(true);
-                    View showView = LayoutInflater.from(parent.getContext()).inflate(R.layout.show_events_layout, null);
-                    RecyclerView EventRV = (RecyclerView) showView.findViewById(R.id.EventsRV);
-                    RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(showView.getContext());
+//                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
+//                    builder.setCancelable(true);
+//                    View showView = LayoutInflater.from(parent.getContext()).inflate(R.layout.show_events_layout, null);
+//                    RecyclerView EventRV = (RecyclerView) showView.findViewById(R.id.EventsRV);
+//                    RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(showView.getContext());
+//
+//                    EventRV.setLayoutManager(layoutManager);
+//                    EventRV.setHasFixedSize(true);
+//
+//                    EventRecyclerAdapter eventRecyclerAdapter = new EventRecyclerAdapter(showView.getContext(), CollectEvent(date));
+//                    EventRV.setAdapter(eventRecyclerAdapter);
+//                    eventRecyclerAdapter.notifyDataSetChanged();
+//                    builder.setView(showView);
+//                    alertDialog = builder.create();
+//                    alertDialog.show();
+//                    alertDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+//                        @Override
+//                        public void onCancel(DialogInterface dialog) {
+//                            SetupCalendar();
+//                        }
+//                    });
 
-                    EventRV.setLayoutManager(layoutManager);
-                    EventRV.setHasFixedSize(true);
 
-                    EventRecyclerAdapter eventRecyclerAdapter = new EventRecyclerAdapter(showView.getContext(), CollectEvent(date));
-                    EventRV.setAdapter(eventRecyclerAdapter);
-                    eventRecyclerAdapter.notifyDataSetChanged();
-                    builder.setView(showView);
-                    alertDialog = builder.create();
-                    alertDialog.show();
-                    alertDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
-                        @Override
-                        public void onCancel(DialogInterface dialog) {
-                            SetupCalendar();
-                        }
-                    });
-
-
-//                    return true;
+                    return true;
                 }
                 return true;
             }
@@ -254,6 +281,7 @@ public class YourCustomCalendarView extends LinearLayout {
 //
 //        }
         meetingsList2 = my_dict.get(Month+Year);
+        meetingsListForRV = meetingsList2;
 //        Log.d("calendarTroop3", "sizequeen" + meetingsList2.size());
 //        if(my_dict.containsKey(Month+Year)){
 //            Log.d("calendarTroop3", "sizequeen" + meetingsList2.size());
@@ -261,6 +289,14 @@ public class YourCustomCalendarView extends LinearLayout {
 //        }
 //        meetingsList2 = my_dict.get(Month+Year);
 //        Log.d("calendarTroop3", "sizequeen" + meetingsList2.size());
+
+    }
+
+    public void monthWiseMeeting(){
+        Log.d("EVENTS123", meetingsListForRV.toString());
+        toAttendMeetingsAdapter = new ToAttendMeetingsAdapter((Activity) getContext(),meetingsListForRV);
+        cl_meetings_recyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
+        cl_meetings_recyclerview.setAdapter(toAttendMeetingsAdapter);
 
     }
     public final void toAttendMeetingCall(){

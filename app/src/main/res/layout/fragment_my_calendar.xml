@@ -11,8 +11,8 @@
 <!--    android:layout_width="match_parent"-->
 <!--    android:layout_height="wrap_content"-->
 <!--    android:id="@+id/your_calendarview"/>-->
-    <com.ecms.ndmecms.calandar.YourCustomCalendarView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/custom_calendar_view"></com.ecms.ndmecms.calandar.YourCustomCalendarView>
+<!--    <com.ecms.ndmecms.calandar.YourCustomCalendarView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:id="@+id/custom_calendar_view"></com.ecms.ndmecms.calandar.YourCustomCalendarView>-->
 </LinearLayout>

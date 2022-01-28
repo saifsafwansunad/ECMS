@@ -1,163 +1,210 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@drawable/rectange_background"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
     android:id="@+id/activity_custom_calndar">
     <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingTop="8dp"
-        android:paddingBottom="8dp"
-        android:background="@android:color/white">
-        <ImageButton
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:id="@+id/previousBtn"
-            android:layout_gravity="center_vertical"
-            android:background="@drawable/prevous"
-            android:layout_margin="10dp"
-            />
+        android:layout_height="465dp"
+        >
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:layout_weight="3">
+            android:orientation="horizontal"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:background="@android:color/white">
+            <ImageButton
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:id="@+id/previousBtn"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/prevous"
+                android:layout_margin="10dp"
+                />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_weight="3">
+                <TextView
+                    android:id="@+id/cv_category_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginTop="4dp"
+                    android:text="Year Planner"
+                    android:textColor="@color/dark_green"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:layout_weight="3"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginTop="4dp"
+                    android:text="CurrentDate"
+                    android:id="@+id/current_Date"
+                    android:textColor="@color/dark_green"
+                    android:textStyle="bold"
+                    android:textSize="24sp"
+                    android:layout_weight="3"/>
+
+            </LinearLayout>
+
+
+            <ImageButton
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:id="@+id/nextBtn"
+                android:background="@drawable/next"
+                android:layout_margin="10dp"
+                android:layout_gravity="center_vertical"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            >
+
             <TextView
-                android:id="@+id/cv_category_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:text="Sun"
                 android:layout_marginTop="4dp"
-                android:text="Year Planner"
-                android:textColor="@color/dark_green"
+                android:layout_weight="1"
                 android:textStyle="bold"
-                android:textSize="18sp"
-                android:layout_weight="3"/>
+                />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:text="Mon"
                 android:layout_marginTop="4dp"
-                android:text="CurrentDate"
-                android:id="@+id/current_Date"
-                android:textColor="@color/dark_green"
+                android:layout_weight="1"
                 android:textStyle="bold"
-                android:textSize="24sp"
-                android:layout_weight="3"/>
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Tue"
+                android:layout_marginTop="4dp"
+                android:layout_weight="1"
+                android:textStyle="bold"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Wed"
+                android:layout_marginTop="4dp"
+                android:layout_weight="1"
+                android:textStyle="bold"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Thu"
+                android:layout_marginTop="4dp"
+                android:layout_weight="1"
+                android:textStyle="bold"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Fri"
+                android:layout_marginTop="4dp"
+                android:layout_weight="1"
+                android:textStyle="bold"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Sat"
+
+                android:layout_marginTop="4dp"
+                android:layout_weight="1"
+                android:textStyle="bold"
+                />
 
         </LinearLayout>
 
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <GridView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/gridview"
+                android:visibility="visible"
+                android:numColumns="7"></GridView>
+            <View
+                android:id="@+id/my_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone"
+                android:background="#bbb"/>
 
-        <ImageButton
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:id="@+id/nextBtn"
-            android:background="@drawable/next"
-            android:layout_margin="10dp"
-            android:layout_gravity="center_vertical"
-            />
-    </LinearLayout>
+        </FrameLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingTop="4dp"
-        android:paddingBottom="4dp"
-        >
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Sun"
-            android:layout_marginTop="4dp"
-            android:layout_weight="1"
-            android:textStyle="bold"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Mon"
-            android:layout_marginTop="4dp"
-            android:layout_weight="1"
-            android:textStyle="bold"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Tue"
-            android:layout_marginTop="4dp"
-            android:layout_weight="1"
-            android:textStyle="bold"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Wed"
-            android:layout_marginTop="4dp"
-            android:layout_weight="1"
-            android:textStyle="bold"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Thu"
-            android:layout_marginTop="4dp"
-            android:layout_weight="1"
-            android:textStyle="bold"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Fri"
-            android:layout_marginTop="4dp"
-            android:layout_weight="1"
-            android:textStyle="bold"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Sat"
 
-            android:layout_marginTop="4dp"
-            android:layout_weight="1"
-            android:textStyle="bold"
-            />
+
+
 
     </LinearLayout>
-
-    <FrameLayout
+    <RelativeLayout
+        android:id="@+id/relative1"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <GridView
+        <!--  <include
+              layout="@layout/toolbar"/>-->
+        <!--
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="No Meetings for you"
+                    android:id="@+id/no_Meetings_tv"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center"
+                    android:textSize="20dp"
+                    android:visibility="visible"
+                    android:textColor="@color/colorBlack"
+                    android:textStyle="italic|bold"/>
+        -->
+
+
+
+
+
+
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/gridview"
-            android:visibility="visible"
-            android:numColumns="7"></GridView>
-        <View
-            android:id="@+id/my_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="gone"
-            android:background="#bbb"/>
+            android:layout_height="wrap_content"
+            >
 
-    </FrameLayout>
+            <androidx.recyclerview.widget.RecyclerView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:id="@+id/cl_meetings_recyclerview"/>
+        </RelativeLayout>
 
 
 
 
-
-
+    </RelativeLayout>
 </LinearLayout>
