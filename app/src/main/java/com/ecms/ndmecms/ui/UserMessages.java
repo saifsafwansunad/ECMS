@@ -1,10 +1,12 @@
 package com.ecms.ndmecms.ui;
 
 import android.os.Bundle;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import com.ecms.ndmecms.PreferenceUtils;
 import com.ecms.ndmecms.R;
 import com.google.android.material.tabs.TabLayout;
 
@@ -13,7 +15,7 @@ public class UserMessages extends AppCompatActivity {
 
     TabLayout tabLayoutMessages;
     ViewPager viewPagerMessages;
-
+    TextView profileName;
 
     public static UserMessages newInstance() {
         return new UserMessages();
@@ -37,6 +39,8 @@ public class UserMessages extends AppCompatActivity {
         tabLayoutMessages.addTab(tabLayoutMessages.newTab().setText("Public"));
         tabLayoutMessages.addTab(tabLayoutMessages.newTab().setText("Private"));
 
+        profileName=findViewById(R.id.profile_name);
+        profileName.setText(PreferenceUtils.getUserName(getApplicationContext()));
         tabLayoutMessages.setTabGravity(TabLayout.GRAVITY_FILL);
 
         final UserMessagesAdapter messagesAdapter = new UserMessagesAdapter(this, getSupportFragmentManager(), tabLayoutMessages.getTabCount());

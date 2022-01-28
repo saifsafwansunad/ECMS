@@ -5,10 +5,25 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.ecms.ndmecms.ApiRequests.ToAttendMeetingRequest;
+import com.ecms.ndmecms.ApiResponse.ToAttendMeetingResponse;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,8 +31,10 @@ import android.widget.ImageView;
  * create an instance of this fragment.
  */
 public class Inbox extends Fragment {
+    public static int countMeetings,attendedMeetings;
 
     ImageView meeting;
+    TextView count_meet;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -64,7 +81,12 @@ public class Inbox extends Fragment {
         // Inflate the layout for this fragment
 
         View view=inflater.inflate(R.layout.inbox, container, false);
+
+        count_meet=view.findViewById(R.id.attend_count);
+        toAttendMeetingsCall();
+
         meeting=(ImageView) view.findViewById(R.id.meeting_active);
+
         meeting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,4 +96,104 @@ public class Inbox extends Fragment {
         });
         return view;
     }
+
+
+    public final void toAttendMeetingsCall() {
+
+        ToAttendMeetingRequest toAttendMeetingRequest = new ToAttendMeetingRequest();
+        toAttendMeetingRequest.setuId(PreferenceUtils.getUid(getContext()));
+
+        Log.d("key of the message", "size ");
+//        Toast.makeText(this, "hello", Toast.LENGTH_SHORT).show();
+//        Log.d("countMeeting1", toAttendMeetingRequest.getuId());
+
+
+
+
+        Call<List<ToAttendMeetingResponse>> loginResponseCall = ApiClient.getUserService().toAttendMeeting(toAttendMeetingRequest.getuId());
+
+
+        try {
+            loginResponseCall.enqueue(new Callback<List<ToAttendMeetingResponse>>() {
+                @Override
+                public void onResponse(Call<List<ToAttendMeetingResponse>> call, Response<List<ToAttendMeetingResponse>> response) {
+
+                    if (response.isSuccessful()) {
+                        if (response.body() != null && response.body().size() > 0) {
+                            List<ToAttendMeetingResponse> meetingsList = response.body();
+                            int size=meetingsList.size();
+                            Log.d("key of the message", "size " + size);
+//                                Toast.makeText(MyService.this, "size " + size, Toast.LENGTH_SHORT).show();
+
+                            Calendar c = Calendar.getInstance();
+                            SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm aa");
+                            String getCurrentDateTime = sdf.format(c.getTime());
+                            Date currentdate = null;
+                            try {
+                                currentdate = new SimpleDateFormat("MM/dd/yyyy").parse(getCurrentDateTime);
+                            } catch (ParseException e) {
+                                e.printStackTrace();
+                            }
+
+
+                            countMeetings=0;
+                            attendedMeetings=0;
+                            for (int i = 0; i < meetingsList.size(); i++) {
+                                // if(meetingsList.get(i).startDate>=)
+                                String date_startDate= meetingsList.get(i).startDate;
+                                try {
+                                    Date date1=new SimpleDateFormat("MM/dd/yyyy").parse(date_startDate);
+
+                                    if(date1.after(currentdate) | date1.compareTo(currentdate) == 0){
+                                        countMeetings++;
+                                        Log.d("count meetings", "date1 is" + date1);
+
+
+                                    }
+
+                                } catch (ParseException e) {
+                                    e.printStackTrace();
+                                }
+
+                                //     userLoginResponse = meetingsList.get(i);
+
+                                //   data = dataArrayList.get(i).getId();
+                                //here we need to take countmeetings value and send it to mainactivty for showing there
+                            }
+                            attendedMeetings=meetingsList.size()-countMeetings;
+
+
+                          //  yData= new int[]{countMeetings, attendedMeetings};
+
+
+                            Log.d("count meetings", "are" + countMeetings);
+                            Log.d("attendedMeetings", " attendedMeetings are" + attendedMeetings);
+                            count_meet.setText(String.valueOf(countMeetings));
+
+//                            Log.d("countMeeting2", String.valueOf(countMeetings));
+                            //upto here
+
+
+                        }
+
+                    }
+                }
+
+
+
+
+                @Override
+                public void onFailure(Call<List<ToAttendMeetingResponse>> call, Throwable t) {
+
+//                        Toast.makeText(MyService.this, "Throwable " + t.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+
+                }
+            });
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+        }
+    }
+
 }
