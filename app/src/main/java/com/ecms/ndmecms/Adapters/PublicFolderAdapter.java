@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.ecms.ndmecms.Activity.CommittiMeetingFilesActivity;
 import com.ecms.ndmecms.Models.FolderModel;
+import com.ecms.ndmecms.PublicFragment;
 import com.ecms.ndmecms.R;
 
 import org.jetbrains.annotations.NotNull;
@@ -19,27 +20,35 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FolderAdapter extends RecyclerView.Adapter<FolderAdapter.ViewHolder> {
+public class PublicFolderAdapter extends RecyclerView.Adapter<PublicFolderAdapter.ViewHolder> {
 
     private List<FolderModel> folderList;
-    Activity context;
+    Context context;
+    PublicFragment publicFragment;
 
-    public FolderAdapter(List<FolderModel> folderList, Activity context) {
+    public PublicFolderAdapter(List<FolderModel> folderList, Context context) {
         this.folderList = folderList;
         this.context = context;
+    }
+
+    public PublicFolderAdapter(List<FolderModel> folderTrack, Context context, PublicFragment fragment) {
+        this.folderList = folderList;
+        this.context = context;
+        publicFragment=fragment;
+
     }
 
     @NonNull
     @NotNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
+    public PublicFolderAdapter.ViewHolder onCreateViewHolder(@NonNull @NotNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View view = layoutInflater.inflate(R.layout.layout_for_path, parent, false);
-        return new FolderAdapter.ViewHolder(view);
+        return new PublicFolderAdapter.ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull @NotNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull @NotNull PublicFolderAdapter.ViewHolder holder, int position) {
         holder.folderName.setText(folderList.get(position).getFoldername());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,7 +57,7 @@ public class FolderAdapter extends RecyclerView.Adapter<FolderAdapter.ViewHolder
                 for(int i = 0; i <= position; i++) {
                     out.add(folderList.get(i));
                 }
-                ((CommittiMeetingFilesActivity) v.getContext()).onFolderPathCalled(out);
+                publicFragment.onFolderPathCalled(out);
 
             }
         });
@@ -70,3 +79,4 @@ public class FolderAdapter extends RecyclerView.Adapter<FolderAdapter.ViewHolder
         }
     }
 }
+

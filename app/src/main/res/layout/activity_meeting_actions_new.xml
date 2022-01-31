@@ -7,6 +7,9 @@
     android:orientation="vertical"
     tools:context=".MeetingActions_new">
 
+    <include
+        layout="@layout/toolbar"/>
+
     <androidx.viewpager.widget.ViewPager
         android:layout_width="match_parent"
         android:layout_height="350dp"

@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.UserMessages">
 
+    <Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/dark_green"
+        android:titleTextColor="@color/white"
+        android:title="NDM ECMS"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -30,6 +37,7 @@
             android:padding="10dp"
             />
         <TextView
+            android:id="@+id/profile_second"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="profile"
@@ -46,17 +54,25 @@ android:layout_marginLeft="20dp"
            android:layout_gravity="center"
            android:layout_marginRight="10dp"
            >
-           <TextView
-               android:layout_width="wrap_content"
+           <LinearLayout
+               android:layout_width="match_parent"
                android:layout_height="wrap_content"
-               android:text="Logout"
-               android:padding="10dp"
-               android:layout_marginRight="10dp"
-               android:layout_gravity="center"
-               android:textColor="@color/white"
+               android:orientation="vertical">
 
-               android:layout_alignParentRight="true"
-               />
+
+               <TextView
+                   android:id="@+id/logout_second"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="Logout"
+                   android:layout_marginRight="10dp"
+                   android:layout_gravity="center"
+                   android:textColor="@color/white"
+
+                   android:layout_alignParentRight="true"
+                   />
+
+           </LinearLayout>
        </RelativeLayout>
 
     </LinearLayout>
@@ -66,7 +82,6 @@ android:layout_marginLeft="20dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_marginTop="90dp"
         >
 
 
@@ -74,8 +89,6 @@ android:layout_marginLeft="20dp"
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:strokeWidth="1dp"
-        android:layout_marginTop="5dp"
         android:theme="@style/Theme.MaterialComponents.Light"
         app:strokeColor="@color/dark_green"
        >
@@ -89,7 +102,7 @@ android:layout_marginLeft="20dp"
             app:tabIndicatorColor="@color/dark_green"
             app:tabSelectedTextColor="@android:color/white"
             app:tabTextColor="@color/colorBlack"
-
+            android:layout_marginTop="1dp"
             android:layout_width="match_parent"
             android:layout_height="50dp"/>
     </com.google.android.material.card.MaterialCardView>
@@ -98,11 +111,12 @@ android:layout_marginLeft="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/tabLayout"
-        tools:layout_editor_absoluteX="8dp" />
+        tools:layout_editor_absoluteX="8dp"
+        />
 
 
 
 </LinearLayout>
 
 
-</FrameLayout>
+</LinearLayout>

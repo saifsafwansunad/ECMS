@@ -10,6 +10,8 @@ import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ecms.ndmecms.Adapters.ToAttendMeetingsAdapter;
@@ -33,6 +35,9 @@ public class MeetingActions_new extends AppCompatActivity {
     private ViewPagerCardsAdapter mCardAdapter;
     Context context;
     String detailsArray[];
+    TextView title;
+    ImageView backarrow;
+
     String detailsArray2[] = {"sdg", "gsdg", "gdsgdsg","adasd"};
 
 
@@ -41,7 +46,19 @@ public class MeetingActions_new extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meeting_actions_new);
 
+        getSupportActionBar().hide();
+        title=findViewById(R.id.title);
 
+        title.setText("Meeting Details");
+
+        backarrow=findViewById(R.id.imgBackArrow);
+
+        backarrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         recyclerViewToAttend = findViewById(R.id.meetings_recyclerview);
         toAttendMeetingsCall();
 
