@@ -23,10 +23,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Meetings Actions"
+            android:textSize="16dp"
             android:padding="5dp"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="16dp"
+
             android:text="-"
             android:gravity="center_vertical|center_horizontal"
 
@@ -36,6 +39,8 @@
             android:id="@+id/attend_count"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="16dp"
+
             android:text=""
             android:gravity="center_vertical|center_horizontal"
 
@@ -81,6 +86,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Organization Calendar"
+            android:textSize="16dp"
+
             android:padding="5dp"/>
 
         <RelativeLayout
@@ -88,7 +95,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:padding="10dp">
+            android:padding="10dp"
+            tools:ignore="DuplicateIds">
             <ImageView
                 android:id="@+id/organisation_calendar"
 
@@ -125,6 +133,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Your Calendar"
+            android:textSize="16dp"
+
             android:padding="5dp"/>
 
         <RelativeLayout

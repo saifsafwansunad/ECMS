@@ -44,6 +44,7 @@ import com.ecms.ndmecms.Models.FolderModel;
 import com.ecms.ndmecms.PublicFragment;
 import com.ecms.ndmecms.R;
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.io.File;
 import java.net.MalformedURLException;
@@ -58,6 +59,8 @@ import retrofit2.Response;
 import static android.content.Context.DOWNLOAD_SERVICE;
 
 public class PrivateFragment extends Fragment {
+
+    FloatingActionButton backbutton;
 
     String folderPath;
     private String folderAddress;
@@ -133,7 +136,7 @@ public class PrivateFragment extends Fragment {
 //        toolbartoAttend.setTitle(folderAddress);
         title=view.findViewById(R.id.title);
         backarrow=view.findViewById(R.id.imgBackArrow);
-
+        backbutton=view.findViewById(R.id.private_back_button);
         title.setText(folderAddress);
 
         committifolders();
@@ -142,6 +145,26 @@ public class PrivateFragment extends Fragment {
         cf_folder_path_rv.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         cf_folder_path_rv.setAdapter(folderAdapter);
 
+        backbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if(folderAddress.equals("//PRIVATE SECTOR")) {
+
+                    requireActivity().onBackPressed();
+                }else
+                {
+//            Toast.makeText(this, "You cant go back right now", Toast.LENGTH_SHORT).show();
+                    int lastIndexBackSlash = folderAddress.lastIndexOf('/');
+                    folderTrack.remove(folderTrack.size()-1);
+                    folderAdapter.notifyDataSetChanged();
+                    folderAddress = folderAddress.substring(0, lastIndexBackSlash);
+//            Toast.makeText(this, folderAddress, Toast.LENGTH_SHORT).show();
+                    committifolders();
+                }
+
+            }
+        });
         backarrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

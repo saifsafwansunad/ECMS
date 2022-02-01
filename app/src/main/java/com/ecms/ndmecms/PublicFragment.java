@@ -44,6 +44,7 @@ import com.ecms.ndmecms.Fragments.myDialog;
 import com.ecms.ndmecms.Models.EmployeeModelClass;
 import com.ecms.ndmecms.Models.FolderModel;
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.io.File;
@@ -68,7 +69,7 @@ import static android.content.Context.DOWNLOAD_SERVICE;
 public class PublicFragment extends Fragment implements View.OnClickListener, myDialog.DialogListener {
 
 
-
+    FloatingActionButton backbutton;
     String folderPath;
     private String folderAddress;
     RecyclerView cf_folder_rv,cf_folder_path_rv;
@@ -131,13 +132,34 @@ public class PublicFragment extends Fragment implements View.OnClickListener, my
 
         cf_folder_rv = view.findViewById(R.id.cf_folder_rv);
         cf_folder_path_rv = view.findViewById(R.id.cf_folder_path_rv);
-
+        backbutton=view.findViewById(R.id.public_back_button);
         /*Intent intent = getIntent();
 
         folderPath = intent.getStringExtra("folderPath");
         folderAddress = intent.getStringExtra("folderAddress");*/
         folderAddress = ""+ "/" + "PUBLIC SECTOR";
 
+/*
+        cf_folder_rv.setOnScrollChangeListener(new View.OnScrollChangeListener() {
+            @Override
+            public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+                if (scrollY > oldScrollY ) {
+                    backbutton.hide();
+                }
+
+                // the delay of the extension of the FAB is set for 12 items
+                if (scrollY < oldScrollY - 12 ) {
+                    backbutton.show();
+                }
+
+                // if the nestedScrollView is at the first item of the list then the
+                // extended floating action should be in extended state
+                if (scrollY == 0) {
+                    backbutton.show();
+                }
+            }
+        });
+*/
       //  getSupportActionBar().hide();
 //        Toolbar toolbartoAttend=(Toolbar)findViewById(R.id.commitee_folder_toolbar);
 //        toolbartoAttend.setTitle(folderAddress);
@@ -171,6 +193,25 @@ public class PublicFragment extends Fragment implements View.OnClickListener, my
             }
         });
 
+        backbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(folderAddress.equals("/PUBLIC SECTOR")) {
+                    requireActivity().onBackPressed();
+                }else
+                {
+//            Toast.makeText(this, "You cant go back right now", Toast.LENGTH_SHORT).show();
+                    folderTrack.remove(folderTrack.size()-1);
+                    folderAdapter.notifyDataSetChanged();
+                    int lastIndexBackSlash = folderAddress.lastIndexOf('/');
+                    folderAddress = folderAddress.substring(0, lastIndexBackSlash);
+//            Toast.makeText(this, folderAddress, Toast.LENGTH_SHORT).show();
+                    committifolders();
+                }
+
+
+            }
+        });
     /*    OnBackPressedCallback callback = new OnBackPressedCallback(true) {
             @Override
             public void handleOnBackPressed() {
@@ -212,6 +253,7 @@ public class PublicFragment extends Fragment implements View.OnClickListener, my
 
                 dialogFragment.setArguments(bundle);            }
         });*/ return view;    }
+
 
     public void onClickCalled(String folderName) {
         // Call another acitivty here and pass some arguments to it.
