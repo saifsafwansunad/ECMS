@@ -6,7 +6,7 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="465dp"
             android:background="@drawable/rectange_background"
             android:id="@+id/activity_custom_calndar">
             <LinearLayout
