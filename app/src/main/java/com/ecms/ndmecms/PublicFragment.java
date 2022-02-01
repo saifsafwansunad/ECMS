@@ -63,6 +63,8 @@ import static android.content.Context.DOWNLOAD_SERVICE;
  * Use the {@link PublicFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
+
+
 public class PublicFragment extends Fragment implements View.OnClickListener, myDialog.DialogListener {
 
 
@@ -150,8 +152,26 @@ public class PublicFragment extends Fragment implements View.OnClickListener, my
         cf_folder_path_rv.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         cf_folder_path_rv.setAdapter(folderAdapter);
 
+        backarrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(folderAddress.equals("/PUBLIC SECTOR")) {
+                    requireActivity().onBackPressed();
+                }else
+                {
+//            Toast.makeText(this, "You cant go back right now", Toast.LENGTH_SHORT).show();
+                    folderTrack.remove(folderTrack.size()-1);
+                    folderAdapter.notifyDataSetChanged();
+                    int lastIndexBackSlash = folderAddress.lastIndexOf('/');
+                    folderAddress = folderAddress.substring(0, lastIndexBackSlash);
+//            Toast.makeText(this, folderAddress, Toast.LENGTH_SHORT).show();
+                    committifolders();
+                }
 
-        OnBackPressedCallback callback = new OnBackPressedCallback(true) {
+            }
+        });
+
+    /*    OnBackPressedCallback callback = new OnBackPressedCallback(true) {
             @Override
             public void handleOnBackPressed() {
                 Toast.makeText(getContext(), "back pressed", Toast.LENGTH_SHORT).show();
@@ -177,7 +197,7 @@ public class PublicFragment extends Fragment implements View.OnClickListener, my
         };
 
         requireActivity().getOnBackPressedDispatcher().addCallback((LifecycleOwner) getContext(), callback);
-
+*/
 
         //  FloatingActionButton button = (FloatingActionButton) view.findViewById(R.id.floating_action_button);
 /*        button.setOnClickListener(new View.OnClickListener()

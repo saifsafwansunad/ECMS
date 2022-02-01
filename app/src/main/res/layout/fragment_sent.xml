@@ -8,7 +8,7 @@
     tools:context=".PublicFragment">
     <include
         layout="@layout/toolbar"
-        android:visibility="gone"/>
+      />
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
