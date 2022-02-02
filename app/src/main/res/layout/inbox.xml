@@ -91,14 +91,13 @@
             android:padding="5dp"/>
 
         <RelativeLayout
-            android:id="@+id/get_into"
+            android:id="@+id/organisation_calendar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:padding="10dp"
             tools:ignore="DuplicateIds">
             <ImageView
-                android:id="@+id/organisation_calendar"
 
                 android:layout_width="10dp"
                 android:layout_height="10dp"
@@ -138,12 +137,12 @@
             android:padding="5dp"/>
 
         <RelativeLayout
+            android:id="@+id/your_calendar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:padding="10dp">
             <ImageView
-                android:id="@+id/your_calendar"
                 android:layout_width="10dp"
                 android:layout_height="10dp"
                 android:src="@drawable/forward_arrow"
