@@ -37,6 +37,7 @@
             android:src="@drawable/user"
             android:id="@+id/nav_header_profile_imageview"
             android:layout_marginRight="25dp"
+            android:visibility="gone"
             android:layout_height="24dp"/>
 <!--        <ImageView-->
 <!--            android:layout_width="24dp"-->
@@ -47,6 +48,7 @@
             android:layout_width="24dp"
             android:layout_height="24dp"             android:src="@drawable/logout"
             android:layout_marginLeft="15dp"
+            android:visibility="gone"
             android:layout_alignParentRight="true"
            />
     </RelativeLayout>
