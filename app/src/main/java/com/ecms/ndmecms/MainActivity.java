@@ -391,10 +391,10 @@ View viewHeader;
 
         switch (item.getItemId())
         {
-            case R.id.offline_download:
+            /*case R.id.offline_download:
                 Intent intent = new Intent(MainActivity.this, ViewEmployeeActivity.class);
                 startActivity(intent);
-                return true;
+                return true;*/
             case R.id.report:
                 Intent reportIntent = new Intent(MainActivity.this, ReportActivity.class);
                 startActivity(reportIntent);

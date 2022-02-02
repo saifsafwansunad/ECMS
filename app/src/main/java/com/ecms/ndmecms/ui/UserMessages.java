@@ -3,15 +3,21 @@ package com.ecms.ndmecms.ui;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import com.ecms.ndmecms.Activity.ReportActivity;
 import com.ecms.ndmecms.LoginActivity;
 import com.ecms.ndmecms.MainActivity;
 import com.ecms.ndmecms.PreferenceUtils;
+import com.ecms.ndmecms.PrivacyPolicyActivity;
 import com.ecms.ndmecms.ProfileActivity;
 import com.ecms.ndmecms.R;
 import com.google.android.material.tabs.TabLayout;
@@ -21,6 +27,7 @@ public class UserMessages extends AppCompatActivity {
 
     TabLayout tabLayoutMessages;
     ViewPager viewPagerMessages;
+    ImageView offline,dots;
     TextView profileName,logout_second,profile;
 
     public static UserMessages newInstance() {
@@ -39,12 +46,12 @@ public class UserMessages extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         super.onCreate(savedInstanceState);
-        setTitle("NDM ECMS");
         getSupportActionBar().hide();
 
         setContentView(R.layout.fragment_inbox);
      //   View view = inflater.inflate(R.layout.fragment_inbox, container, false);
-
+        TextView title=findViewById(R.id.title);
+        title.setText("NDM ECMS");
         tabLayoutMessages = (TabLayout) findViewById(R.id.messages_tablayout);
         viewPagerMessages = (ViewPager) findViewById(R.id.messages_viewPager);
 
@@ -55,7 +62,41 @@ public class UserMessages extends AppCompatActivity {
         profileName=findViewById(R.id.profile_name);
         logout_second=findViewById(R.id.logout_second);
         profile=findViewById(R.id.profile_second);
+        offline=findViewById(R.id.offline);
+        dots=findViewById(R.id.dots);
 
+        dots.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PopupMenu popupMenu = new PopupMenu(UserMessages.this, dots);
+
+                // Inflating popup menu from popup_menu.xml file
+                popupMenu.getMenuInflater().inflate(R.menu.main, popupMenu.getMenu());
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem menuItem) {
+                        // Toast message on menu item clicked
+                        switch (menuItem.getItemId())
+                        {
+
+                            case R.id.report:
+                                Intent reportIntent = new Intent(UserMessages.this, ReportActivity.class);
+                                startActivity(reportIntent);
+                                return true;
+                            case R.id.action_privacy:
+                                Intent privacyIntent = new Intent(UserMessages.this, PrivacyPolicyActivity.class);
+                                startActivity(privacyIntent);
+                                return true;
+                        }
+
+
+                        return true;
+                    }
+                });
+                // Showing the popup menu
+                popupMenu.show();
+            }
+        });
 
 
         profile.setOnClickListener(new View.OnClickListener() {
@@ -92,6 +133,17 @@ public class UserMessages extends AppCompatActivity {
                 finish();
             }
         });
+
+
+        offline.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(UserMessages.this, ViewEmployeeActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
         profileName.setText(PreferenceUtils.getUserName(getApplicationContext()));
         tabLayoutMessages.setTabGravity(TabLayout.GRAVITY_FILL);
 

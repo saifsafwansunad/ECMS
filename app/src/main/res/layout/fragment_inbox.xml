@@ -7,12 +7,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.UserMessages">
 
-    <Toolbar
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/dark_green"
-        android:titleTextColor="@color/white"
-        android:title="NDM ECMS"/>
+    <include layout="@layout/customtoolbar" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
