@@ -83,7 +83,7 @@ public class YourCustomCalendarView extends LinearLayout {
 //        gridView.setVisibility(View.GONE);
         my_view.setVisibility(View.VISIBLE);
         SetupCalendar();
-        my_view.startAnimation(AnimationUtils.loadAnimation(context, R.anim.placeholder));
+//        my_view.startAnimation(AnimationUtils.loadAnimation(context, R.anim.placeholder));
         final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
@@ -226,7 +226,7 @@ public class YourCustomCalendarView extends LinearLayout {
         PreviouseButton = view.findViewById(R.id.previousBtn);
         NextButton = view.findViewById(R.id.nextBtn);
         CurrentDate = view.findViewById(R.id.current_Date);
-        my_view = view.findViewById(R.id.my_view);
+        my_view = view.findViewById(R.id.my_view_progress);
         TextView cv_name = view.findViewById(R.id.cv_category_name);
         gridView = view.findViewById(R.id.gridview);
         cv_name.setText("Your Calendar");
@@ -293,7 +293,7 @@ public class YourCustomCalendarView extends LinearLayout {
     }
 
     public void monthWiseMeeting(){
-        Log.d("EVENTS123", meetingsListForRV.toString());
+//        Log.d("EVENTS123", meetingsListForRV.toString());
         toAttendMeetingsAdapter = new ToAttendMeetingsAdapter((Activity) getContext(),meetingsListForRV);
         cl_meetings_recyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
         cl_meetings_recyclerview.setAdapter(toAttendMeetingsAdapter);

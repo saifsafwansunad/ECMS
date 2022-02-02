@@ -3,11 +3,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+    <ProgressBar
+        android:id="@+id/my_view_progress"
+        android:layout_below="@+id/gridview"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:indeterminateTintMode="src_atop"
+        android:indeterminateTint="@color/dark_green"/>
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="465dp"
-            android:background="@drawable/rectange_background"
+            android:layout_height="wrap_content"
             android:id="@+id/activity_custom_calndar">
             <LinearLayout
                 android:layout_width="match_parent"
@@ -141,23 +149,24 @@
 
             </LinearLayout>
 
-            <FrameLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <GridView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:id="@+id/gridview"
                     android:visibility="visible"
                     android:numColumns="7"></GridView>
-                <View
-                    android:id="@+id/my_view"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:visibility="gone"
-                    android:background="#bbb"/>
+<!--                <View-->
+<!--                    android:id="@+id/my_view"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="450dp"-->
+<!--                    android:visibility="gone"-->
+<!--                    android:background="#bbb"/>-->
 
-            </FrameLayout>
+
+            </RelativeLayout>
 
 
 
