@@ -43,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_toRightOf="@+id/imgBackArrow"
-                android:text="title"
+                android:text="NDM ECMS"
                 android:textStyle="bold"
                 android:textColor="@color/white"
                 android:textSize="20dp"
