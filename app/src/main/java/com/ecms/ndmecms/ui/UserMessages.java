@@ -202,7 +202,7 @@ public class UserMessages extends AppCompatActivity  implements NavigationView.O
         logout_second=findViewById(R.id.logout_second);
         profile=findViewById(R.id.profile_second);
         offline=findViewById(R.id.offline);
-        dots=findViewById(R.id.dots);
+        dots=findViewById(R.id.dots_report);
 
         drawer_left.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -59,16 +59,15 @@
                         android:layout_width="28dp"
                         android:layout_height="28dp"
                         android:padding="3dp"
-                        android:layout_toLeftOf="@+id/dots"
+                        android:layout_toLeftOf="@+id/dots_report"
                         android:src="@drawable/icon_download"/>
 
                     <ImageView
-                        android:id="@+id/dots"
+                        android:id="@+id/dots_report"
                         android:layout_width="28dp"
                         android:layout_height="28dp"
                         android:padding="3dp"
                         android:layout_alignParentRight="true"
-                        android:onClick="showPopup"
                         android:src="@drawable/dots"/>
             </RelativeLayout>
                 </LinearLayout>
