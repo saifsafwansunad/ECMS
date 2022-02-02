@@ -157,15 +157,17 @@ TextView textViewName=(TextView)view.findViewById(R.id.corespondence_name_home_v
                         //pieChart.setEntryLabelTextSize(20);
                         //More options just check out the documentation!
 
+
                         final Handler handler = new Handler();
                         handler.postDelayed(new Runnable() {
                             @Override
                             public void run() {
                                 //Do something after 100ms
 
+
                                 addDataSet();
                             }
-                        }, 10000);
+                        }, 100);
 
 
 

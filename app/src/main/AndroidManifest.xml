@@ -90,7 +90,8 @@
         <activity android:name=".ProfileActivity" />
         <activity android:name=".IncomingCorrespondenceActivity" />
         <activity android:name=".AdminMessages" />
-        <activity android:name=".ui.UserMessages" />
+        <activity android:name=".ui.UserMessages"
+            android:theme="@style/AppTheme.NoActionBar"  />
         <activity android:name=".PublicActivity" />
         <activity android:name=".Readyapprove_viewmeeting" />
         <activity android:name=".ui.ReadyToApprove" />

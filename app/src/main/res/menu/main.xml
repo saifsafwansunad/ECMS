@@ -37,12 +37,12 @@
 <!--        android:title="Terms and Conditions"-->
 <!--        app:showAsAction="never" />-->
 
-    <item
+   <!-- <item
         android:id="@+id/offline_download"
         android:orderInCategory="100"
         android:icon="@drawable/icon_download"
         android:title="Offline Downloads"
-        app:showAsAction="always" />
+        app:showAsAction="always" />-->
 
     <item
         android:id="@+id/report"

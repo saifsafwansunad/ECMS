@@ -13,8 +13,8 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <include layout="@layout/app_bar_main" />
-
+        <include layout="@layout/customtoolbar" />
+        <include layout="@layout/fragment_inbox"/>
         <FrameLayout
             android:id="@+id/f_container"
             android:layout_width="match_parent"
@@ -34,17 +34,17 @@
             app:cnb_unselectedColor="#000"
             android:layout_width="match_parent"/>
 
-      <!--      android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="3dp"
-            android:background="@color/colorPrimary"
+        <!--      android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_alignParentBottom="true"
+              android:layout_marginBottom="3dp"
+              android:background="@color/colorPrimary"
 
-            app:labelVisibilityMode="auto"
-            app:itemTextColor="@drawable/bottom_navigation_selector"
+              app:labelVisibilityMode="auto"
+              app:itemTextColor="@drawable/bottom_navigation_selector"
 
-            app:itemIconTint="#000"
-            app:menu="@menu/bottom_navigation_menu" />-->
+              app:itemIconTint="#000"
+              app:menu="@menu/bottom_navigation_menu" />-->
 
 
 
