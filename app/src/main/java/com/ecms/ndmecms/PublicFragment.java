@@ -131,7 +131,7 @@ public class PublicFragment extends Fragment implements View.OnClickListener, my
                 container, false);
 
         cf_folder_rv = view.findViewById(R.id.cf_folder_rv);
-        cf_folder_path_rv = view.findViewById(R.id.cf_folder_path_rv);
+        cf_folder_path_rv = view.findViewById(R.id.cf_folder_path_rv_public);
         backbutton=view.findViewById(R.id.public_back_button);
         /*Intent intent = getIntent();
 
@@ -169,10 +169,12 @@ public class PublicFragment extends Fragment implements View.OnClickListener, my
         title.setText(folderAddress);
 
         committifolders();
-        folderTrack.add(new FolderModel(folderAddress, folderAddress));
+        folderTrack.add(new FolderModel("PUBLIC SECTOR", folderAddress));
+        Log.d("folderadapter", "onCreateView: "+ String.valueOf(folderTrack.size()));
         folderAdapter = new PublicFolderAdapter(folderTrack, getContext(),PublicFragment.this);
         cf_folder_path_rv.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         cf_folder_path_rv.setAdapter(folderAdapter);
+        cf_folder_path_rv.smoothScrollToPosition(folderTrack.size()-1);
 
         backarrow.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -260,6 +262,7 @@ public class PublicFragment extends Fragment implements View.OnClickListener, my
 
         folderAddress = folderAddress + "/" + folderName;
         folderTrack.add(new FolderModel(folderName, folderAddress));
+        cf_folder_path_rv.smoothScrollToPosition(folderTrack.size()-1);
         folderAdapter.notifyDataSetChanged();
 //        Toast.makeText(this, folderAddress, Toast.LENGTH_SHORT).show();
         committifolders();
@@ -366,6 +369,7 @@ public class PublicFragment extends Fragment implements View.OnClickListener, my
     public void  onFolderPathCalled(List<FolderModel>folderModelsList){
         folderTrack.clear();
         folderTrack.addAll(folderModelsList);
+        cf_folder_path_rv.smoothScrollToPosition(folderTrack.size()-1);
         folderAdapter.notifyDataSetChanged();
 //        folderTrack = folderModelsList;
         folderAddress = folderTrack.get(folderTrack.size()-1).getFolderpath();

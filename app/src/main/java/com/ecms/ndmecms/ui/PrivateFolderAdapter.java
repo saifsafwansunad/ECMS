@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -31,7 +32,7 @@ public class PrivateFolderAdapter extends RecyclerView.Adapter<PrivateFolderAdap
     }
 
     public PrivateFolderAdapter(List<FolderModel> folderTrack, Context context, PrivateFragment fragment) {
-        this.folderList = folderList;
+        this.folderList = folderTrack;
         this.context = context;
         privateFragment=fragment;
 
@@ -49,6 +50,14 @@ public class PrivateFolderAdapter extends RecyclerView.Adapter<PrivateFolderAdap
     @Override
     public void onBindViewHolder(@NonNull @NotNull PrivateFolderAdapter.ViewHolder holder, int position) {
         holder.folderName.setText(folderList.get(position).getFoldername());
+        if(position == (folderList.size()-1)){
+            holder.file_icon.setVisibility(View.GONE);
+            holder.folderName.setTextColor(context.getResources().getColor(R.color.dark_gray));
+        }else{
+            holder.file_icon.setVisibility(View.VISIBLE);
+            holder.folderName.setTextColor(context.getResources().getColor(R.color.dark_gray));
+
+        }
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -72,9 +81,11 @@ public class PrivateFolderAdapter extends RecyclerView.Adapter<PrivateFolderAdap
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         private TextView folderName;
+        ImageView file_icon;
         public ViewHolder(@NonNull @NotNull View itemView) {
             super(itemView);
             folderName = itemView.findViewById(R.id.path_name);
+            file_icon = itemView.findViewById(R.id.file_icon);
         }
     }
 }

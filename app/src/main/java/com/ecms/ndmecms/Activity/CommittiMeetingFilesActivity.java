@@ -82,10 +82,11 @@ public class CommittiMeetingFilesActivity extends AppCompatActivity {
         title.setText(folderAddress);
 
         committifolders();
-        folderTrack.add(new FolderModel(folderAddress, folderAddress));
+        folderTrack.add(new FolderModel(folderPath, folderAddress));
         folderAdapter = new FolderAdapter(folderTrack, CommittiMeetingFilesActivity.this);
         cf_folder_path_rv.setLayoutManager(new LinearLayoutManager(CommittiMeetingFilesActivity.this, LinearLayoutManager.HORIZONTAL, false));
         cf_folder_path_rv.setAdapter(folderAdapter);
+        cf_folder_path_rv.smoothScrollToPosition(folderTrack.size()-1);
 //        folderPathSet();
 
         backarrow.setOnClickListener(new View.OnClickListener() {
@@ -213,6 +214,7 @@ public class CommittiMeetingFilesActivity extends AppCompatActivity {
 
         folderAddress = folderAddress + "/" + folderName;
         folderTrack.add(new FolderModel(folderName, folderAddress));
+        cf_folder_path_rv.smoothScrollToPosition(folderTrack.size()-1);
         folderAdapter.notifyDataSetChanged();
 //        Toast.makeText(this, folderAddress, Toast.LENGTH_SHORT).show();
         committifolders();
@@ -222,6 +224,7 @@ public class CommittiMeetingFilesActivity extends AppCompatActivity {
     public void  onFolderPathCalled(List<FolderModel>folderModelsList){
         folderTrack.clear();
         folderTrack.addAll(folderModelsList);
+        cf_folder_path_rv.smoothScrollToPosition(folderTrack.size()-1);
         folderAdapter.notifyDataSetChanged();
 //        folderTrack = folderModelsList;
         folderAddress = folderTrack.get(folderTrack.size()-1).getFolderpath();
