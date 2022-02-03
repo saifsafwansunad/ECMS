@@ -29,7 +29,7 @@
             android:text="profile Name"
             android:layout_gravity="center"
             android:textColor="@color/white"
-            android:padding="10dp"
+            android:padding="15dp"
             />
         <TextView
             android:id="@+id/profile_second"
@@ -37,20 +37,18 @@
             android:layout_height="wrap_content"
             android:text="profile"
             android:padding="10dp"
-android:layout_marginLeft="20dp"
             android:textColor="@color/white"
 
             android:layout_gravity="center"
 
             />
        <RelativeLayout
-           android:layout_width="match_parent"
+           android:layout_width="wrap_content"
            android:layout_height="wrap_content"
            android:layout_gravity="center"
-           android:layout_marginRight="10dp"
            >
            <LinearLayout
-               android:layout_width="match_parent"
+               android:layout_width="wrap_content"
                android:layout_height="wrap_content"
                android:orientation="vertical">
 
@@ -60,8 +58,8 @@ android:layout_marginLeft="20dp"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    android:text="Logout"
-                   android:layout_marginRight="10dp"
                    android:layout_gravity="center"
+                   android:padding="10dp"
                    android:textColor="@color/white"
 
                    android:layout_alignParentRight="true"
