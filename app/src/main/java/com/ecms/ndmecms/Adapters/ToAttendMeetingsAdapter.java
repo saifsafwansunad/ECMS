@@ -1,6 +1,7 @@
 package com.ecms.ndmecms.Adapters;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,9 +25,14 @@ import java.util.List;
 public class ToAttendMeetingsAdapter extends RecyclerView.Adapter<ToAttendMeetingsAdapter.ViewHolder> {
     private List<ToAttendMeetingResponse> toattendMeetingsModels;
     public static ToAttendMeetingResponse meetingDetails;
-    Activity context;
+    Context context;
     public ToAttendMeetingsAdapter(Activity context,List<ToAttendMeetingResponse> dataList) {
         this.toattendMeetingsModels = dataList;
+        this.context = context;
+    }
+
+    public ToAttendMeetingsAdapter(Context context, List<ToAttendMeetingResponse> list) {
+        this.toattendMeetingsModels = list;
         this.context = context;
     }
 

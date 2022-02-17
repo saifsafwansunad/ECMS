@@ -15,6 +15,47 @@
         android:layout_height="350dp"
         android:id="@+id/home_viewpager"/>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round"
+            app:strokeColor="@color/dark_green"
+            >
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/meeting_tablayout"
+                app:tabIndicatorGravity="stretch"
+                android:background="@drawable/round"
+
+                app:tabMaxWidth="0dp"
+                app:tabGravity="fill"
+                app:tabMode="fixed"
+                app:tabIndicatorColor="@color/dark_green"
+                app:tabSelectedTextColor="@android:color/white"
+                app:tabTextColor="@color/colorBlack"
+                android:layout_marginTop="2dp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"/>
+        </com.google.android.material.card.MaterialCardView>
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/meeting_viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/tabLayout"
+            tools:layout_editor_absoluteX="8dp"
+            />
+
+
+
+    </LinearLayout>
+
     <RelativeLayout
         android:id="@+id/relative1"
         android:layout_width="match_parent"

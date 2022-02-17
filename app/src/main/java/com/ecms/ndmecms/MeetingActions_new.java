@@ -14,11 +14,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.ecms.ndmecms.Adapters.MeetingsViewpagerAdap;
 import com.ecms.ndmecms.Adapters.ToAttendMeetingsAdapter;
 import com.ecms.ndmecms.Adapters.ViewPagerCardsAdapter;
 import com.ecms.ndmecms.ApiRequests.ToAttendMeetingRequest;
 import com.ecms.ndmecms.ApiResponse.ToAttendMeetingResponse;
+import com.ecms.ndmecms.ui.UserMessagesAdapter;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -30,7 +33,8 @@ import retrofit2.Response;
 
 public class MeetingActions_new extends AppCompatActivity {
 
-    private ViewPager mViewPager;
+    TabLayout tabLayoutMeetings;
+    private ViewPager mViewPager,viewPagerMeeting;
     RecyclerView recyclerViewToAttend; 
     private ViewPagerCardsAdapter mCardAdapter;
     Context context;
@@ -48,7 +52,11 @@ public class MeetingActions_new extends AppCompatActivity {
 
         getSupportActionBar().hide();
         title=findViewById(R.id.title);
+        viewPagerMeeting=findViewById(R.id.meeting_viewPager);
+        tabLayoutMeetings=findViewById(R.id.meeting_tablayout);
 
+        tabLayoutMeetings.addTab(tabLayoutMeetings.newTab().setText("Attended"));
+        tabLayoutMeetings.addTab(tabLayoutMeetings.newTab().setText("Upcoming"));
         title.setText("Meeting Details");
 
         backarrow=findViewById(R.id.imgBackArrow);
@@ -61,6 +69,31 @@ public class MeetingActions_new extends AppCompatActivity {
         });
         recyclerViewToAttend = findViewById(R.id.meetings_recyclerview);
         toAttendMeetingsCall();
+
+        tabLayoutMeetings.setTabGravity(TabLayout.GRAVITY_FILL);
+
+        final MeetingsViewpagerAdap messagesAdapter = new MeetingsViewpagerAdap(this, getSupportFragmentManager(), tabLayoutMeetings.getTabCount());
+        viewPagerMeeting.setAdapter(messagesAdapter);
+
+        viewPagerMeeting.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayoutMeetings));
+
+
+        tabLayoutMeetings.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                viewPagerMeeting.setCurrentItem(tab.getPosition());
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
 
 
         mViewPager = (ViewPager) findViewById(R.id.home_viewpager);
