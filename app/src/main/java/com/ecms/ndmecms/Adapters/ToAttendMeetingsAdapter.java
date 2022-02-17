@@ -31,7 +31,7 @@ public class ToAttendMeetingsAdapter extends RecyclerView.Adapter<ToAttendMeetin
         this.context = context;
     }
 
-   
+
 
     @NonNull
     @NotNull

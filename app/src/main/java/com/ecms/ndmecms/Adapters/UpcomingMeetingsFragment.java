@@ -120,7 +120,7 @@ public class UpcomingMeetingsFragment extends Fragment {
                 public void onResponse(Call<List<ToAttendMeetingResponse>> call, Response<List<ToAttendMeetingResponse>> response) {
 
                     if (response.isSuccessful())
-                        Toast.makeText(getContext(), "meetings success", Toast.LENGTH_SHORT).show();
+                     //   Toast.makeText(getContext(), "meetings success", Toast.LENGTH_SHORT).show();
 
 
                     if (response.body() != null && response.body().size() > 0) {
