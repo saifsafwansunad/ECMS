@@ -38,7 +38,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class UpcomingMeetingsFragment extends Fragment {
-
+    //AttendedMeetingsFragment and Upcoming meetings recycler implementations are reciprocal
     public static int countMeetings,attendedMeetings;
 
     RecyclerView recyclerViewToAttend;
@@ -150,6 +150,8 @@ public class UpcomingMeetingsFragment extends Fragment {
                         } catch (ParseException e) {
                             e.printStackTrace();
                         }
+
+
                         countMeetings=0;
                         attendedMeetings=0;
                         int list_size=meetingsList.size();
