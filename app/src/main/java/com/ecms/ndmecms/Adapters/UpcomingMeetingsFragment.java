@@ -161,9 +161,7 @@ public class UpcomingMeetingsFragment extends Fragment {
 
                                 if(date1.after(currentdate) | date1.compareTo(currentdate) == 0){
                                     countMeetings++;
-                                    upcomingmeetings.add(meetingsList.get(i));
-
-                                }
+                                }else  upcomingmeetings.add(meetingsList.get(i));
 
                             } catch (ParseException e) {
                                 e.printStackTrace();

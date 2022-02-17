@@ -26,6 +26,7 @@ public class ToAttendMeetingsAdapter extends RecyclerView.Adapter<ToAttendMeetin
     private List<ToAttendMeetingResponse> toattendMeetingsModels;
     public static ToAttendMeetingResponse meetingDetails;
     Context context;
+
     public ToAttendMeetingsAdapter(Context context,List<ToAttendMeetingResponse> dataList) {
         this.toattendMeetingsModels = dataList;
         this.context = context;

@@ -87,7 +87,7 @@ public class MeetingsFragment extends Fragment {
         View view=inflater.inflate(R.layout.inbox, container, false);
 
         count_meet=view.findViewById(R.id.attend_count);
-        toAttendMeetingsCall();
+       // toAttendMeetingsCall();
 
         meeting=(ImageView) view.findViewById(R.id.meeting_active);
         organisation_calendar=(RelativeLayout) view.findViewById(R.id.organisation_calendar);

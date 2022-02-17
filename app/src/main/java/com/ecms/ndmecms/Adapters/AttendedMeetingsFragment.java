@@ -162,9 +162,10 @@ public class AttendedMeetingsFragment extends Fragment {
 
                                     if(date1.after(currentdate) | date1.compareTo(currentdate) == 0){
                                         countMeetings++;
+                                        attendmeetings.add(meetingsList.get(i));
 
                                        // list.remove(i);
-                                    }else attendmeetings.add(meetingsList.get(i));
+                                    }
 
                                 } catch (ParseException e) {
                                     e.printStackTrace();

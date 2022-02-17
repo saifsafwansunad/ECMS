@@ -8,7 +8,7 @@
     tools:context=".MeetingActions_new">
 
     <include
-        layout="@layout/toolbar1"/>
+        layout="@layout/toolbar_meeting"/>
 
     <androidx.viewpager.widget.ViewPager
         android:layout_width="match_parent"

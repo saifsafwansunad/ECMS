@@ -23,8 +23,12 @@ import com.ecms.ndmecms.ui.UserMessagesAdapter;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 
 import retrofit2.Call;
@@ -32,6 +36,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MeetingActions_new extends AppCompatActivity {
+    public static int countMeetings,attendedMeetings;
 
     TabLayout tabLayoutMeetings;
     private ViewPager mViewPager,viewPagerMeeting;
@@ -39,7 +44,7 @@ public class MeetingActions_new extends AppCompatActivity {
     private ViewPagerCardsAdapter mCardAdapter;
     Context context;
     String detailsArray[];
-    TextView title;
+    TextView title,attend_count;
     ImageView backarrow;
 
     String detailsArray2[] = {"sdg", "gsdg", "gdsgdsg","adasd"};
@@ -54,10 +59,10 @@ public class MeetingActions_new extends AppCompatActivity {
         title=findViewById(R.id.title);
         viewPagerMeeting=findViewById(R.id.meeting_viewPager);
         tabLayoutMeetings=findViewById(R.id.meeting_tablayout);
-
-        tabLayoutMeetings.addTab(tabLayoutMeetings.newTab().setText("Attended"));
+        attend_count=findViewById(R.id.attend_count);
         tabLayoutMeetings.addTab(tabLayoutMeetings.newTab().setText("Upcoming"));
-        title.setText("Meeting Details");
+        tabLayoutMeetings.addTab(tabLayoutMeetings.newTab().setText("Attended"));
+        title.setText("Meeting Actions");
 
         backarrow=findViewById(R.id.imgBackArrow);
 
@@ -160,67 +165,62 @@ public class MeetingActions_new extends AppCompatActivity {
                             progressDialog.dismiss();
 
                             if (response.body() != null && response.body().size() > 0) {
-                               // tvNoMeetings.setVisibility(View.GONE);
-                                recyclerViewToAttend.setVisibility(View.VISIBLE);
                                 List<ToAttendMeetingResponse> meetingsList = response.body();
-                                Collections.sort(meetingsList, Collections.reverseOrder());
-                                List<ToAttendMeetingResponse> list;
-                                if (meetingsList instanceof List)
-                                    list = (List)meetingsList;
-                                else
-                                    list = new ArrayList(meetingsList);
-                                //implemeting for date comparison
-                           /*     Calendar toDayCalendar = Calendar.getInstance();
-                                Date date1 = toDayCalendar.getTime();
+                                int size=meetingsList.size();
+                                Log.d("key of the message", "size " + size);
+//                                Toast.makeText(MyService.this, "size " + size, Toast.LENGTH_SHORT).show();
 
-
-                                Calendar tomorrowCalendar = Calendar.getInstance();
-                                tomorrowCalendar.add(Calendar.DAY_OF_MONTH,1);
-                                Date date2 = tomorrowCalendar.getTime();
-
-// date1 is a present date and date2 is tomorrow date
-
-                                if ( date1.compareTo(date2) < 0 ) {
-
-                                    //  0 comes when two date are same,
-                                    //  1 comes when date1 is higher then date2
-                                    // -1 comes when date1 is lower then date2
-
-                                }*/
-                         /*       Calendar c = Calendar.getInstance();
+                                Calendar c = Calendar.getInstance();
                                 SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm aa");
                                 String getCurrentDateTime = sdf.format(c.getTime());
+                                Date currentdate = null;
+                                try {
+                                    currentdate = new SimpleDateFormat("MM/dd/yyyy").parse(getCurrentDateTime);
+                                } catch (ParseException e) {
+                                    e.printStackTrace();
+                                }
 
 
-                                    countMeetings=0;
+                                countMeetings=0;
+                                attendedMeetings=0;
                                 for (int i = 0; i < meetingsList.size(); i++) {
-                                   // if(meetingsList.get(i).startDate>=)
+                                    // if(meetingsList.get(i).startDate>=)
                                     String date_startDate= meetingsList.get(i).startDate;
-                                    if(date_startDate.compareTo(getCurrentDateTime)<=0){
-                                        countMeetings++;
+                                    try {
+                                        Date date1=new SimpleDateFormat("MM/dd/yyyy").parse(date_startDate);
+
+                                        if(date1.after(currentdate) | date1.compareTo(currentdate) == 0){
+                                            countMeetings++;
+                                            Log.d("count meetings", "date1 is" + date1);
+
+
+                                        }
+
+                                    } catch (ParseException e) {
+                                        e.printStackTrace();
                                     }
+
                                     //     userLoginResponse = meetingsList.get(i);
 
                                     //   data = dataArrayList.get(i).getId();
                                     //here we need to take countmeetings value and send it to mainactivty for showing there
                                 }
-                                Log.d("count meetings", "are" + countMeetings);*/
+                                attendedMeetings=meetingsList.size()-countMeetings;
+                                attend_count.setText(String.valueOf(countMeetings));
+                                Log.d("count meetings", "are" + countMeetings);
+                                Log.d("attendedMeetings", " attendedMeetings are" + attendedMeetings);
 
-                                recyclerViewToAttend.setLayoutManager(new LinearLayoutManager(MeetingActions_new.this));
-                                recyclerViewToAttend.setAdapter(new ToAttendMeetingsAdapter(MeetingActions_new.this,list));
-                                Log.d("key of the message", "appointments are.... " + response.body());
+//                            Log.d("countMeeting2", String.valueOf(countMeetings));
+                                //upto here
 
-                            }
-
-                            else {
-                                recyclerViewToAttend.setVisibility(View.GONE);
-                                //tvNoMeetings.setVisibility(View.VISIBLE);
 
                             }
+
+
 
                         } else {
                             progressDialog.dismiss();
-                            Toast.makeText(MeetingActions_new.this, "appointments Failed", Toast.LENGTH_LONG).show();
+                            Toast.makeText(MeetingActions_new.this, "Server Error", Toast.LENGTH_LONG).show();
 
                         }
 
