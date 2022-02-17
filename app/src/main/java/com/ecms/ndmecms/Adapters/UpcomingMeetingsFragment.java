@@ -79,6 +79,7 @@ public class UpcomingMeetingsFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
     }
 
     @Override
@@ -152,7 +153,6 @@ public class UpcomingMeetingsFragment extends Fragment {
                         for (int i = 0; i < meetingsList.size(); i++) {
                             // if(meetingsList.get(i).startDate>=)
 
-                            if(meetingsList.size()==0) break;
                             String date_startDate= meetingsList.get(i).startDate;
                             try {
                                 Date date1=new SimpleDateFormat("MM/dd/yyyy").parse(date_startDate);

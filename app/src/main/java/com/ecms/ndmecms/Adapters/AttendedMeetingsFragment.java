@@ -154,7 +154,6 @@ public class AttendedMeetingsFragment extends Fragment {
                             for (int i = 0; i < meetingsList.size(); i++) {
                                 // if(meetingsList.get(i).startDate>=)
 
-                                if(meetingsList.size()==0) break;
                                 String date_startDate= meetingsList.get(i).startDate;
                                 try {
                                     Date date1=new SimpleDateFormat("MM/dd/yyyy").parse(date_startDate);
@@ -162,7 +161,6 @@ public class AttendedMeetingsFragment extends Fragment {
                                     if(date1.after(currentdate) | date1.compareTo(currentdate) == 0){
                                         countMeetings++;
                                        // list.remove(i);
-
                                     }
 
                                 } catch (ParseException e) {
