@@ -127,12 +127,14 @@ public class AttendedMeetingsFragment extends Fragment {
                         if (response.body() != null && response.body().size() > 0) {
                             // tvNoMeetings.setVisibility(View.GONE);
                             recyclerViewToAttend.setVisibility(View.VISIBLE);
-                            List<ToAttendMeetingResponse> meetingsList = response.body();
+                            final List<ToAttendMeetingResponse> meetingsList = response.body();
                             Collections.sort(meetingsList, Collections.reverseOrder());
                             List<ToAttendMeetingResponse> list;
-                            if (meetingsList instanceof List)
+
+                            List <ToAttendMeetingResponse> attendmeetings = new ArrayList<>();
+                           /* if (meetingsList instanceof List)
                                 list = (List)meetingsList;
-                            else
+                            else*/
                                 list = new ArrayList(meetingsList);
 
                             //attended meeting needed to be sorted out from the list
@@ -151,17 +153,18 @@ public class AttendedMeetingsFragment extends Fragment {
                             }
                             countMeetings=0;
                             attendedMeetings=0;
-                            for (int i = 0; i < meetingsList.size(); i++) {
-                                // if(meetingsList.get(i).startDate>=)
 
-                                String date_startDate= meetingsList.get(i).startDate;
+                            for (int i = 0; i < meetingsList.size(); i++) {
+
+                              String date_startDate= meetingsList.get(i).startDate;
                                 try {
                                     Date date1=new SimpleDateFormat("MM/dd/yyyy").parse(date_startDate);
 
                                     if(date1.after(currentdate) | date1.compareTo(currentdate) == 0){
                                         countMeetings++;
+
                                        // list.remove(i);
-                                    }
+                                    }else attendmeetings.add(meetingsList.get(i));
 
                                 } catch (ParseException e) {
                                     e.printStackTrace();
@@ -173,7 +176,7 @@ public class AttendedMeetingsFragment extends Fragment {
                             attendedMeetings=meetingsList.size()-countMeetings;
 
                             recyclerViewToAttend.setLayoutManager(new LinearLayoutManager(getContext()));
-                            recyclerViewToAttend.setAdapter(new ToAttendMeetingsAdapter(getContext(),list));
+                            recyclerViewToAttend.setAdapter(new ToAttendMeetingsAdapter(getContext(),attendmeetings));
                             Log.d("key of the message", "attended are for frag.... " + meetingsList.size()+"");
 
                         }

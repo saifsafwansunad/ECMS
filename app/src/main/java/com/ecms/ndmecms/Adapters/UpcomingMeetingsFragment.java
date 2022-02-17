@@ -128,6 +128,8 @@ public class UpcomingMeetingsFragment extends Fragment {
                         recyclerViewToAttend.setVisibility(View.VISIBLE);
                         List<ToAttendMeetingResponse> meetingsList = response.body();
                         Collections.sort(meetingsList, Collections.reverseOrder());
+                        List <ToAttendMeetingResponse> upcomingmeetings = new ArrayList<>();
+
                         List<ToAttendMeetingResponse> list;
                         if (meetingsList instanceof List)
                             list = (List)meetingsList;
@@ -150,8 +152,8 @@ public class UpcomingMeetingsFragment extends Fragment {
                         }
                         countMeetings=0;
                         attendedMeetings=0;
-                        for (int i = 0; i < meetingsList.size(); i++) {
-                            // if(meetingsList.get(i).startDate>=)
+                        int list_size=meetingsList.size();
+                        for (int i = 0; i < list_size; i++) {
 
                             String date_startDate= meetingsList.get(i).startDate;
                             try {
@@ -159,21 +161,19 @@ public class UpcomingMeetingsFragment extends Fragment {
 
                                 if(date1.after(currentdate) | date1.compareTo(currentdate) == 0){
                                     countMeetings++;
-                                    // list.remove(i);
+                                    upcomingmeetings.add(meetingsList.get(i));
 
                                 }
 
                             } catch (ParseException e) {
                                 e.printStackTrace();
                             }
-                            //     userLoginResponse = meetingsList.get(i);
-                            //   data = dataArrayList.get(i).getId();
-                            //here we need to take countmeetings value and send it to mainactivty for showing there
+
                         }
                         attendedMeetings=meetingsList.size()-countMeetings;
 
                         recyclerViewToAttend.setLayoutManager(new LinearLayoutManager(getContext()));
-                        recyclerViewToAttend.setAdapter(new ToAttendMeetingsAdapter(getContext(),list));
+                        recyclerViewToAttend.setAdapter(new ToAttendMeetingsAdapter(getContext(),upcomingmeetings));
                         Log.d("key of the message", "attended are for frag.... " + meetingsList.size()+"");
 
                     }
