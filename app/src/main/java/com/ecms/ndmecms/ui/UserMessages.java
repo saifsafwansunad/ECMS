@@ -17,6 +17,8 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.view.menu.MenuBuilder;
+import androidx.appcompat.view.menu.MenuPopupHelper;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.viewpager.widget.ViewPager;
@@ -56,6 +58,8 @@ import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -219,6 +223,27 @@ public class UserMessages extends AppCompatActivity  implements NavigationView.O
             public void onClick(View v) {
                 PopupMenu popupMenu = new PopupMenu(UserMessages.this, dots);
 
+//                MenuPopupHelper menuHelper = new MenuPopupHelper(UserMessages.this, (MenuBuilder) popupMenu.getMenu(), dots);
+//                menuHelper.setForceShowIcon(true);
+//                menuHelper.show();
+
+                /*  The below code in try catch is responsible to display icons*/
+                try {
+                    Field[] fields = popupMenu.getClass().getDeclaredFields();
+                    for (Field field : fields) {
+                        if ("mPopup".equals(field.getName())) {
+                            field.setAccessible(true);
+                            Object menuPopupHelper = field.get(popupMenu);
+                            Class<?> classPopupHelper = Class.forName(menuPopupHelper.getClass().getName());
+                            Method setForceIcons = classPopupHelper.getMethod("setForceShowIcon", boolean.class);
+                            setForceIcons.invoke(menuPopupHelper, true);
+                            break;
+                        }
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
                 // Inflating popup menu from popup_menu.xml file
                 popupMenu.getMenuInflater().inflate(R.menu.main, popupMenu.getMenu());
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
@@ -228,6 +253,11 @@ public class UserMessages extends AppCompatActivity  implements NavigationView.O
                         switch (menuItem.getItemId())
                         {
 
+
+                            case R.id.profile_m:
+                                Intent intent = new Intent(UserMessages.this, ProfileActivity.class);
+                                startActivity(intent);
+                                return true;
                             case R.id.report:
                                 Intent reportIntent = new Intent(UserMessages.this, ReportActivity.class);
                                 startActivity(reportIntent);
@@ -235,6 +265,30 @@ public class UserMessages extends AppCompatActivity  implements NavigationView.O
                             case R.id.action_privacy:
                                 Intent privacyIntent = new Intent(UserMessages.this, PrivacyPolicyActivity.class);
                                 startActivity(privacyIntent);
+                                return true;
+                            case R.id.logout_m:
+                                PreferenceUtils.savePassword(null, UserMessages.this);
+                                PreferenceUtils.saveEmail(null, UserMessages.this);
+                                PreferenceUtils.saveUid(null, UserMessages.this);
+                                // MyService.count = 0;
+
+                                //trying to stop the service
+              /*  stopService = true;
+                Intent stopIntent = new Intent(getApplicationContext(), MyService.class);
+                stopIntent.putExtra("service", "yes");
+                stopIntent.setAction("stopService");
+                getApplicationContext().startService(stopIntent);*/
+                                final ProgressDialog progressDoalog;
+                                progressDoalog = new ProgressDialog(UserMessages.this);
+                                progressDoalog.setMessage("Logging Out....");
+                                progressDoalog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+                                progressDoalog.show();
+
+                                Intent i = new Intent(getApplicationContext(), LoginActivity.class);
+                                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
+                                startActivity(i);
+                                finish();
                                 return true;
                         }
 

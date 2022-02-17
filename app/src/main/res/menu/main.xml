@@ -26,10 +26,17 @@
 <!--        android:title="About Us"-->
 <!--        app:showAsAction="never" />-->
     <item
+        android:id="@+id/profile_m"
+        android:orderInCategory="100"
+        android:icon="@drawable/profile_new"
+        android:title="Profile"
+        app:showAsAction="always|withText" />
+    <item
         android:id="@+id/action_privacy"
         android:orderInCategory="100"
+        android:icon="@drawable/privacy_policy"
         android:title="Privacy Policy"
-        app:showAsAction="never" />
+        app:showAsAction="always|withText" />
 
 <!--    <item-->
 <!--        android:id="@+id/action_grey"-->
@@ -48,7 +55,16 @@
         android:id="@+id/report"
         android:orderInCategory="100"
         android:title="Report App"
-        app:showAsAction="never" />
+        android:icon="@drawable/report_new"
+        app:showAsAction="always|withText" />
+
+    <item
+        android:id="@+id/logout_m"
+        android:orderInCategory="100"
+        android:icon="@drawable/logout_new1"
+        android:title="Logout"
+        app:showAsAction="always|withText"
+        />
 
 <!--    <item-->
 <!--        android:id="@+id/action_light_purple"-->

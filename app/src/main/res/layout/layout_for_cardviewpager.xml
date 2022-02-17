@@ -45,18 +45,18 @@ android:id="@+id/cardbg_linearlayout"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:gravity="center_horizontal"
-                    android:text="Meeting"
+                    android:text="Meeting Actions"
                     android:textColor="#fff"
                     android:textSize="20dp" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                     android:layout_gravity="center_horizontal"
-                    android:text="Actions"
-                    android:textStyle="bold"
-                    android:textColor="#fff"
-                    android:textSize="20dp" />
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                     android:layout_gravity="center_horizontal"-->
+<!--                    android:text="Actions"-->
+<!--                    android:textStyle="bold"-->
+<!--                    android:textColor="#fff"-->
+<!--                    android:textSize="20dp" />-->
             </LinearLayout>
 
             <RelativeLayout
@@ -71,7 +71,7 @@ android:id="@+id/cardbg_linearlayout"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:text="1"
-                    android:textSize="25dp" />
+                    android:textSize="15dp" />
             </RelativeLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
@@ -80,7 +80,7 @@ android:id="@+id/cardbg_linearlayout"
                     android:id="@+id/constraintLayout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
+                    android:layout_gravity="center"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"

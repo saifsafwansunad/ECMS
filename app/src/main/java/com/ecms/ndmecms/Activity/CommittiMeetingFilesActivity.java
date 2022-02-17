@@ -22,6 +22,7 @@ import android.view.Window;
 import android.webkit.CookieManager;
 import android.webkit.MimeTypeMap;
 import android.webkit.URLUtil;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -57,6 +58,7 @@ public class CommittiMeetingFilesActivity extends AppCompatActivity {
     RecyclerView cf_folder_rv,cf_folder_path_rv;
     TextView title;
     ImageView backarrow;
+    FrameLayout nofile;
     List<FolderModel> folderTrack = new ArrayList<FolderModel>();
     FolderAdapter folderAdapter;
 
@@ -66,6 +68,7 @@ public class CommittiMeetingFilesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_committi_meeting_files);
         cf_folder_rv = findViewById(R.id.cf_folder_rv);
         cf_folder_path_rv = findViewById(R.id.cf_folder_path_rv);
+        nofile = findViewById(R.id.no_files);
 
         Intent intent = getIntent();
 
@@ -149,15 +152,27 @@ public class CommittiMeetingFilesActivity extends AppCompatActivity {
 //        Toast.makeText(AppointmentsActivity.this, "appointments got", Toast.LENGTH_LONG).show();
                             progressDialog.dismiss();
                             if (response.body() != null) {
+                                nofile.setVisibility(View.GONE);
                                 cf_folder_rv.setVisibility(View.VISIBLE);
                                 CommitteeFilesResponse Files = response.body();
                                 List<CommitteeFilesResponse.FileSy> folderList = Files.getFileSys();
+                                if(folderList.isEmpty()){
+                                    cf_folder_rv.setVisibility(View.GONE);
+                                    nofile.setVisibility(View.VISIBLE);
+                                }else{
+                                    nofile.setVisibility(View.GONE);
+                                    cf_folder_rv.setVisibility(View.VISIBLE);
+                                }
                                 cf_folder_rv.setLayoutManager(new LinearLayoutManager(CommittiMeetingFilesActivity.this));
                                 cf_folder_rv.setAdapter(new CommitteeFilesAdapter(folderList, CommittiMeetingFilesActivity.this));
-                                //Log.d("key of the message", "appointments are.... " + response.body());
+//                                Log.d("key of the message", "appointments are.... " + response.body());
+//                                Toast.makeText(CommittiMeetingFilesActivity.this, response.body().toString(), Toast.LENGTH_SHORT).show();
                             }
                             else {
                                 Toast.makeText(CommittiMeetingFilesActivity.this, "No Files", Toast.LENGTH_SHORT).show();
+                                cf_folder_rv.setVisibility(View.GONE);
+                                nofile.setVisibility(View.VISIBLE);
+
 
                             }
 

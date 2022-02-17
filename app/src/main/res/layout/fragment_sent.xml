@@ -47,6 +47,34 @@ android:layout_marginBottom="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+    <FrameLayout
+        android:id="@+id/no_files"
+        android:visibility="gone"
+        android:layout_gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_gravity="center"
+            android:background="@drawable/inbox_24"
+            android:layout_width="250dp"
+            android:layout_height="200dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No items"
+
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:textSize="20dp"
+                android:visibility="visible"
+                android:gravity="center"
+                android:textColor="@color/dark_gray"
+                android:textStyle="italic"/>
+        </RelativeLayout>
+
+
+    </FrameLayout>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
