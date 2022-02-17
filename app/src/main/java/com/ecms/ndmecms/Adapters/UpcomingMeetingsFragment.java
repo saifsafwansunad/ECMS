@@ -157,7 +157,7 @@ public class UpcomingMeetingsFragment extends Fragment {
                             try {
                                 Date date1=new SimpleDateFormat("MM/dd/yyyy").parse(date_startDate);
 
-                                if(date1.after(currentdate) | date1.compareTo(currentdate) <= 0){
+                                if(date1.after(currentdate) | date1.compareTo(currentdate) == 0){
                                     countMeetings++;
                                     // list.remove(i);
 
@@ -180,13 +180,7 @@ public class UpcomingMeetingsFragment extends Fragment {
                     else {
                         recyclerViewToAttend.setVisibility(View.GONE);
                         //tvNoMeetings.setVisibility(View.VISIBLE);
-
                     }
-
-
-
-
-
                 }
 
 
