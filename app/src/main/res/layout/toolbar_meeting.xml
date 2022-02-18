@@ -50,7 +50,7 @@
                 />
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <TextView
@@ -74,6 +74,27 @@
                     android:textColor="@color/white"
                     android:padding="5dp"/>
             </LinearLayout>
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/offline1"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:padding="3dp"
+                    android:layout_toLeftOf="@+id/dots_report1"
+                    android:src="@drawable/icon_download"/>
+
+                <ImageView
+                    android:id="@+id/dots_report1"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:padding="3dp"
+                    android:layout_alignParentRight="true"
+                    android:src="@drawable/dots"/>
+            </RelativeLayout>
+
 
 
         </LinearLayout>

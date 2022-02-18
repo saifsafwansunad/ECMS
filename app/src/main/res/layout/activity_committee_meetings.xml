@@ -7,7 +7,7 @@
     android:orientation="vertical"
     tools:context=".CommitteeMeetings">
     <include
-        layout="@layout/toolbar"/>
+        layout="@layout/toolbar1"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
