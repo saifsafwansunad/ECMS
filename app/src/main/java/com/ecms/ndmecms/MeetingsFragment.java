@@ -93,7 +93,7 @@ public class MeetingsFragment extends Fragment {
         organisation_calendar=(RelativeLayout) view.findViewById(R.id.organisation_calendar);
         your_calendar=(RelativeLayout) view.findViewById(R.id.your_calendar);
         logo=view.findViewById(R.id.logo);
-        logo.setAlpha(50);
+        logo.setAlpha(30);
         getActivity=view.findViewById(R.id.get_into);
 
         getActivity.setOnClickListener(new View.OnClickListener() {
