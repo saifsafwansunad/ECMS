@@ -37,7 +37,7 @@ public class MeetingsFragment extends Fragment {
     public static int countMeetings,attendedMeetings;
 
     RelativeLayout getActivity,organisation_calendar,your_calendar;
-    ImageView meeting;
+    ImageView meeting,logo;
     TextView count_meet;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -92,7 +92,8 @@ public class MeetingsFragment extends Fragment {
         meeting=(ImageView) view.findViewById(R.id.meeting_active);
         organisation_calendar=(RelativeLayout) view.findViewById(R.id.organisation_calendar);
         your_calendar=(RelativeLayout) view.findViewById(R.id.your_calendar);
-
+        logo=view.findViewById(R.id.logo);
+        logo.setAlpha(50);
         getActivity=view.findViewById(R.id.get_into);
 
         getActivity.setOnClickListener(new View.OnClickListener() {
