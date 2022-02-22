@@ -33,14 +33,14 @@ public class CommiteMeetingsAdapter extends RecyclerView.Adapter<CommiteMeetings
     @Override
     public CommiteMeetingsAdapter.MahasiswaViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View view = layoutInflater.inflate(R.layout.row_comite, parent, false);
+        View view = layoutInflater.inflate(R.layout.row_comite_new, parent, false);
         return new CommiteMeetingsAdapter.MahasiswaViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(CommiteMeetingsAdapter.MahasiswaViewHolder holder, int position) {
         holder.txtNama.setText(dataList.get(position).getTitle());
-        holder.txtNpm.setText(dataList.get(position).getDescription());
+        holder.txtNpm.setText(dataList.get(position).getMeetingType());
         holder.txtNoHp.setText(dataList.get(position).getAgenda());
         holder.txtmessageto.setText(dataList.get(position).getStartDate());
         meetingType=dataList.get(position).getMeetingType();
@@ -51,7 +51,7 @@ public class CommiteMeetingsAdapter extends RecyclerView.Adapter<CommiteMeetings
         ApprovedDAte=dataList.get(position).getStartDate();
         MsTeamMeetingId=dataList.get(position).getMSTeamMeetingID();
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
+        holder.viewDetails.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 meetingDetails = dataList.get(position);
@@ -62,6 +62,14 @@ public class CommiteMeetingsAdapter extends RecyclerView.Adapter<CommiteMeetings
             }
         });
 
+     /*   holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+            }
+        });*/
+
     }
 
     @Override
@@ -71,6 +79,7 @@ public class CommiteMeetingsAdapter extends RecyclerView.Adapter<CommiteMeetings
 
     public class MahasiswaViewHolder extends RecyclerView.ViewHolder{
         private TextView txtNama, txtNpm, txtNoHp,txtmessageto;
+        private TextView viewDetails;
 
         public MahasiswaViewHolder(View itemView) {
 
@@ -79,6 +88,8 @@ public class CommiteMeetingsAdapter extends RecyclerView.Adapter<CommiteMeetings
             txtNpm = itemView.findViewById(R.id.meeting_type);
             txtNoHp = itemView.findViewById(R.id.agenda);
             txtmessageto=itemView.findViewById(R.id.date_time);
+            viewDetails=itemView.findViewById(R.id.viewDetails);
+
          /*   itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
