@@ -4,279 +4,78 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".Readyapprove_viewmeeting">
+
+    <include layout="@layout/toolbar" />
+
+
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <LinearLayout
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:orientation="vertical">
+                android:background="@color/dark_green"
+                android:orientation="vertical"
+                android:padding="10dp"
+                >
+
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    >
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="2dp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/attach" />
 
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="15dp"
-                        android:text="Title"
-                        android:paddingLeft="5dp"
-
-                        android:textColor="@color/colorBlack"
-                        android:textStyle="bold"/>
-                    <EditText
                         android:id="@+id/title_com"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="test50"
-                        android:textStyle="normal"
-                        android:editable="false"
-                        android:layout_marginTop="-10dp"
-
-                        android:outlineSpotShadowColor="@color/gray"/>
-
-
-
+                        android:layout_marginTop="2dp"
+                        android:padding="2dp"
+                        android:text="title"
+                        android:textColor="@color/white"
+                        android:textSize="18dp"
+                        android:textStyle="bold" />
                 </LinearLayout>
+
+                <TextView
+                    android:id="@+id/agenda"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:padding="2dp"
+                    android:text="council agenda"
+                    android:textColor="@color/white"
+                    android:textSize="16dp" />
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="2dp"
-                    android:layout_marginTop="5dp">
+                    android:orientation="horizontal"
+                    android:padding="2dp">
 
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="15dp"
-                        android:text="Meeting Type"
-                        android:paddingLeft="5dp"
-
-                        android:textColor="@color/colorBlack"
-                        android:textStyle="bold"/>
-                    <EditText
                         android:id="@+id/meeting_type"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="-10dp"
-                        android:hint="COUNIL"
-                        android:editable="false"
-
-                        android:textStyle="normal"/>
-
-
-
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="2dp"
-
-                    android:layout_marginTop="5dp">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="15dp"
-                        android:paddingLeft="5dp"
-
-                        android:text="Agenda"
-                        android:textColor="@color/colorBlack"
-                        android:textStyle="bold"/>
-                    <EditText
-                        android:id="@+id/agenda"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Agenda test50"
-                        android:layout_marginTop="-10dp"
-                        android:editable="false"
-
-                        android:textStyle="normal"/>
-
-
-
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="2dp"
-                    android:layout_marginTop="5dp">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="15dp"
-                        android:paddingLeft="5dp"
-
-                        android:text="Description"
-                        android:textColor="@color/colorBlack"
-                        android:textStyle="bold"/>
-                    <EditText
-                        android:id="@+id/description"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Agenda Test 50 Desc"
-                        android:layout_marginTop="-10dp"
-                        android:editable="false"
-
-                        android:textStyle="normal"/>
-
-
-
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="2dp"
-                    android:layout_marginTop="5dp">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="15dp"
-                        android:text="Start Date"
-                        android:paddingLeft="5dp"
-
-                        android:textColor="@color/colorBlack"
-                        android:textStyle="bold"/>
-                    <EditText
-                        android:id="@+id/start_date"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="08/11/2020 11:55:00"
-                        android:layout_marginTop="-10dp"
-                        android:editable="false"
-
-                        android:textStyle="normal"/>
-
-
-
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="2dp"
-                    android:layout_marginTop="5dp">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="15dp"
-                        android:text="Approve Comment"
-                        android:paddingLeft="5dp"
-
-                        android:textColor="@color/colorBlack"
-                        android:textStyle="bold"/>
-                    <EditText
-                        android:id="@+id/approve_comment"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Steve Tshwete Local"
-                        android:layout_marginTop="-10dp"
-                        android:editable="false"
-
-                        android:textStyle="normal"/>
-
-
-
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="2dp"
-                    android:layout_marginTop="5dp">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="15dp"
-                        android:text="Approved Date"
-                        android:paddingLeft="5dp"
-
-                        android:textColor="@color/colorBlack"
-                        android:textStyle="bold"/>
-                    <EditText
-                        android:id="@+id/approve_date"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="08/11/2020"
-                        android:layout_marginTop="-10dp"
-                        android:editable="false"
-
-                        android:textStyle="normal"/>
-
-
-
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="2dp"
-                    android:layout_marginTop="5dp">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="15dp"
-                        android:text="Is MSTeam Meeting "
-                        android:paddingLeft="5dp"
-
-                        android:textColor="@color/colorBlack"
-                        android:textStyle="bold"/>
-                    <EditText
-                        android:id="@+id/ismeeting"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="false"
-                        android:layout_marginTop="-10dp"
-                        android:editable="false"
-
-                        android:textStyle="normal"/>
-
-
-
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="2dp"
-                    android:layout_marginTop="5dp">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="15dp"
-                        android:text="MSTeam Meeting ID"
-                        android:paddingLeft="5dp"
-
-                        android:textColor="@color/colorBlack"
-                        android:textStyle="bold"/>
-                    <EditText
-                        android:id="@+id/meeting_id"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Incoming"
-                        android:layout_marginTop="-10dp"
-                        android:editable="false"
-
-                        android:textStyle="normal"/>
-
+                        android:layout_marginLeft="12dp"
+                        android:text="meeting type"
+                        android:textColor="@color/white"
+                        android:textSize="16dp" />
 
 
                 </LinearLayout>
@@ -285,45 +84,152 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:padding="2dp"
-                    android:gravity="center"
-                    android:layout_marginTop="20dp"
-                    >
+                    android:padding="2dp">
 
-                    <Button
-                        android:id="@+id/approve"
+                    <TextView
+                        android:id="@+id/description"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="12dp"
+                        android:text="Description"
+                        android:textColor="@color/white"
+                        android:textSize="16dp" />
+                </LinearLayout>
 
-                        android:text="Approve"
-                        android:backgroundTint="@color/blue"
-                        android:paddingLeft="30dp"
-                        android:layout_marginRight="20dp"
-                        android:paddingRight="30dp"
-                        android:paddingTop="10dp"
-                        android:paddingBottom="10dp"
-                        android:textStyle="bold"/>
 
-                    <Button
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="2dp">
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/start_date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="12dp"
+                            android:text="12/12/2021 2:00 pm"
+                            android:textColor="@color/white"
+                            android:textSize="16dp"
+
+                            />
+                    </RelativeLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="2dp">
+
+                    <TextView
+                        android:id="@+id/approve_comment"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/reject"
-                        android:text="Reject"
-                        android:backgroundTint="@color/blue"
-                        android:layout_marginLeft="10dp"
-                        android:paddingLeft="30dp"
-                        android:paddingRight="30dp"
-                        android:paddingTop="10dp"
-                        android:paddingBottom="10dp"
-                        android:textStyle="bold"/>
+                        android:layout_marginLeft="12dp"
+                        android:text="Description"
+                        android:textColor="@color/white"
+                        android:textSize="16dp" />
+                </LinearLayout>
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="2dp">
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/approve_date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="12dp"
+                            android:text="12/12/2021 2:00 pm"
+                            android:textColor="@color/white"
+                            android:textSize="16dp"
+
+                            />
+                    </RelativeLayout>
 
 
                 </LinearLayout>
 
 
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="6dp"
+                android:orientation="vertical"
+                android:padding="5dp"
+
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Is MSTeam Meeting "
+                    android:textColor="@color/dark_green"
+                    android:textSize="16dp"
+
+                    />
+
+
+                <TextView
+                    android:id="@+id/ismeeting"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="true"
+                    android:textColor="@color/dark_green"
+                    android:textSize="16dp" />
+
 
             </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="6dp"
+                android:orientation="vertical"
+                android:padding="5dp"
+
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="MSTeam Meeting ID"
+                    android:textColor="@color/dark_green"
+                    android:textSize="16dp"
+
+                    />
+
+
+                <TextView
+                    android:id="@+id/meeting_id"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="true"
+                    android:textColor="@color/dark_green"
+                    android:textSize="16dp" />
+
+
+            </LinearLayout>
+
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </LinearLayout>

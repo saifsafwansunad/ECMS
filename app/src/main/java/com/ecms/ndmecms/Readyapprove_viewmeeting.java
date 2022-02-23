@@ -8,11 +8,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class Readyapprove_viewmeeting extends AppCompatActivity implements View.OnClickListener, approvemeeting.DialogListener {
-private Button approve,reject;
-EditText title,meetingtype,agenda,description,startDate,approveComment,approveDate,isMsteam,msTeamMeetingId;
+//private Button approve,reject;
+TextView title,meetingtype,agenda,description,startDate,approveComment,approveDate,isMsteam,msTeamMeetingId,titletoolbar;
 CommiteeMeetingModel meetingModel;
 
     @Override
@@ -20,9 +21,13 @@ CommiteeMeetingModel meetingModel;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_readyapprove_viewmeeting);
         setTitle("View Meetings");
-        approve=findViewById(R.id.approve);
-        reject=findViewById(R.id.reject);
+//        approve=findViewById(R.id.approve);
+//        reject=findViewById(R.id.reject);
         title=findViewById(R.id.title_com);
+
+        titletoolbar=findViewById(R.id.title);
+
+        title.setText("Meeting Details");
         meetingtype=findViewById(R.id.meeting_type);
         agenda=findViewById(R.id.agenda);
         description=findViewById(R.id.description);
@@ -43,53 +48,54 @@ CommiteeMeetingModel meetingModel;
         msTeamMeetingId.setText(meetingModel.getMSTeamMeetingID());
         isMsteam.setText(meetingModel.getIsMSTeamMeeting());
 
-        reject.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                RejectMeeting dialogFragment = new RejectMeeting();
-
-
-                Bundle bundle = new Bundle();
-                bundle.putBoolean("notAlertDialog", true);
-
-                dialogFragment.setArguments(bundle);
-
-                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-                Fragment prev = getSupportFragmentManager().findFragmentByTag("dialog");
-                if (prev != null) {
-                    ft.remove(prev);
-                }
-                ft.addToBackStack(null);
-
-
-                dialogFragment.show(ft, "dialog");
-
-            }
-        });
-
-        approve.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                approvemeeting dialogFragment = new approvemeeting();
-
-
-                Bundle bundle = new Bundle();
-                bundle.putBoolean("notAlertDialog", true);
-
-                dialogFragment.setArguments(bundle);
-
-                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-                Fragment prev = getSupportFragmentManager().findFragmentByTag("dialog");
-                if (prev != null) {
-                    ft.remove(prev);
-                }
-                ft.addToBackStack(null);
-
-
-                dialogFragment.show(ft, "dialog");
-
-            }
-        });
+//
+//        reject.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                RejectMeeting dialogFragment = new RejectMeeting();
+//
+//
+//                Bundle bundle = new Bundle();
+//                bundle.putBoolean("notAlertDialog", true);
+//
+//                dialogFragment.setArguments(bundle);
+//
+//                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+//                Fragment prev = getSupportFragmentManager().findFragmentByTag("dialog");
+//                if (prev != null) {
+//                    ft.remove(prev);
+//                }
+//                ft.addToBackStack(null);
+//
+//
+//                dialogFragment.show(ft, "dialog");
+//
+//            }
+//        });
+//
+//        approve.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                approvemeeting dialogFragment = new approvemeeting();
+//
+//
+//                Bundle bundle = new Bundle();
+//                bundle.putBoolean("notAlertDialog", true);
+//
+//                dialogFragment.setArguments(bundle);
+//
+//                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+//                Fragment prev = getSupportFragmentManager().findFragmentByTag("dialog");
+//                if (prev != null) {
+//                    ft.remove(prev);
+//                }
+//                ft.addToBackStack(null);
+//
+//
+//                dialogFragment.show(ft, "dialog");
+//
+//            }
+//        });
 
 
 

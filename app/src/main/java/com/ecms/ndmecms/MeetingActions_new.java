@@ -68,8 +68,9 @@ public class MeetingActions_new extends AppCompatActivity {
         viewPagerMeeting=findViewById(R.id.meeting_viewPager);
         tabLayoutMeetings=findViewById(R.id.meeting_tablayout);
         attend_count=findViewById(R.id.attend_count);
-        tabLayoutMeetings.addTab(tabLayoutMeetings.newTab().setText("Upcoming"));
-        tabLayoutMeetings.addTab(tabLayoutMeetings.newTab().setText("Attended"));
+        tabLayoutMeetings.addTab(tabLayoutMeetings.newTab().setText("upcoming"));
+
+        tabLayoutMeetings.addTab(tabLayoutMeetings.newTab().setText("attended"));
         title.setText("Meeting Actions");
 
         backarrow=findViewById(R.id.imgBackArrow);
