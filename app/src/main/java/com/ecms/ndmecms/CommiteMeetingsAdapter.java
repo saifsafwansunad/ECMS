@@ -1,6 +1,7 @@
 package com.ecms.ndmecms;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,9 +26,9 @@ public class CommiteMeetingsAdapter extends RecyclerView.Adapter<CommiteMeetings
         this.dataList = dataList;
     }*/
 
-    public CommiteMeetingsAdapter(CommitteeMeetings committeeMeetings, List<CommiteeMeetingModel> commiteeMeetingModels) {
+    public CommiteMeetingsAdapter(Activity context, List<CommiteeMeetingModel> commiteeMeetingModels) {
         this.dataList=commiteeMeetingModels;
-        this.context=committeeMeetings;
+        this.context=context;
     }
 
     @Override

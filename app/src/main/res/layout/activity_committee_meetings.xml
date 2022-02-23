@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,9 +11,52 @@
         layout="@layout/toolbar1"/>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/recycler_view"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round"
+            app:strokeColor="@color/dark_green"
+            >
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/meeting_tablayout"
+                app:tabIndicatorGravity="stretch"
+                android:background="@drawable/round"
+
+                app:tabMaxWidth="0dp"
+                app:tabGravity="fill"
+                app:tabMode="fixed"
+                app:tabIndicatorColor="@color/dark_green"
+                app:tabSelectedTextColor="@android:color/white"
+                app:tabTextColor="@color/colorBlack"
+                android:layout_marginTop="2dp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"/>
+        </com.google.android.material.card.MaterialCardView>
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/meeting_viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/tabLayout"
+            tools:layout_editor_absoluteX="8dp"
+            />
+
+
+
+    </LinearLayout>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
