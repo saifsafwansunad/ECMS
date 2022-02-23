@@ -19,7 +19,6 @@ import com.ecms.ndmecms.ApiRequests.ToAttendMeetingRequest;
 import com.ecms.ndmecms.ApiResponse.ToAttendMeetingResponse;
 import com.ecms.ndmecms.CommiteMeetingsAdapter;
 import com.ecms.ndmecms.CommiteeMeetingModel;
-import com.ecms.ndmecms.CommitteeMeetings;
 import com.ecms.ndmecms.PreferenceUtils;
 import com.ecms.ndmecms.R;
 
@@ -35,10 +34,8 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class AttendedMeetingsFragment1 extends Fragment {
+public class UpcomingMeetingsFragment1 extends Fragment {
     //AttendedMeetingsFragment and Upcoming meetings recycler implementations are reciprocal
-
-
     public static int countMeetings,attendedMeetings;
 
     RecyclerView recyclerViewToAttend;
@@ -50,7 +47,7 @@ public class AttendedMeetingsFragment1 extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public AttendedMeetingsFragment1() {
+    public UpcomingMeetingsFragment1() {
         // Required empty public constructor
     }
 
@@ -79,6 +76,7 @@ public class AttendedMeetingsFragment1 extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
     }
 
     @Override
@@ -86,9 +84,9 @@ public class AttendedMeetingsFragment1 extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        View view=inflater.inflate(R.layout.attened_meetings1, container, false);
+        View view=inflater.inflate(R.layout.upcoming_meetings1, container, false);
 
-        recyclerViewToAttend = view.findViewById(R.id.at_meetings_recyclerview);
+        recyclerViewToAttend = view.findViewById(R.id.upmeetings_recyclerview);
         toAttendMeetingsCall();
 
 
@@ -119,21 +117,21 @@ public class AttendedMeetingsFragment1 extends Fragment {
                 public void onResponse(Call<List<CommiteeMeetingModel>> call, Response<List<CommiteeMeetingModel>> response) {
 
                     if (response.isSuccessful())
-                        //    Toast.makeText(getContext(), "meetings success", Toast.LENGTH_SHORT).show();
+                        //   Toast.makeText(getContext(), "meetings success", Toast.LENGTH_SHORT).show();
 
 
                         if (response.body() != null && response.body().size() > 0) {
                             // tvNoMeetings.setVisibility(View.GONE);
                             recyclerViewToAttend.setVisibility(View.VISIBLE);
-                            final List<CommiteeMeetingModel> meetingsList = response.body();
+                            List<CommiteeMeetingModel> meetingsList = response.body();
                             Collections.sort(meetingsList, Collections.reverseOrder());
-                            List<CommiteeMeetingModel> list;
+                            List <CommiteeMeetingModel> upcomingmeetings = new ArrayList<>();
 
-                            List <CommiteeMeetingModel> attendmeetings = new ArrayList<>();
+                            List<CommiteeMeetingModel> list;
                             if (meetingsList instanceof List)
                                 list = (List)meetingsList;
                             else
-                            list = new ArrayList(meetingsList);
+                                list = new ArrayList(meetingsList);
 
                             //attended meeting needed to be sorted out from the list
                             int size=meetingsList.size();
@@ -149,10 +147,12 @@ public class AttendedMeetingsFragment1 extends Fragment {
                             } catch (ParseException e) {
                                 e.printStackTrace();
                             }
+
+
                             countMeetings=0;
                             attendedMeetings=0;
-
-                            for (int i = 0; i < meetingsList.size(); i++) {
+                            int list_size=meetingsList.size();
+                            for (int i = 0; i < list_size; i++) {
 
                                 String date_startDate= meetingsList.get(i).getStartDate();
                                 try {
@@ -160,37 +160,25 @@ public class AttendedMeetingsFragment1 extends Fragment {
 
                                     if(date1.after(currentdate) | date1.compareTo(currentdate) == 0){
                                         countMeetings++;
-                                        attendmeetings.add(meetingsList.get(i));
-
-                                        // list.remove(i);
-                                    }
+                                    }else  upcomingmeetings.add(meetingsList.get(i));
 
                                 } catch (ParseException e) {
                                     e.printStackTrace();
                                 }
-                                //     userLoginResponse = meetingsList.get(i);
-                                //   data = dataArrayList.get(i).getId();
-                                //here we need to take countmeetings value and send it to mainactivty for showing there
+
                             }
                             attendedMeetings=meetingsList.size()-countMeetings;
-//                            Collections.sort(attendmeetings, Collections.reverseOrder());
+//                            Collections.sort(upcomingmeetings, Collections.reverseOrder());
 
-//                            commiteeMeetingModels = response.body();
-                                recyclerViewToAttend.setLayoutManager(new LinearLayoutManager(getActivity()));
-                            recyclerViewToAttend.setAdapter(new CommiteMeetingsAdapter(getActivity(),attendmeetings));
-                                Log.d("key of the message", "appointments are.... " + response.body());
+                            recyclerViewToAttend.setLayoutManager(new LinearLayoutManager(getActivity()));
+                            recyclerViewToAttend.setAdapter(new CommiteMeetingsAdapter(getActivity(),upcomingmeetings));
+//                            Log.d("key of the message", "appointments are.... " + response.body());
 
                         }
                         else {
                             recyclerViewToAttend.setVisibility(View.GONE);
                             //tvNoMeetings.setVisibility(View.VISIBLE);
-
                         }
-
-
-
-
-
                 }
 
 
@@ -207,6 +195,5 @@ public class AttendedMeetingsFragment1 extends Fragment {
             e.printStackTrace();
         }
     }
-
 
 }

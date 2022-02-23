@@ -1,11 +1,15 @@
 package com.ecms.ndmecms;
 
+import com.ecms.ndmecms.ApiResponse.ToAttendMeetingResponse;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
-public class CommiteeMeetingModel {
+public class CommiteeMeetingModel implements Comparable<CommiteeMeetingModel> {
 
         @SerializedName("MeetingId")
         @Expose
@@ -151,6 +155,22 @@ public class CommiteeMeetingModel {
             this.meetingExternalUsers = meetingExternalUsers;
         }
 
+    public Date getDateTime(){
+        Date date1= null;
+        try {
+            date1 = new SimpleDateFormat("MM/dd/yyyy HH:mm aa").parse(startDate);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return date1;
     }
+
+    @Override
+    public int compareTo(CommiteeMeetingModel o) {
+        if (getDateTime() == null || o.getDateTime() == null)
+            return 0;
+        return getDateTime().compareTo(o.getDateTime());
+    }
+}
 
 
