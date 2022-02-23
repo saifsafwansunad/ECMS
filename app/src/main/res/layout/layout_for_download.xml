@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:textSize="30dp"
-        android:textColor="#3B94D4"
+        android:textColor="@color/dark_green"
         android:layout_margin="10dp"
         android:text="Download"/>
 
@@ -47,7 +47,7 @@
             android:layout_weight="1"
             app:icon="@drawable/icon_download"
             app:iconGravity="textStart"
-            app:backgroundTint="@color/blue"
+            app:backgroundTint="@color/dark_green"
             android:layout_margin="5dp"
             android:textColor="#fff"/>
         <com.google.android.material.button.MaterialButton
@@ -58,7 +58,7 @@
             android:layout_weight="1"
             app:icon="@drawable/icon_download"
             app:iconGravity="textStart"
-            app:backgroundTint="@color/blue"
+            app:backgroundTint="@color/dark_green"
             android:layout_margin="5dp"
             android:textColor="#fff"/>
         <com.google.android.material.button.MaterialButton
@@ -69,7 +69,7 @@
             android:text="Preview"
             app:iconGravity="textStart"
             app:icon="@drawable/icon_previw"
-            app:backgroundTint="@color/blue"
+            app:backgroundTint="@color/dark_green"
             android:textColor="@color/white"/>
 
 
@@ -83,7 +83,7 @@
             app:icon="@drawable/icon_cancel"
             android:id="@+id/cancel_dialog_btn"
             android:textColor="#fff"
-            app:backgroundTint="@color/blue"
+            app:backgroundTint="@color/dark_green"
             android:layout_margin="5dp"
             />
 

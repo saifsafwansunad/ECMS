@@ -5,6 +5,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -36,8 +37,10 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class ToAttendMeetingActivity extends AppCompatActivity {
-    TextView tvNoMeetings,title;
-RecyclerView recyclerViewToAttend;
+    TextView tvNoMeetings,title,mt_downloadAll;
+    AlertDialog.Builder builder;
+
+    RecyclerView recyclerViewToAttend;
 private ToAttendMeetingsAdapter toAttendMeetingsAdapter;
     private ArrayList<ToattendMeetingsModel> toattendMeetingsModelslist;
     ImageView dots,offline;
@@ -63,6 +66,9 @@ getSupportActionBar().hide();
         tvNoMeetings = findViewById(R.id.no_Meetings_tv);
         title=findViewById(R.id.title);
         title.setText("Meetings");
+        builder = new AlertDialog.Builder(this);
+        mt_downloadAll = findViewById(R.id.mt_downloadAll);
+
         ImageView backarrow=findViewById(R.id.imgBackArrow);
         recyclerViewToAttend = findViewById(R.id.to_attend_meetings_recyclerview);
         toAttendMeetingsCall();

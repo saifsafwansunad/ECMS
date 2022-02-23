@@ -137,10 +137,12 @@ public class UserMessages extends AppCompatActivity  implements NavigationView.O
         Intent a = new Intent(Intent.ACTION_MAIN);
         a.addCategory(Intent.CATEGORY_HOME);
         a.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(a);    }
+        startActivity(a);
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
+    }
+
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         super.onCreate(savedInstanceState);
       //  getSupportActionBar().hide();
@@ -337,12 +339,12 @@ public class UserMessages extends AppCompatActivity  implements NavigationView.O
             }
         });
 
-
         offline.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(UserMessages.this, ViewEmployeeActivity.class);
                 startActivity(intent);
+
             }
         });
 
