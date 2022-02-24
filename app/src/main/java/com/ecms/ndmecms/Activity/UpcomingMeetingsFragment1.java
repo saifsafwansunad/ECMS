@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
@@ -39,6 +40,7 @@ public class UpcomingMeetingsFragment1 extends Fragment {
     public static int countMeetings,attendedMeetings;
 
     RecyclerView recyclerViewToAttend;
+    TextView no_Meetings_tv;
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -87,6 +89,7 @@ public class UpcomingMeetingsFragment1 extends Fragment {
         View view=inflater.inflate(R.layout.upcoming_meetings1, container, false);
 
         recyclerViewToAttend = view.findViewById(R.id.upmeetings_recyclerview);
+        no_Meetings_tv = view.findViewById(R.id.no_Meetings_tv);
         toAttendMeetingsCall();
 
 
@@ -169,6 +172,14 @@ public class UpcomingMeetingsFragment1 extends Fragment {
                             }
                             attendedMeetings=meetingsList.size()-countMeetings;
 //                            Collections.sort(upcomingmeetings, Collections.reverseOrder());
+
+                            if(upcomingmeetings.isEmpty()){
+                                no_Meetings_tv.setVisibility(View.VISIBLE);
+                                recyclerViewToAttend.setVisibility(View.GONE);
+                            }else{
+                                no_Meetings_tv.setVisibility(View.GONE);
+                                recyclerViewToAttend.setVisibility(View.VISIBLE);
+                            }
 
                             recyclerViewToAttend.setLayoutManager(new LinearLayoutManager(getActivity()));
                             recyclerViewToAttend.setAdapter(new CommiteMeetingsAdapter(getActivity(),upcomingmeetings));
