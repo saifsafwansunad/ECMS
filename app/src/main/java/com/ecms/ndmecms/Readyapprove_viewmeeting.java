@@ -1,14 +1,27 @@
 package com.ecms.ndmecms;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.Manifest;
+import android.app.AlertDialog;
+import android.app.DownloadManager;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.CookieManager;
+import android.webkit.URLUtil;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -17,16 +30,30 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ecms.ndmecms.Activity.ReportActivity;
+import com.ecms.ndmecms.Adapters.MeetingAttachmentAdapter;
+import com.ecms.ndmecms.Adapters.MeetingAttendeeAdapter;
+import com.ecms.ndmecms.Adapters.MeetingExternalUsersAdapter;
+import com.ecms.ndmecms.ApiResponse.MeetingAttachment;
+import com.ecms.ndmecms.ApiResponse.MeetingExternalUsers;
 import com.ecms.ndmecms.ui.ViewEmployeeActivity;
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonPrimitive;
+import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Readyapprove_viewmeeting extends AppCompatActivity implements View.OnClickListener, approvemeeting.DialogListener {
 //private Button approve,reject;
-TextView layout_title,meetingtype,agenda,description,startDate,approveComment,approveDate,isMsteam,msTeamMeetingId,titletoolbar;
+AlertDialog.Builder builder;
+TextView layout_title,meetingtype,agenda,description,startDate,approveComment,approveDate,isMsteam,msTeamMeetingId,titletoolbar,mt_downloadAll;
 CommiteeMeetingModel meetingModel;
     ImageView backarrow,dots, offline;
+    RecyclerView meeting_details_attachment_recyclerview,meetingAttendees_recyclerview,meetingExternalUsers_recyclerview;
 
 
     @Override
@@ -49,6 +76,10 @@ CommiteeMeetingModel meetingModel;
         isMsteam=findViewById(R.id.ismeeting);
         msTeamMeetingId=findViewById(R.id.meeting_id);
         meetingModel=CommiteMeetingsAdapter.meetingDetails;
+        meeting_details_attachment_recyclerview = findViewById(R.id.meeting_details_attachment_recyclerview);
+        meetingAttendees_recyclerview = findViewById(R.id.meetingAttendees_recyclerview);
+        meetingExternalUsers_recyclerview = findViewById(R.id.meetingExternalUsers_recyclerview);
+        mt_downloadAll = findViewById(R.id.mt_downloadAll1);
         Toast.makeText(this, meetingModel.getMeetingId(), Toast.LENGTH_SHORT).show();
 
         layout_title.setText(meetingModel.getTitle());
@@ -62,6 +93,8 @@ CommiteeMeetingModel meetingModel;
         backarrow=findViewById(R.id.imgBackArrow);
         dots=findViewById(R.id.dots_report1);
         offline=findViewById(R.id.offline1);
+
+        builder = new AlertDialog.Builder(this);
 
         dots.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -210,11 +243,119 @@ CommiteeMeetingModel meetingModel;
 //
 //            }
 //        });
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(Readyapprove_viewmeeting.this);
 
+        meeting_details_attachment_recyclerview.setLayoutManager(layoutManager);
+        List<MeetingAttachment> meetingAttachments;
+
+        if(meetingModel.getMeetingAttachments() instanceof JsonPrimitive){
+//            YourModelForData object = YourDataComponentForObject(data);
+            // Do anything with Object
+            meetingAttachments = new ArrayList<>();
+        } else {
+            meetingAttachments = YourDataComponentForArray(meetingModel.getMeetingAttachments());
+            mt_downloadAll.setVisibility(View.VISIBLE);
+            // Do anything with array
+        }
+
+        mt_downloadAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                Toast.makeText(AttendMeetingDetailsActivity.this, "DownloadAll", Toast.LENGTH_SHORT).show();
+                //Setting message manually and performing action on button click
+                builder.setMessage("Do you want to download all the files ?")
+                        .setCancelable(false)
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+//                                finish();
+                                dialog.cancel();
+                                downloadAll(meetingAttachments);
+//                                Toast.makeText(getApplicationContext(),"you choose yes action for alertbox",
+//                                        Toast.LENGTH_SHORT).show();
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                //  Action for 'NO' Button
+                                dialog.cancel();
+//                                Toast.makeText(getApplicationContext(),"you choose no action for alertbox",
+//                                        Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                //Creating dialog box
+                AlertDialog alert = builder.create();
+                //Setting the title manually
+//                alert.setTitle("AlertDownload");
+                //2. now setup to change color of the button
+                alert.setOnShowListener( new DialogInterface.OnShowListener() {
+                    @Override
+                    public void onShow(DialogInterface arg0) {
+                        alert.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(getResources().getColor(R.color.dark_green));
+                        alert.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(getResources().getColor(R.color.dark_green));
+                    }
+                });
+
+                alert.show();
+
+            }
+        });
+
+        meeting_details_attachment_recyclerview.setAdapter(new MeetingAttachmentAdapter(Readyapprove_viewmeeting.this, meetingAttachments));
+
+        RecyclerView.LayoutManager layoutManager1 = new LinearLayoutManager(Readyapprove_viewmeeting.this);
+        meetingAttendees_recyclerview.setLayoutManager(layoutManager1);
+        List<MeetingAttendee> meetingAttendees;
+
+        if(meetingModel.getMeetingAttendees() instanceof JsonPrimitive){
+//            YourModelForData object = YourDataComponentForObject(data);
+            // Do anything with Object
+            meetingAttendees = new ArrayList<>();
+        } else {
+            meetingAttendees = YourDataComponentForArrayMA(meetingModel.getMeetingAttendees());
+//            mt_downloadAll.setVisibility(View.VISIBLE);
+            // Do anything with array
+        }
+
+        meetingAttendees_recyclerview.setAdapter(new MeetingAttendeeAdapter(Readyapprove_viewmeeting.this, meetingAttendees));
+
+        RecyclerView.LayoutManager layoutManager2 = new LinearLayoutManager(Readyapprove_viewmeeting.this);
+        meetingExternalUsers_recyclerview.setLayoutManager(layoutManager2);
+        List<MeetingExternalUsers> meetingExternalUsers;
+
+        if(meetingModel.getMeetingExternalUsers() instanceof JsonPrimitive){
+//            YourModelForData object = YourDataComponentForObject(data);
+            // Do anything with Object
+            meetingExternalUsers = new ArrayList<>();
+        } else {
+            meetingExternalUsers = YourDataComponentForArrayMEU(meetingModel.getMeetingExternalUsers());
+//            mt_downloadAll.setVisibility(View.VISIBLE);
+            // Do anything with array
+
+        }
+
+//        for (MeetingAttendee e: meetingAttendees ){
+//            Log.d("committee"+1, e.getAttendee());
+//        }
+//
+//        for (MeetingExternalUsers eee: meetingExternalUsers){
+//            Log.d("committee"+"i", eee.getPersonName());
+//        }
+//
+//        List<MeetingExternalUsers> lis = new ArrayList<>();
+//        lis.add(new MeetingExternalUsers("1", "pp", "pp","pp"));
+//        lis.add(new MeetingExternalUsers("1", "pp", "pp","pp"));
+//        lis.add(new MeetingExternalUsers("1", "pp", "pp","pp"));
+//        lis.add(new MeetingExternalUsers("1", "pp", "pp","pp"));
+
+
+        meetingExternalUsers_recyclerview.setAdapter(new MeetingExternalUsersAdapter(Readyapprove_viewmeeting.this, meetingExternalUsers));
 
 
 
     }
+
+
+
 
     @Override
     public void onClick(View v) {
@@ -224,5 +365,71 @@ CommiteeMeetingModel meetingModel;
     @Override
     public void onFinishEditDialog(String inputText) {
 
+    }
+
+    private void downloadAll(List<MeetingAttachment> meetingAttachments){
+        Toast.makeText(getApplication(), "Downloading Started", Toast.LENGTH_SHORT).show();
+        for (MeetingAttachment attachment:meetingAttachments
+        ) {
+            String uri = attachment.FileUrl;
+
+            try{
+
+                if(ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED || ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED){
+                    ActivityCompat.requestPermissions(Readyapprove_viewmeeting.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+                    // this will request for permission when permission is not true
+                }else{
+                    // Download code here
+                    DownloadManager.Request request = new DownloadManager.Request(Uri.parse(uri));
+                    String title = URLUtil.guessFileName(uri, null, null);
+                    Log.d("DownloadTest", Uri.parse(uri).toString());
+                    Log.d("titlename", title);
+
+
+                    request.setTitle(title);
+                    request.setDescription("Downloading File please wait.....");
+                    String cookie = CookieManager.getInstance().getCookie(uri);
+                    request.addRequestHeader("cookie", cookie);
+                    request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+                    request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, title);
+
+
+                    DownloadManager downloadManager = (DownloadManager)getApplication().getSystemService(DOWNLOAD_SERVICE);
+                    downloadManager.enqueue(request);
+
+
+                }
+
+
+            }catch (Exception e){
+                Toast.makeText(getApplication(), e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
+    public List<MeetingAttachment> YourDataComponentForArray(JsonElement data) {
+        Type type = new TypeToken<List<MeetingAttachment>>() {
+        }.getType();
+        List<MeetingAttachment> items = new Gson().fromJson(data, type);
+
+        return  items;
+    }
+
+    private List<MeetingAttendee> YourDataComponentForArrayMA(JsonElement data) {
+
+        Type type = new TypeToken<List<MeetingAttendee>>() {
+        }.getType();
+        List<MeetingAttendee> items = new Gson().fromJson(data, type);
+
+        return  items;
+    }
+
+    private List<MeetingExternalUsers> YourDataComponentForArrayMEU(JsonElement data) {
+
+        Type type = new TypeToken<List<MeetingExternalUsers>>() {
+        }.getType();
+        List<MeetingExternalUsers> items = new Gson().fromJson(data, type);
+
+        return  items;
     }
 }

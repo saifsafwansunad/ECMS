@@ -1,6 +1,7 @@
 package com.ecms.ndmecms;
 
 import com.ecms.ndmecms.ApiResponse.ToAttendMeetingResponse;
+import com.google.gson.JsonElement;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -43,13 +44,13 @@ public class CommiteeMeetingModel implements Comparable<CommiteeMeetingModel> {
         private String mSTeamMeetingJoinUrl;
         @SerializedName("MeetingAttachments")
         @Expose
-        private List<MeetingAttachment> meetingAttachments = null;
+        private JsonElement meetingAttachments = null;
         @SerializedName("MeetingAttendees")
         @Expose
-        private List<MeetingAttendee> meetingAttendees = null;
+        private JsonElement meetingAttendees = null;
         @SerializedName("MeetingExternalUsers")
         @Expose
-        private String meetingExternalUsers;
+        private JsonElement meetingExternalUsers;
 
         public String getMeetingId() {
             return meetingId;
@@ -131,27 +132,27 @@ public class CommiteeMeetingModel implements Comparable<CommiteeMeetingModel> {
             this.mSTeamMeetingJoinUrl = mSTeamMeetingJoinUrl;
         }
 
-        public List<MeetingAttachment> getMeetingAttachments() {
+        public JsonElement getMeetingAttachments() {
             return meetingAttachments;
         }
 
-        public void setMeetingAttachments(List<MeetingAttachment> meetingAttachments) {
+        public void setMeetingAttachments(JsonElement meetingAttachments) {
             this.meetingAttachments = meetingAttachments;
         }
 
-        public List<MeetingAttendee> getMeetingAttendees() {
+        public JsonElement getMeetingAttendees() {
             return meetingAttendees;
         }
 
-        public void setMeetingAttendees(List<MeetingAttendee> meetingAttendees) {
+        public void setMeetingAttendees(JsonElement meetingAttendees) {
             this.meetingAttendees = meetingAttendees;
         }
 
-        public String getMeetingExternalUsers() {
+        public JsonElement getMeetingExternalUsers() {
             return meetingExternalUsers;
         }
 
-        public void setMeetingExternalUsers(String meetingExternalUsers) {
+        public void setMeetingExternalUsers(JsonElement meetingExternalUsers) {
             this.meetingExternalUsers = meetingExternalUsers;
         }
 
