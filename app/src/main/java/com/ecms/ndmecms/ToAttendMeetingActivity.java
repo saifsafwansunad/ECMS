@@ -4,9 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,17 +21,24 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ecms.ndmecms.Activity.ReportActivity;
+import com.ecms.ndmecms.Adapters.MeetingsViewpagerAdap;
 import com.ecms.ndmecms.Adapters.ToAttendMeetingsAdapter;
+import com.ecms.ndmecms.Adapters.ViewPagerCardsAdapter;
 import com.ecms.ndmecms.ApiRequests.ToAttendMeetingRequest;
 import com.ecms.ndmecms.ApiResponse.ToAttendMeetingResponse;
 import com.ecms.ndmecms.Models.ToattendMeetingsModel;
 import com.ecms.ndmecms.ui.ViewEmployeeActivity;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.tabs.TabLayout;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 
 import retrofit2.Call;
@@ -37,55 +46,98 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class ToAttendMeetingActivity extends AppCompatActivity {
-    TextView tvNoMeetings,title,mt_downloadAll;
-    AlertDialog.Builder builder;
+    public static int countMeetings,attendedMeetings;
 
+    TabLayout tabLayoutMeetings;
+    private ViewPager mViewPager,viewPagerMeeting;
     RecyclerView recyclerViewToAttend;
-private ToAttendMeetingsAdapter toAttendMeetingsAdapter;
-    private ArrayList<ToattendMeetingsModel> toattendMeetingsModelslist;
-    ImageView dots,offline;
+    private ViewPagerCardsAdapter mCardAdapter;
+    Context context;
+    String detailsArray[];
+    TextView title,attend_count;
+    ImageView backarrow,dots, offline;
 
-
+    String detailsArray2[] = {"sdg", "gsdg", "gdsgdsg","adasd"};
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout. activity_to_attend_meeting);
+        setContentView(R.layout.activity_to_attend_meeting);
 
-//        addData();
-//        getSupportActionBar().hide();
-       /* Toolbar toolbar = findViewById(R.id.toolbar);
-        toolbar.setTitle("Meetings");
-        setSupportActionBar(toolbar);
-
-        getSupportActionBar().setDisplayShowTitleEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setIcon(R.drawable.ic_baseline_keyboard_backspace_24);*/
-getSupportActionBar().hide();
-        tvNoMeetings = findViewById(R.id.no_Meetings_tv);
+        getSupportActionBar().hide();
         title=findViewById(R.id.title);
-        title.setText("Meetings");
-        builder = new AlertDialog.Builder(this);
-        mt_downloadAll = findViewById(R.id.mt_downloadAll);
+        viewPagerMeeting=findViewById(R.id.meeting_viewPager);
+        tabLayoutMeetings=findViewById(R.id.meeting_tablayout);
+        attend_count=findViewById(R.id.attend_count);
+        tabLayoutMeetings.addTab(tabLayoutMeetings.newTab().setText("upcoming"));
 
-        ImageView backarrow=findViewById(R.id.imgBackArrow);
-        recyclerViewToAttend = findViewById(R.id.to_attend_meetings_recyclerview);
-        toAttendMeetingsCall();
+        tabLayoutMeetings.addTab(tabLayoutMeetings.newTab().setText("attended"));
+        title.setText("Meeting Actions");
+
+        backarrow=findViewById(R.id.imgBackArrow);
 
         backarrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
-        });//        toAttendMeetingsAdapter = new ToAttendMeetingsAdapter(toattendMeetingsModelslist);
-//        toAttendMeetingsAdapter = new ToAttendMeetingsAdapter(toattendMeetingsModelslist);
+        });
+        recyclerViewToAttend = findViewById(R.id.meetings_recyclerview);
+        toAttendMeetingsCall();
 
-//        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(ToAttendMeetingActivity.this);
+        tabLayoutMeetings.setTabGravity(TabLayout.GRAVITY_FILL);
 
-//        recyclerViewToAttend.setLayoutManager(layoutManager);
+        final MeetingsViewpagerAdap messagesAdapter = new MeetingsViewpagerAdap(this, getSupportFragmentManager(), tabLayoutMeetings.getTabCount());
+        viewPagerMeeting.setAdapter(messagesAdapter);
 
-//        recyclerViewToAttend.setAdapter(toAttendMeetingsAdapter);
+        viewPagerMeeting.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayoutMeetings));
+
+
+        tabLayoutMeetings.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                viewPagerMeeting.setCurrentItem(tab.getPosition());
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+
+
+        mViewPager = (ViewPager) findViewById(R.id.home_viewpager);
+        mViewPager.setVisibility(View.GONE);
+        mViewPager.setClipToPadding(false);
+        mViewPager.setPadding(40, 0, 40, 0);
+        mViewPager.setOffscreenPageLimit(4);
+        mCardAdapter = new ViewPagerCardsAdapter(getApplicationContext());
+
+
+        if (LoginActivity.checkValue()) {
+            detailsArray = new String[]{"asd"};
+        } else {
+            detailsArray = new String[]{"asd", "dasf", "gsdg", "asdas"};
+        }
+        for (int i = 0; i < detailsArray.length; i++) {
+
+            mCardAdapter.addCardItemS(new CardItems(detailsArray, detailsArray2[i]));
+        }
+
+//        mCardShadowTransformer = new ShadowTransformer(mViewPager, mCardAdapter);
+
+        mViewPager.setAdapter(mCardAdapter);
+
+
+//        mViewPager.setPageTransformer(false, mCardShadowTransformer);
+        mViewPager.setOffscreenPageLimit(4);
+
 
         dots=findViewById(R.id.dots_report1);
         offline=findViewById(R.id.offline1);
@@ -180,16 +232,6 @@ getSupportActionBar().hide();
                 startActivity(intent);
             }
         });
-    }
-
-    private void addData() {
-        toattendMeetingsModelslist = new ArrayList<>();
-        toattendMeetingsModelslist.add(new ToattendMeetingsModel("Mayoral Agenda","Council","Mayoral Agenda","3/24/2021 10:00 AM","false"));
-        toattendMeetingsModelslist.add(new ToattendMeetingsModel("Mayoral Agenda","Council","Mayoral Agenda","3/24/2021 10:00 AM","false"));
-        toattendMeetingsModelslist.add(new ToattendMeetingsModel("Mayoral Agenda","Council","Mayoral Agenda","3/24/2021 10:00 AM","false"));
-        toattendMeetingsModelslist.add(new ToattendMeetingsModel("Mayoral Agenda","Council","Mayoral Agenda","3/24/2021 10:00 AM","false"));
-        toattendMeetingsModelslist.add(new ToattendMeetingsModel("Mayoral Agenda","Council","Mayoral Agenda","3/24/2021 10:00 AM","false"));
-
 
     }
 
@@ -213,7 +255,7 @@ getSupportActionBar().hide();
         if (!DetectConnection.checkInternetConnection(this)) {
             progressDialog.dismiss();
             Snackbar snackbar = Snackbar.make(contextView, "Sorry, No Internet", Snackbar.LENGTH_LONG);
-            snackbar.setAction("Retry", new TryAgainListener());
+            snackbar.setAction("Retry", new ToAttendMeetingActivity.TryAgainListener());
 
             snackbar.show();
         } else {
@@ -230,67 +272,62 @@ getSupportActionBar().hide();
                             progressDialog.dismiss();
 
                             if (response.body() != null && response.body().size() > 0) {
-                                tvNoMeetings.setVisibility(View.GONE);
-                                recyclerViewToAttend.setVisibility(View.VISIBLE);
                                 List<ToAttendMeetingResponse> meetingsList = response.body();
-                                Collections.sort(meetingsList, Collections.reverseOrder());
-                                List<ToAttendMeetingResponse> list;
-                                if (meetingsList instanceof List)
-                                    list = (List)meetingsList;
-                                else
-                                    list = new ArrayList(meetingsList);
-                                //implemeting for date comparison
-                           /*     Calendar toDayCalendar = Calendar.getInstance();
-                                Date date1 = toDayCalendar.getTime();
+                                int size=meetingsList.size();
+                                Log.d("key of the message", "size " + size);
+//                                Toast.makeText(MyService.this, "size " + size, Toast.LENGTH_SHORT).show();
 
-
-                                Calendar tomorrowCalendar = Calendar.getInstance();
-                                tomorrowCalendar.add(Calendar.DAY_OF_MONTH,1);
-                                Date date2 = tomorrowCalendar.getTime();
-
-// date1 is a present date and date2 is tomorrow date
-
-                                if ( date1.compareTo(date2) < 0 ) {
-
-                                    //  0 comes when two date are same,
-                                    //  1 comes when date1 is higher then date2
-                                    // -1 comes when date1 is lower then date2
-
-                                }*/
-                         /*       Calendar c = Calendar.getInstance();
+                                Calendar c = Calendar.getInstance();
                                 SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm aa");
                                 String getCurrentDateTime = sdf.format(c.getTime());
+                                Date currentdate = null;
+                                try {
+                                    currentdate = new SimpleDateFormat("MM/dd/yyyy").parse(getCurrentDateTime);
+                                } catch (ParseException e) {
+                                    e.printStackTrace();
+                                }
 
 
-                                    countMeetings=0;
+                                countMeetings=0;
+                                attendedMeetings=0;
                                 for (int i = 0; i < meetingsList.size(); i++) {
-                                   // if(meetingsList.get(i).startDate>=)
+                                    // if(meetingsList.get(i).startDate>=)
                                     String date_startDate= meetingsList.get(i).startDate;
-                                    if(date_startDate.compareTo(getCurrentDateTime)<=0){
-                                        countMeetings++;
+                                    try {
+                                        Date date1=new SimpleDateFormat("MM/dd/yyyy").parse(date_startDate);
+
+                                        if(date1.after(currentdate) | date1.compareTo(currentdate) == 0){
+                                            countMeetings++;
+                                            Log.d("count meetings", "date1 is" + date1);
+
+
+                                        }
+
+                                    } catch (ParseException e) {
+                                        e.printStackTrace();
                                     }
+
                                     //     userLoginResponse = meetingsList.get(i);
 
                                     //   data = dataArrayList.get(i).getId();
                                     //here we need to take countmeetings value and send it to mainactivty for showing there
                                 }
-                                Log.d("count meetings", "are" + countMeetings);*/
+                                attendedMeetings=meetingsList.size()-countMeetings;
+                                attend_count.setText(String.valueOf(countMeetings));
+                                Log.d("count meetings", "are" + countMeetings);
+                                Log.d("attendedMeetings", " attendedMeetings are" + attendedMeetings);
 
-                                recyclerViewToAttend.setLayoutManager(new LinearLayoutManager(ToAttendMeetingActivity.this));
-                                recyclerViewToAttend.setAdapter(new ToAttendMeetingsAdapter(ToAttendMeetingActivity.this,list));
-                                Log.d("key of the message", "appointments are.... " + response.body());
+//                            Log.d("countMeeting2", String.valueOf(countMeetings));
+                                //upto here
 
-                            }
-
-                            else {
-                                recyclerViewToAttend.setVisibility(View.GONE);
-                                tvNoMeetings.setVisibility(View.VISIBLE);
 
                             }
+
+
 
                         } else {
                             progressDialog.dismiss();
-                            Toast.makeText(ToAttendMeetingActivity.this, "appointments Failed", Toast.LENGTH_LONG).show();
+                            Toast.makeText(ToAttendMeetingActivity.this, "Server Error", Toast.LENGTH_LONG).show();
 
                         }
 
@@ -311,7 +348,7 @@ getSupportActionBar().hide();
                 e.printStackTrace();
             }
         }
-       // progressDialog.dismiss();
+        // progressDialog.dismiss();
     }
 
     public class TryAgainListener implements View.OnClickListener {
@@ -322,7 +359,7 @@ getSupportActionBar().hide();
             // Make and display Snackbar
             if (!DetectConnection.checkInternetConnection(ToAttendMeetingActivity.this)) {
                 Snackbar snackbar = Snackbar.make(contextView, "Sorry, you're offline", Snackbar.LENGTH_LONG);
-                snackbar.setAction("Retry",new  TryAgainListener());
+                snackbar.setAction("Retry",new ToAttendMeetingActivity.TryAgainListener());
                 snackbar.show();
             } else {
 
@@ -334,4 +371,4 @@ getSupportActionBar().hide();
     }
 
 
-   }
+}
