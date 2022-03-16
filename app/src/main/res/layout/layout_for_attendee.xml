@@ -19,23 +19,23 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="15dp">
+        android:padding="5dp">
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="6dp"
-            android:orientation="vertical"
-            android:padding="5dp"
-            android:layout_marginTop="5dp"
+            android:orientation="horizontal"
+            android:padding="1dp"
+            android:layout_marginTop="2dp"
 
             >
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Attendee "
+                android:text="Attendee :"
                 android:textColor="@color/dark_green"
                 android:textSize="16dp"
                 android:layout_marginLeft="12dp"
@@ -61,16 +61,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="6dp"
-            android:orientation="vertical"
-            android:padding="5dp"
-            android:layout_marginTop="5dp"
+            android:orientation="horizontal"
+            android:padding="1dp"
+            android:layout_marginTop="2dp"
 
             >
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Comment "
+                android:text="Comment :"
                 android:textColor="@color/dark_green"
                 android:textSize="16dp"
                 android:layout_marginLeft="12dp"
@@ -96,16 +96,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="6dp"
-            android:orientation="vertical"
-            android:padding="5dp"
-            android:layout_marginTop="5dp"
+            android:orientation="horizontal"
+            android:padding="1dp"
+            android:layout_marginTop="2dp"
 
             >
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Is Attended "
+                android:text="Is Attended :"
                 android:textColor="@color/dark_green"
                 android:textSize="16dp"
                 android:layout_marginLeft="12dp"
